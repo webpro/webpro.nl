@@ -1,7 +1,6 @@
 ---
 published: 2022-03-17
 description: Using Nx Affected in Azure Pipelines
-draft: true
 ---
 
 # Using Nx Affected in Azure Pipelines
