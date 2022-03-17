@@ -1,0 +1,146 @@
+:root {
+  --red: rgb(255, 89, 82);
+  --yellow: rgb(230, 192, 41);
+  --green: rgb(83, 194, 43);
+}
+
+pre {
+  margin-top: 0;
+  margin-top: 0;
+  padding-right: 10px;
+  background-color: var(--bg-color-code);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+pre.non-terminal {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+pre::-webkit-scrollbar {
+  background-color: var(--bg-color-code);
+}
+pre::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  height: 12px;
+  border-radius: 6px;
+}
+
+:not(h2) code,
+:not(h2) pre {
+  font-family: Hack, monospace;
+  font-weight: 300;
+  font-size: 18px;
+  /* line-height: 16px; */
+}
+
+:where(p, ul) code,
+pre {
+  color: var(--font-color);
+}
+
+pre {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.terminal pre {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.terminal code .user {
+  color: var(--green);
+}
+
+.terminal code .branch {
+  color: var(--green);
+}
+
+.terminal code .dir {
+  color: var(--yellow);
+}
+
+.terminal code .prompt {
+  color: var(--yellow);
+}
+
+pre code.hljs {
+  /* Unwanted class set by rehypeHighlight */
+  all: unset;
+}
+
+html:not(.light) .hljs-keyword {
+  color: #ee8780; /* A11y: increased contrast-ratio */
+}
+
+.terminal .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 24px;
+  background-color: rgb(59, 60, 63);
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+
+.terminal .title {
+  font-family: Hack, monospace;
+  font-size: 14px;
+  color: #ddd;
+}
+
+.terminal .buttons {
+  display: flex;
+}
+
+.terminal .buttons ~ .buttons {
+  visibility: hidden;
+}
+
+.terminal .button {
+  height: 11px;
+  width: 11px;
+  margin-left: 8px;
+  border-radius: 50%;
+  background-color: var(--red);
+}
+
+.terminal .minimize {
+  background-color: var(--yellow);
+}
+
+.terminal .zoom {
+  background-color: var(--green);
+}
+
+.terminal pre {
+  background-color: #000;
+  color: #fff;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.blink {
+  background: #444;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

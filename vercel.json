@@ -1,0 +1,15 @@
+{
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/articles/introduction-to-the-terminal-for-developers",
+      "destination": "/articles/introducing-the-terminal-to-developers",
+      "permanent": true
+    },
+    {
+      "source": "/articles/how-to-build-a-great-theme-switch-toggle",
+      "destination": "/articles/how-to-build-a-great-theme-toggle-switch",
+      "permanent": true
+    }
+  ]
+}
