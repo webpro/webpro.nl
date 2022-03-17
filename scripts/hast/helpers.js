@@ -111,12 +111,24 @@ export const addPageHeader =
   };
 
 /**
- * @type {PluginWithoutOptions}
+ * @type {Plugin<{ type: 'page' | 'index' | 'article' }>}
  */
-export const addPageFooter = () => tree => {
-  const footer = h('footer');
-  return append(tree, 'body', footer);
-};
+export const addPageFooter =
+  ({ type }) =>
+  tree => {
+    const text =
+      type === 'article'
+        ? [
+            h('p', 'Do yo have a question or did you find an issue in this article?'),
+            h('p', [
+              h('a', { href: 'https://github.com/webpro/webpro.nl' }, 'Please let me know!'),
+              ' This website is fully open-sourced at GitHub.',
+            ]),
+          ]
+        : null;
+    const footer = h('footer', text);
+    return append(tree, 'body', footer);
+  };
 
 /**
  * @type {PluginWithoutOptions}

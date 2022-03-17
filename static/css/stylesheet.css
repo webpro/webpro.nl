@@ -217,11 +217,12 @@ blockquote p {
 
 footer {
   margin: 100px 0;
-  text-align: right;
+  text-align: center;
   background-image: var(--signature-image);
   background-repeat: no-repeat;
   background-position: center bottom;
-  height: 100px;
+  background-size: auto 100px;
+  padding-bottom: 200px;
 }
 
 h2,

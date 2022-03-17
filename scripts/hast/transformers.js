@@ -55,7 +55,7 @@ export default ({ page, article, articles, structuredContent }) =>
     .use(enrichArticleHeading, article ? { page, article } : false)
     .use(addBlogIndex, articles ? { page, articles } : false)
     .use(rehypeHighlight, { subset: ['js', 'typescript', 'json', 'css', 'html', 'yaml', 'bash'], plainText: ['txt'] })
-    .use(addPageFooter)
+    .use(addPageFooter, { type: page.type })
     .use(addScript, { src: '/js/theme-switch.js' })
     .use(addInlineScript, { type: 'application/ld+json', content: JSON.stringify(structuredContent) })
     .use(addSimpleAnalytics)
