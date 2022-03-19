@@ -50,7 +50,6 @@
     "rehype-wrap": "^1.0.10",
     "remark-cli": "^10.0.1",
     "remark-frontmatter": "^4.0.1",
-    "remark-gfm": "^3.0.0",
     "remark-parse": "^10.0.1",
     "remark-parse-yaml": "^0.0.3",
     "remark-prettier": "^1.2.0",
