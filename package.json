@@ -23,7 +23,7 @@
     "build:index": "node scripts/build-index.js",
     "build:sitemap": "node scripts/build-sitemap.js",
     "build:feed": "node scripts/build-feed.js",
-    "link-statics": "mkdir dist && ln -s -t dist ../static/css ../static/img ../static/js ../static/favicon.ico",
+    "link-statics": "mkdir dist && ln -s -t dist ../static/css ../static/font ../static/img ../static/js ../static/favicon.ico",
     "predev": "npm-run-all prebuild link-statics build:pages build:index",
     "dev": "onchange -i -k 'scripts/*.js' -- node scripts/build-articles.js --watch",
     "write": "node scripts/build-articles.js --watch",
