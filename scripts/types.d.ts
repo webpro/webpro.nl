@@ -10,6 +10,7 @@ export interface Page {
   modified?: string;
   logoHref: string;
   logoTitle: string;
+  class?: string;
 }
 
 export interface Article {

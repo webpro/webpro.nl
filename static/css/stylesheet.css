@@ -231,6 +231,8 @@ footer {
 h2,
 h3,
 p,
+ul,
+ol,
 section,
 main > pre {
   margin-left: 8px;
@@ -252,6 +254,27 @@ main > pre {
   pre {
     padding-left: var(--spacing-left);
   }
+}
+
+.homepage ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.homepage ul li > a[title] {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.homepage ul li > a[title] svg {
+  display: block;
+  height: 4rem;
+  width: 4rem;
+  fill: var(--font-color);
 }
 
 footer .icons {

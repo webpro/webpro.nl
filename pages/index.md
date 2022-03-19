@@ -1,32 +1,41 @@
 ---
 published: 2001-04-19
-modified: 2022-02-26
+modified: 2022-03-18
 title: WebPro - Freelance full-stack architect & developer
 description:
   Lars Kappert is an independent full-stack architect & developer. Expert in
-  JavaScript, Node.js, and React.
+  JavaScript, Node.js, and React. Problem solver.
+class: homepage
 ---
 
-Lars Kappert is an independent full-stack architect & developer.
+Hi! My name is Lars Kappert, an independent full-stack architect and developer.
+Frontend tech lead.
 
-He brings 20 years of experience, specializing in frontend architecture,
-development, and performance of websites and applications. Expert in JavaScript,
-Node.js, and React.
+In this industry for over 20 years, I know my way around in frontend
+architecture and development. Expert in JavaScript, Node.js and React. Problem
+solver. I care about performance, developer experience and open source.
 
-Always interested in exciting & challenging contract-based projects in the
-Utrecht area (or remotely).
+Always interested in exciting and challenging contract-based projects in the
+Utrecht area, or remote.
 
-Feel free to get in touch! By [email][1], [LinkedIn][2], or [Twitter][3].
+How can I help you?
 
-Lars publishes articles at [his blog][4] and [Smashing Mag][5], and is an active
-contributor to open source projects on [GitHub][6].
+- [![LinkedIn][2] linkedin.com/in/larskappert][1]
+- [![PDF][4] LarsKappert-CV.pdf][3]
+- [![Twitter][6] @webprolific][5]
+- [![GitHub][8] github.com/webpro][7]
+- [![Blog][10] Blog][9]
+- [![Email][12] lars@webpro.nl][11]
 
-[Download LarsKappert-CV.pdf][7] (resume)
-
-[1]: mailto:lars@webpro.nl 'Email'
-[2]: https://www.linkedin.com/in/larskappert 'LinkedIn'
-[3]: https://twitter.com/webprolific 'Twitter'
-[4]: /blog
-[5]: http://www.smashingmagazine.com/author/lars-kappert/
-[6]: https://github.com/webpro 'GitHub'
-[7]: ./LarsKappert-CV.pdf 'CV Lars Kappert'
+[1]: https://www.linkedin.com/in/larskappert 'LinkedIn'
+[2]: /img/sprites.svg#linkedin
+[3]: ./LarsKappert-CV.pdf 'CV Lars Kappert'
+[4]: /img/sprites.svg#pdf
+[5]: https://twitter.com/webprolific 'Twitter'
+[6]: /img/sprites.svg#twitter
+[7]: https://github.com/webpro 'GitHub'
+[8]: /img/sprites.svg#github
+[9]: /blog 'Blog'
+[10]: /img/sprites.svg#blog
+[11]: mailto:%6Cars@w%65bpro.nl 'Email'
+[12]: /img/sprites.svg#email

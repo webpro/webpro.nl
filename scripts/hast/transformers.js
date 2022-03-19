@@ -50,7 +50,7 @@ export default ({ page, article, articles, structuredContent }) =>
         },
       ],
     })
-    .use(rehypeWrap, { wrapper: 'main' })
+    .use(rehypeWrap, { wrapper: page.class ? `main.${page.class}` : 'main' })
     .use(addBootScript)
     .use(addPageHeader, { logo: { src: LOGO_SVG, href: page.logoHref, alt: page.logoTitle } })
     .use(enrichArticleHeading, article ? { page, article } : false)
