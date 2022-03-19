@@ -104,8 +104,10 @@ export const addPageHeader =
     const logo = h('img', { src, width: 32, height: 32, alt });
     const link = h('a', { href, title: 'Go to homepage' }, [logo]);
     const div = h('div', { class: 'logo' }, [link]);
-    const toggle = h('button', { type: 'button', id: 'theme-toggle', role: 'switch', 'aria-checked': 'false' });
-    const switch_ = h('label', { class: 'theme-switch', for: 'theme-toggle' }, [toggle]);
+    const label = 'Switch color theme';
+    const id = 'theme-toggle';
+    const toggle = h('button', { type: 'button', id, role: 'switch', 'aria-label': label, 'aria-checked': 'false' });
+    const switch_ = h('label', { class: 'theme-switch', for: id }, [toggle]);
     const header = h('header', [div, switch_]);
     return insertBefore(tree, 'main', header);
   };
