@@ -2,6 +2,7 @@
 published: 2022-03-17
 modified: 2022-03-18
 description: Using Nx Affected in Azure Pipelines
+image: /articles/using-nx-affected-in-azure-pipelines/azure-nx.webp
 ---
 
 # Using Nx Affected in Azure Pipelines
@@ -12,19 +13,22 @@ readily available to do so. Since it wasn't trivial to find and compose all the
 bits and pieces together, I decided to write this down. Maybe it'll help you, or
 maybe you can help me improve it.
 
+![Azure and Nx logos][3]
+
 ## One Step Further
 
 By default, many solutions use the diff between `HEAD` and `HEAD~1` to calculate
 the affected projects. Such as Nrwl's own [Example of setting up distributed
-Azure build for Nx workspace][3].
+Azure build for Nx workspace][4].
 
 Although this may work well, I think this isn't always optimal. For instance,
 the merge strategy and not knowing which is the last pipeline run having an
 actually **successful** build may result in a suboptimal release pipeline (i.e.
 too little or too many builds and deployments).
 
-However, Azure has an API to [set and list pipeline run tags][4]. We can add a
-tag for each Nx project build that was successful.
+However, Azure has an API to [set and list pipeline run tags][5]. We can use the
+Azure CLI to add a tag for each pipeline run having a successful Nx project
+build.
 
 The main steps in this guide include:
 
@@ -65,7 +69,7 @@ Later we will see how to set this tag for a successful build.
 
 To set an environment variable for use in a later stage in Azure pipelines, we
 need use the `task.setvariable` logging command (Azure docs: [Set variables in
-scripts][5]). This writes the value `AFFECTED` to the environment variable
+scripts][6]). This writes the value `AFFECTED` to the environment variable
 `BUILD_MY_APP`:
 
 ```bash
@@ -163,7 +167,7 @@ it:
 stageDependencies.[[STAGE]].[[JOB]].outputs['[[STEP_NAME]].BUILD_MY-APP']
 ```
 
-Also see Azure docs to [Set a variable for future stages][6].
+Also see Azure docs to [Set a variable for future stages][7].
 
 When this variable has a value of `AFFECTED` or `TAG_NOT_FOUND` the condition
 will evaluate to `true` and the job to build the Nx project will run. For
@@ -299,10 +303,11 @@ of some help or inspiration.
 
 [1]: https://nx.dev/using-nx/affected
 [2]: https://azure.microsoft.com/en-us/services/devops/pipelines/
-[3]: https://github.com/nrwl/nx-azure-build
-[4]:
-  https://docs.microsoft.com/en-us/cli/azure/pipelines/runs/tag?view=azure-cli-latest
+[3]: /articles/using-nx-affected-in-azure-pipelines/azure-nx.drawio.svg
+[4]: https://github.com/nrwl/nx-azure-build
 [5]:
-  https://docs.microsoft.com/en-us/azure/devops/pipelines/process/set-variables-scripts?view=azure-devops&tabs=bash
+  https://docs.microsoft.com/en-us/cli/azure/pipelines/runs/tag?view=azure-cli-latest
 [6]:
+  https://docs.microsoft.com/en-us/azure/devops/pipelines/process/set-variables-scripts?view=azure-devops&tabs=bash
+[7]:
   https://docs.microsoft.com/en-us/azure/devops/pipelines/process/set-variables-scripts?view=azure-devops&tabs=bash#set-a-variable-for-future-stages
