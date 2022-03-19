@@ -74,8 +74,10 @@ articles.forEach(handleMarkdownFile);
 if (args.includes('--watch')) {
   const callback = (eventType, filename) => {
     if (filename) {
-      const file = path.join('articles', filename);
-      handleMarkdownFile(file);
+      if (filename.endsWith('.md')) {
+        const file = path.join('articles', filename);
+        handleMarkdownFile(file);
+      }
     } else {
       console.warn('Filename not provided for', eventType, filename);
     }
