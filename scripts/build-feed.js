@@ -68,8 +68,8 @@ const main = async () => {
   const articles = await getArticles(articleFiles);
   const recentArticles = articles
     .filter(Boolean)
-    .slice(0, 10)
-    .sort((a, b) => (getPubDate(b) < getPubDate(a) ? -1 : 1));
+    .sort((a, b) => (getPubDate(b) < getPubDate(a) ? -1 : 1))
+    .slice(0, 10);
 
   const builder = new XMLBuilder({
     ignoreAttributes: false,
