@@ -9,11 +9,11 @@ class: homepage
 ---
 
 Hi! My name is Lars Kappert, an independent full-stack architect and developer.
-Frontend tech lead.
+My current role is frontend tech lead.
 
-In this industry for over 20 years, I know my way around in frontend
-architecture and development. Expert in JavaScript, Node.js and React. Problem
-solver. I care about performance, developer experience and open source.
+In this industry for over 20 years, I think I know my way around in frontend
+architecture and development. Problem solver with (mostly) JavaScript, Node.js
+and React. I care about performance, developer experience and open source.
 
 Always interested in exciting and challenging contract-based projects in the
 Utrecht area, or remote.
