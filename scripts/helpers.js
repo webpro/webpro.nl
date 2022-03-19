@@ -14,7 +14,7 @@ export const getTargetPathnamePage = file =>
   file
     .replace(/\.md$/, '')
     .replace(/\/index$/, '')
-    .replace(/\/pages/, '');
+    .replace(/pages/, '');
 
 export const getTargetFile = file => path.join('dist', file.replace(/\.md$/, '').replace(/\/index$/, ''), 'index.html');
 
