@@ -17,6 +17,12 @@ import {
 import { getMetaTags } from '../helpers.js';
 import { HOST, STYLESHEETS, LOGO_SVG, BLOG_RSS_PATHNAME } from '../constants.js';
 
+const prefetch = {
+  page: '/blog',
+  article: '/blog',
+  index: '/',
+};
+
 /**
  * @typedef { import("../types").Page } Page
  * @typedef { import("../types").Article } Article
@@ -48,6 +54,7 @@ export default ({ page, article, articles, structuredContent }) =>
           href: HOST + BLOG_RSS_PATHNAME,
           title: 'WebPro Blog RSS Feed',
         },
+        { rel: 'prefetch', href: prefetch[page.type] },
       ],
     })
     .use(rehypeWrap, { wrapper: page.class ? `main.${page.class}` : 'main' })
