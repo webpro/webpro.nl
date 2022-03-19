@@ -42,7 +42,6 @@ export default ({ page, article, articles, structuredContent }) =>
       meta: getMetaTags({ page, article }),
       link: [
         { rel: 'canonical', href: page.href },
-        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
         ...STYLESHEETS.map(href => ({ rel: 'stylesheet', href })),
         { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
         { rel: 'icon', href: HOST + LOGO_SVG, type: 'image/svg+xml' },
