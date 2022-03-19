@@ -46,8 +46,8 @@ const getArticles = async articleFiles => {
           resolve({
             item: [
               text({ title }),
-              text({ link: BLOG_HREF + pathname }),
-              text({ guid: BLOG_HREF + pathname }),
+              text({ link: HOST + pathname }),
+              text({ guid: HOST + pathname }),
               text({ description: meta.description }),
               text({ author: 'lars@webpro.nl (Lars Kappert)' }),
               text({ pubDate: f.utc(meta.published) }),
