@@ -222,7 +222,10 @@ footer {
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: auto 100px;
-  padding-bottom: 200px;
+  padding-bottom: 192px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 
 h2,
@@ -249,4 +252,23 @@ main > pre {
   pre {
     padding-left: var(--spacing-left);
   }
+}
+
+footer .icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 4rem;
+}
+
+footer .icons > * {
+  height: 3rem;
+  width: 3rem;
+}
+
+footer .icons a svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: var(--font-color);
 }

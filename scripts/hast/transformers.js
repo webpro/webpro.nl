@@ -12,6 +12,7 @@ import {
   addScript,
   addInlineScript,
   addSimpleAnalytics,
+  convertSprites,
 } from './helpers.js';
 import { getMetaTags } from '../helpers.js';
 import { HOST, STYLESHEETS, LOGO_SVG, BLOG_RSS_PATHNAME } from '../constants.js';
@@ -53,6 +54,7 @@ export default ({ page, article, articles, structuredContent }) =>
     .use(addBootScript)
     .use(addPageHeader, { logo: { src: LOGO_SVG, href: page.logoHref, alt: page.logoTitle } })
     .use(enrichArticleHeading, article ? { page, article } : false)
+    .use(convertSprites)
     .use(addBlogIndex, articles ? { page, articles } : false)
     .use(rehypeHighlight, { subset: ['js', 'typescript', 'json', 'css', 'html', 'yaml', 'bash'], plainText: ['txt'] })
     .use(addPageFooter, { type: page.type })

@@ -1,5 +1,5 @@
 import { h } from 'hastscript';
-import { visit } from 'unist-util-visit';
+import { visit, SKIP } from 'unist-util-visit';
 import { f } from '../helpers.js';
 
 /**
@@ -111,22 +111,55 @@ export const addPageHeader =
   };
 
 /**
+ * @param {string} id
+ */
+const useSprite = id => {
+  const href = `/img/sprites.svg#${id}`;
+  return h('svg', [h('use', { 'xlink:href': href, href })]);
+};
+
+/**
+ * @type {PluginWithoutOptions}
+ */
+export const convertSprites = () => tree => {
+  visit(tree, 'element', (node, index, parent) => {
+    if (node.tagName === 'img') {
+      const src = node?.properties?.src;
+      if (String(src).match(/\.svg#/)) {
+        parent.children[index] = h('svg', [h('use', { 'xlink:href': src, href: src })]);
+        return SKIP;
+      }
+    }
+  });
+  return tree;
+};
+
+/**
  * @type {Plugin<{ type: 'page' | 'index' | 'article' }>}
  */
 export const addPageFooter =
   ({ type }) =>
   tree => {
-    const text =
-      type === 'article'
-        ? [
-            h('p', 'Do yo have a question or did you find an issue in this article?'),
-            h('p', [
-              h('a', { href: 'https://github.com/webpro/webpro.nl' }, 'Please let me know!'),
-              ' This website is fully open-sourced at GitHub.',
-            ]),
-          ]
-        : null;
-    const footer = h('footer', text);
+    const rss = h('a', { href: '/blog/feed.xml' }, [useSprite('rss')]);
+    const source = h('a', { href: 'https://github.com/webpro/webpro.nl' }, [useSprite('github')]);
+    const twitter = h('a', { href: 'https://twitter.com/webprolific' }, [useSprite('twitter')]);
+
+    const indexIcons = h('p', { class: 'icons' }, [rss, source, twitter]);
+    const articleIcons = h('p', { class: 'icons' }, [rss, source, twitter]);
+
+    const feedback = [
+      h('p', 'Do yo have a question or did you find an issue in this article?'),
+      h('p', [
+        h('a', { href: 'https://github.com/webpro/webpro.nl' }, 'Please let me know!'),
+        ' This website is fully open-sourced at GitHub.',
+      ]),
+    ];
+    const content = {
+      article: [articleIcons, feedback],
+      index: [indexIcons],
+      page: [],
+    };
+    const footer = h('footer', content[type]);
     return append(tree, 'body', footer);
   };
 
