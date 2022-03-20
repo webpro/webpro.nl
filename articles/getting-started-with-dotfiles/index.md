@@ -387,7 +387,7 @@ tweet][23] or [open a PR][1]!
 [5]: https://blog.flowblok.id.au/2013-02/shell-startup-scripts.html
 [6]:
   https://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading-order-bashrc-zshrc-etc/
-[7]: https://github.com/webpro/dotfiles/blob/master/system/.inputrc
+[7]: https://github.com/webpro/dotfiles/blob/master/runcom/.inputrc
 [8]: https://github.com/webpro/dotfiles/blob/master/system/.alias
 [9]: https://github.com/mathiasbynens/dotfiles/blob/main/.aliases
 [10]: https://github.com/mathiasbynens/dotfiles/blob/main/.functions

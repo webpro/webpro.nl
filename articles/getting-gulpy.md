@@ -291,10 +291,10 @@ function swapStuff(data) {
 }
 ```
 
-The plugin is unfinished and doesn't even deal with streams ([more complete
-version][16]). However, it shows it's possibly easy to create new
-transformations using some basic functions. The [through2][17] library is a
-great wrapper to Node streams and enables transform functions as shown above.
+The plugin is unfinished and doesn't even deal with streams. However, it shows
+it's possibly easy to create new transformations using some basic functions. The
+[through2][17] library is a great wrapper to Node streams and enables transform
+functions as shown above.
 
 ## Task orchestration
 
@@ -340,8 +340,7 @@ in the comments or Twitter: [@webprolific][20].
 [13]: https://www.npmjs.org/package/gulp-streamify
 [14]: https://www.npmjs.org/package/gulp-stream
 [15]: https://www.npmjs.org/package/gulp-browserify
-[16]: https://gist.github.com/webpro/a9a9e14d291c021894b3
 [17]: https://www.npmjs.org/package/through2
 [18]: https://www.npmjs.org/package/orchestrator
-[19]: http://substack.net/task_automation_with_npm_run
+[19]: https://github.com/substack/blog/blob/master/npm_run.markdown
 [20]: https://twitter.com/webprolific
