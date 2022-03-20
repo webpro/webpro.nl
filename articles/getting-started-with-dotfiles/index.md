@@ -3,6 +3,7 @@ published: 2014-07-16
 modified: 2022-02-19
 tags: dotfiles
 description: You're the king of your castle!
+image: /articles/getting-started-with-dotfiles/dotfiles.webp
 ---
 
 # Getting Started With Dotfiles
@@ -20,6 +21,8 @@ the configuration files in Unix-like systems that start with a dot
 (e.g. `.bash_profile` and `.gitconfig`). For normal users, this indicates these
 are not regular documents, and by default are hidden in directory listings. For
 power users, however, they are a core tool belt.
+
+![dotfiles][1]
 
 There is a large dotfiles community. And with it comes a large number of
 repositories and registries containing many organized dotfiles, advanced
@@ -65,7 +68,7 @@ is a great option to store your dotfiles.
 
 ## An Example Dotfiles Repository
 
-For this example, I'm just going to use a subset of [my own dotfiles repo][1].
+For this example, I'm just going to use a subset of [my own dotfiles repo][2].
 
 ### Structure
 
@@ -120,14 +123,14 @@ do
 done
 ```
 
-Full examples include [my own `.bash_profile`][2],
-[Mathias's `.bash_profile`][3]. Some people like to put most of their startup
+Full examples include [my own `.bash_profile`][3],
+[Mathias's `.bash_profile`][4]. Some people like to put most of their startup
 configuration in one file. This is perfectly fine, as long as you keep it sane
 and dense.
 
 If you want to dive into startup scripts a bit more, Peter Ward explains about
-[Shell startup scripts][4], and here's another about [startup script loading
-order][5].
+[Shell startup scripts][5], and here's another about [startup script loading
+order][6].
 
 ### Keybindings
 
@@ -146,7 +149,7 @@ set show-all-if-ambiguous on
 "\e[B": history-search-forward
 ```
 
-Full example: [my .inputrc][6].
+Full example: [my .inputrc][7].
 
 ### Aliases
 
@@ -164,7 +167,7 @@ alias ....="cd ../../.."
 alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
 ```
 
-Full examples: [my .alias][7], [Mathias's .aliases][8]
+Full examples: [my .alias][8], [Mathias's .aliases][9]
 
 ### Functions
 
@@ -183,7 +186,7 @@ function manpdf() {
 }
 ```
 
-Full example: [Mathias's .functions][9].
+Full example: [Mathias's .functions][10].
 
 ### Environment variables
 
@@ -202,7 +205,7 @@ shopt -s nocaseglob
 shopt -s cdspell
 ```
 
-Full example: [my .env][10] [Mathias's .exports][11].
+Full example: [my .env][11] [Mathias's .exports][12].
 
 ### Prompt
 
@@ -215,8 +218,8 @@ on the eyes. Here's my prompt:
 lars ~/Projects/blog main ❯
 ```
 
-Examples: [my .prompt][12], [Color Bash Prompt][13], [Sexy Bash Prompt][14],
-[How to Customize your Bash Prompt][15]
+Examples: [my .prompt][13], [Color Bash Prompt][14], [Sexy Bash Prompt][15],
+[How to Customize your Bash Prompt][16]
 
 ### Other Dotfiles
 
@@ -253,7 +256,7 @@ We already have the core of a dotfiles setup.
 
 You may want to have an installation script to automate symlinking the dotfiles
 in the repo to your home directory. But there's more we can put in a script that
-we run once to install a new system. See this [Makefile][16] for an example.
+we run once to install a new system. See this [Makefile][17] for an example.
 Also make sure to check out other people's scripts for more ideas and
 inspiration.
 
@@ -271,8 +274,8 @@ like to show you some more neat things you can do in your dotfiles.
 
 ## Homebrew and Homebrew Cask
 
-Let's install my favourite combo for package management in macOS, [Homebrew][17]
-and [Homebrew Cask][18]:
+Let's install my favourite combo for package management in macOS, [Homebrew][18]
+and [Homebrew Cask][19]:
 
 ```shell
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -327,8 +330,8 @@ defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 sudo nvram SystemAudioVolume=" "
 ```
 
-We must credit [Mathias Bynens][19] here for creating and maintaining an awesome
-collection of macOS defaults in [his dotfiles][20].
+We must credit [Mathias Bynens][20] here for creating and maintaining an awesome
+collection of macOS defaults in [his dotfiles][21].
 
 To apply the macOS defaults you've stored in e.g. `macosdefaults.sh`:
 
@@ -372,32 +375,33 @@ You might have missed tools like Zsh, Vim, and many more. Well, my apologies for
 that, but you would never reach the end of this article.
 
 In any case, there are plenty of great resources and dotfiles covering these as
-well. My curated [awesome-dotfiles][21] list might be a good start.
+well. My curated [awesome-dotfiles][22] list might be a good start.
 
 If you have nice ideas to share or want to collaborate, feel free to [send me a
-tweet][22] or [open a PR][1]!
+tweet][23] or [open a PR][1]!
 
-[1]: https://github.com/webpro/dotfiles
-[2]: https://github.com/webpro/dotfiles/blob/master/runcom/.bash_profile
-[3]: https://github.com/mathiasbynens/dotfiles/blob/main/.bash_profile
-[4]: https://blog.flowblok.id.au/2013-02/shell-startup-scripts.html
-[5]:
+[1]: /articles/getting-started-with-dotfiles/dotfiles.svg
+[2]: https://github.com/webpro/dotfiles
+[3]: https://github.com/webpro/dotfiles/blob/master/runcom/.bash_profile
+[4]: https://github.com/mathiasbynens/dotfiles/blob/main/.bash_profile
+[5]: https://blog.flowblok.id.au/2013-02/shell-startup-scripts.html
+[6]:
   https://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading-order-bashrc-zshrc-etc/
-[6]: https://github.com/webpro/dotfiles/blob/master/system/.inputrc
-[7]: https://github.com/webpro/dotfiles/blob/master/system/.alias
-[8]: https://github.com/mathiasbynens/dotfiles/blob/main/.aliases
-[9]: https://github.com/mathiasbynens/dotfiles/blob/main/.functions
-[10]: https://github.com/webpro/dotfiles/blob/master/system/.env
-[11]: https://github.com/mathiasbynens/dotfiles/blob/main/.exports
-[12]: https://github.com/webpro/dotfiles/blob/master/system/.prompt
-[13]: https://wiki.archlinux.org/title/Bash/Prompt_customization
-[14]: https://twolfson.com/2013-08-15-sexy-bash-prompt
-[15]:
+[7]: https://github.com/webpro/dotfiles/blob/master/system/.inputrc
+[8]: https://github.com/webpro/dotfiles/blob/master/system/.alias
+[9]: https://github.com/mathiasbynens/dotfiles/blob/main/.aliases
+[10]: https://github.com/mathiasbynens/dotfiles/blob/main/.functions
+[11]: https://github.com/webpro/dotfiles/blob/master/system/.env
+[12]: https://github.com/mathiasbynens/dotfiles/blob/main/.exports
+[13]: https://github.com/webpro/dotfiles/blob/master/system/.prompt
+[14]: https://wiki.archlinux.org/title/Bash/Prompt_customization
+[15]: https://twolfson.com/2013-08-15-sexy-bash-prompt
+[16]:
   https://www.digitalocean.com/community/tutorials/how-to-customize-your-bash-prompt-on-a-linux-vps
-[16]: https://github.com/webpro/dotfiles/blob/master/Makefile
-[17]: https://brew.sh
-[18]: https://github.com/Homebrew/homebrew-cask
-[19]: https://mathiasbynens.be
-[20]: https://github.com/mathiasbynens/dotfiles
-[21]: https://github.com/webpro/awesome-dotfiles
-[22]: https://twitter.com/webprolific
+[17]: https://github.com/webpro/dotfiles/blob/master/Makefile
+[18]: https://brew.sh
+[19]: https://github.com/Homebrew/homebrew-cask
+[20]: https://mathiasbynens.be
+[21]: https://github.com/mathiasbynens/dotfiles
+[22]: https://github.com/webpro/awesome-dotfiles
+[23]: https://twitter.com/webprolific
