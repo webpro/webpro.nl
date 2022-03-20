@@ -200,6 +200,7 @@ ul.index li span {
   flex-shrink: 0;
   font-weight: 200;
   font-style: italic;
+  font-weight: 200;
   font-size: 16px;
 }
 
@@ -214,6 +215,7 @@ blockquote p {
   padding: 2rem 1rem;
   margin: 0;
   font-style: italic;
+  font-weight: 200;
 }
 
 @media (min-width: 900px) {
