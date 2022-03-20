@@ -77,6 +77,9 @@ if (args.includes('--watch')) {
       if (filename.endsWith('.md')) {
         const file = path.join('articles', filename);
         handleMarkdownFile(file);
+      } else {
+        console.log(`Copying ${filename}`);
+        fs.copyFileSync(path.join('articles', filename), path.join('dist', 'articles', filename));
       }
     } else {
       console.warn('Filename not provided for', eventType, filename);
