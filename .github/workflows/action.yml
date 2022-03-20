@@ -1,0 +1,16 @@
+name: Check links in Markdown files
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    # Run daily at 9:21 AM
+    - cron: '21 9 * * *'
+
+jobs:
+  markdown-link-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: gaurav-nelson/github-action-markdown-link-check@v1
