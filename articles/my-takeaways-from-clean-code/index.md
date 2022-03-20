@@ -4,6 +4,7 @@ modified: 2022-02-26
 description:
   Any serious programmer will pick up something useful from reading this book.
   Highly recommended!
+image: /articles/my-takeaways-from-clean-code/clean-code.webp
 ---
 
 # My takeaways from "Clean Code"
@@ -17,6 +18,8 @@ day work, and act on them. This requires labor and dedication, which will
 gradually enhance your level of experience. The power of this book, at least to
 me, lies in defining and describing many heuristics, making them easier to
 recognize.
+
+![clean-code][3]
 
 The book is full of takeaways, and below is a small selection from the book that
 drew my attention most.
@@ -61,6 +64,8 @@ Functions should either do something or answer something. That's practical and
 clear advice.
 
 ## Comments are fails
+
+> Truth can only be found in one place: the code.
 
 The author has a clear opinion on comments. He considers every single comment
 written as a failure, because the code apparently isn't expressive enough. One
@@ -125,3 +130,4 @@ up something useful from reading this book. Highly recommended!
 [1]:
   http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882
 [2]: http://en.wikipedia.org/wiki/Robert_Cecil_Martin
+[3]: /articles/my-takeaways-from-clean-code/clean-code.svg

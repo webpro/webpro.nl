@@ -304,3 +304,8 @@ footer .icons a svg {
   height: 100%;
   fill: var(--font-color);
 }
+
+/* TODO: Better fix to toggle colors  */
+.light img[alt='clean-code'] {
+  filter: invert(68%);
+}
