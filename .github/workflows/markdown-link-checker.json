@@ -1,0 +1,27 @@
+{
+  "retryOn429": true,
+  "ignorePatterns": [
+    {
+      "pattern": "^/blog$"
+    },
+    {
+      "pattern": "LarsKappert-CV.pdf$"
+    },
+    {
+      "pattern": "linkedin.com"
+    },
+    {
+      "pattern": "^mailto:"
+    }
+  ],
+  "replacementPatterns": [
+    {
+      "pattern": "^/(css|font|img|js)",
+      "replacement": "{{BASEURL}}/static/$1"
+    },
+    {
+      "pattern": "^/articles",
+      "replacement": "{{BASEURL}}/articles"
+    }
+  ]
+}
