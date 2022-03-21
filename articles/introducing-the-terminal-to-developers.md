@@ -399,7 +399,7 @@ reading!
 - [The Art of Command Line][16]
 - [Getting started with dotfiles][17]
 
-[1]: https://msdn.microsoft.com/en-us/commandline/wsl/install_guide
+[1]: https://docs.microsoft.com/en-us/windows/wsl/install
 [2]: https://brew.sh
 [3]: https://nodejs.org
 [4]: https://nodejs.org/en/download/package-manager/

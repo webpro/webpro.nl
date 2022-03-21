@@ -27,7 +27,7 @@ How can I help you?
 - [![Blog][10] Blog][9]
 - [![Email][12] lars@webpro.nl][11]
 
-[1]: https://www.linkedin.com/in/larskappert 'LinkedIn'
+[1]: https://www.linkedin.com/in/larskappert/ 'LinkedIn'
 [2]: /img/sprites.svg#linkedin
 [3]: ./LarsKappert-CV.pdf 'CV Lars Kappert'
 [4]: /img/sprites.svg#pdf
