@@ -32,7 +32,7 @@ const getArticlesMetaData = articleFiles =>
     if (meta.draft) return null;
 
     const pathname = getTargetPathname(post);
-    return BLOG_HREF + pathname;
+    return HOST + pathname;
   });
 
 const main = async () => {
