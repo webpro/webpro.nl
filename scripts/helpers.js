@@ -53,10 +53,10 @@ const formatters = {
 };
 
 export const f = {
-  short: value => (value ? formatters.short.format(new Date(value)) : null),
-  long: value => (value ? formatters.long.format(new Date(value)) : null),
-  iso: value => (value ? new Date(value).toISOString() : null),
-  utc: value => (value ? new Date(value).toUTCString() : null),
+  short: value => (value ? formatters.short.format(new Date(value)) : undefined),
+  long: value => (value ? formatters.long.format(new Date(value)) : undefined),
+  iso: value => (value ? new Date(value).toISOString() : undefined),
+  utc: value => (value ? new Date(value).toUTCString() : undefined),
 };
 
 /**

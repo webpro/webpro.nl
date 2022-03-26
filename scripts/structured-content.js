@@ -7,97 +7,68 @@ const LOGO_PNG_HREF = HOST + LOGO_PNG;
 /**
  * @typedef { import("./types").Page } Page
  * @typedef { import("./types").Article } Article
- * @typedef { import("./types").Author } Author
+ * @typedef { import("schema-dts").Thing } Thing
+ * @typedef { import("schema-dts").WithContext<Thing> } Schema
+ * @typedef { import("schema-dts").Organization } Organization
+ * @typedef { import("schema-dts").Person } Person
  */
 
-/**
- * @type {Object}
- * @property {string} '@type'
- * @property {Author.name} name
- * @property {Author.href} url
- */
+/** @type {Person} */
 const author = { '@type': 'Person', name: AUTHOR, url: AUTHOR_WEBSITE };
 
-const articleBase = {
+/** @type {Organization} */
+const publisher = {
+  '@type': 'Organization',
+  '@id': `${AUTHOR_WEBSITE}/#organization`,
+  name: NAME,
+  logo: { '@type': 'ImageObject', url: LOGO_PNG_HREF },
+};
+
+/** @type {string[]} */
+const sameAs = [
+  'https://twitter.com/webprolific',
+  'https://github.com/webpro',
+  'https://www.linkedin.com/in/larskappert/',
+];
+
+/** @type {Schema} */
+const base = {
   '@context': 'https://schema.org',
-  '@type': 'Article',
+  '@type': 'WebSite',
   author,
-  publisher: { '@type': 'Organization', name: NAME, logo: { '@type': 'ImageObject', url: LOGO_PNG_HREF } },
+  publisher,
   mainEntityOfPage: { '@type': 'WebPage' },
 };
 
 /**
  * @param {Object} options
  * @param {Page} options.page
+ * @returns {Schema}
  */
-const getPage = ({ page }) => {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Website',
-    author,
-    publisher: {
-      '@type': 'Organization',
-      '@id': `${AUTHOR_WEBSITE}/#organization`,
-      name: NAME,
-      logo: { '@type': 'ImageObject', url: page.image || LOGO_PNG_HREF },
-    },
-    sameAs: [
-      'https://twitter.com/webprolific',
-      'https://github.com/webpro',
-      'https://www.linkedin.com/in/larskappert/',
-    ],
+const getPage = ({ page }) =>
+  merge({}, base, {
+    '@type': 'WebSite',
+    sameAs,
     datePublished: f.iso(page.published),
     dateModified: f.iso(page.modified),
-    mainEntityOfPage: { '@type': 'WebPage', '@id': page.href },
-  };
-};
-
-/**
- * @param {Object} options
- * @param {Page} options.page
- */
-const getIndex = ({ page }) => {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Website',
-    author,
-    publisher: {
-      '@type': 'Organization',
-      '@id': `${AUTHOR_WEBSITE}/#organization`,
-      name: NAME,
-      logo: { '@type': 'ImageObject', url: page.image || LOGO_PNG_HREF },
-    },
-    sameAs: [
-      'https://twitter.com/webprolific',
-      'https://github.com/webpro',
-      'https://www.linkedin.com/in/larskappert/',
-    ],
-    datePublished: f.iso(page.published),
-    dateModified: f.iso(page.modified),
-    mainEntityOfPage: { '@type': 'WebPage', '@id': page.href },
-  };
-};
+    mainEntityOfPage: { '@id': page.href },
+  });
 
 /**
  * @param {Object} options
  * @param {Page} options.page
  * @param {Article} options.article
+ * @returns {Thing}
  */
-const getArticle = ({ article, page }) => {
-  return merge({}, articleBase, {
+const getArticle = ({ article, page }) =>
+  merge({}, base, {
+    '@type': 'Article',
     headline: article.title,
     description: article.description,
     datePublished: f.iso(article.published),
     dateModified: f.iso(article.modified),
-    mainEntityOfPage: {
-      '@id': page.href,
-    },
+    mainEntityOfPage: { '@id': page.href },
     image: [article.image || LOGO_PNG_HREF],
   });
-};
 
-export default {
-  getPage,
-  getIndex,
-  getArticle,
-};
+export default { getPage, getArticle };

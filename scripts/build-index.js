@@ -61,7 +61,7 @@ const main = async () => {
   };
 
   const articles = sortByDate(finalArticles, 'published');
-  const structuredContent = SC.getIndex({ page });
+  const structuredContent = SC.getPage({ page });
 
   // Convert mdast to hast
   convert.run(tree, (error, node) => {
