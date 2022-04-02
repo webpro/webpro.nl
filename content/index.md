@@ -6,6 +6,7 @@ description:
   Lars Kappert is an independent full-stack architect & developer. Expert in
   JavaScript, Node.js, and React. Problem solver.
 class: homepage
+prefetch: /blog
 ---
 
 Hi! My name is Lars Kappert, an independent full-stack architect and developer.
