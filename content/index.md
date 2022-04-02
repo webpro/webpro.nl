@@ -9,12 +9,13 @@ class: homepage
 prefetch: /blog
 ---
 
-Hi! My name is Lars Kappert, an independent full-stack architect and developer.
+Hi, my name is Lars Kappert, an independent full-stack architect and developer.
 My current role is frontend tech lead.
 
-In this industry for over 20 years, I think I know my way around in frontend
-architecture and development. Problem solver with (mostly) JavaScript, Node.js
-and React. I care about performance, developer experience and open source.
+In this industry for over 20 years, I like to think I know my way around in
+frontend architecture and development. Solving problems with (mostly)
+JavaScript, Node.js and React. I care about performance, developer experience
+and open source.
 
 Always interested in exciting and challenging contract-based projects in the
 Utrecht area, or remote.
@@ -25,7 +26,7 @@ How can I help you?
 - [![PDF][4] LarsKappert-CV.pdf][3]
 - [![Twitter][6] @webprolific][5]
 - [![GitHub][8] github.com/webpro][7]
-- [![Blog][10] Blog][9]
+- [![Blog][10] Frontend Ramblings (Blog)][9]
 - [![Email][12] lars@webpro.nl][11]
 
 [1]: https://www.linkedin.com/in/larskappert/ 'LinkedIn'
