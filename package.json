@@ -22,9 +22,9 @@
     "build:sitemap": "node scripts/build-sitemap.js",
     "build:feed": "node scripts/build-feed.js",
     "link-statics": "mkdir dist && ln -s -t dist ../static/css ../static/font ../static/img ../static/js ../static/favicon.ico",
-    "predev": "npm-run-all prebuild link-statics build:pages",
-    "dev": "onchange -i -k 'scripts/*.js' -- node scripts/build-articles.js --watch",
-    "write": "node scripts/build-articles.js --watch",
+    "predev": "npm-run-all prebuild link-statics",
+    "dev": "onchange -i -k 'scripts/*.js' -- node scripts/build-pages.js --watch",
+    "write": "node scripts/build-pages.js --watch",
     "lint": "eslint scripts static/js",
     "lint:fix": "npm run lint -- --fix",
     "format": "remark articles pages -o --use remark-frontmatter --use remark-prettier --use ./scripts/mdast/order-links.js --use reference-links"
