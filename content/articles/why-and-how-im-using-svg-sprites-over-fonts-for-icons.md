@@ -34,7 +34,7 @@ from a single SVG file across the page!
 The single SVG sprite file (say, "defs.svg") looks like this:
 
 ```xml
-<svg display="none" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg display="none" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <defs>
         <symbol id="icon-delete" viewBox="0 0 1024 1024">
             <title>delete</title>
@@ -64,7 +64,7 @@ Now in the HTML, use `<svg>` images like so:
 
 ```xml
 <svg role="img" title="delete">
-    <use xlink:href="defs.svg#icon-delete"></use>
+    <use href="defs.svg#icon-delete"></use>
 </svg>
 ```
 
