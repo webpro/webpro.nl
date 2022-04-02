@@ -91,14 +91,15 @@ body > header {
 main {
   display: flex;
   flex-direction: column;
+  margin-top: 32px;
   gap: 32px;
 }
 
 main > header {
   display: flex;
   flex-direction: column;
-  gap: 48px;
-  margin: 32px 8px 0 8px;
+  gap: 32px;
+  margin: 0 8px 0 8px;
 }
 
 .meta {
@@ -142,7 +143,7 @@ table {
 }
 
 main > p:first-child {
-  margin-top: 64px;
+  margin-top: 32px;
 }
 
 a {
@@ -171,7 +172,7 @@ ol {
 }
 
 ul.index {
-  margin-top: 64px;
+  margin-top: 32px;
   display: flex;
   flex-direction: column;
   gap: 16px;
