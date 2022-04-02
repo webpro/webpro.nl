@@ -12,7 +12,7 @@ import { HOST, BLOG_HREF, BLOG_NAME, BLOG_RSS_PATHNAME, LOGO_PNG } from './const
 const XML_NS_CONTENT = 'http://purl.org/rss/1.0/modules/content/';
 const XML_NS_ATOM = 'http://www.w3.org/2005/Atom';
 
-const articleFiles = await globby(['articles/**/*.md']);
+const articleFiles = await globby(['content/articles/**/*.md']);
 
 const text = item => {
   const [[key, value]] = Object.entries(item);
