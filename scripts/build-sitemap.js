@@ -4,26 +4,13 @@ import { readSync } from 'to-vfile';
 import parser from './mdast/parser.js';
 import { getFrontMatter } from './mdast/helpers.js';
 import { getTargetPathname, write } from './helpers.js';
-import { HOST, BLOG_HREF } from './constants.js';
-
-/**
- * @typedef {import('./sitemap').SiteMapEntry} SiteMapEntry
- */
-
-const XML_NS = 'http://www.sitemaps.org/schemas/sitemap/0.9';
-const XML_XSI = 'http://www.w3.org/2001/XMLSchema-instance';
-const XSI_SCHEMA_LOCATION = [
-  'http://www.sitemaps.org/schemas/sitemap/0.9',
-  'http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd',
-];
-
-const articleFiles = await globby(['articles/**/*.md']);
+import { HOST } from './constants.js';
 
 /**
  * @param {string[]} articleFiles
  * @returns {(string | null)[]}
  */
-const getArticlesMetaData = articleFiles =>
+const getMetaData = articleFiles =>
   articleFiles.map(post => {
     const vFile = readSync(post);
     const tree = parser.parse(vFile);
@@ -36,9 +23,9 @@ const getArticlesMetaData = articleFiles =>
   });
 
 const main = async () => {
-  const pages = [HOST, BLOG_HREF];
-  const articles = await getArticlesMetaData(articleFiles);
-  const sitemap = [...pages, ...articles].filter(Boolean);
+  const pages = await globby(['content/**/*.md']);
+  const items = await getMetaData(pages);
+  const sitemap = items.filter(Boolean);
 
   write('dist/sitemap.txt', sitemap.join(EOL) + EOL);
 };
