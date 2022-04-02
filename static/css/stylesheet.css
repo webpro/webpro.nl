@@ -29,9 +29,9 @@ html.dark {
 @media (prefers-color-scheme: light) {
   :root {
     --bg-color: var(--white);
-    --bg-color-header: var(--grey);
+    --bg-color-header: var(--dark-grey);
     --bg-color-code: var(--off-white);
-    --font-color: var(--grey);
+    --font-color: var(--dark-grey);
     --scroll-thumb-color: var(--grey-transparent);
     --blockquote-border-color: var(--grey);
     --blockquote-box-shadow-color: 13px 3px var(--off-white);
@@ -41,9 +41,9 @@ html.dark {
 
 html.light {
   --bg-color: var(--white);
-  --bg-color-header: var(--grey);
+  --bg-color-header: var(--dark-grey);
   --bg-color-code: var(--off-white);
-  --font-color: var(--grey);
+  --font-color: var(--dark-grey);
   --scroll-thumb-color: var(--grey-transparent);
   --blockquote-border-color: var(--light-grey);
   --blockquote-box-shadow-color: 13px 3px var(--lighter-grey);
@@ -98,7 +98,7 @@ main > header {
   display: flex;
   flex-direction: column;
   gap: 48px;
-  margin-top: 32px;
+  margin: 32px 8px 0 8px;
 }
 
 .meta {
@@ -119,8 +119,8 @@ header img {
 h1 {
   text-align: center;
   font-weight: 400;
-  font-size: 32px;
-  line-height: 32px;
+  font-size: 40px;
+  line-height: 48px;
 }
 
 @media (min-width: 600px) {
@@ -162,7 +162,7 @@ h2 {
 
 h3 {
   font-weight: 600;
-  font-size: 32px;
+  font-size: 28px;
 }
 
 ul,
