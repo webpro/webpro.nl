@@ -3,67 +3,42 @@ import doc from 'rehype-document';
 import rehypeWrap from 'rehype-wrap';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeFormat from 'rehype-format';
+import { handleDirectives, addScript, addInlineScript } from './std-plugins.js';
 import {
   addBootScript,
   addPageHeader,
   enrichArticleHeading,
-  addBlogIndex,
   addPageFooter,
-  addScript,
-  addInlineScript,
   addSimpleAnalytics,
   convertSprites,
-} from './helpers.js';
-import { getMetaTags } from '../helpers.js';
-import { HOST, STYLESHEETS, LOGO_SVG, BLOG_RSS_PATHNAME } from '../constants.js';
-
-const prefetch = {
-  page: '/blog',
-  article: '/blog',
-  index: '/',
-};
+} from './plugins.js';
+import { DIRECTIVES } from './directives.js';
+import { getMetaTags, getLinks } from './doc.js';
 
 /**
- * @typedef { import("../types").Page } Page
- * @typedef { import("../types").Article } Article
+ * @typedef { import("../types").Meta } Meta
  */
 
 /**
  * @param {Object} options
- * @param {Page} options.page
- * @param {Article} [options.article]
- * @param {Article[]} [options.articles]
+ * @param {Meta} options.meta
  * @param {unknown} options.structuredContent
  */
-export default ({ page, article, articles, structuredContent }) =>
+export default ({ meta, structuredContent }) =>
   unified()
     .use(doc, {
-      title: article?.title ?? page.title,
-      meta: getMetaTags({ page, article }),
-      link: [
-        { rel: 'canonical', href: page.href },
-        ...STYLESHEETS.map(href => ({ rel: 'stylesheet', href })),
-        { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
-        { rel: 'icon', href: HOST + LOGO_SVG, type: 'image/svg+xml' },
-        { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
-        { rel: 'manifest', href: '/manifest.json' },
-        {
-          rel: 'alternate',
-          type: 'application/rss+xml',
-          href: HOST + BLOG_RSS_PATHNAME,
-          title: 'WebPro Blog RSS Feed',
-        },
-        { rel: 'prefetch', href: prefetch[page.type] },
-      ],
+      title: meta.title,
+      meta: getMetaTags(meta),
+      link: getLinks(meta),
     })
-    .use(rehypeWrap, { wrapper: page.class ? `main.${page.class}` : 'main' })
+    .use(rehypeWrap, { wrapper: meta.class ? `main.${meta.class}` : 'main' })
     .use(addBootScript)
-    .use(addPageHeader, { logo: { src: LOGO_SVG, href: page.logoHref, alt: page.logoTitle } })
-    .use(enrichArticleHeading, article ? { page, article } : false)
+    .use(addPageHeader, { logo: meta.logo })
+    .use(enrichArticleHeading, meta.type === 'article' ? { meta } : false)
     .use(convertSprites)
-    .use(addBlogIndex, articles ? { page, articles } : false)
+    .use(handleDirectives, DIRECTIVES)
     .use(rehypeHighlight, { subset: ['js', 'typescript', 'json', 'css', 'html', 'yaml', 'bash'], plainText: ['txt'] })
-    .use(addPageFooter, { type: page.type })
+    .use(addPageFooter, { type: meta.type })
     .use(addScript, { src: '/js/theme-switch.js' })
     .use(addInlineScript, { type: 'application/ld+json', content: JSON.stringify(structuredContent) })
     .use(addSimpleAnalytics)

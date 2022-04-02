@@ -5,8 +5,7 @@ import { HOST, AUTHOR, AUTHOR_WEBSITE, NAME, LOGO_PNG } from './constants.js';
 const LOGO_PNG_HREF = HOST + LOGO_PNG;
 
 /**
- * @typedef { import("./types").Page } Page
- * @typedef { import("./types").Article } Article
+ * @typedef { import("./types").Meta } Meta
  * @typedef { import("schema-dts").Thing } Thing
  * @typedef { import("schema-dts").WithContext<Thing> } Schema
  * @typedef { import("schema-dts").Organization } Organization
@@ -41,11 +40,10 @@ const base = {
 };
 
 /**
- * @param {Object} options
- * @param {Page} options.page
+ * @param {Meta} page
  * @returns {Schema}
  */
-const getPage = ({ page }) =>
+const getPage = page =>
   merge({}, base, {
     '@type': 'WebSite',
     sameAs,
@@ -55,20 +53,29 @@ const getPage = ({ page }) =>
   });
 
 /**
- * @param {Object} options
- * @param {Page} options.page
- * @param {Article} options.article
+ * @param {Meta} page
  * @returns {Thing}
  */
-const getArticle = ({ article, page }) =>
+const getArticle = page =>
   merge({}, base, {
     '@type': 'Article',
-    headline: article.title,
-    description: article.description,
-    datePublished: f.iso(article.published),
-    dateModified: f.iso(article.modified),
+    headline: page.title,
+    description: page.description,
+    datePublished: f.iso(page.published),
+    dateModified: f.iso(page.modified),
     mainEntityOfPage: { '@id': page.href },
-    image: [article.image || LOGO_PNG_HREF],
+    image: [page.image || LOGO_PNG_HREF],
   });
 
-export default { getPage, getArticle };
+/**
+ * @param {Meta} page
+ * @returns {Thing}
+ */
+export const getStructuredContent = page => {
+  switch (page.type) {
+    case 'article':
+      return getArticle(page);
+    default:
+      return getPage(page);
+  }
+};

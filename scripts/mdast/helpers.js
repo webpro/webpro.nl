@@ -1,5 +1,7 @@
+import { readSync } from 'to-vfile';
 import yaml from 'js-yaml';
 import { visit } from 'unist-util-visit';
+import parser from './parser.js';
 
 /**
  * @typedef {import('mdast').Root} Root
@@ -44,4 +46,12 @@ export const removeDocumentTitle = tree => {
       return false;
     }
   });
+};
+
+export const readMarkdown = file => {
+  const vFile = readSync(file);
+  const tree = parser.parse(vFile);
+  const frontMatter = getFrontMatter(tree);
+  const title = getDocumentTitle(tree);
+  return { tree, frontMatter, title };
 };

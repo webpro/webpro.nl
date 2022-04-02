@@ -1,3 +1,5 @@
+import { resolve } from 'path';
+
 export const NAME = 'WebPro';
 export const HOST = 'https://www.webpro.nl';
 export const AUTHOR = 'Lars Kappert';
@@ -15,3 +17,5 @@ export const STYLESHEETS = [
   '/css/hljs.github-dark-dimmed.min.css',
   '/css/terminal.css',
 ];
+export const SOURCE_DIR = resolve(process.cwd(), 'content');
+export const TARGET_DIR = resolve(process.cwd(), 'dist');
