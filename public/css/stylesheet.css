@@ -268,7 +268,7 @@ main > pre {
   }
 }
 
-.homepage ul {
+.home-links ul {
   padding: 0;
   list-style: none;
   display: flex;
@@ -276,13 +276,13 @@ main > pre {
   gap: 24px;
 }
 
-.homepage ul li > a[title] {
+.home-links ul li > a[title] {
   display: flex;
   align-items: center;
   gap: 24px;
 }
 
-.homepage ul li > a[title] svg {
+.home-links ul li > a[title] svg {
   display: block;
   height: 4rem;
   width: 4rem;

@@ -1,19 +1,21 @@
 import { h } from 'hastscript';
-import { f, getArticlesMetaData } from '../helpers.js';
+import { f, sortByDate } from '../helpers.js';
 
-const addBlogIndex = async ({ node, index, parent }) => {
-  const articles = await getArticlesMetaData();
-
-  const nodes = articles.map(article => {
+/** @type {import("markdown-rambler").DirectiveVisitor} */
+const addBlogIndex = (node, index, parent, vFile) => {
+  const vFiles = vFile.data.vFiles?.article || [];
+  const articles = vFiles.map(vFile => vFile.data.meta);
+  const sorted = sortByDate(articles, 'published');
+  const nodes = sorted.map(article => {
     const a = h('a', { href: article.pathname, title: article.title }, article.title);
     const span = h('span', f.short(article.published));
     const li = h('li', [a, span]);
     return li;
   });
-
-  parent.children[index] = h('ul', { class: 'index' }, nodes);
+  return h('ul', { class: 'index' }, nodes);
 };
 
-export const DIRECTIVES = {
+/** @type {import("markdown-rambler").Directives} */
+export const directives = {
   BLOG_INDEX: addBlogIndex,
 };

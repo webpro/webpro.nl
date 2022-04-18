@@ -7,7 +7,7 @@
     "blog"
   ],
   "homepage": "https://www.webpro.nl",
-  "license": "ISC",
+  "license": "CC-BY-4.0",
   "author": {
     "name": "Lars Kappert",
     "email": "lars@webpro.nl"
@@ -16,50 +16,23 @@
   "main": "index.js",
   "scripts": {
     "prebuild": "rm -rf dist",
-    "build": "npm-run-all build:*",
-    "postbuild": "cp -r static/* dist",
-    "build:pages": "node scripts/build-pages.js",
-    "build:sitemap": "node scripts/build-sitemap.js",
-    "build:feed": "node scripts/build-feed.js",
-    "link-statics": "mkdir dist && ln -s -t dist ../static/css ../static/font ../static/img ../static/js ../static/favicon.ico",
-    "predev": "npm-run-all prebuild link-statics",
-    "dev": "onchange -i -k 'scripts/*.js' -- node scripts/build-pages.js --watch",
-    "write": "node scripts/build-pages.js --watch",
+    "build": "node scripts/build.js",
+    "write": "node scripts/build.js --watch",
     "lint": "eslint scripts static/js",
-    "lint:fix": "npm run lint -- --fix",
-    "format": "remark articles pages -o --use remark-frontmatter --use remark-prettier --use ./scripts/mdast/order-links.js --use reference-links"
+    "lint:fix": "npm run lint -- --fix"
   },
   "devDependencies": {
+    "@types/node": "^17.0.25",
     "eslint": "^8.12.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "fast-xml-parser": "^4.0.7",
     "globby": "^13.1.1",
     "hastscript": "^7.0.2",
-    "js-yaml": "^4.1.0",
-    "lodash.merge": "^4.6.2",
-    "npm-run-all": "^4.1.5",
+    "markdown-rambler": "^0.0.1",
     "onchange": "^7.1.0",
     "prettier": "^2.6.1",
-    "rehype-document": "^6.0.1",
-    "rehype-format": "^4.0.1",
     "rehype-highlight": "^5.0.2",
-    "rehype-stringify": "^9.0.3",
-    "rehype-wrap": "^1.0.10",
-    "remark-cli": "^10.0.1",
-    "remark-frontmatter": "^4.0.1",
-    "remark-parse": "^10.0.1",
-    "remark-parse-yaml": "^0.0.3",
-    "remark-prettier": "^1.2.0",
-    "remark-reference-links": "^6.0.1",
     "remark-rehype": "^10.1.0",
-    "schema-dts": "^1.1.0",
-    "to-vfile": "^7.2.3",
-    "typescript": "^4.6.3",
-    "unified": "^10.1.2",
-    "unist-builder": "^3.0.0",
-    "unist-util-is": "^5.1.1",
-    "unist-util-remove": "^3.1.0",
-    "unist-util-visit": "^4.0.0"
+    "unist-builder": "^3.0.0"
   }
 }

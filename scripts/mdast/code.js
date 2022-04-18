@@ -58,6 +58,7 @@ const buildShell = (h, node) => {
 
 /**
  * @type {Handler}
+ * @param {hastscript} h
  * @param {Code} node
  */
 export function code(h, node) {

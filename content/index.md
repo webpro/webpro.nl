@@ -5,7 +5,6 @@ title: WebPro - Freelance full-stack architect & developer
 description:
   Lars Kappert is an independent full-stack architect & developer. Expert in
   JavaScript, Node.js, and React. Problem solver.
-class: homepage
 prefetch: /blog
 ---
 
@@ -22,12 +21,16 @@ Utrecht area, or remote.
 
 How can I help you?
 
+:::div{.home-links}
+
 - [![LinkedIn][2] linkedin.com/in/larskappert][1]
 - [![PDF][4] LarsKappert-CV.pdf][3]
 - [![Twitter][6] @webprolific][5]
 - [![GitHub][8] github.com/webpro][7]
 - [![Blog][10] Frontend Ramblings (Blog)][9]
 - [![Email][12] lars@webpro.nl][11]
+
+:::
 
 [1]: https://www.linkedin.com/in/larskappert/ 'LinkedIn'
 [2]: /img/sprites.svg#linkedin
