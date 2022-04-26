@@ -1,13 +1,22 @@
 import { html } from 'markdown-rambler';
 
 const feed = html`<a href="/blog/feed.xml">
-  <svg><use href="/img/sprites.svg#rss"></use></svg>
+  <svg>
+    <title>RSS feed</title>
+    <use href="/img/sprites.svg#rss"></use>
+  </svg>
 </a>`;
 const github = html`<a href="https://github.com/webpro/webpro.nl">
-  <svg><use href="/img/sprites.svg#github"></use></svg>
+  <svg>
+    <title>GitHub</title>
+    <use href="/img/sprites.svg#github"></use>
+  </svg>
 </a>`;
 const twitter = html`<a href="https://twitter.com/webprolific">
-  <svg><use href="/img/sprites.svg#twitter"></use></svg>
+  <svg>
+    <title>Twitter</title>
+    <use href="/img/sprites.svg#twitter"></use>
+  </svg>
 </a>`;
 
 const footer = meta => {
