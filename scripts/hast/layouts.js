@@ -25,7 +25,7 @@ const footer = meta => {
       return html`<p class="icons">${feed}${github}${twitter}</p>`;
     case 'article':
       return html`<p class="icons">${feed}${github}${twitter}</p>
-        <p>Do yo have a question or did you find an issue in this article?</p>
+        <p>Do you have a question or did you find an issue in this article?</p>
         <p>
           <a href="https://github.com/webpro/webpro.nl">Please let me know!</a> This website is fully open-sourced at
           GitHub.

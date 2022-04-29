@@ -7,4 +7,4 @@ Vercel.
 Feel free to ask questions by opening a ticket, or provide improvements by
 opening a pull request.
 
-![Lars Kappert](./static/img/signature-black.svg)
+![Lars Kappert](./public/img/signature-black.svg)

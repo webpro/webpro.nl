@@ -1,10 +1,14 @@
 {
-  "name": "blog",
+  "name": "webpro.nl",
   "version": "1.0.0",
   "private": true,
-  "description": "Blog",
+  "description": "Frontend Ramblings",
   "keywords": [
-    "blog"
+    "webpro",
+    "blog",
+    "FOSS",
+    "frontend",
+    "ramblings"
   ],
   "homepage": "https://www.webpro.nl",
   "license": "CC-BY-4.0",
@@ -13,12 +17,11 @@
     "email": "lars@webpro.nl"
   },
   "type": "module",
-  "main": "index.js",
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "node scripts/build.js",
     "watch": "node scripts/build.js --watch",
-    "lint": "eslint scripts static/js",
+    "lint": "eslint scripts public/js",
     "lint:fix": "npm run lint -- --fix"
   },
   "devDependencies": {
