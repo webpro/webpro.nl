@@ -21,10 +21,10 @@
   text-align: right;
 }
 
-#search-results ul {
+#search-results ol {
   list-style: none;
 }
 
-#search-results ul li {
+#search-results ol li {
   margin: 0.3em;
 }

@@ -21,7 +21,7 @@
   const search = query => {
     if (query.length > 1) {
       const results = index.search(query, { boost: { title: 3 }, prefix: true, fuzzy: 0.3 });
-      const list = document.createElement('ul');
+      const list = document.createElement('ol');
       results.slice(0, 10).forEach(result => {
         const item = document.createElement('li');
         const link = document.createElement('a');
