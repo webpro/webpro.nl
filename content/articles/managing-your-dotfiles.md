@@ -50,7 +50,7 @@ yourself at home.
 Depending on the environment, you might be better of with more robust solutions
 for configuration management like Puppet, Chef, or Ansible.
 
-[1]: https://www.webpro.nl/articles/getting-started-with-dotfiles
+[1]: ./getting-started-with-dotfiles/index.md
 [2]: https://github.com/webpro/awesome-dotfiles#tools
 [3]: https://github.com/webpro/awesome-dotfiles#dotfiles-repos
 [4]: http://en.wikipedia.org/wiki/Unix_shell

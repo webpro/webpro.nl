@@ -4,7 +4,7 @@ modified: 2022-02-26
 description:
   Any serious programmer will pick up something useful from reading this book.
   Highly recommended!
-image: /articles/my-takeaways-from-clean-code/clean-code.webp
+image: ./clean-code.webp
 ---
 
 # My takeaways from "Clean Code"
@@ -130,4 +130,4 @@ up something useful from reading this book. Highly recommended!
 [1]:
   http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882
 [2]: http://en.wikipedia.org/wiki/Robert_Cecil_Martin
-[3]: /articles/my-takeaways-from-clean-code/clean-code.svg
+[3]: ./clean-code.svg

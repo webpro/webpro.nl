@@ -3,7 +3,7 @@ published: 2014-07-16
 modified: 2022-02-19
 tags: dotfiles
 description: You're the king of your castle!
-image: /articles/getting-started-with-dotfiles/dotfiles.webp
+image: ./dotfiles.webp
 ---
 
 # Getting Started With Dotfiles
@@ -380,7 +380,7 @@ well. My curated [awesome-dotfiles][22] list might be a good start.
 If you have nice ideas to share or want to collaborate, feel free to [send me a
 tweet][23] or [open a PR][1]!
 
-[1]: /articles/getting-started-with-dotfiles/dotfiles.svg
+[1]: ./dotfiles.svg
 [2]: https://github.com/webpro/dotfiles
 [3]: https://github.com/webpro/dotfiles/blob/master/runcom/.bash_profile
 [4]: https://github.com/mathiasbynens/dotfiles/blob/main/.bash_profile

@@ -270,6 +270,6 @@ into these three elements:
 2.  There is a `<link>` to [stylesheet.css][2] containing the styles.
 3.  The `<body>` has [theme-switch.js][3] for the rest of the functionality.
 
-[1]: /articles/how-to-build-a-great-theme-toggle-switch/os-preferences-mode.webp
+[1]: ./os-preferences-mode.webp
 [2]: https://www.webpro.nl/css/stylesheet.css
 [3]: https://www.webpro.nl/js/theme-switch.js

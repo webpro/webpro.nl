@@ -2,7 +2,7 @@
 published: 2022-03-17
 modified: 2022-03-18
 description: Using Nx Affected in Azure Pipelines
-image: /articles/using-nx-affected-in-azure-pipelines/azure-nx.webp
+image: ./azure-nx.webp
 ---
 
 # Using Nx Affected in Azure Pipelines
@@ -303,7 +303,7 @@ of some help or inspiration.
 
 [1]: https://nx.dev/using-nx/affected
 [2]: https://azure.microsoft.com/en-us/services/devops/pipelines/
-[3]: /articles/using-nx-affected-in-azure-pipelines/azure-nx.drawio.svg
+[3]: ./azure-nx.drawio.svg
 [4]: https://github.com/nrwl/nx-azure-build
 [5]:
   https://docs.microsoft.com/en-us/cli/azure/pipelines/runs/tag?view=azure-cli-latest
