@@ -1,0 +1,30 @@
+#search {
+  width: 20ch;
+  font-size: 0.75em;
+  padding-left: 1em;
+  background-color: var(--bg-color);
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 0 4px var(--font-color);
+  position: relative;
+  margin-bottom: 2px;
+  margin-right: 1em;
+}
+
+#search-results {
+  background-color: var(--bg-color-header);
+  position: absolute;
+  top: 64px;
+  right: 0;
+  font-size: 1em;
+  padding: 1em;
+  text-align: right;
+}
+
+#search-results ul {
+  list-style: none;
+}
+
+#search-results ul li {
+  margin: 0.3em;
+}

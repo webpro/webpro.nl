@@ -21,6 +21,9 @@ const rambler = new MarkdownRambler({
   outputDir: 'dist',
   watch: process.argv.includes('--watch'),
   verbose: process.argv.includes('--watch'),
+  search: {
+    filter: type => type === 'article',
+  },
   host: HOST,
   name: NAME,
   type: filename => (filename.match(/^articles\//) ? 'article' : filename === 'blog.md' ? 'blog' : 'page'),
@@ -36,7 +39,8 @@ const rambler = new MarkdownRambler({
   defaults: {
     page: {
       layout,
-      stylesheets: ['/css/fonts.css', '/css/stylesheet.css', '/css/theme-switch.css'],
+      stylesheets: ['/css/fonts.css', '/css/stylesheet.css', '/css/theme-switch.css', '/css/search.css'],
+      scripts: ['/js/minisearch.4.0.3.min.js', '/js/search.js'],
       author: {
         name: AUTHOR,
         href: AUTHOR_WEBSITE,
@@ -81,6 +85,7 @@ const rambler = new MarkdownRambler({
         '/css/theme-switch.css',
         '/css/hljs.github-dark-dimmed.min.css',
         '/css/terminal.css',
+        '/css/search.css',
       ],
       sameAs: [],
       logo: {

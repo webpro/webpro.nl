@@ -79,6 +79,10 @@ body > header {
   background-color: var(--bg-color-header);
 }
 
+.logo {
+  flex-grow: 1;
+}
+
 .logo a {
   display: block;
 }
