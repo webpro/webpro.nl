@@ -19,7 +19,8 @@ const LOGO_SVG = '/img/logo.svg';
 const rambler = new MarkdownRambler({
   contentDir: 'content',
   outputDir: 'dist',
-  verbose: false,
+  watch: process.argv.includes('--watch'),
+  verbose: process.argv.includes('--watch'),
   host: HOST,
   name: NAME,
   type: filename => (filename.match(/^articles\//) ? 'article' : filename === 'blog.md' ? 'blog' : 'page'),
@@ -92,6 +93,3 @@ const rambler = new MarkdownRambler({
 });
 
 rambler.run();
-if (process.argv.includes('--watch')) {
-  rambler.watch(['content', 'public']);
-}
