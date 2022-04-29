@@ -4,7 +4,7 @@ import { f, sortByDate } from '../helpers.js';
 /** @type {import("markdown-rambler").DirectiveVisitor} */
 const addBlogIndex = (node, index, parent, vFile) => {
   const vFiles = vFile.data.vFiles?.article || [];
-  const articles = vFiles.map(vFile => vFile.data.meta);
+  const articles = vFiles.map(vFile => vFile.data.meta).filter(meta => !meta.draft);
   const sorted = sortByDate(articles, 'published');
   const nodes = sorted.map(article => {
     const a = h('a', { href: article.pathname, title: article.title }, article.title);
