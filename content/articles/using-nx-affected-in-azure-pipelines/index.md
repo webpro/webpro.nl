@@ -21,10 +21,10 @@ By default, many solutions use the diff between `HEAD` and `HEAD~1` to calculate
 the affected projects. Such as Nrwl's own [Example of setting up distributed
 Azure build for Nx workspace][4].
 
-Although this may work well, I think this isn't always optimal. For instance,
-the merge strategy and not knowing which is the last pipeline run having an
-actually **successful** build may result in a suboptimal release pipeline (i.e.
-too little or too many builds and deployments).
+Although this may work well, I think this isn't always optimal. Mostly because
+the latest run(s) may have failed, which Nx isn't aware of. This may require to
+manually re-run a pipeline, or it may take an unknown amount of time before the
+container will re-build.
 
 However, Azure has an API to [set and list pipeline run tags][5]. We can use the
 Azure CLI to add a tag for each pipeline run having a successful Nx project

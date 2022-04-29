@@ -293,13 +293,13 @@ function swapStuff(data) {
 
 The plugin is unfinished and doesn't even deal with streams. However, it shows
 it's possibly easy to create new transformations using some basic functions. The
-[through2][17] library is a great wrapper to Node streams and enables transform
+[through2][16] library is a great wrapper to Node streams and enables transform
 functions as shown above.
 
 ## Task orchestration
 
 In case you need some custom or dynamic tasks to run, it's useful to know that
-gulp is using the [Orchestrator][18] module. The gulp.add method is
+gulp is using the [Orchestrator][17] module. The gulp.add method is
 Orchestrator.add (actually all methods are inherited from the Orchestrator
 module). But, why would you need this?
 
@@ -315,7 +315,7 @@ Javascript files, or you need to compile some SASS files, you may want to
 consider using Makefiles or npm run and get _a lot_ done from the command line.
 Less dependencies and less configuration can be truly liberating.
 
-Read up on [Task automation with npm run][19] to learn more. Just make sure you
+Read up on [Task automation with npm run][18] to learn more. Just make sure you
 define clearly what you need on a scale of "build customization", and what would
 be the best tool(s) for the job.
 
@@ -323,7 +323,7 @@ However, I think gulp is a great build system that I love to use and really
 introduced to me the power of streams in Node.js.
 
 Hope this helps! If you have any feedback or additional tips, please let me know
-in the comments or Twitter: [@webprolific][20].
+in the comments or Twitter: [@webprolific][19].
 
 [1]: http://gulpjs.com
 [2]: https://www.npmjs.org/package/gulp-uglify
@@ -340,7 +340,7 @@ in the comments or Twitter: [@webprolific][20].
 [13]: https://www.npmjs.org/package/gulp-streamify
 [14]: https://www.npmjs.org/package/gulp-stream
 [15]: https://www.npmjs.org/package/gulp-browserify
-[17]: https://www.npmjs.org/package/through2
-[18]: https://www.npmjs.org/package/orchestrator
-[19]: https://github.com/substack/blog/blob/master/npm_run.markdown
-[20]: https://twitter.com/webprolific
+[16]: https://www.npmjs.org/package/through2
+[17]: https://www.npmjs.org/package/orchestrator
+[18]: https://github.com/substack/blog/blob/master/npm_run.markdown
+[19]: https://twitter.com/webprolific

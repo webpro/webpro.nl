@@ -16,17 +16,29 @@ const BLOG_RSS_NAME = BLOG_NAME + ' feed';
 const LOGO_PNG = '/img/logo-512x512.png';
 const LOGO_SVG = '/img/logo.svg';
 
+const isWatching = process.argv.includes('--watch');
+
 const rambler = new MarkdownRambler({
   contentDir: 'content',
   outputDir: 'dist',
-  watch: process.argv.includes('--watch'),
-  verbose: process.argv.includes('--watch'),
+  watch: isWatching,
+  verbose: isWatching,
+  formatMarkdown: true,
   search: {
     filter: type => type === 'article',
   },
-  host: HOST,
+  host: isWatching ? '' : HOST, // Trick to load assets locally in dev mode
   name: NAME,
-  type: filename => (filename.match(/^articles\//) ? 'article' : filename === 'blog.md' ? 'blog' : 'page'),
+  type: filename => {
+    switch (true) {
+      case /^articles\//.test(filename):
+        return 'article';
+      case filename === 'blog.md':
+        return 'blog';
+      default:
+        return 'page';
+    }
+  },
   linkFiles: true,
   converters,
   transformers,
@@ -35,6 +47,7 @@ const rambler = new MarkdownRambler({
     pathname: BLOG_RSS_PATHNAME,
     title: BLOG_RSS_NAME,
     description: BLOG_DESCRIPTION,
+    filter: type => type === 'article',
   },
   defaults: {
     page: {
