@@ -419,4 +419,4 @@ reading!
 [14]: https://twitter.com/webprolific
 [15]: https://www.learnenough.com/command-line-tutorial
 [16]: https://github.com/jlevy/the-art-of-command-line#the-art-of-command-line
-[17]: https://www.webpro.nl/articles/getting-started-with-dotfiles
+[17]: ./getting-started-with-dotfiles/index.md

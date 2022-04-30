@@ -34,13 +34,13 @@ How can I help you?
 
 [1]: https://www.linkedin.com/in/larskappert/ 'LinkedIn'
 [2]: /img/sprites.svg#linkedin
-[3]: ./LarsKappert-CV.pdf 'CV Lars Kappert'
+[3]: /LarsKappert-CV.pdf 'CV Lars Kappert'
 [4]: /img/sprites.svg#pdf
 [5]: https://twitter.com/webprolific 'Twitter'
 [6]: /img/sprites.svg#twitter
 [7]: https://github.com/webpro 'GitHub'
 [8]: /img/sprites.svg#github
-[9]: /blog 'Blog'
+[9]: ./blog.md 'Blog'
 [10]: /img/sprites.svg#blog
 [11]: mailto:%6Cars@w%65bpro.nl 'Email'
 [12]: /img/sprites.svg#email

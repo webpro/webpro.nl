@@ -271,5 +271,5 @@ into these three elements:
 3.  The `<body>` has [theme-switch.js][3] for the rest of the functionality.
 
 [1]: ./os-preferences-mode.webp
-[2]: https://www.webpro.nl/css/stylesheet.css
-[3]: https://www.webpro.nl/js/theme-switch.js
+[2]: /css/stylesheet.css
+[3]: /js/theme-switch.js

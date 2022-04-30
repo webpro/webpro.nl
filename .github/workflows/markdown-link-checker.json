@@ -2,12 +2,6 @@
   "retryOn429": true,
   "ignorePatterns": [
     {
-      "pattern": "^/blog$"
-    },
-    {
-      "pattern": "LarsKappert-CV.pdf$"
-    },
-    {
       "pattern": "linkedin.com"
     },
     {
@@ -16,12 +10,9 @@
   ],
   "replacementPatterns": [
     {
-      "pattern": "^/(css|font|img|js)",
-      "replacement": "{{BASEURL}}/static/$1"
-    },
-    {
-      "pattern": "^/articles",
-      "replacement": "{{BASEURL}}/articles"
+      "pattern": "^/(css|font|img|js|LarsKappert-CV.pdf)",
+      "replacement": "{{BASEURL}}/public/$1"
     }
-  ]
+  ],
+  "aliveStatusCodes": [0, 200, 203, 206]
 }
