@@ -1,38 +1,47 @@
 ---
-draft: true
+published: 2022-04-30
 ---
 
-# Adding Search To Your Static Site
+# How To Add Search To Your Static Site
 
 Static websites are popular nowadays. There are many static site generators, but
 not all have search built-in. Recently I've added a static search option to a
 few websites, including the one you're reading. In this article I would like to
 share how I did this.
 
+## Re-search
+
+When searching to find a good library for a static full-text search, I came
+across popular solutions such as [Lunr.js][1], [FlexSearch][2] and [Fuse.js][3].
+To my surprise, these libraries are not very well maintained actively anymore,
+while they all have quite some open issues. To me, this does not relate to the
+popularity of static websites in general.
+
+I've used Fuse.js before to implement a simple but fast search engine (on
+[lejan.com.br][4]), but this was over a year ago, and I'm always looking for
+better options. I've tried them all again, and each still has at least a few
+minor glitches. Another reason is that both [markdown-rambler][5] and this
+website itself use ES Modules and other modern JavaScript features, which
+usually improves developer experience, maintenance and/or performance.
+
 ## MiniSearch
 
-When searching to find a good library for static search, I came across popular
-solutions such as [Lunr.js][1], [FlexSearch][2] and [Fuse.js][3]. To my
-surprise, these libraries are not very well maintained actively anymore, while
-they all have quite some open issues. To me, this does not relate to the
-popularity of static websites in general. I've used Fuse.js before to implement
-a simple but fast search engine (on [lejan.com.br][4]), but this was over a year
-ago, and I'm always looking for better options. I've tried them all again, and
-each still has a few minor glitches. Another reason is that both
-[markdown-rambler][5] and this website itself use ES Modules and other modern
-JavaScript features, which may always be good for developer experience,
-maintenance and/or performance.
-
-Later, I was lucky enough to find [MiniSearch][6] when [searching for "search
+Later, I was lucky enough to find [MiniSearch][6] when [looking for "search
 index"][7] in the npm registry. This package happens to be easy to use, while
-performance and file size seem to be pretty good. To be honest, I didn't do an
-actual file size and performance comparison between the various options, the
+performance and file size feel good. To be honest, I didn't do an actual file
+size and performance comparison between the various options, but this
 [MiniSearch blogpost][8] has a good overview.
 
 The fuzzy search and prefix search are optional, and work very well for the
 websites where I integrated it. This always requires a bit of fine-tuning,
 depending on the size and density of documents. I did not try the
-auto-suggestion feature yet.
+auto-suggestion feature yet. Overall a pleasant experience, much like the
+alternatives. What stood out initially, was simply better search results.
+
+In my experience so far, the contents of Markdown documents can be used just
+fine as input for the index. The minimal syntax of Markdown does not seem to
+negatively impact the index. This makes solutions like MiniSearch great for
+static websites, as they are often powered by Markdown files.
 
 ## Getting Started
 
@@ -50,11 +59,6 @@ Here's a fragment from markdown-rambler, but the concept can be applied in any
 JavaScript build system. The idea is to map existing files or pages to be
 indexed to an object containing the data necessary for both the index and the
 fields to eventually be displayed in the search results.
-
-In my experience so far, the contents of Markdown documents can be used just
-fine as input for the index. The minimal syntax of Markdown does not seem to
-negatively impact the index. This makes a solution like MiniSearch perfect for
-static websites, as they are often powered by Markdown files.
 
 The result (`documents`) can be provided to a `MiniSearch` instance using
 `minisearch.addAll(documents)`, which creates and returns the actual index. The
@@ -78,11 +82,12 @@ const miniSearch = new MiniSearch({
 
 await miniSearch.addAllAsync(documents);
 
-await write('search-index.json', JSON.stringify(miniSearch.toJSON()));
+await fs.writeFile('search-index.json', JSON.stringify(miniSearch.toJSON()));
 ```
 
-This example uses only the `title` and `content` fields of each document to
-index the full-text search.
+This example uses the `title` and `content` fields of each document to index the
+full-text search. The `title` and `pathname` (`storeFields`) will be available
+to render the search results later.
 
 ## Serving The Index
 
@@ -93,8 +98,9 @@ website. This could be the root of the "dist" or "public" folder.
 
 Depending on the requirements and the type of (static) website, the next part
 could be implemented in many ways. Here I'm going to try and keep it very
-concise, and attach an event listener to an existing input field. Here it is an
-existing `<input type="search">` in the DOM:
+concise. Let's add `search.js` to the static site with the following snippet.
+This will attach an event listener to an existing `<input type="search">` in the
+DOM:
 
 <!-- prettier-ignore -->
 ```js
@@ -123,10 +129,10 @@ this website uses for the static search.
 
 ## Searching and Rendering Results
 
-To render search results depends on the type of static website. For the sake of
-completeness, here's a minimal example using vanilla JavaScript. This is an
-extension of the `search` function connected to the `search` method of the
-MiniSearch `index` instance:
+How to render search results depends on the type of static website or which
+framework is being used. For the sake of completeness, here's a minimal example
+using vanilla JavaScript. This extends the `search` function from the previous
+example:
 
 <!-- prettier-ignore -->
 ```js
@@ -153,25 +159,37 @@ const search = query => {
 };
 ```
 
-This code is used on this website and appends a container element to the DOM as
-a sibling of the search component. This way, it can be styled relative to this
-input field.
+This is roughly the code used on this website, and appends a `container` element
+to the DOM as a sibling of the `input` element. This way, the search results can
+be rendered relative to this input field.
 
-The search results are appended the container element as an ordered list.
-Ordered, since MiniSearch provides the results sorted by relevance score.
+The search results (with the `title` and `pathname` fields we stored in the
+index before) are appended the container element as an ordered list. Ordered,
+since MiniSearch provides the results sorted by relevance score.
 
-## Next Steps
+## Final Notes
 
-The search index is a relatively large static asset. Loading this file on page
+### React
+
+If you are using React, you might be interested in [react-minisearch][13],
+providing React integration for MiniSearch.
+
+### Index Size
+
+The search index is a relatively large static asset, as it includes both the
+index and the data to show in the search results. Loading this file on page
 load, as shown above, could degrade the performance of your website. It does not
 block the main render thread as it uses a dynamic import, but for larger
 websites this may impact overall performance. One way to mitigate this is to
 only load the index when the user actually uses the search, for instance on the
-`focus` event of the input field. To get an idea, currently the index of this
-website with its first 11 articles, the size is 113Kb uncompressed, and 20Kb
-gzipped. This is generally not really an issue, but definitely something to keep
-an eye on when a website is large or growing. After the first load, the browser
-will cache the static search index on subsequent page loads.
+`focus` event of the input field. To get an idea of the file size, currently the
+index of this website with its first 11 articles, the size is 113Kb
+uncompressed, and 20Kb gzipped. This is generally not really an issue, but
+definitely something to keep an eye on when a website is large or growing. After
+the first load, the browser will cache the static search index on subsequent
+page loads.
+
+### Multiple Search Indices
 
 Depending of the site contents, another interesting feature might be to create
 multiple indices. This would be straight-forward following the steps in this
@@ -190,3 +208,4 @@ article.
 [10]: #serving-the-index
 [11]: #connecting-the-search-component
 [12]: #searching-and-rendering-results
+[13]: https://github.com/lucaong/react-minisearch
