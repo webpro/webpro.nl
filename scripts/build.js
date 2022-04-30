@@ -13,6 +13,7 @@ const BLOG_DESCRIPTION = 'Ramblings and scraps about frontend topics';
 const BLOG_PATHNAME = '/blog';
 const BLOG_RSS_PATHNAME = BLOG_PATHNAME + '/feed.xml';
 const BLOG_RSS_NAME = BLOG_NAME + ' feed';
+const BLOG_LOGO_WEBP = '/img/logo-blog.webp';
 const LOGO_PNG = '/img/logo-512x512.png';
 const LOGO_SVG = '/img/logo.svg';
 
@@ -101,6 +102,10 @@ const rambler = new MarkdownRambler({
         '/css/search.css',
       ],
       sameAs: [],
+      image: {
+        alt: 'Frontend Ramblings',
+        src: BLOG_LOGO_WEBP,
+      },
       logo: {
         alt: BLOG_NAME,
         src: LOGO_SVG,
