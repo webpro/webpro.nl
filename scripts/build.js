@@ -18,12 +18,13 @@ const LOGO_PNG = '/img/logo-512x512.png';
 const LOGO_SVG = '/img/logo.svg';
 
 const isWatching = process.argv.includes('--watch');
+const isVerbose = process.argv.includes('--verbose');
 
 const rambler = new MarkdownRambler({
   contentDir: 'content',
   outputDir: 'dist',
   watch: isWatching,
-  verbose: isWatching,
+  verbose: isVerbose || isWatching,
   formatMarkdown: true,
   search: {
     filter: type => type === 'article',
