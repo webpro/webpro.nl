@@ -7,15 +7,15 @@ published: 2022-04-30
 Static websites are popular nowadays. There are many static site generators, but
 not all have search built-in. Recently I've added a static search option to a
 few websites, including the one you're reading. In this article I would like to
-share how I did this.
+share how I did this, as it might take less efforts than you think!
 
 ## Re-search
 
 When searching to find a good library for a static full-text search, I came
 across popular solutions such as [Lunr.js][1], [FlexSearch][2] and [Fuse.js][3].
-To my surprise, these libraries are not very well maintained actively anymore,
-while they all have quite some open issues. To me, this does not relate to the
-popularity of static websites in general.
+To my surprise, these libraries are not very well maintained anymore, while they
+all have quite some open issues. To me, this does not relate to the popularity
+of static websites in general.
 
 I've used Fuse.js before to implement a simple but fast search engine (on
 [lejan.com.br][4]), but this was over a year ago, and I'm always looking for

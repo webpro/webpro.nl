@@ -33,7 +33,7 @@
       container.replaceChildren(list);
       input.after(container);
     } else {
-      container.parentNode.removeChild(container);
+      container.parentNode?.removeChild(container);
     }
   };
 
