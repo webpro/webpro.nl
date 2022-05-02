@@ -77,6 +77,25 @@ body > header {
   display: flex;
   justify-content: space-between;
   background-color: var(--bg-color-header);
+  color: var(--white);
+}
+
+a {
+  color: var(--font-color);
+  text-decoration-thickness: from-font;
+  text-underline-position: from-font;
+}
+
+a:hover {
+  text-decoration-thickness: 3px;
+}
+
+body > header a {
+  color: var(--white);
+}
+
+input {
+  color: var(--font-color);
 }
 
 .logo {
@@ -148,16 +167,6 @@ table {
 
 main > p:first-child {
   margin-top: 32px;
-}
-
-a {
-  color: var(--font-color);
-  text-decoration-thickness: from-font;
-  text-underline-position: from-font;
-}
-
-a:hover {
-  text-decoration-thickness: 3px;
 }
 
 h2 {
@@ -256,13 +265,13 @@ main > pre {
 }
 
 @media (min-width: 900px) {
-  h2,
-  h3,
-  h4,
+  main h2,
+  main h3,
+  main h4,
   main > p,
-  section,
-  ul,
-  ol {
+  main section,
+  main ul,
+  main ol {
     max-width: var(--paragraph-width);
     margin-left: var(--spacing-left);
     margin-right: 0;
