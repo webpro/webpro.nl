@@ -20,6 +20,17 @@ const LOGO_SVG = '/img/logo.svg';
 const isWatching = process.argv.includes('--watch');
 const isVerbose = process.argv.includes('--verbose');
 
+const stylesheets = ['/css/fonts.css', '/css/stylesheet.css', '/css/theme-switch.css', '/css/search.css'];
+const blogImage = { alt: 'Frontend Ramblings', src: BLOG_LOGO_WEBP };
+const blogLogo = { alt: BLOG_NAME, src: LOGO_SVG, href: '/blog' };
+
+const articleDefaults = {
+  stylesheets: [...stylesheets, '/css/hljs.github-dark-dimmed.min.css', '/css/terminal.css'],
+  sameAs: [],
+  image: blogImage,
+  logo: blogLogo,
+};
+
 const rambler = new MarkdownRambler({
   contentDir: 'content',
   outputDir: 'dist',
@@ -35,6 +46,8 @@ const rambler = new MarkdownRambler({
     switch (true) {
       case /^articles\//.test(filename):
         return 'article';
+      case /^scraps\//.test(filename):
+        return 'scrap';
       case filename === 'blog.md':
         return 'blog';
       default:
@@ -54,7 +67,7 @@ const rambler = new MarkdownRambler({
   defaults: {
     page: {
       layout,
-      stylesheets: ['/css/fonts.css', '/css/stylesheet.css', '/css/theme-switch.css', '/css/search.css'],
+      stylesheets,
       scripts: ['/js/theme-switch.js', '/js/minisearch.4.0.3.min.js', '/js/search.js'],
       author: {
         name: AUTHOR,
@@ -93,26 +106,8 @@ const rambler = new MarkdownRambler({
         href: '/',
       },
     },
-    article: {
-      stylesheets: [
-        '/css/fonts.css',
-        '/css/stylesheet.css',
-        '/css/theme-switch.css',
-        '/css/hljs.github-dark-dimmed.min.css',
-        '/css/terminal.css',
-        '/css/search.css',
-      ],
-      sameAs: [],
-      image: {
-        alt: 'Frontend Ramblings',
-        src: BLOG_LOGO_WEBP,
-      },
-      logo: {
-        alt: BLOG_NAME,
-        src: LOGO_SVG,
-        href: '/blog',
-      },
-    },
+    article: articleDefaults,
+    scrap: articleDefaults,
   },
 });
 
