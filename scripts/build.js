@@ -20,6 +20,8 @@ const LOGO_SVG = '/img/logo.svg';
 const isWatching = process.argv.includes('--watch');
 const isVerbose = process.argv.includes('--verbose');
 
+const defaultFilter = type => type === 'article' || type === 'scrap';
+
 const stylesheets = ['/css/fonts.css', '/css/stylesheet.css', '/css/theme-switch.css', '/css/search.css'];
 const blogImage = { alt: 'Frontend Ramblings', src: BLOG_LOGO_WEBP };
 const blogLogo = { alt: BLOG_NAME, src: LOGO_SVG, href: '/blog' };
@@ -38,7 +40,7 @@ const rambler = new MarkdownRambler({
   verbose: isVerbose || isWatching,
   formatMarkdown: true,
   search: {
-    filter: type => type === 'article',
+    filter: defaultFilter,
   },
   host: isWatching ? '' : HOST, // Trick to load assets locally in dev mode
   name: NAME,
@@ -62,7 +64,7 @@ const rambler = new MarkdownRambler({
     pathname: BLOG_RSS_PATHNAME,
     title: BLOG_RSS_NAME,
     description: BLOG_DESCRIPTION,
-    filter: type => type === 'article',
+    filter: defaultFilter,
   },
   defaults: {
     page: {
