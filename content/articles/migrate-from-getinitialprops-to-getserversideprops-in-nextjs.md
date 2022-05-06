@@ -3,6 +3,7 @@ published: 2022-03-10
 modified: 2022-03-14
 description:
   Differences between getInitialProps and getServerSideProps in Next.js
+tags: nextjs, getInitialProps, getServerSideProps
 ---
 
 # Migrate from getInitialProps to getServerSideProps in Next.js

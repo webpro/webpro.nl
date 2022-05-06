@@ -1,5 +1,6 @@
 ---
 published: 2022-05-06
+tags: javascript, block
 ---
 
 # The JavaScript block statement

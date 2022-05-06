@@ -64,6 +64,7 @@ const rambler = new MarkdownRambler({
     pathname: BLOG_RSS_PATHNAME,
     title: BLOG_RSS_NAME,
     description: BLOG_DESCRIPTION,
+    tags: ['frontend', 'javascript', 'node.js', 'dotfiles', 'terminal'],
     filter: defaultFilter,
   },
   defaults: {
