@@ -1,7 +1,7 @@
 import { h } from 'hastscript';
 import { f, sortByDate } from '../helpers.js';
 
-/** @type {import("markdown-rambler").DirectiveVisitor} */
+/** @type {import('markdown-rambler').DirectiveVisitor} */
 const addBlogIndex = (node, index, parent, vFile) => {
   const vFiles = vFile.data.vFiles?.article || [];
   const articles = vFiles.map(vFile => vFile.data.meta).filter(meta => !meta.draft);
@@ -15,7 +15,7 @@ const addBlogIndex = (node, index, parent, vFile) => {
   return h('ul', { class: 'index' }, nodes);
 };
 
-/** @type {import("markdown-rambler").Directives} */
+/** @type {import('markdown-rambler').Directives} */
 export const directives = {
   BLOG_INDEX: addBlogIndex,
 };

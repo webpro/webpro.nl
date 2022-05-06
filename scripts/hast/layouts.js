@@ -1,5 +1,9 @@
 import { html } from 'markdown-rambler';
 
+/**
+ * @typedef {import('markdown-rambler').Meta} Meta
+ */
+
 const feed = html`<a href="/blog/feed.xml">
   <svg>
     <title>RSS feed</title>
@@ -19,6 +23,7 @@ const twitter = html`<a href="https://twitter.com/webprolific">
   </svg>
 </a>`;
 
+/** @type {(meta: Meta) => ReturnType<typeof html>} */
 const footer = meta => {
   switch (meta.type) {
     case 'blog':
@@ -31,10 +36,11 @@ const footer = meta => {
           GitHub.
         </p>`;
     default:
-      return '';
+      return html``;
   }
 };
 
+/**  @type {import('markdown-rambler').Meta['layout']} */
 export default (node, meta) => {
   const { logo } = meta;
   return html`

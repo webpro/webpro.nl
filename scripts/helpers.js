@@ -1,3 +1,7 @@
+/**
+ * @typedef {import('markdown-rambler').Meta} Meta
+ */
+
 const months = [
   'January',
   'February',
@@ -20,4 +24,5 @@ const long = value =>
 
 export const f = { short, long };
 
-export const sortByDate = (articles, key) => [...articles].sort((a, b) => +new Date(b[key]) - +new Date(a[key]));
+/** @type {(articles: Meta[], key: string) => Meta[]} */
+export const sortByDate = (articles, key) => [...articles].sort((a, b) => +b[key] - +a[key]);

@@ -1,7 +1,7 @@
 import rehypeHighlight from 'rehype-highlight';
 import { addBootScript, enrichArticleHeading, addSimpleAnalytics, convertSprites } from './plugins.js';
 
-/** @type {import("markdown-rambler").Transformers} */
+/** @type {import('markdown-rambler').Transformers} */
 export default vFile => {
   const { meta } = vFile.data;
   return [

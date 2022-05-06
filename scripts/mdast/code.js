@@ -1,44 +1,49 @@
-import util from 'util';
 import { u } from 'unist-builder';
 
-const debug = util.debuglog('code');
+/**
+ * @typedef {import('mdast-util-to-hast').H} H
+ * @typedef {import('mdast-util-to-hast').Handler} Handler
+ * @typedef {import('mdast').Code} Code
+ */
 
-const t = text => u('text', text);
-const n = () => u('text', '\n');
-const s = () => u('text', ' ');
+const text = text => u('text', text);
+const newline = () => u('text', '\n');
+const space = () => u('text', ' ');
 
+/** @type {(h: H, node: Code, value: string) => ReturnType<H>[]} */
 const colorizePrompts = (h, node, value) => {
-  const lines = value.split('\n');
-  const colorized = lines.map(line => {
-    if (line === '$') {
-      return [h(node, 'span', { class: 'prompt' }, [t('$')]), s(), h(node, 'span', { class: 'blink' }, [s()]), n()];
-    }
-    if (line.startsWith('$')) {
-      return [h(node, 'span', { class: 'prompt' }, [t('$')]), t(line.slice(1)), n()];
-    }
-    if (line.startsWith('lars')) {
-      let [user, dir, branch, prompt, ...command] = line.split(' ');
-      let chunks = [
-        h(node, 'span', { class: 'user' }, [t(user)]),
-        s(),
-        h(node, 'span', { class: 'dir' }, [t(dir)]),
-        s(),
-      ];
-      if (branch.length > 1) {
-        chunks = [...chunks, h(node, 'span', { class: 'branch' }, [t(branch)]), s()];
-      } else {
-        command = [prompt, ...command];
-        prompt = branch;
+  const span = (className, value) => h(node, 'span', { class: className }, [text(value)]);
+  const prompt = value => span('prompt', value);
+  const blink = () => span('blink', ' ');
+
+  return value
+    .split('\n')
+    .map(line => {
+      if (line === '$') {
+        return [prompt('$'), space(), blink(), newline()];
       }
-      return [...chunks, h(node, 'span', { class: 'prompt' }, [t(prompt)]), s(), t(command.join(' ')), n()];
-    }
-    return [u('text', line), n()];
-  });
-  return colorized.flat();
+      if (line.startsWith('$')) {
+        return [prompt('$'), text(line.slice(1)), newline()];
+      }
+      if (line.startsWith('lars')) {
+        let [user, dir, branch, sign, ...command] = line.split(' ');
+        let chunks = [span('user', user), space(), span('dir', dir), space()];
+        if (branch.length > 1) {
+          chunks = [...chunks, span('branch', branch), space()];
+        } else {
+          command = [sign, ...command];
+          sign = branch;
+        }
+        return [...chunks, prompt(sign), space(), text(command.join(' ')), newline()];
+      }
+      return [u('text', line), newline()];
+    })
+    .flat();
 };
 
+/** @type {(h: H, node: Code) => ReturnType<H>} */
 const buildShell = (h, node) => {
-  const meta = node.meta ? Object.fromEntries(node.meta.split(';').map(i => i.split('='))) : {};
+  const meta = node.meta ? Object.fromEntries(node.meta.split(';').map(value => value.split('='))) : {};
   const value = node.value ? node.value : '';
 
   const title = meta.title ? h(node, 'div', { class: 'title' }, [u('text', meta.title)]) : null;
@@ -56,35 +61,22 @@ const buildShell = (h, node) => {
   return h(node.position, 'section', { class: 'terminal' }, [header, pre]);
 };
 
-/**
- * @type {Handler}
- * @param {hastscript} h
- * @param {Code} node
- */
-export function code(h, node) {
-  debug(node);
-
+/** @type {Handler} */
+export const code = (h, node) => {
   const value = node.value ? node.value + '\n' : '';
+  const language = node.lang;
 
-  const lang = node.lang;
-
-  if (lang === 'shell') {
+  if (language === 'shell') {
     return buildShell(h, node);
   }
 
-  if (!lang || /te?xt/.test(lang)) {
+  if (!language || /te?xt/.test(language)) {
     const code = h(node, 'code', { className: ['no-highlight'] }, [u('text', value)]);
     return h(node.position, 'pre', [code]);
   }
 
-  debug(node.meta && node.meta.split(';').map(i => i.split('=')));
-
-  const meta = node.meta ? Object.fromEntries(node.meta.split(';').map(i => i.split('='))) : {};
-
-  debug(meta);
-
   const props = {
-    class: `language-${lang}`,
+    class: `language-${language}`,
   };
 
   const code = h(node, 'code', props, [u('text', value)]);
@@ -94,4 +86,4 @@ export function code(h, node) {
   }
 
   return h(node.position, 'pre', [code]);
-}
+};

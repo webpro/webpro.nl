@@ -24,7 +24,12 @@ export const enrichArticleHeading = meta => tree => {
       published,
     } = meta;
     findElement(tree, 'h1', (node, index, parent) => {
-      const sub = h('div', { class: 'meta' }, ['Published by ', h('a', { href }, name), ' on ', f.long(published)]);
+      const sub = h('div', { class: 'meta' }, [
+        'Published by ',
+        h('a', { href }, name),
+        ' on ',
+        published ? f.long(published) : '',
+      ]);
       const header = h('header', node, sub);
       const content = parent.children.slice(index + 1);
       parent.children = [header, ...content];
