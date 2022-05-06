@@ -1,7 +1,7 @@
 import { MarkdownRambler } from 'markdown-rambler';
+import { code } from './mdast/code.js';
 import { directives } from './hast/directives.js';
-import transformers from './hast/transformers.js';
-import converters from './mdast/convert.js';
+import rehypePlugins from './hast/transformers.js';
 import layout from './hast/layouts.js';
 
 const NAME = 'WebPro';
@@ -42,8 +42,8 @@ const rambler = new MarkdownRambler({
     }
   },
   linkFiles: true,
-  converters,
-  transformers,
+  remarkRehypeOptions: { handlers: { code } },
+  rehypePlugins,
   directives,
   feed: {
     pathname: BLOG_RSS_PATHNAME,
