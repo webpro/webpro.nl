@@ -18,7 +18,7 @@ import { f } from '../helpers.js';
  * @type {Plugin<Meta>}
  */
 export const enrichArticleHeading = meta => tree => {
-  if (meta.type === 'article') {
+  if (meta.type === 'article' || meta.type === 'scrap') {
     const {
       author: { name, href },
       published,

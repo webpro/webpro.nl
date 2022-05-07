@@ -6,7 +6,7 @@ export default vFile => {
   const { meta } = vFile.data;
   return [
     [addBootScript],
-    [enrichArticleHeading, meta?.type === 'article' ? meta : false],
+    [enrichArticleHeading, meta],
     [convertSprites],
     [rehypeHighlight, { subset: ['js', 'typescript', 'json', 'css', 'html', 'yaml', 'bash'], plainText: ['txt'] }],
     [addSimpleAnalytics],
