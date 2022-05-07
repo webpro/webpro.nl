@@ -260,6 +260,7 @@ p,
 ul,
 ol,
 section,
+table,
 main > pre {
   margin-left: 8px;
   margin-right: 8px;
@@ -271,6 +272,7 @@ main > pre {
   main h4,
   main > p,
   main section,
+  main table,
   main ul,
   main ol {
     max-width: var(--paragraph-width);
