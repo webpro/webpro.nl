@@ -4,22 +4,28 @@ import { html } from 'markdown-rambler';
  * @typedef {import('markdown-rambler').Meta} Meta
  */
 
-const feed = html`<a href="/blog/feed.xml">
+const feed = html`<a href="/blog/feed.xml" title="Frontend Ramblings RSS feed">
   <svg>
-    <title>RSS feed</title>
+    <title>Frontend Ramblings RSS feed</title>
     <use href="/img/sprites.svg#rss"></use>
   </svg>
 </a>`;
-const github = html`<a href="https://github.com/webpro/webpro.nl">
+const github = html`<a href="https://github.com/webpro/webpro.nl" title="The content of this website on GitHub">
   <svg>
-    <title>GitHub</title>
+    <title>The content of this website on GitHub</title>
     <use href="/img/sprites.svg#github"></use>
   </svg>
 </a>`;
-const twitter = html`<a href="https://twitter.com/webprolific">
+const twitter = html`<a href="https://twitter.com/webprolific" title="Me on Twitter">
   <svg>
-    <title>Twitter</title>
+    <title>Me on Twitter</title>
     <use href="/img/sprites.svg#twitter"></use>
+  </svg>
+</a>`;
+const share = url => html`<a href="https://twitter.com/intent/tweet?url=${url}" title="Share this article on Twitter">
+  <svg>
+    <title>Share this article on Twitter</title>
+    <use href="/img/sprites.svg#share"></use>
   </svg>
 </a>`;
 
@@ -29,7 +35,8 @@ const footer = meta => {
     case 'blog':
       return html`<p class="icons">${feed}${github}${twitter}</p>`;
     case 'article':
-      return html`<p class="icons">${feed}${github}${twitter}</p>
+    case 'scrap':
+      return html`<p class="icons">${feed}${github}${twitter}${share(meta.host + meta.pathname)}</p>
         <p>Do you have a question or did you find an issue in this article?</p>
         <p>
           <a href="https://github.com/webpro/webpro.nl">Please let me know!</a> This website is fully open-sourced at
