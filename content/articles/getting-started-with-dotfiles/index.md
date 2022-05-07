@@ -17,9 +17,9 @@ along the road. This is truly more about the journey than the destination!
 ## Introduction
 
 Dotfiles are used to customize your system. The "dotfiles" name is derived from
-the configuration files in Unix-like systems that start with a dot
-(e.g. `.bash_profile` and `.gitconfig`). For normal users, this indicates these
-are not regular documents, and by default are hidden in directory listings. For
+the configuration files in Unix-like systems that start with a dot (e.g.
+`.bash_profile` and `.gitconfig`). For normal users, this indicates these are
+not regular documents, and by default are hidden in directory listings. For
 power users, however, they are a core tool belt.
 
 ![dotfiles][1]
@@ -36,7 +36,7 @@ to look for when creating your own.
 
 Note that this writeup has a focus on Linux and macOS based systems.
 
-## Automate All The Things!
+## Automate All The Things!
 
 Ideally, you store your personal files not on your machine only. If you have
 your files on either local drives (e.g. USB drive, NAS) or in the cloud
@@ -108,10 +108,10 @@ We'll be taking a look at the following example dotfiles:
 
 ### Startup Script
 
-In a Bash shell, this file (or `.profile`) in your home directory is loaded
-first. What to put in the `.bash_profile` and other dotfiles is truly worth a
+In a Bash shell, this file (or `.profile`) in your home directory is loaded
+first. What to put in the `.bash_profile` and other dotfiles is truly worth a
 book alone, but we're going to give it a quick shot here anyway. I like to use a
-small `.bash_profile` that links to several others that have a dedicated
+small `.bash_profile` that links to several others that have a dedicated
 purpose, i.e. one file for the aliases, one for the functions, etc. Here's an
 example of how you can include (or actually "source" or execute) all files in a
 folder:
@@ -123,10 +123,9 @@ do
 done
 ```
 
-Full examples include [my own `.bash_profile`][3],
-[Mathias's `.bash_profile`][4]. Some people like to put most of their startup
-configuration in one file. This is perfectly fine, as long as you keep it sane
-and dense.
+Full examples include [my own `.bash_profile`][3], [Mathias's
+`.bash_profile`][4]. Some people like to put most of their startup configuration
+in one file. This is perfectly fine, as long as you keep it sane and dense.
 
 If you want to dive into startup scripts a bit more, Peter Ward explains about
 [Shell startup scripts][5], and here's another about [startup script loading
@@ -134,7 +133,7 @@ order][6].
 
 ### Keybindings
 
-The behavior of line input editing and keybindings is stored in a `.inputrc`
+The behavior of line input editing and keybindings is stored in a `.inputrc`
 file. Here's an excerpt of my own:
 
 ```shell title=.inputrc
@@ -149,7 +148,7 @@ set show-all-if-ambiguous on
 "\e[B": history-search-forward
 ```
 
-Full example: [my .inputrc][7].
+Full example: [my .inputrc][7].
 
 ### Aliases
 
@@ -167,7 +166,7 @@ alias ....="cd ../../.."
 alias cleanupds="find . -type f -name '*.DS_Store' -ls -delete"
 ```
 
-Full examples: [my .alias][8], [Mathias's .aliases][9]
+Full examples: [my .alias][8], [Mathias's .aliases][9]
 
 ### Functions
 
@@ -186,7 +185,7 @@ function manpdf() {
 }
 ```
 
-Full example: [Mathias's .functions][10].
+Full example: [Mathias's .functions][10].
 
 ### Environment variables
 
@@ -205,7 +204,7 @@ shopt -s nocaseglob
 shopt -s cdspell
 ```
 
-Full example: [my .env][11] [Mathias's .exports][12].
+Full example: [my .env][11] [Mathias's .exports][12].
 
 ### Prompt
 
@@ -218,7 +217,7 @@ on the eyes. Here's my prompt:
 lars ~/Projects/blog main ❯
 ```
 
-Examples: [my .prompt][13], [Color Bash Prompt][14], [Sexy Bash Prompt][15],
+Examples: [my .prompt][13], [Color Bash Prompt][14], [Sexy Bash Prompt][15],
 [How to Customize your Bash Prompt][16]
 
 ### Other Dotfiles
@@ -231,12 +230,12 @@ Many packages store their settings in a dotfile, e.g.:
 Because these are basically simple text files, they are perfect to store in your
 dotfiles repo!
 
-### Installing the Dotfiles
+### Installing the Dotfiles
 
 To "activate" the dotfiles, you can either copy or symlink them from the home
 directory. Otherwise they're just sitting there being useless.
 
-Beware you probably already have a `.bash_profile` and `.gitconfig` in the user
+Beware you probably already have a `.bash_profile` and `.gitconfig` in the user
 folder. So please be careful here. With great power comes great responsibility.
 Probably it's best to backup important files before you're moving them around.
 
@@ -272,7 +271,7 @@ $
 Then do the symlinking (either manually or with a script), et voilà! Now I would
 like to show you some more neat things you can do in your dotfiles.
 
-## Homebrew and Homebrew Cask
+## Homebrew and Homebrew Cask
 
 Let's install my favourite combo for package management in macOS, [Homebrew][18]
 and [Homebrew Cask][19]:
@@ -341,7 +340,7 @@ $ source macosdefaults.sh
 
 This line is a perfect candidate to include in your installation script.
 
-## Updating Your System
+## Updating Your System
 
 It's fine to run the installer script again, e.g. to fix some symlinks or update
 packages (it should be idempotent). But it's better and faster to run a couple

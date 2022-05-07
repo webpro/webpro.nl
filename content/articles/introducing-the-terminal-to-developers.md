@@ -3,14 +3,14 @@ published: 2017-09-18
 modified: 2022-02-26
 tags: terminal
 description:
-  The article I wish I had read when I had to open the terminal for the
-  first time.
+  The article I wish I had read when I had to open the terminal for the first
+  time.
 ---
 
 # Introducing the terminal to developers
 
-> The article I wish I had read when I had to open the terminal for the
-> first time.
+> The article I wish I had read when I had to open the terminal for the first
+> time.
 
 ## Introduction
 
@@ -52,7 +52,7 @@ Debian and Ubuntu. On Windows 10, you can [install a Linux environment][1].
 For the rest of this article, I'll be assuming you are using Bash or a similar
 shell.
 
-## Opening a terminal
+## Opening a terminal
 
 - On macOS, you can use Spotlight (`⌘+Space`), and type "Terminal" to find and
   open it.
@@ -73,7 +73,7 @@ lars ~ $
 If your terminal has a white background color, but you prefer to have a black
 background color instead: this article contains instructions on how to do this.
 
-## Finding your way
+## Finding your way
 
 In an application like Finder or File Explorer you can navigate your files and
 folders. In the terminal we can do the same with commands like `ls` and `cd` (to
@@ -235,7 +235,7 @@ $
 
 For more information on working with Git, here are a two excellent tutorials:
 
-- [git  -  the simple guide][9]
+- [git - the simple guide][9]
 - [An Intro to Git and GitHub for Beginners (Tutorial)][10]
 
 ## npm
@@ -312,7 +312,7 @@ line.
 If you want to learn more, I can recommend this article about npm dependencies
 and scripts: [Using npm dependencies in npm scripts][11].
 
-## Tips & tricks
+## Tips & tricks
 
 In this section I'd like to present a few tips and tricks to make your life in
 the terminal easier right away.
@@ -330,7 +330,7 @@ Make sure to press the "Default" button to store this for later sessions as
 well. In the same screen, you can go into the "Background Color" modal and set
 opacity to 100% to remove the transparency.
 
-### Shortcuts & commands you should know
+### Shortcuts & commands you should know
 
 The `^` (caret) below represents the "Control" key:
 
