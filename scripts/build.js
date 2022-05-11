@@ -2,7 +2,7 @@ import { MarkdownRambler } from 'markdown-rambler';
 import { code } from './mdast/code.js';
 import { directives } from './hast/directives.js';
 import rehypePlugins from './hast/transformers.js';
-import layout from './hast/layouts.js';
+import layout from './hast/layout/index.js';
 
 const NAME = 'WebPro';
 const HOST = 'https://www.webpro.nl';
