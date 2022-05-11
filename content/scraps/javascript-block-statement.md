@@ -1,5 +1,6 @@
 ---
 published: 2022-05-06
+modified: 2022-05-11
 tags: javascript, block
 ---
 
@@ -45,5 +46,8 @@ function test() {
   }
 }
 ```
+
+A pair of curly braces are the delimiters of the blocks, and define a new scope
+for `let`, `const` and `function` declarations.
 
 Neat!
