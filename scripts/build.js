@@ -31,6 +31,9 @@ const articleDefaults = {
   sameAs: [],
   image: blogImage,
   logo: blogLogo,
+  structuredContent: {
+    '@type': 'Article',
+  },
 };
 
 const rambler = new MarkdownRambler({
