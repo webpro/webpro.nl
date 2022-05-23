@@ -19,9 +19,9 @@
   "type": "module",
   "scripts": {
     "prebuild": "rm -rf dist",
-    "build": "node scripts/build.js",
-    "watch": "node scripts/build.js --watch",
-    "lint": "eslint scripts public/js",
+    "build": "node build",
+    "watch": "node build --watch",
+    "lint": "eslint build public/js",
     "lint:fix": "npm run lint -- --fix"
   },
   "devDependencies": {
