@@ -1,0 +1,19 @@
+.grid {
+  display: grid;
+  grid-template-rows: auto min-content 16px;
+  width: 200px;
+  height: 200px;
+}
+
+.back {
+  grid-area: 1 / 1 / 4 / 2;
+  background: #8ddb8c;
+}
+
+.front {
+  grid-area: 2 / 1 / 3 / 2;
+  margin: 0 -20px;
+  padding: 10px;
+  text-align: center;
+  background: #6cb6ff;
+}
