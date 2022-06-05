@@ -1,6 +1,6 @@
 :root {
   font-size: 62.5%;
-  color-scheme: light dark;
+  color-scheme: dark light;
   --paragraph-width: 700px;
   --spacing-left: calc(50% - 350px);
   --white: rgb(250, 250, 250);

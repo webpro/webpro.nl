@@ -11,10 +11,13 @@ This guide shows how to build your own accessible switch to toggle dark and
 light mode on your own website, and offer your visitors their preference. This
 website has a switch at the top right corner, which serves as an example.
 
-A great solution applies the default theme based on the setting of the operating
-system (OS) setting automatically, using only CSS. And it should progressively
-enhance by showing a switch to override this default theme which is stored for
-subsequent visits.
+A great solution ticks the following boxes:
+
+- Using only CSS, apply the default theme based on the setting of the operating
+  system (OS) setting automatically.
+- When JavaScript is enabled, progressively enhances by showing a switch to
+  override this default theme, which will be stored for subsequent visits.
+- Never shows flashing styles from one theme to another during page load.
 
 ## Let's Get Going
 
