@@ -1,6 +1,6 @@
 ---
 published: 2022-05-06
-modified: 2022-05-11
+modified: 2022-06-21
 tags: javascript, block
 ---
 
@@ -11,6 +11,7 @@ feature that I rarely see used in the wild.
 
 - Want to organize your code a little bit better?
 - Have a hard time coming up with another name for the same variable?
+- Want to run the same code multiple times in the console or a REPL?
 
 Use blocks! Let's take a bogus unit test:
 
