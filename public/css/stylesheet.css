@@ -332,6 +332,7 @@ footer .icons a svg {
 }
 
 /* TODO: Better fix to toggle colors  */
-.light img[alt='clean-code'] {
+.light img[alt='clean-code'],
+.light img[alt='value-of-abstractions'] {
   filter: invert(68%);
 }
