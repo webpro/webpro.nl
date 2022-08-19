@@ -2,6 +2,8 @@
 published: 2022-05-06
 modified: 2022-06-21
 tags: javascript, block
+description:
+  Use blocks to define new scopes for let, const and function declarations
 ---
 
 # The JavaScript block statement

@@ -1,7 +1,7 @@
 ---
 published: 2022-03-17
 modified: 2022-03-18
-description: Using Nx Affected in Azure Pipelines
+description: An example integration of using Nx Affected in Azure Pipelines
 image: ./azure-nx.webp
 tags: nx, affected, azure, pipelines
 ---
