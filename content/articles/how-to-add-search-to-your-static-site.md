@@ -2,7 +2,7 @@
 published: 2022-04-30
 ---
 
-# How To Add Search To Your Static Site
+# How to add search to your static site
 
 Static websites are popular nowadays. There are many static site generators, but
 not all have search built-in. Recently I've added a static search option to a
@@ -43,7 +43,7 @@ fine as input for the index. The minimal syntax of Markdown does not seem to
 negatively impact the index. This makes solutions like MiniSearch great for
 static websites, as they are often powered by Markdown files.
 
-## Getting Started
+## Getting started
 
 So, how to integrate MiniSearch in your static website? There are roughly four
 steps here:
@@ -53,7 +53,7 @@ steps here:
 3.  [Connect the index][11] with a DOM element (such as an input field)
 4.  [Search and render results][12]
 
-## Building The Index
+## Building the index
 
 Here's a fragment from markdown-rambler, but the concept can be applied in any
 JavaScript build system. The idea is to map existing files or pages to be
@@ -89,12 +89,12 @@ This example uses the `title` and `content` fields of each document to index the
 full-text search. The `title` and `pathname` (`storeFields`) will be available
 to render the search results later.
 
-## Serving The Index
+## Serving the index
 
 Next step is to make sure the index is served with the rest of the static
 website. This could be the root of the "dist" or "public" folder.
 
-## Connecting the Search Component
+## Connecting the search component
 
 Depending on the requirements and the type of (static) website, the next part
 could be implemented in many ways. Here I'm going to try and keep it very
@@ -127,7 +127,7 @@ again when loading the index. For brevity, this example logs the search results
 in the browser console. Combined with very little styling, this is everything
 this website uses for the static search.
 
-## Searching and Rendering Results
+## Searching and rendering results
 
 How to render search results depends on the type of static website or which
 framework is being used. For the sake of completeness, here's a minimal example
@@ -167,14 +167,14 @@ The search results (with the `title` and `pathname` fields we stored in the
 index before) are appended the container element as an ordered list. Ordered,
 since MiniSearch provides the results sorted by relevance score.
 
-## Final Notes
+## Final notes
 
 ### React
 
 If you are using React, you might be interested in [react-minisearch][13],
 providing React integration for MiniSearch.
 
-### Index Size
+### Index size
 
 The search index is a relatively large static asset, as it includes both the
 index and the data to show in the search results. Loading this file on page
@@ -189,7 +189,7 @@ definitely something to keep an eye on when a website is large or growing. After
 the first load, the browser will cache the static search index on subsequent
 page loads.
 
-### Multiple Search Indices
+### Multiple search indices
 
 Depending of the site contents, another interesting feature might be to create
 multiple indices. This would be straight-forward following the steps in this

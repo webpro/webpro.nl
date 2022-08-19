@@ -40,7 +40,7 @@ term, you still have to explain what it means! Let alone "dyads" and "triads"...
 Anyway, it is always a good programming advice to minimize the number of
 arguments. Zero or one argument is easiest to understand and maintain.
 
-## Have No Side Effects
+## Have no side effects
 
 Very valuable advice. Simple to understand, and shouldn't be too hard to
 implement. Probably sometimes side effects happen when writing a method at
@@ -75,7 +75,7 @@ practice. Still, I think it's fine to explain the "why" of code where code alone
 simply is not expressive enough to easily understand what's going on. But the
 takeaway here to me is that "the only truth is in the code".
 
-## The Purpose of Formatting
+## The purpose of formatting
 
 > Your style and discipline survives, even though your code does not.
 
@@ -84,7 +84,7 @@ this. But ultimately, I think this is true. Maintainability and extensibility
 are always top priority, more so than some implementation details. Still,
 conventions alone will take you nowhere.
 
-## Don't Pass Null
+## Don't pass null
 
 Simply do not return or pass `null`. It's better to use "empty" versions of the
 type that's being expected, e.g. an empty array, string or object. This way, the
@@ -92,21 +92,21 @@ receiving code doesn't have to check the type. Unless you are writing some
 public, robust API. But internally, it saves a lot of exception handling to
 minimize such usage of `null` values.
 
-## Learning Tests Are Better Than Free
+## Learning tests are better than free
 
 Writing (unit) tests are an absolutely smart way to learn and exercise a (new)
 interface. It gives a feel about something you need to learn anyway. Tests from
 both simple and exercising production code can serve as documentation along the
 way.
 
-## Tests Enable the -ilities
+## Tests enable the -ilities
 
 > It's the tests that keep our code flexible, maintainable, and reusable \[...]
 > Because tests enable change.
 
 Think about that for a while, and probably you will appreciate tests even more.
 
-## Getting Clean via Emergent Design
+## Getting clean via emergent design
 
 Any design is considered "simple" if it:
 

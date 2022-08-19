@@ -6,7 +6,7 @@ description: You're the king of your castle!
 image: ./dotfiles.webp
 ---
 
-# Getting Started With Dotfiles
+# Getting started with dotfiles
 
 > You're the king of your castle!
 
@@ -36,7 +36,7 @@ to look for when creating your own.
 
 Note that this writeup has a focus on Linux and macOS based systems.
 
-## Automate All The Things!
+## Automate all the things!
 
 Ideally, you store your personal files not on your machine only. If you have
 your files on either local drives (e.g. USB drive, NAS) or in the cloud
@@ -59,14 +59,14 @@ be up and running in a matter of minutes (not hours!).
 
 Without breaking a sweat (apart from the $$$).
 
-## Getting Started
+## Getting started
 
 It's pretty simple to get started. You need to organize your dotfiles in some
 directory. You could do this practically anywhere, like a USB drive or
 something. Since version control is great, a hosted git repository like GitHub
 is a great option to store your dotfiles.
 
-## An Example Dotfiles Repository
+## An example dotfiles repository
 
 For this example, I'm just going to use a subset of [my own dotfiles repo][2].
 
@@ -93,7 +93,7 @@ walk-through below.
 └── .prompt
 ```
 
-### The Dotfiles
+### The dotfiles
 
 We'll be taking a look at the following example dotfiles:
 
@@ -106,7 +106,7 @@ We'll be taking a look at the following example dotfiles:
 .prompt
 ```
 
-### Startup Script
+### Startup script
 
 In a Bash shell, this file (or `.profile`) in your home directory is loaded
 first. What to put in the `.bash_profile` and other dotfiles is truly worth a
@@ -220,7 +220,7 @@ lars ~/Projects/blog main ❯
 Examples: [my .prompt][13], [Color Bash Prompt][14], [Sexy Bash Prompt][15],
 [How to Customize your Bash Prompt][16]
 
-### Other Dotfiles
+### Other dotfiles
 
 Many packages store their settings in a dotfile, e.g.:
 
@@ -230,7 +230,7 @@ Many packages store their settings in a dotfile, e.g.:
 Because these are basically simple text files, they are perfect to store in your
 dotfiles repo!
 
-### Installing the Dotfiles
+### Installing the dotfiles
 
 To "activate" the dotfiles, you can either copy or symlink them from the home
 directory. Otherwise they're just sitting there being useless.
@@ -251,7 +251,7 @@ ln -sv "~/.dotfiles/git/.gitconfig" ~
 
 We already have the core of a dotfiles setup.
 
-### Installation Script
+### Installation script
 
 You may want to have an installation script to automate symlinking the dotfiles
 in the repo to your home directory. But there's more we can put in a script that
@@ -340,7 +340,7 @@ $ source macosdefaults.sh
 
 This line is a perfect candidate to include in your installation script.
 
-## Updating Your System
+## Updating your system
 
 It's fine to run the installer script again, e.g. to fix some symlinks or update
 packages (it should be idempotent). But it's better and faster to run a couple

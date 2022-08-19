@@ -4,7 +4,7 @@ modified: 2022-03-17
 description: Guide to build a great theme toggle switch
 ---
 
-# How To Build A Great Theme Toggle Switch
+# How to build a great theme toggle switch
 
 Today, "dark mode" is everywhere. Personally I love to use it wherever I can.
 This guide shows how to build your own accessible switch to toggle dark and
@@ -19,7 +19,7 @@ A great solution ticks the following boxes:
   override this default theme, which will be stored for subsequent visits.
 - Never shows flashing styles from one theme to another during page load.
 
-## Let's Get Going
+## Let's get going
 
 So that's what we're after. Our solution depends on the `prefers-color-scheme`
 media query, reflecting the OS setting. Perhaps 10 steps sounds like a lot of
@@ -39,7 +39,7 @@ this page and find how to put it all together.
 9.  Extra: Swapping Stylesheets
 10. Putting It All Together
 
-## The Foundation
+## The foundation
 
 The stylesheet should contain the theme-related variables and the media query to
 override them for the other theme. This way, the stylesheet automatically
@@ -71,7 +71,7 @@ In macOS, this can be found in "System Preferences" and then "General":
 
 ![macOS System Preferences][1]
 
-## Prepare The Switch
+## Prepare the switch
 
 We are going to need a switch for the user to override the default theme. First,
 we need two classes, matching our themes (`.dark` and `.light`):
@@ -107,7 +107,7 @@ website. To my knowledge, it is currently not possible to define these variables
 only once (e.g. by combining the media query with the `html.light` selector in
 CSS).
 
-## Add The Switch
+## Add the switch
 
 The UI element to switch the theme could be as simple or as fancy as you please.
 Let's take this website's switch as an example:
@@ -123,7 +123,7 @@ free to borrow the markup and styles from this website's switch (a slight
 variation of what's in this article), or find your own. There's plenty of great
 looking switches out there.
 
-## Activate The Switch
+## Activate the switch
 
 When the user switches the toggle, the theme should follow suit. Let's make this
 happen by adding an event listener to our input element:
@@ -146,7 +146,7 @@ uses the `<input>` element. This will set the values of the corresponding CSS
 variables, effectively applying the theme. Now we have a functional theme
 switch! Yet there's a few more things we can do to make it even better.
 
-## Hide The Switch
+## Hide the switch
 
 Without JavaScript, the switch can't do anything. So let's hide the switch, and
 only show it when JavaScript is enabled:
@@ -167,7 +167,7 @@ We can inform CSS that JavaScript is enabled with only one line of JavaScript:
 document.documentElement.classList.add('js');
 ```
 
-## Remember The Switch
+## Remember the switch
 
 Using the switch, visitors can override the default theme. To also remember this
 setting for returning visitors, we can use JavaScript and `localStorage`. Let's
@@ -193,7 +193,7 @@ containing the theme variables. This will make sure we will not see a flash of
 styling changes when the theme in `localStorage` does not match the user's OS
 theme setting.
 
-## Check The Switch
+## Check the switch
 
 Now, we have a remaining issue. Since the `<input>` is initially unchecked, it
 may initially not match the OS setting. So we need to check the checkbox to keep
@@ -210,7 +210,7 @@ if (prefersLight.matches || classList.contains('light')) {
 This script is ideally executed before showing the switch, so before adding the
 `js` class to the `<html>` element.
 
-## Sync The Switch
+## Sync the switch
 
 A fancy feature is to also sync the switch when the OS setting is changed. We
 can listen to changes to the media query, and switch the toggle, unless the
@@ -229,7 +229,7 @@ preferDark.addEventListener('change', event => {
 You can see this in action by changing the OS setting, and find the theme and
 the switch have been toggled accordingly.
 
-## Extra: Swapping Stylesheets
+## Extra: swapping stylesheets
 
 In addition to applying theme styles based on media queries or classes, we can
 also swap entire stylesheets to match the theme. This website swaps the
@@ -250,7 +250,7 @@ toggle.addEventListener('click', () => {
 });
 ```
 
-## Putting It All Together
+## Putting it all together
 
 Let's put all the bits and pieces together.
 
