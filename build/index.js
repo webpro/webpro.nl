@@ -74,7 +74,7 @@ const rambler = new MarkdownRambler({
     page: {
       layout,
       stylesheets,
-      scripts: ['/js/theme-switch.js', '/js/minisearch.4.0.3.min.js', '/js/search.js'],
+      scripts: ['/js/theme-switch.js', '/js/minisearch-5.0.0.min.js', '/js/search.js'],
       author: {
         name: AUTHOR,
         href: AUTHOR_WEBSITE,
