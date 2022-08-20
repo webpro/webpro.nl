@@ -3,6 +3,8 @@ published: 2022-08-19
 description:
   The more expensive it is to refactor or replace a component in the system, the
   more value it has to design an interface to abstract the implementation away.
+image: ./abstractions.webp
+tags: value, abstraction, interface, refactoring, system, design, implementation
 ---
 
 # The value of abstractions
@@ -78,7 +80,7 @@ Here are some other articles about related programming principles:
 - [Separation of concerns][7]
 - [The True Meaning of Technical Debt][8]
 
-[1]: ./the-value-of-abstractions.svg
+[1]: ./abstractions.svg
 [2]:
   https://github.com/webpro/programming-principles#interface-segregation-principle
 [3]: https://eslint.org/docs/latest/rules/no-restricted-imports
