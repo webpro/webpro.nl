@@ -23,24 +23,24 @@ How can I help you?
 
 :::div{.home-links}
 
-- [![LinkedIn][2] linkedin.com/in/larskappert][1]
-- [![PDF][4] LarsKappert-CV.pdf][3]
-- [![Twitter][6] @webprolific][5]
-- [![GitHub][8] github.com/webpro][7]
-- [![Blog][10] Frontend Ramblings (Blog)][9]
+- [![Blog][2] The Frontend Ramblings Blog][1]
+- [![Twitter][4] @webprolific][3]
+- [![GitHub][6] github.com/webpro][5]
+- [![LinkedIn][8] linkedin.com/in/larskappert][7]
+- [![PDF][10] LarsKappert-CV.pdf][9]
 - [![Email][12] lars@webpro.nl][11]
 
 :::
 
-[1]: https://www.linkedin.com/in/larskappert/ 'LinkedIn'
-[2]: /img/sprites.svg#linkedin
-[3]: /LarsKappert-CV.pdf 'CV Lars Kappert'
-[4]: /img/sprites.svg#pdf
-[5]: https://twitter.com/webprolific 'Twitter'
-[6]: /img/sprites.svg#twitter
-[7]: https://github.com/webpro 'GitHub'
-[8]: /img/sprites.svg#github
-[9]: ./blog.md 'Blog'
-[10]: /img/sprites.svg#blog
+[1]: ./blog.md 'Blog'
+[2]: /img/sprites.svg#blog
+[3]: https://twitter.com/webprolific 'Twitter'
+[4]: /img/sprites.svg#twitter
+[5]: https://github.com/webpro 'GitHub'
+[6]: /img/sprites.svg#github
+[7]: https://www.linkedin.com/in/larskappert/ 'LinkedIn'
+[8]: /img/sprites.svg#linkedin
+[9]: /LarsKappert-CV.pdf 'CV Lars Kappert'
+[10]: /img/sprites.svg#pdf
 [11]: mailto:%6Cars@w%65bpro.nl 'Email'
 [12]: /img/sprites.svg#email
