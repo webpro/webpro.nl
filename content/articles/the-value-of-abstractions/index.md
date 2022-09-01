@@ -62,7 +62,7 @@ Even with great interfaces and abstractions, other developers may be unaware of
 them, or simply decide not to use them. Code linters can be very effective here.
 
 For frontend projects, the [no-restricted-imports][3] ESLint rule and the
-`@nrwl/nx/enforce-module-boundaries` rule to [impose constraints in Nx
+`@nrwl/nx/enforce-module-boundaries` rule to [enforce boundaries in Nx
 projects][4] prevent the direct import of modules or dependencies that have a
 different interface. When configured properly, this works pretty effective.
 
@@ -84,7 +84,7 @@ Here are some other articles about related programming principles:
 [2]:
   https://github.com/webpro/programming-principles#interface-segregation-principle
 [3]: https://eslint.org/docs/latest/rules/no-restricted-imports
-[4]: https://nx.dev/structure/monorepo-tags
+[4]: https://nx.dev/core-features/enforce-project-boundaries
 [5]: https://en.wikipedia.org/wiki/SOLID
 [6]: https://en.wikipedia.org/wiki/Leaky_abstraction
 [7]: https://en.wikipedia.org/wiki/Separation_of_concerns
