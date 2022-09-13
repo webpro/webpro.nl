@@ -68,10 +68,6 @@ body {
   line-height: 32px;
 }
 
-img {
-  max-width: 100%;
-}
-
 body > header {
   padding: 16px;
   display: flex;
@@ -180,6 +176,33 @@ h3 {
   font-size: 28px;
 }
 
+img {
+  max-width: 100%;
+}
+
+figure {
+  margin-top: 0;
+  text-align: center;
+}
+
+figure img {
+  aspect-ratio: 2 / 1;
+}
+
+figcaption {
+  font-size: 18px;
+  line-height: 16px;
+  font-style: italic;
+}
+
+figcaption a {
+  text-decoration: none;
+}
+
+figcaption a:hover {
+  text-decoration: underline;
+}
+
 ul,
 ol {
   margin: 0;
@@ -261,6 +284,7 @@ ul,
 ol,
 section,
 table,
+figure,
 main > pre {
   margin-left: 8px;
   margin-right: 8px;
@@ -274,7 +298,8 @@ main > pre {
   main section,
   main table,
   main ul,
-  main ol {
+  main ol,
+  main figure {
     max-width: var(--paragraph-width);
     margin-left: var(--spacing-left);
     margin-right: 0;
