@@ -53,6 +53,8 @@ const rambler = new MarkdownRambler({
         return 'article';
       case /^scraps\//.test(filename):
         return 'scrap';
+      case /^references\//.test(filename):
+        return 'reference';
       case filename === 'blog.md':
         return 'blog';
       default:
@@ -114,6 +116,7 @@ const rambler = new MarkdownRambler({
     },
     article: articleDefaults,
     scrap: articleDefaults,
+    reference: articleDefaults,
   },
 });
 
