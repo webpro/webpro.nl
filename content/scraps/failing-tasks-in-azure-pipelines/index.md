@@ -110,7 +110,7 @@ This will fail the script immediately:
 
 And again, the pipeline fails as intended:
 
-![pipeline failed][2]
+![pipeline failed][4]
 
 But notice the difference in behavior: the "Tagged build for my-container"
 message is not printed here.
