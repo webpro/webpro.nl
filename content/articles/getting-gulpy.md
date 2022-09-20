@@ -342,5 +342,6 @@ in the comments or Twitter: [@webprolific][19].
 [15]: https://www.npmjs.org/package/gulp-browserify
 [16]: https://www.npmjs.org/package/through2
 [17]: https://www.npmjs.org/package/orchestrator
-[18]: https://github.com/substack/blog/blob/master/npm_run.markdown
+[18]:
+  https://web.archive.org/web/20220531064025/https://github.com/substack/blog/blob/master/npm_run.markdown
 [19]: https://twitter.com/webprolific
