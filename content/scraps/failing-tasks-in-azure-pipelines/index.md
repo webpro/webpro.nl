@@ -89,6 +89,18 @@ The pipeline fails:
 
 ![pipeline failed][4]
 
+### Another unpleasant surprise
+
+This is different for Azure CLI tasks. Here, the `failOnStandardError` option
+needs to be set as part of the `inputs`:
+
+```yaml
+- task: AzureCLI@2
+  displayName: Deploy my-container
+  inputs:
+    failOnStandardError: true
+```
+
 ## Halt on script error
 
 ```yaml
@@ -143,7 +155,8 @@ least now we can see something is off.
 ## Azure DevOps documentation links
 
 - [Command Line task][6] covers `failOnStderr`
-- [Task types & usage][7] covers `continueOnError`
+- [Azure CLI task][7] covers `failOnStandardError`
+- [Task types & usage][8] covers `continueOnError`
 
 [1]: https://labs.openai.com/s/f0uRCdh8wVAg5uUpxp8d9VGc
 [2]: ./leaking-azure-pipeline-in-surrealistic-style.webp
@@ -151,5 +164,7 @@ least now we can see something is off.
 [4]: ./pipeline-failed.webp
 [5]: ./pipeline-warning.webp
 [6]:
-  https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/command-line
-[7]: https://docs.microsoft.com/en-us/azure/devops/pipelines/process/tasks
+  https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/command-line
+[7]:
+  https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/deploy/azure-cli
+[8]: https://learn.microsoft.com/en-us/azure/devops/pipelines/process/tasks
