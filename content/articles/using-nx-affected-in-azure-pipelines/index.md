@@ -1,6 +1,6 @@
 ---
 published: 2022-03-17
-modified: 2022-03-18
+modified: 2022-09-24
 description: An example integration of using Nx Affected in Azure Pipelines
 image: ./tree-made-of-azure-pipelines-in-expressionism-style.webp
 tags: nx, affected, azure, pipelines
@@ -39,9 +39,9 @@ The main steps in this guide include:
 
 1.  Find the latest successful build and the corresponding SHA-1.
 2.  Use this SHA-1 as the `--base` for the `nx affected` command.
-3.  Store the affected Nx project names in environment variables.
-4.  Use these environment variables to conditionally execute the corresponding
-    jobs or stages to build and deploy Nx projects.
+3.  Store the affected Nx project names in output variables.
+4.  Use these output variables to conditionally execute the corresponding jobs
+    or stages to build and deploy Nx projects.
 5.  After a successful build, tag the current pipeline run (for step #1 in the
     next run).
 
@@ -72,9 +72,9 @@ Later we will see how to set this tag for a successful build.
 
 ## Write It Down For Later
 
-To set an environment variable for use in a later stage in Azure pipelines, we
-need use the `task.setvariable` logging command (Azure docs: [Set variables in
-scripts][7]). This writes the value `AFFECTED` to the environment variable
+To set an output variable for use in a later stage in Azure pipelines, we need
+use the `task.setvariable` logging command (Azure docs: [Set variables in
+scripts][7]). This writes the value `AFFECTED` to the output variable
 `BUILD_MY_APP`:
 
 ```bash
@@ -83,7 +83,9 @@ echo "##vso[task.setvariable variable=BUILD_MY_APP;isOutput=true]AFFECTED"
 
 ## Putting It Together
 
-With the above ingredients, we can write a Bash script:
+With the above ingredients, we can write a script to write the output variables.
+Initially I wrote a [Bash script is-affected.sh][8] as that made sense at the
+time. Here's the gist:
 
 ```bash
 # Usage: is-affected [lib|app] [nx-project-name] [BUILD_NX_PROJECT_NAME]
@@ -91,30 +93,17 @@ With the above ingredients, we can write a Bash script:
 is-affected() {
   local SHA=$(az pipelines runs list --branch main --pipeline-ids $(System.DefinitionId) --tags "$2" --query-order FinishTimeDesc --query '[].[sourceVersion]' --top 1 --out tsv)
   local WRITE_VARIABLE="##vso[task.setvariable variable=$3;isOutput=true]";
-  if [[ "$SHA" =~ [0-9a-f]{5,40} ]]; then
-    local AFFECTED=$(npx nx affected:${1}s --plain --base=$SHA --head=HEAD)
-    if [[ "$AFFECTED" == *"$2"* ]]; then
-      echo "${WRITE_VARIABLE}AFFECTED"
-      echo "##[warning]$2 is affected (base: $SHA)"
-    else
-      echo "##[warning]$2 is NOT affected (base: $SHA)"
-    fi
-  elif [[ -z "$SHA" ]]; then
-    echo "${WRITE_VARIABLE}TAG_NOT_FOUND"
-    echo "##[warning]$2 was not previously tagged"
-  else
-    echo "##[error]$2 query gave an error: $SHA"
+  local AFFECTED=$(npx nx print-affected --type=${1} --select=projects --plain --base=$SHA --head=HEAD)
+  if [[ "$AFFECTED" == *"$2"* ]]; then
+    echo "${WRITE_VARIABLE}AFFECTED"
+    echo "##[warning]$2 is affected (base: $SHA)"
   fi
 }
-
-is-affected app my-app BUILD_MY_APP
-is-affected app container5 BUILD_CONTAINER5
-is-affected lib some-lib BUILD_SOME_LIB
 ```
 
-This script also handles unfound tags and will log any errors from the
-`az pipelines` command. This script isn't pretty, but it does the job. Perhaps
-it should be ported to a Node.js script. Anyway, the result is output like this:
+As I think Bash scripts are not very robust and not easy to maintain, I ported
+this to a Node.js script [is-affected.js][9] with JSDoc/TypeScript annotations.
+The idea stays the same, and with both scripts the output looks like this:
 
 ```txt
 ##[warning]my-app is NOT affected (base: 62ed6e5d1dd73564a088be879a47634456a07676)
@@ -137,25 +126,21 @@ stages:
         displayName: Determine Affected Nx Projects
         steps:
           - task: NodeTool@0
-            displayName: Use Node.js v16.14.1
+            displayName: Use Node.js v16.17.1
             inputs:
-              versionSpec: 16.14.1
+              versionSpec: 16.17.1
 
           - script: npm install nx
             displayName: Install Nx
 
-          # The Azure CLI tool may require you to set the `organization` and `project` first
+          # Required for `az pipelines runs`
           - bash: |
               az config set extension.use_dynamic_install=yes_without_prompt
               az devops configure --defaults organization=$(System.TeamFoundationCollectionUri) project="$(System.TeamProject)"
             displayName: Set default Azure DevOps organization and project
 
           - bash: |
-              is-affected() {
-                local SHA=$(az pipelines runs list ...)
-                ...
-              }
-              is-affected app my-app BUILD_MY_APP
+              node is-affected.js --pipelineId $(System.DefinitionId) --app my-app --app container5 --lib some-lib
             name: AffectedNxProjects
             displayName: Determine affected Nx projects
             env:
@@ -172,7 +157,7 @@ it:
 stageDependencies.[[STAGE]].[[JOB]].outputs['[[STEP_NAME]].BUILD_MY-APP']
 ```
 
-Also see Azure docs to [Set a variable for future stages][8].
+Also see Azure docs to [Set a variable for future stages][10].
 
 When this variable has a value of `AFFECTED` or `TAG_NOT_FOUND` the condition
 will evaluate to `true` and the job to build the Nx project will run. For
@@ -311,9 +296,12 @@ of some help or inspiration.
 [3]: https://labs.openai.com/s/nd1sMLADykMtghMBocP352wr
 [4]: ./tree-made-of-azure-pipelines-in-expressionism-style.webp
 [5]: https://github.com/nrwl/nx-azure-build
-[6]:
-  https://docs.microsoft.com/en-us/cli/azure/pipelines/runs/tag?view=azure-cli-latest
+[6]: https://docs.microsoft.com/en-us/cli/azure/pipelines/runs/tag
 [7]:
-  https://docs.microsoft.com/en-us/azure/devops/pipelines/process/set-variables-scripts?view=azure-devops&tabs=bash
+  https://docs.microsoft.com/en-us/azure/devops/pipelines/process/set-variables-scripts
 [8]:
-  https://docs.microsoft.com/en-us/azure/devops/pipelines/process/set-variables-scripts?view=azure-devops&tabs=bash#set-a-variable-for-future-stages
+  https://gist.github.com/webpro/ec2c5e1a198b9557f68cc119d1c904c5#file-is-affected-sh
+[9]:
+  https://gist.github.com/webpro/ec2c5e1a198b9557f68cc119d1c904c5#file-is-affected-js
+[10]:
+  https://docs.microsoft.com/en-us/azure/devops/pipelines/process/set-variables-scripts
