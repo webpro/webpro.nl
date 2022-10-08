@@ -218,7 +218,7 @@ ul.index {
 }
 
 ul.index li {
-  margin: 0 8px;
+  margin: 0 8px 0 0;
   display: flex;
   justify-content: space-between;
   align-content: flex-start;
@@ -320,8 +320,14 @@ h4 a {
   padding: 0;
   list-style: none;
   display: flex;
-  flex-direction: column;
-  gap: 24px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 24px;
+}
+
+.home-links li {
+  min-width: 350px;
 }
 
 .home-links ul li > a[title] {

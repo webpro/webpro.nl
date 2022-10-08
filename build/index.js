@@ -16,15 +16,16 @@ const BLOG_RSS_NAME = BLOG_NAME + ' feed';
 const BLOG_LOGO_WEBP = '/img/logo-blog.webp';
 const LOGO_PNG = '/img/logo-512x512.png';
 const LOGO_SVG = '/img/logo.svg';
+const REFERENCES_NAME = 'Frontend References';
 
 const isWatching = process.argv.includes('--watch');
 const isVerbose = process.argv.includes('--verbose');
 
-const defaultFilter = type => type === 'article' || type === 'scrap';
+const defaultFilter = type => type === 'article' || type === 'scrap' || type === 'reference';
 
 const stylesheets = ['/css/fonts.css', '/css/stylesheet.css', '/css/theme-switch.css', '/css/search.css'];
 const blogImage = { alt: 'Frontend Ramblings', src: BLOG_LOGO_WEBP };
-const blogLogo = { alt: BLOG_NAME, src: LOGO_SVG, href: '/blog' };
+const blogLogo = { alt: BLOG_NAME, src: LOGO_SVG, href: BLOG_PATHNAME };
 
 const articleDefaults = {
   stylesheets: [...stylesheets, '/css/hljs.github-dark-dimmed.min.css', '/css/terminal.css'],
@@ -34,6 +35,11 @@ const articleDefaults = {
   structuredContent: {
     '@type': 'Article',
   },
+};
+
+const referenceDefaults = {
+  ...articleDefaults,
+  logo: { alt: REFERENCES_NAME, src: LOGO_SVG, href: '/references' },
 };
 
 const rambler = new MarkdownRambler({
@@ -116,7 +122,7 @@ const rambler = new MarkdownRambler({
     },
     article: articleDefaults,
     scrap: articleDefaults,
-    reference: articleDefaults,
+    reference: referenceDefaults,
   },
 });
 

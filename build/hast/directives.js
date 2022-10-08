@@ -16,7 +16,7 @@ const addFigure = (node, index, parent) => {
 
 /** @type {import('markdown-rambler').DirectiveVisitor} */
 const addBlogIndex = (node, index, parent, vFile) => {
-  const vFiles = [...vFile.data.vFiles?.article, ...vFile.data.vFiles?.scrap];
+  const vFiles = [vFile.data.vFiles?.article, vFile.data.vFiles?.scrap].flat();
   const articles = vFiles.map(vFile => vFile.data.meta).filter(meta => meta && !meta.draft);
   const filtered = articles.filter(Boolean);
   const sorted = sortByDate(filtered, 'published');
@@ -29,8 +29,23 @@ const addBlogIndex = (node, index, parent, vFile) => {
   return h('ul', { class: 'index' }, nodes);
 };
 
+/** @type {import('markdown-rambler').DirectiveVisitor} */
+const addReferencesIndex = (node, index, parent, vFile) => {
+  const vFiles = vFile.data.vFiles?.reference;
+  const articles = vFiles?.map(vFile => vFile.data.meta).filter(meta => meta && !meta.draft) ?? [];
+  const filtered = articles.filter(Boolean);
+  const sorted = filtered.sort((a, b) => (a && b && a.title > b.title ? 1 : -1));
+  const nodes = sorted.map(article => {
+    const a = h('a', { href: article.pathname, title: article.title }, article.title);
+    const li = h('li', a);
+    return li;
+  });
+  return h('ul', nodes);
+};
+
 /** @type {import('markdown-rambler').Directives} */
 export const directives = {
   BLOG_INDEX: addBlogIndex,
+  REFERENCES_INDEX: addReferencesIndex,
   FIGURE: addFigure,
 };
