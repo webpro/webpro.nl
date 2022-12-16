@@ -26,10 +26,11 @@ How can I help you?
 - [![Blog][2] Frontend Ramblings][1]
 - [![Blog][4] Frontend References][3]
 - [![Twitter][6] @webprolific][5]
-- [![GitHub][8] github.com/webpro][7]
-- [![LinkedIn][10] linkedin.com/larskappert][9]
-- [![PDF][12] LarsKappert-CV.pdf][11]
-- [![Email][14] lars@webpro.nl][13]
+- [![Mastodon][8] @webpro@fosstodon.org][7]
+- [![GitHub][10] github.com/webpro][9]
+- [![LinkedIn][12] linkedin.com/larskappert][11]
+- [![PDF][14] LarsKappert-CV.pdf][13]
+- [![Email][16] lars@webpro.nl][15]
 
 :::
 
@@ -39,11 +40,13 @@ How can I help you?
 [4]: /img/sprites.svg#references
 [5]: https://twitter.com/webprolific 'My Twitter profile'
 [6]: /img/sprites.svg#twitter
-[7]: https://github.com/webpro 'My GitHub profile page'
-[8]: /img/sprites.svg#github
-[9]: https://www.linkedin.com/in/larskappert/ 'My LinkedIn profile'
-[10]: /img/sprites.svg#linkedin
-[11]: /LarsKappert-CV.pdf 'My curriculum vitae'
-[12]: /img/sprites.svg#pdf
-[13]: mailto:%6Cars@w%65bpro.nl 'My email address'
-[14]: /img/sprites.svg#email
+[7]: https://fosstodon.org/@webpro 'My Mastodon profile'
+[8]: /img/sprites.svg#mastodon
+[9]: https://github.com/webpro 'My GitHub profile'
+[10]: /img/sprites.svg#github
+[11]: https://www.linkedin.com/in/larskappert/ 'My LinkedIn profile'
+[12]: /img/sprites.svg#linkedin
+[13]: /LarsKappert-CV.pdf 'My curriculum vitae'
+[14]: /img/sprites.svg#pdf
+[15]: mailto:%6Cars@w%65bpro.nl 'My email address'
+[16]: /img/sprites.svg#email

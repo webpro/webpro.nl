@@ -18,9 +18,16 @@ const github = html`<a href="https://github.com/webpro/webpro.nl" title="The con
   </svg>
 </a>`;
 
-const twitter = html`<a href="https://twitter.com/webprolific" title="Me on Twitter">
+const mastodon = html`<a href="https://fosstodon.org/@webpro" title="My Mastodon profile">
   <svg>
-    <title>Me on Twitter</title>
+    <title>My Mastodon profile</title>
+    <use href="/img/sprites.svg#mastodon"></use>
+  </svg>
+</a>`;
+
+const twitter = html`<a href="https://twitter.com/webprolific" title="My Twitter profile">
+  <svg>
+    <title>My Twitter profile</title>
     <use href="/img/sprites.svg#twitter"></use>
   </svg>
 </a>`;
@@ -57,7 +64,7 @@ const shareHackerNews = (url, text) => {
 
 /** @type {(meta: Meta) => ReturnType<typeof html>} */
 export const footer = meta => {
-  const blogLinks = [feed, github, twitter];
+  const blogLinks = [feed, github, mastodon, twitter];
 
   switch (meta.type) {
     case 'blog':
