@@ -25,14 +25,14 @@
     "lint:fix": "npm run lint -- --fix"
   },
   "devDependencies": {
-    "@types/node": "18.8.3",
-    "eslint": "8.25.0",
+    "@types/node": "18.11.15",
+    "eslint": "8.29.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "hastscript": "^7.0.2",
+    "hastscript": "7.1.0",
     "markdown-rambler": "0.0.22",
-    "prettier": "^2.7.1",
-    "rehype-highlight": "^5.0.2",
+    "prettier": "2.8.1",
+    "rehype-highlight": "6.0.0",
     "remark-rehype": "^10.1.0",
     "unist-builder": "^3.0.0"
   }
