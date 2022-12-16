@@ -1,5 +1,11 @@
 import rehypeHighlight from 'rehype-highlight';
-import { addBootScript, enrichArticleHeading, addSimpleAnalytics, convertSprites } from './plugins.js';
+import {
+  addBootScript,
+  enrichArticleHeading,
+  addSimpleAnalytics,
+  convertSprites,
+  relateMyLinksToMe,
+} from './plugins.js';
 
 /** @type {import('markdown-rambler').Transformers} */
 export default vFile => {
@@ -10,5 +16,6 @@ export default vFile => {
     [convertSprites],
     [rehypeHighlight, { subset: ['js', 'typescript', 'json', 'css', 'html', 'yaml', 'bash'], plainText: ['txt'] }],
     [addSimpleAnalytics],
+    [relateMyLinksToMe],
   ];
 };

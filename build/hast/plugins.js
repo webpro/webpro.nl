@@ -79,3 +79,27 @@ export const addSimpleAnalytics = () => tree => {
   const script = h('script', { async: true, defer: true, src: 'https://smplnltcs.webpro.nl/latest.js' });
   return append(tree, 'body', script, noscript);
 };
+
+/**
+ * @type {Pluggable}
+ */
+export const relateMyLinksToMe = () => tree => {
+  const links = [
+    '/',
+    '/blog',
+    '/blog/feed.xml',
+    '/LarsKappert-CV.pdf',
+    'https://github.com/webpro',
+    'https://twitter.com/webprolific',
+    'https://fosstodon.org/@webpro',
+    'https://www.linkedin.com/in/larskappert/',
+  ];
+  findElement(tree, 'a', node => {
+    if (node && node.properties) {
+      if (links.includes(String(node.properties.href))) {
+        node.properties.rel = 'me';
+      }
+    }
+  });
+  return tree;
+};
