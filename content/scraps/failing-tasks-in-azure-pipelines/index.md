@@ -1,5 +1,6 @@
 ---
 published: 2022-09-09
+modified: 2023-01-18
 tags:
   azure, pipelines, failing, tasks, script, commands, failOnStderr,
   continueOnError
@@ -24,7 +25,8 @@ How to handle these situations?
 
 ## An unpleasant surprise
 
-Let's take an example `script` task that tries to tag a pipeline run:
+Let's dive straight into our topic and take a look at an example `script` task
+that tries to tag a pipeline run:
 
 ```yaml
 - script: |
@@ -44,7 +46,7 @@ results in output like this:
 
     Finishing: Tag successful build
 
-The command fails and prints an `ERROR` (to `stderr`), yet both the task and
+The command fails and prints an `ERROR` (to `stderr`). But both the task and the
 pipeline still succeed:
 
 ![pipeline success][3]
@@ -91,8 +93,9 @@ The pipeline fails:
 
 ### Another unpleasant surprise
 
-This is different for Azure CLI tasks. Here, the `failOnStandardError` option
-needs to be set as part of the `inputs`:
+As a side note, when we want to do the same for a **task** (as opposed to a
+script), this requires a different setting. For tasks the `failOnStandardError`
+option needs to be set as part of the `inputs`:
 
 ```yaml
 - task: AzureCLI@2
@@ -101,7 +104,12 @@ needs to be set as part of the `inputs`:
     failOnStandardError: true
 ```
 
+This is not consistent. But let's continue with the `set -e` option we still
+have left.
+
 ## Halt on script error
+
+To make the script fail on errors, use `set -e` at the start of the script:
 
 ```yaml
 - script: |
