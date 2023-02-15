@@ -2,6 +2,7 @@ import { h } from 'hastscript';
 import { SKIP } from 'unist-util-visit';
 import { findElement, append, insertBeforeStylesheets } from 'markdown-rambler';
 import { f } from '../helpers.js';
+import { html } from 'markdown-rambler';
 
 /**
  * @typedef {import('unified').Pluggable} Pluggable
@@ -78,6 +79,24 @@ export const addSimpleAnalytics = () => tree => {
   const noscript = h('noscript', [img]);
   const script = h('script', { async: true, defer: true, src: 'https://smplnltcs.webpro.nl/latest.js' });
   return append(tree, 'body', script, noscript);
+};
+
+/**
+ * @type {Pluggable}
+ */
+export const addRUMVision = () => tree => {
+  const content = `
+  window.rumv = window.rumv || function() { (window.rumv.q = window.rumv.q || []).push(arguments) };
+  (function (w) {
+    var item = JSON.parse(sessionStorage.getItem('rumv') || '{"pageviews":0}');
+    item.pageviews++;
+    sessionStorage.setItem('rumv', JSON.stringify(item));
+    w.rumv.storage = item;
+  })(window);`;
+  const inline = h('script', content);
+  const src = 'https://d5yoctgpv4cpx.cloudfront.net/RUM-5F349F5E65/v3-webpro.nl.js';
+  const script = h('script', { async: true, defer: true, src });
+  return append(tree, 'body', inline, script);
 };
 
 /**

@@ -3,6 +3,7 @@ import {
   addBootScript,
   enrichArticleHeading,
   addSimpleAnalytics,
+  addRUMVision,
   convertSprites,
   relateMyLinksToMe,
 } from './plugins.js';
@@ -16,6 +17,7 @@ export default vFile => {
     [convertSprites],
     [rehypeHighlight, { subset: ['js', 'typescript', 'json', 'css', 'html', 'yaml', 'bash'], plainText: ['txt'] }],
     [addSimpleAnalytics],
+    [addRUMVision],
     [relateMyLinksToMe],
   ];
 };
