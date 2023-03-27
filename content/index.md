@@ -1,6 +1,6 @@
 ---
 published: 2001-04-19
-modified: 2022-03-18
+modified: 2023-03-27
 title: WebPro - Freelance full-stack architect & developer
 description:
   Lars Kappert is an independent full-stack architect & developer. Expert in
@@ -8,13 +8,14 @@ description:
 prefetch: /blog
 ---
 
-Hi, my name is Lars Kappert, an independent full-stack architect and developer.
-My current role is frontend tech lead.
+Hi, my name is Lars Kappert. An independent full-stack architect and developer.
+Currently open to challenges in the fields of frontend development and
+architecture roles.
 
 In this industry for over 20 years, I like to think I know my way around in
-frontend architecture and development. Solving problems with (mostly)
-JavaScript, Node.js and React. I care about performance, developer experience
-and open source.
+frontend architecture and development. What drives me? Solving problems daily in
+a complex landscape for great user **and** fellow developer experiences (UX +
+DX).
 
 Always interested in exciting and challenging contract-based projects in the
 Utrecht area, or remote.
@@ -23,30 +24,30 @@ How can I help you?
 
 :::div{.home-links}
 
-- [![Blog][2] Frontend Ramblings][1]
-- [![Blog][4] Frontend References][3]
-- [![Twitter][6] @webprolific][5]
-- [![Mastodon][8] @webpro@fosstodon.org][7]
-- [![GitHub][10] github.com/webpro][9]
-- [![LinkedIn][12] linkedin.com/larskappert][11]
-- [![PDF][14] LarsKappert-CV.pdf][13]
-- [![Email][16] lars@webpro.nl][15]
+- [![Blog][blog-img] Frontend Ramblings][blog]
+- [![GitHub][github-img] github.com/webpro][github]
+- [![Mastodon][mastodon-img] @webpro@fosstodon.org][mastodon]
+- [![Twitter][twitter-img] @webprolific][webpro]
+- [![LinkedIn][linkedin-img] linkedin.com/larskappert][linkedin]
+- [![PDF][cv-img] LarsKappert-CV.pdf][cv]
+- [![Email][mailto-img] lars@webpro.nl][mailto]
+- [![Blog][refs-img] Frontend References][refs]
 
 :::
 
-[1]: ./blog.md 'The Frontend Ramblings blog'
-[2]: /img/sprites.svg#blog
-[3]: ./references.md 'Things I always forget'
-[4]: /img/sprites.svg#references
-[5]: https://twitter.com/webprolific 'My Twitter profile'
-[6]: /img/sprites.svg#twitter
-[7]: https://fosstodon.org/@webpro 'My Mastodon profile'
-[8]: /img/sprites.svg#mastodon
-[9]: https://github.com/webpro 'My GitHub profile'
-[10]: /img/sprites.svg#github
-[11]: https://www.linkedin.com/in/larskappert/ 'My LinkedIn profile'
-[12]: /img/sprites.svg#linkedin
-[13]: /LarsKappert-CV.pdf 'My curriculum vitae'
-[14]: /img/sprites.svg#pdf
-[15]: mailto:%6Cars@w%65bpro.nl 'My email address'
-[16]: /img/sprites.svg#email
+[blog]: ./blog.md 'The Frontend Ramblings blog'
+[blog-img]: /img/sprites.svg#blog
+[github]: https://github.com/webpro 'My GitHub profile'
+[github-img]: /img/sprites.svg#github
+[mastodon]: https://fosstodon.org/@webpro 'My Mastodon profile'
+[mastodon-img]: /img/sprites.svg#mastodon
+[webpro]: https://twitter.com/webprolific 'My Twitter profile'
+[twitter-img]: /img/sprites.svg#twitter
+[linkedin]: https://www.linkedin.com/in/larskappert/ 'My LinkedIn profile'
+[linkedin-img]: /img/sprites.svg#linkedin
+[cv]: /LarsKappert-CV.pdf 'My curriculum vitae'
+[cv-img]: /img/sprites.svg#pdf
+[mailto]: mailto:%6Cars@w%65bpro.nl 'My email address'
+[mailto-img]: /img/sprites.svg#email
+[refs]: ./references.md 'Things I always forget'
+[refs-img]: /img/sprites.svg#references
