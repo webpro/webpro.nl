@@ -157,7 +157,7 @@ it:
 stageDependencies.[[STAGE]].[[JOB]].outputs['[[STEP_NAME]].BUILD_MY-APP']
 ```
 
-Also see Azure docs to [Set a variable for future stages][10].
+Also see Azure docs to [Set a variable for future stages][7].
 
 When this variable has a value of `AFFECTED` or `TAG_NOT_FOUND` the condition
 will evaluate to `true` and the job to build the Nx project will run. For
@@ -303,5 +303,3 @@ of some help or inspiration.
   https://gist.github.com/webpro/ec2c5e1a198b9557f68cc119d1c904c5#file-is-affected-sh
 [9]:
   https://gist.github.com/webpro/ec2c5e1a198b9557f68cc119d1c904c5#file-is-affected-js
-[10]:
-  https://docs.microsoft.com/en-us/azure/devops/pipelines/process/set-variables-scripts
