@@ -1,5 +1,6 @@
 ---
 published: 2022-08-19
+modified: 2023-04-04
 description:
   The more expensive it is to refactor or replace a component in the system, the
   more value it has to design an interface to abstract the implementation away.
@@ -9,10 +10,9 @@ tags: value, abstraction, interface, refactoring, system, design, implementation
 
 # The value of abstractions
 
-When working on any system, maintenance quickly becomes harder when more
-components are added. If any component in the system is deteriorating, it should
-be possible to refactor or replace only this component, without having to change
-too many other parts.
+In software systems, maintenance quickly becomes harder as more components are
+added. When a component deteriorates, it should be possible to refactor or
+replace it without affecting many other parts of the system.
 
 Following this principle, each component needs a clear separation of concern
 with a clear interface, and without leaky abstractions.
@@ -26,71 +26,67 @@ with a clear interface, and without leaky abstractions.
 ## Minimize the cost of change
 
 Over time, implementations and underlying dependencies will change, but the
-interface should hardly change. As a result, other components in the system that
-use this interface do not need to change. This is the [Interface Segregation
-Principle][3]:
+interfaces should hardly change. Adhering to the [Interface Segregation
+Principle][3] ensures that changes to a component's implementation have minimal
+impact on other components in the system.
 
 > An interface should be more dependent on the code that calls it than the code
 > that implements it.
 
-Let's take an example component "C" in our system. It's responsible for user
-input validation in forms, while we have many different forms in our system. The
-deeper C is everywhere in the system, the more often it is used, the more
-important its interface becomes. In either a composition or inheritance based
-structure, it may help to ask ourselves questions like this about C:
+Let's take an example component "C" in our system. The deeper C is everywhere in
+the system, the more often it is used, the more important its interface becomes.
+It may help to ask ourselves questions like this about C:
 
 - How hard is it to refactor C without affecting other components?
 - How hard is it to replace C within the structure later on?
 - How hard is it to replace C's external dependency?
 - How to build the next feature with an alternative of C?
 
-The harder it is to do these things, the more coupled the components in the
-system are to C, and the harder it is to maintain the project. As such, the more
-value it has to add the right abstraction for C.
+The harder it is to do these things, the more coupled the components are to C,
+and the harder it is to maintain the project. As such, the more value it has to
+add the right abstraction for C.
 
 > The more expensive it is to refactor or replace a component in the system, the
 > more value it has to design an interface to abstract the implementation away.
 
-Let's take another example. Someone wants to swap out an underlying dependency
-for the latest and greatest in, say, data fetching. Or error logging. The impact
-of such refactorings should be as small as possible by designing minimal and
-effective interfaces.
-
 The hard part is to figure out what components in the system need an
-abstraction, and to design their interfaces. This does require some research and
-preparation upfront, but pays off in the long run.
+abstraction, and to design their interfaces. Although this requires research and
+preparation upfront, it pays off in the long run by reducing maintenance
+complexity and facilitating system evolution.
 
 ## Enforce restrictions
 
 Even with great interfaces and abstractions, other developers may be unaware of
 them, or simply decide not to use them. Code linters can be very effective here.
 
-For frontend projects, the [no-restricted-imports][4] ESLint rule and the
-`@nrwl/nx/enforce-module-boundaries` rule to [enforce boundaries in Nx
-projects][5] prevent the direct import of modules or dependencies that have a
-different interface. When configured properly, this works pretty effective.
+ESLint's [no-restricted-imports][4] and the
+[@nrwl/nx/enforce-module-boundaries][5] rule to [enforce boundaries in Nx
+projects][6] prevent direct imports of modules or dependencies with different
+interfaces. If a dependency (external or internal) is banned, the linter will
+yell when a developer tries to import it directly.
 
-If a dependency (external or internal) is banned, the linter will yell when a
-developer tries to import it directly. This should be the trigger to think about
-the situation, look for the better solution, and keep the components more
-decoupled.
+When properly configured, tools like this effectively encourage developers to
+think about the situation, look for better solutions, and maintain component
+decoupling.
 
 ## Further reading
 
 Here are some other articles about related programming principles:
 
-- [SOLID][6]
-- [Leaky abstraction][7]
-- [Separation of concerns][8]
-- [The True Meaning of Technical Debt][9]
+- [SOLID][7]
+- [Leaky abstraction][8]
+- [Separation of concerns][9]
+- [The True Meaning of Technical Debt][10]
 
 [1]: https://labs.openai.com/s/70yE39l7hYwZ0Ph8UAjxIGWJ
 [2]: ./connected-particles-in-abstract-style.webp
 [3]:
   https://github.com/webpro/programming-principles#interface-segregation-principle
 [4]: https://eslint.org/docs/latest/rules/no-restricted-imports
-[5]: https://nx.dev/core-features/enforce-project-boundaries
-[6]: https://en.wikipedia.org/wiki/SOLID
-[7]: https://en.wikipedia.org/wiki/Leaky_abstraction
-[8]: https://en.wikipedia.org/wiki/Separation_of_concerns
-[9]: https://refactoring.fm/p/the-true-meaning-of-technical-debt
+[5]:
+  https://nx.dev/packages/eslint-plugin-nx/documents/enforce-module-boundaries
+[6]: https://nx.dev/core-features/enforce-project-boundaries
+[7]: https://en.wikipedia.org/wiki/SOLID
+[8]: https://en.wikipedia.org/wiki/Leaky_abstraction
+[9]: https://en.wikipedia.org/wiki/Separation_of_concerns
+[10]: https://refactoring.fm/p/the-true-meaning-of-technical-debt
