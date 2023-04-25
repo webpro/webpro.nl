@@ -7,6 +7,12 @@ import {
   relateMyLinksToMe,
 } from './plugins.js';
 
+const highlightOptions = {
+  detect: false,
+  subset: ['javascript', 'typescript', 'json', 'css', 'html', 'yaml', 'bash', 'shell'],
+  plainText: ['txt'],
+};
+
 /** @type {import('markdown-rambler').Transformers} */
 export default vFile => {
   const { meta } = vFile.data;
@@ -14,10 +20,7 @@ export default vFile => {
     [addBootScript],
     [enrichArticleHeading, meta],
     [convertSprites],
-    [
-      rehypeHighlight,
-      { detect: true, subset: ['js', 'typescript', 'json', 'css', 'html', 'yaml', 'bash'], plainText: ['txt'] },
-    ],
+    [rehypeHighlight, highlightOptions],
     [addSimpleAnalytics],
     [relateMyLinksToMe],
   ];

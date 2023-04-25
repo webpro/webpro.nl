@@ -55,7 +55,7 @@ const buildShell = (h, node) => {
   const header = h(node, 'div', { class: 'header' }, title ? [buttons, title, buttons] : [buttons]);
 
   const content = colorizePrompts(h, node, value);
-  const code = h(node, 'code', content);
+  const code = h(node, 'code', { className: ['language-shell'] }, content);
   const pre = h(node, 'pre', [code]);
 
   return h(node.position, 'section', { class: 'terminal' }, [header, pre]);
@@ -76,7 +76,7 @@ export const code = (h, node) => {
   }
 
   const props = {
-    class: `language-${language}`,
+    className: [`language-${language}`],
   };
 
   const code = h(node, 'code', props, [u('text', value)]);
