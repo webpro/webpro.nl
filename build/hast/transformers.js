@@ -14,7 +14,10 @@ export default vFile => {
     [addBootScript],
     [enrichArticleHeading, meta],
     [convertSprites],
-    [rehypeHighlight, { subset: ['js', 'typescript', 'json', 'css', 'html', 'yaml', 'bash'], plainText: ['txt'] }],
+    [
+      rehypeHighlight,
+      { detect: true, subset: ['js', 'typescript', 'json', 'css', 'html', 'yaml', 'bash'], plainText: ['txt'] },
+    ],
     [addSimpleAnalytics],
     [relateMyLinksToMe],
   ];
