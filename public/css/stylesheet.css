@@ -4,7 +4,7 @@
   --paragraph-width: 700px;
   --spacing-left: calc(50% - 350px);
   --white: rgb(250, 250, 250);
-  --off-white: rgb(243, 243, 243);
+  --off-white: rgb(233, 233, 233);
   --lighter-grey: rgb(215, 215, 215);
   --light-grey: rgb(198, 198, 198);
   --grey: rgb(82, 82, 82);
@@ -20,7 +20,7 @@ html.dark {
   --bg-color-header: var(--black);
   --bg-color-code: var(--dark-grey);
   --font-color: var(--white);
-  --scroll-thumb-color: var(--grey-transparent);
+  --scroll-thumb-color: var(--grey);
   --blockquote-border-color: var(--grey);
   --blockquote-box-shadow-color: 6px 6px var(--dark-grey);
   --signature-image: url(/img/signature-white.svg);
@@ -32,7 +32,7 @@ html.dark {
     --bg-color-header: var(--dark-grey);
     --bg-color-code: var(--off-white);
     --font-color: var(--dark-grey);
-    --scroll-thumb-color: var(--grey-transparent);
+    --scroll-thumb-color: var(--light-grey);
     --blockquote-border-color: var(--grey);
     --blockquote-box-shadow-color: 13px 3px var(--off-white);
     --signature-image: url(/img/signature-black.svg);
@@ -44,7 +44,7 @@ html.light {
   --bg-color-header: var(--dark-grey);
   --bg-color-code: var(--off-white);
   --font-color: var(--dark-grey);
-  --scroll-thumb-color: var(--grey-transparent);
+  --scroll-thumb-color: var(--light-grey);
   --blockquote-border-color: var(--light-grey);
   --blockquote-box-shadow-color: 13px 3px var(--lighter-grey);
   --signature-image: url(/img/signature-black.svg);
@@ -149,6 +149,15 @@ h1 {
     font-size: 64px;
     line-height: 80px;
   }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
 }
 
 h1,

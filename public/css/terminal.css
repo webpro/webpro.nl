@@ -18,13 +18,22 @@ pre.non-terminal {
   padding-bottom: 16px;
 }
 
-pre::-webkit-scrollbar {
-  background-color: var(--bg-color-code);
+pre {
+  scrollbar-color: transparent;
 }
+
+pre::-webkit-scrollbar {
+  background-color: transparent;
+}
+
 pre::-webkit-scrollbar-thumb {
-  background: var(--scroll-thumb);
-  height: 12px;
+  background: var(--scroll-thumb-color);
+  height: 6px;
   border-radius: 6px;
+}
+
+pre::-webkit-scrollbar-track {
+  background-color: transparent;
 }
 
 :not(h2) code,
