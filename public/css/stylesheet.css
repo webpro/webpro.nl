@@ -24,6 +24,7 @@ html.dark {
   --blockquote-border-color: var(--grey);
   --blockquote-box-shadow-color: 6px 6px var(--dark-grey);
   --signature-image: url(/img/signature-white.svg);
+  --invert: 1;
 }
 
 @media (prefers-color-scheme: light) {
@@ -36,6 +37,7 @@ html.dark {
     --blockquote-border-color: var(--grey);
     --blockquote-box-shadow-color: 13px 3px var(--off-white);
     --signature-image: url(/img/signature-black.svg);
+    --invert: 0;
   }
 }
 
@@ -48,6 +50,7 @@ html.light {
   --blockquote-border-color: var(--light-grey);
   --blockquote-box-shadow-color: 13px 3px var(--lighter-grey);
   --signature-image: url(/img/signature-black.svg);
+  --invert: 0;
 }
 
 * {
@@ -375,4 +378,22 @@ footer .icons a svg {
 .light img[alt='clean-code'],
 .light img[alt='value-of-abstractions'] {
   filter: invert(68%);
+}
+
+main a[href*="//"]:not([href*="webpro.nl"]):not([rel=me]):after {
+  position: relative;
+  content: '';
+  opacity: 0.5;
+  display: inline-block;
+  margin-left: 0.25em;
+  width: 0.8em;
+  height: 0.8em;
+  transform: translateY(0.1em);
+  background-image: url(/img/external-link.svg);
+  transition: opacity 0.2s;
+  filter: brightness(0) invert(var(--invert));
+}
+
+main a[href*="//"]:not([href*="webpro.nl"]):not([rel=me]):hover::after {
+  opacity: 0.9;
 }
