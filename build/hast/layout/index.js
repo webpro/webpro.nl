@@ -22,5 +22,6 @@ export default (node, meta) => {
     </header>
     <main ${meta.class ? `class=${meta.class}` : ''}>${node}</main>
     <footer>${footer(meta)}</footer>
+    <button class="back-to-top">Back to top</button>
   `;
 };
