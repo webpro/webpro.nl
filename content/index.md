@@ -1,24 +1,20 @@
 ---
 published: 2001-04-19
-modified: 2023-03-27
+modified: 2023-04-30
 title: WebPro - Freelance full-stack architect & developer
 description:
-  Lars Kappert is an independent full-stack architect & developer. Expert in
+  Lars Kappert is an independent full-stack developer & architect. Expert in
   JavaScript, Node.js, and React. Problem solver.
 prefetch: /blog
 ---
 
-Hi, my name is Lars Kappert. An independent full-stack architect and developer.
-Currently open to challenges in the fields of frontend development and
-architecture roles.
+Hi, my name is Lars Kappert. I'm an independent full-stack developer and
+frontend architect.
 
-In this industry for over 20 years, I like to think I know my way around in
-frontend architecture and development. What drives me? Solving problems daily in
-a complex landscape for great user **and** fellow developer experiences (UX +
-DX).
+Over 20 years in the game, I love to solve problems and connect dots to create
+awesome experiences for users and fellow developers (UX + DX!).
 
-Always interested in exciting and challenging contract-based projects in the
-Utrecht area, or remote.
+If you've got an exciting project in Utrecht or remotely, let's chat!
 
 How can I help you?
 

@@ -277,7 +277,7 @@ blockquote p {
 }
 
 footer {
-  margin: 100px 0;
+  margin: 50px 0;
   text-align: center;
   background-image: var(--signature-image);
   background-repeat: no-repeat;
