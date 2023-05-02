@@ -1,6 +1,6 @@
 ---
 draft: true
-published: 2023-05-01
+published: 2023-05-02
 ---
 
 # Using OpenAI with JavaScript
@@ -30,7 +30,8 @@ Here are the topics we will be discussing:
 - [Tokens][7]
 - [Parameters][8]
 - [Markdown & code blocks][9]
-- [Closing remarks][10]
+- [Next steps][10]
+- [Closing remarks][11]
 
 ## OpenAI endpoints
 
@@ -40,7 +41,7 @@ In this guide, we will work with two OpenAI REST endpoints.
 
     POST https://api.openai.com/v1/chat/completions
 
-The [Create chat completion][11] endpoint generates a human-like text completion
+The [Create chat completion][12] endpoint generates a human-like text completion
 for a provided prompt. We'll use it to start and keep the conversation going
 between the end-user and OpenAI's Large Language Models (LLMs) such as GPT-3.5
 and GPT-4.
@@ -49,13 +50,13 @@ and GPT-4.
 
     POST https://api.openai.com/v1/embeddings
 
-With the [embeddings][12] endpoint, we can create embeddings from plain text. We
+With the [embeddings][13] endpoint, we can create embeddings from plain text. We
 will use these embeddings to store and query a vector database. Embeddings?
 Vector database? No worries, we have you covered.
 
 ### The `openai` package
 
-We're going to use these endpoints directly, and not [OpenAI's npm package][13].
+We're going to use these endpoints directly, and not [OpenAI's npm package][14].
 This package targets Node.js, but eventually you might want to deploy your own
 endpoint on an environment without Node.js, such as a serverless or edge
 platform like Cloudlare Workers, Netlify Edge or Deno. Now that `fetch` is
@@ -65,7 +66,7 @@ dependencies. I like being "closer to the metal" and stay flexible.
 ## Key concepts
 
 We've already introduced a few concepts that may be new to you. Let's discuss
-[embeddings][14], [vector databases][15] and [prompts][16] briefly before diving
+[embeddings][15], [vector databases][16] and [prompts][17] briefly before diving
 into any code.
 
 If you're familiar with them, feel free to skip straight to [ingestion][3].
@@ -86,7 +87,7 @@ query words and phrases, without understanding the overall meaning of the query.
 
 Why do we need a vector database? Can't we just query OpenAI and get a response?
 
-Yes, we can use the [ChatGPT UI][17] or even the OpenAI chat completions
+Yes, we can use the [ChatGPT UI][18] or even the OpenAI chat completions
 endpoint directly. However, the response will be limited to what the OpenAI
 models are trained on. The response may not be up-to-date, accurate, or specific
 enough for your needs.
@@ -107,7 +108,7 @@ advantages:
 - Store the user's conversational history.
 
 Setting up a vector database might be easier than you think. I've been trying
-out managed solutions like [Pinecone][18] and [Supabase][19] without any issues.
+out managed solutions like [Pinecone][19] and [Supabase][20] without any issues.
 There are more options though, and I don't feel like I'm in a position to
 recommend one over another.
 
@@ -133,7 +134,7 @@ database.
 
 We'll need to get content into this database. Content is stored as vector
 embeddings, and we can create those from textual content by using the
-[embeddings endpoint][20].
+[embeddings endpoint][21].
 
 ### Metadata
 
@@ -152,7 +153,7 @@ the original source.
 ### Tools
 
 There are tools that can help with all of this. I have seen some solutions like
-[Markprompt][21] and [Databerry][22] that offer easy content ingestion, but
+[Markprompt][22] and [Databerry][23] that offer easy content ingestion, but
 you're not free to choose your preferred database platform. Do you know of any
 others?
 
@@ -161,7 +162,7 @@ others?
 As I prefer to start out with command-line tools and learn more about the OpenAI
 APIs, embeddings and vector database, I decided to develop a tool myself.
 
-This work ended up as [7-docs][23] and comes with the `7d` command-line tool to
+This work ended up as [7-docs][24] and comes with the `7d` command-line tool to
 ingest content from plain text, Markdown and PDF files into a vector database.
 It ingests content from local files, GitHub repositories and also HTML from
 public websites. Currently it supports "upserting" vectors into Pinecone indexes
@@ -194,7 +195,7 @@ The next examples show working code, but contain no error handling or
 optimizations. Just plain JavaScript without dependencies.
 
 _(Don't want to implement this yourself, or just want to see examples? Visit
-[7-docs][24] for available demos and starterkits to hit the ground running.)_
+[7-docs][25] for available demos and starterkits to hit the ground running.)_
 
 ### 1. Create a vector embedding
 
@@ -345,19 +346,19 @@ The `text` contains the human-readable answer from OpenAI.
 Excellent, this is the essence of generating chat completions based on your own
 vector database. Now, how do we combine these four steps and integrate them into
 a user interface? You can create a function that abstracts this away, or use the
-[@7-docs/edge][25] package to do this for you. Keep reading to see an example.
+[@7-docs/edge][26] package to do this for you. Keep reading to see an example.
 
 In the next part of this guide, we will explore a UI component featuring a basic
 form for users to submit their queries. This component will also render the
-streaming response generated by the [function][26] in the next section.
+streaming response generated by the [function][27] in the next section.
 
 ## User Interface
 
-Let's put our 4-step strategy into action and build [function][26] and
-[form][27].
+Let's put our 4-step strategy into action and build [function][27] and
+[form][28].
 
 _(Don't want to implement this yourself, or just want to see examples? Visit
-[7-docs][24] for available demos and starterkits to hit the ground running.)_
+[7-docs][25] for available demos and starterkits to hit the ground running.)_
 
 ### Function
 
@@ -453,7 +454,7 @@ The following sections will build on to make everything even more interesting!
 
 ## Conversation
 
-To start a chat, we've seen how to [build a basic prompt][28]. This is good
+To start a chat, we've seen how to [build a basic prompt][29]. This is good
 enough for one-shot questions, but we need more to build a meaningful
 conversation. The chat completions endpoint accepts an array of messages, so a
 pattern to fill this array could look like this:
@@ -463,7 +464,7 @@ pattern to fill this array could look like this:
 2.  Add the conversation history with `user` and `assistant` messages.
 3.  Add the `user` prompt, containing the context and the query.
 
-Here is an example building on the initial [prompt example][28] that extends the
+Here is an example building on the initial [prompt example][29] that extends the
 `messages` array to build the conversation:
 
 ```js
@@ -512,7 +513,7 @@ const response = await chatCompletions({
 
 The actual `history` can come from the client. For instance, this could be
 stored in UI component state, or browser session storage. In that case, it will
-need to be sent with every request to the [function][26]. Other ways of storing
+need to be sent with every request to the [function][27]. Other ways of storing
 and retrieving the conversation history is outside the scope of this guide.
 
 ## Tokens
@@ -553,7 +554,7 @@ look at an example calculation.
 ### Tokenization
 
 The number of tokens for a given text can be calculated using a tokenizer (such
-as [GPT-3-Encoder][29]). Tokenization can be slow on larger chunks, and npm
+as [GPT-3-Encoder][30]). Tokenization can be slow on larger chunks, and npm
 packages for Node.js may not work in other environments such as the browser or
 Deno.
 
@@ -562,7 +563,7 @@ per token. That's 75 words per 100 tokens. This is a very rough estimate for the
 English language and varies per language. You should probably also add a small
 safety margin to stay within the limits and prevent erors.
 
-OpenAI provides an online [Tokenizer][30]. For Python there's [tiktoken][31].
+OpenAI provides an online [Tokenizer][31]. For Python there's [tiktoken][32].
 
 ### Example
 
@@ -599,7 +600,7 @@ Another idea is to send some sort of summary of the conversation history, but
 that would likely require additional effort.
 
 Some form of "compression" could work in certain cases. An example using GPT-4
-can be found at [gpt4_compression.md][32].
+can be found at [gpt4_compression.md][33].
 
 Another thing to consider is the amount of context to send with the prompt. This
 context comes from the semantic search results when querying the vector
@@ -660,8 +661,29 @@ during ingestion and building the client application:
 - Include something like "Use Markdown" and "Try to include a code example in
   language-specific fenced code blocks" in the prompt, ideally in the `system`
   message.
-- Use a Markdown renderer (e.g. [react-markdown][33]).
-- Use a syntax highlighter (e.g. [react-syntax-highlighter][34]).
+- Use a Markdown renderer (e.g. [react-markdown][34]).
+- Use a syntax highlighter (e.g. [react-syntax-highlighter][35]).
+
+## Next steps
+
+After figuring out how to connect the dots, it's exciting to tinker and continue
+the journey to improve the user experience. Here are a few pointers that may
+inspire you:
+
+- Consider the integration of the conversation in the user interface, as well as
+  the place and the role of the chat box.
+- Keep refining the prompt to better align with your content and your target
+  audience.
+- Improve chat completions by further tweaking the parameters, vector embedding
+  sizes, and context in the prompt.
+- Empowere users with more control by providing affordances to adjust the prompt
+  or by incorporating multiple prompts.
+- Combine multiple sources of content, such as searching a database with source
+  code or a table with more generic content.
+- Generate multiple chat completions in a single response.
+- Use the [Moderations][36] endpoint to make sure the input text does not
+  violate OpenAI's content policy.
+- Last but not least, listen to your customers. What are their needs?
 
 ## Closing remarks
 
@@ -669,6 +691,9 @@ We've explored many aspects of using OpenAI with JavaScript to create useful
 applications. We've covered everything from ingesting content to building a user
 interface with your own serverless or edge function. Hopefully, this guide is
 helpful in your own journey. Good luck!
+
+I would love to hear about your thoughts and what you are building, please
+[share with me on Twitter][37]!
 
 [1]: #openai-endpoints
 [2]: #key-concepts
@@ -679,28 +704,31 @@ helpful in your own journey. Good luck!
 [7]: #tokens
 [8]: #parameters
 [9]: #markdown--code-blocks
-[10]: #closing-remarks
-[11]: https://platform.openai.com/docs/api-reference/chat/create
-[12]: https://platform.openai.com/docs/api-reference/embeddings
-[13]: https://www.npmjs.com/package/openai
-[14]: #embeddings
-[15]: #vector-databases
-[16]: #prompts
-[17]: https://chat.openai.com
-[18]: https://www.pinecone.io
-[19]: https://supabase.com
-[20]: #create-embeddings
-[21]: https://markprompt.com
-[22]: https://www.databerry.ai
-[23]: https://github.com/7-docs/7-docs
-[24]: https://github.com/7-docs
-[25]: https://www.npmjs.com/package/@7-docs/edge
-[26]: #function
-[27]: #form
-[28]: #3-build-the-prompt
-[29]: https://github.com/latitudegames/GPT-3-Encoder
-[30]: https://platform.openai.com/tokenizer
-[31]: https://github.com/openai/tiktoken
-[32]: https://github.com/itamargol/openai/blob/main/gpt4_compression.md
-[33]: https://github.com/remarkjs/react-markdown
-[34]: https://github.com/react-syntax-highlighter/react-syntax-highlighter
+[10]: #next-steps
+[11]: #closing-remarks
+[12]: https://platform.openai.com/docs/api-reference/chat/create
+[13]: https://platform.openai.com/docs/api-reference/embeddings
+[14]: https://www.npmjs.com/package/openai
+[15]: #embeddings
+[16]: #vector-databases
+[17]: #prompts
+[18]: https://chat.openai.com
+[19]: https://www.pinecone.io
+[20]: https://supabase.com
+[21]: #create-embeddings
+[22]: https://markprompt.com
+[23]: https://www.databerry.ai
+[24]: https://github.com/7-docs/7-docs
+[25]: https://github.com/7-docs
+[26]: https://www.npmjs.com/package/@7-docs/edge
+[27]: #function
+[28]: #form
+[29]: #3-build-the-prompt
+[30]: https://github.com/latitudegames/GPT-3-Encoder
+[31]: https://platform.openai.com/tokenizer
+[32]: https://github.com/openai/tiktoken
+[33]: https://github.com/itamargol/openai/blob/main/gpt4_compression.md
+[34]: https://github.com/remarkjs/react-markdown
+[35]: https://github.com/react-syntax-highlighter/react-syntax-highlighter
+[36]: https://platform.openai.com/docs/api-reference/moderations
+[37]: https://twitter.com/webprolific
