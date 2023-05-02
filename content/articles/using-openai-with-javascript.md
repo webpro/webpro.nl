@@ -76,9 +76,9 @@ If you're familiar with them, feel free to skip straight to [ingestion][3].
 Vector embeddings are numerical representations of textual data in a
 high-dimensional space. They are generated using large language models (LLMs).
 Embeddings allow for efficient storage and search of content that is
-semantically related to a user's query. By mapping semantically similar text
-close together in the vector space, we can identify relevant content based on
-user input.
+semantically related to a user's query. Semantically similar text is mapped
+close together in the vector space, and we can find relevant content using a
+vector embedding created from user input.
 
 For comparison, a lexical or "full text" search looks for literal matches of the
 query words and phrases, without understanding the overall meaning of the query.
@@ -189,7 +189,7 @@ look at some example code to implement this 4-step strategy:
 1.  Create a vector embedding from the user's textual input.
 2.  Query the database with this vector for related chunks of content.
 3.  Build the prompt from the search results and the user's input.
-4.  Request the model to generate a response based on this prompt.
+4.  Ask the model to generate a chat completion based on this prompt.
 
 The next examples show working code, but contain no error handling or
 optimizations. Just plain JavaScript without dependencies.
@@ -231,9 +231,11 @@ const vector = await createEmbeddings({
 
 ### 2. Query the database
 
-In the second step we are going to query the database with the `vector` we just
-created. Each database has its own API to query it. Here's an example using
-Pinecone:
+In the second step we are going to query the database with the `vector`
+embedding we just created. Below is an example that queries a Pinecone index for
+vectors with related content using `fetch`. The rows returned from this query
+are mapped to the metadata that's stored with the vector in the same row. We
+need this metadata in the next step.
 
 ```js
 export const query = async ({ token, vector, namespace }) => {
@@ -302,10 +304,10 @@ const prompt = getPrompt(context, 'What is an embedding?');
 Later in this guide, we will also look at example code to [maintain a
 conversation][6] instead of merely asking one-shot questions.
 
-### 4. Query the model
+### 4. Generate chat completion
 
-We are ready for the last step: call the model with our prompt. Here's an
-example function to call the chat completions endpoint:
+We are ready for the last step: ask the model for a chat completion with our
+prompt. Here's an example function to call this endpoint:
 
 ```js
 export const chatCompletions = async ({ token, body }) => {
@@ -333,8 +335,10 @@ messages.push({
 
 const response = await chatCompletions({
   token: '[OPENAI_API_TOKEN]',
-  model: 'gpt-3.5-turbo',
-  messages,
+  body: {
+    model: 'gpt-3.5-turbo',
+    messages,
+  },
 });
 
 const data = await response.json();
@@ -367,20 +371,30 @@ using all of the query logic from the previous section.
 
 We're going to use the `@7-docs/edge` package, which abstracts away the 4-step
 strategy and some boring boilerplate. We need to pass the `OPENAI_API_KEY` and a
-`query` function from a database adapter (Supabase in this case). Let's bring
-this together in an edge function handler in just a few lines of code:
+`query` function from a database adapter, Pinecone in this example. We pass it
+to `getCompletionHandler` so it can query the database when it needs to. We
+would pass a different function if we wanted to used a different type of
+database (like Supabase or Milvus).
+
+Let's bring this together in a serverless or edge function handler in just a few
+lines of code:
 
 ```js
-import { getCompletionHandler, supabase } from '@7-docs/edge';
+import { getCompletionHandler, pinecone } from '@7-docs/edge';
 import { createClient } from '@supabase/supabase-js';
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-const SUPABASE_URL = process.env.SUPABASE_URL;
-const SUPABASE_API_KEY = process.env.SUPABASE_API_KEY;
+const PINECONE_URL = process.env.PINECONE_URL;
+const PINECONE_API_KEY = process.env.PINECONE_API_KEY;
 const namespace = 'my-knowledge-base';
 
-const client = createClient(SUPABASE_URL, SUPABASE_API_KEY);
-const query = vector => supabase.query({ client, namespace, vector });
+const query: QueryFn = (vector: number[]) =>
+  pinecone.query({
+    url: PINECONE_URL,
+    token: PINECONE_API_KEY,
+    vector,
+    namespace,
+  });
 
 export default getCompletionHandler({ OPENAI_API_KEY, query });
 ```
@@ -468,11 +482,14 @@ Here is an example building on the initial [prompt example][29] that extends the
 `messages` array to build the conversation:
 
 ```js
+// Create a concatenated string from search results metadata from step 2: query the database
+const context = metadata.map(metadata => metadata.content).join(' ');
+
 const system = `Answer the question as truthfully as possible using the provided context.
 If the answer is not contained within the text below, say "Sorry, I don't have that information.".`;
 
-// In a real application, the conversation `history` can be sent with every request from the client,
-// or by using some kind of storage.
+// In a real application, the conversation `history` can be sent
+// with every request from the client, or by using some kind of storage.
 const history = [
   ['What is an embedding?', 'An embedding is...'],
   ['Can you give an example?', 'Here is an example...'],
@@ -516,6 +533,9 @@ stored in UI component state, or browser session storage. In that case, it will
 need to be sent with every request to the [function][27]. Other ways of storing
 and retrieving the conversation history is outside the scope of this guide.
 
+See the starter kits for examples to handle this in the user interface in tandem
+with the `@7-docs/edge` package.
+
 ## Tokens
 
 Tokens (not characters) are the unit used by OpenAI for limits and usage. There
@@ -529,7 +549,14 @@ The maximum number of input tokens to create embeddings with the
 
 The price is `$ 0.0004` per 1k tokens, which comes down to a maximum of
 `$ 0.0032` per request when sending 8k tokens. That's roughly 6.000 words that
-can be sent at once to create vector embeddings.
+can be sent at once to create vector embeddings. We can send as many requests as
+we want.
+
+During content ingestion you may need this endpoint for a short period in
+bursts, depending on the amount of content. Remember that we also need it to
+create an embedding from the user's input to query the vector database.
+Depending on the user's input this request is usually smaller, but may occur
+frequently for a longer period depending on application traffic.
 
 ### Chat completions
 
