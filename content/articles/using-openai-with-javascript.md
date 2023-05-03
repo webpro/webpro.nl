@@ -1,6 +1,5 @@
 ---
-draft: true
-published: 2023-05-02
+published: 2023-05-03
 ---
 
 # Using OpenAI with JavaScript
@@ -110,7 +109,8 @@ advantages:
 Setting up a vector database might be easier than you think. I've been trying
 out managed solutions like [Pinecone][19] and [Supabase][20] without any issues.
 There are more options though, and I don't feel like I'm in a position to
-recommend one over another.
+recommend one over another. I do like that I can use Pinecone without
+dependencies using only `fetch` and their REST API.
 
 ### Prompts
 
@@ -152,9 +152,9 @@ the original source.
 
 ### Tools
 
-There are tools that can help with all of this. I have seen some solutions like
+There are tools that can help with this. I have seen a few solutions like
 [Markprompt][22] and [Databerry][23] that offer easy content ingestion, but
-you're not free to choose your preferred database platform. Do you know of any
+you're not free to choose where the content will be stored. Do you know of any
 others?
 
 ### 7-docs
@@ -169,15 +169,16 @@ public websites. Currently it supports "upserting" vectors into Pinecone indexes
 and Supabase tables.
 
 To get an idea what ingestion using `7d` looks like, here are some examples that
-ingest Markdown files:
+demonstrate how to ingest Markdown files:
 
 ```shell
-7d ingest --files '*.md' --namespace my-collection
+7d ingest --files '*.md' --db pinecone --namespace my-docs
 ```
 
 ```shell
 7d ingest --source github --repo reactjs/react.dev \
   --files 'src/content/reference/react/*.md' \
+  --db supabase \
   --namespace react
 ```
 
@@ -619,15 +620,15 @@ may become a challenge to keep everything within the model's limit. More context
 and more conversation history (input) means less room for the completion
 (output).
 
-There are various ways to mitigate this. You can think of keeping a certain
-maximum number of messages from the conversation history and/or truncating or
-leaving out previous answers from the assistant.
+There are a few ways I can think of to help mitigate this:
 
-Another idea is to send some sort of summary of the conversation history, but
-that would likely require additional effort.
-
-Some form of "compression" could work in certain cases. An example using GPT-4
-can be found at [gpt4_compression.md][33].
+- Limit the number of `messages` to keep in the conversation history.
+- Truncate or leave out previous answers from the `assistant`.
+- Send some sort of summary of the conversation history. That would likely
+  require additional effort and requests.
+- Use a solution like [GPTCache][33] to cache query results.
+- Some form of "compression" could work in certain cases. An example using GPT-4
+  can be found at [gpt4_compression.md][34].
 
 Another thing to consider is the amount of context to send with the prompt. This
 context comes from the semantic search results when querying the vector
@@ -688,8 +689,8 @@ during ingestion and building the client application:
 - Include something like "Use Markdown" and "Try to include a code example in
   language-specific fenced code blocks" in the prompt, ideally in the `system`
   message.
-- Use a Markdown renderer (e.g. [react-markdown][34]).
-- Use a syntax highlighter (e.g. [react-syntax-highlighter][35]).
+- Use a Markdown renderer (e.g. [react-markdown][35]).
+- Use a syntax highlighter (e.g. [react-syntax-highlighter][36]).
 
 ## Next steps
 
@@ -708,7 +709,7 @@ inspire you:
 - Combine multiple sources of content, such as searching a database with source
   code or a table with more generic content.
 - Generate multiple chat completions in a single response.
-- Use the [Moderations][36] endpoint to make sure the input text does not
+- Use the [Moderations][37] endpoint to make sure the input text does not
   violate OpenAI's content policy.
 - Last but not least, listen to your customers. What are their needs?
 
@@ -720,7 +721,9 @@ interface with your own serverless or edge function. Hopefully, this guide is
 helpful in your own journey. Good luck!
 
 I would love to hear about your thoughts and what you are building, please
-[share with me on Twitter][37]!
+[share with me on Twitter][38]!
+
+Special thanks goes out to [Enis Bayramoğlu][39] for a great review.
 
 [1]: #openai-endpoints
 [2]: #key-concepts
@@ -754,8 +757,10 @@ I would love to hear about your thoughts and what you are building, please
 [30]: https://github.com/latitudegames/GPT-3-Encoder
 [31]: https://platform.openai.com/tokenizer
 [32]: https://github.com/openai/tiktoken
-[33]: https://github.com/itamargol/openai/blob/main/gpt4_compression.md
-[34]: https://github.com/remarkjs/react-markdown
-[35]: https://github.com/react-syntax-highlighter/react-syntax-highlighter
-[36]: https://platform.openai.com/docs/api-reference/moderations
-[37]: https://twitter.com/webprolific
+[33]: https://github.com/zilliztech/GPTCache
+[34]: https://github.com/itamargol/openai/blob/main/gpt4_compression.md
+[35]: https://github.com/remarkjs/react-markdown
+[36]: https://github.com/react-syntax-highlighter/react-syntax-highlighter
+[37]: https://platform.openai.com/docs/api-reference/moderations
+[38]: https://twitter.com/webprolific
+[39]: https://github.com/enobayram
