@@ -2,6 +2,7 @@
 published: 2014-10-22
 modified: 2022-02-26
 description: Quick guide to start organizing your dotfiles
+tags: dotfiles
 ---
 
 # Managing your dotfiles

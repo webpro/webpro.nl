@@ -1,5 +1,9 @@
 ---
 published: 2022-04-30
+description:
+  Adding search functionality to your static website may be easier than you
+  think!
+tags: search, static, site, generator
 ---
 
 # How to add search to your static site

@@ -1,6 +1,8 @@
 ---
 published: 2022-05-23
 stylesheets: ./styles.css
+description: A little CSS trick to stack elements without z-index
+tags: CSS, stack, grid
 ---
 
 # Using CSS Grid to Stack Elements

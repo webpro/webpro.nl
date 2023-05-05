@@ -5,6 +5,7 @@ description:
   Any serious programmer will pick up something useful from reading this book.
   Highly recommended!
 image: ./clean-code.webp
+tags: clean, code, heuristics, principles, patterns
 ---
 
 # My takeaways from "Clean Code"

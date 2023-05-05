@@ -2,6 +2,7 @@
 published: 2022-03-12
 modified: 2022-03-17
 description: Guide to build a great theme toggle switch
+tags: theme, toggle, switch, dark, light, mode
 ---
 
 # How to build a great theme toggle switch

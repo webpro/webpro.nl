@@ -1,5 +1,9 @@
 ---
 published: 2023-05-03
+description: The article I wish had read when I started using OpenAI
+tags:
+  openai, javascript, vector, embedding, database, ingestion, search, query,
+  chat, completion, prompt, tokens, conversation
 ---
 
 # Using OpenAI with JavaScript
