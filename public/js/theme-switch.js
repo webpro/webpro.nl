@@ -27,6 +27,7 @@
 
   if (html.classList.contains('light') || !preferDark.matches) {
     toggle.setAttribute('aria-checked', true);
+    if (highlightSheet) highlightSheet.href = highlightSheets.light;
   }
 
   html.classList.add('js');
