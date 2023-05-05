@@ -15,7 +15,7 @@ export default (node, meta) => {
           <img src="${logo.src}" width="32" height="32" alt="${logo.alt}" />
         </a>
       </div>
-      <input type="search" id="search" placeholder="Search..." autocomplete="off" />
+      <input type="search" id="search" placeholder="Search..." autocomplete="off" aria-label="Search this site" />
       <label class="theme-switch" for="theme-toggle">
         <button type="button" id="theme-toggle" role="switch" aria-label="Switch color theme" aria-checked="false" />
       </label>

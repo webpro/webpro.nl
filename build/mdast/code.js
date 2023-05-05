@@ -56,7 +56,7 @@ const buildShell = (h, node) => {
 
   const content = colorizePrompts(h, node, value);
   const code = h(node, 'code', { className: ['language-shell'] }, content);
-  const pre = h(node, 'pre', [code]);
+  const pre = h(node, 'pre', { tabIndex: 0 }, [code]);
 
   return h(node.position, 'section', { class: 'terminal' }, [header, pre]);
 };
@@ -72,7 +72,7 @@ export const code = (h, node) => {
 
   if (!language || /te?xt/.test(language)) {
     const code = h(node, 'code', { className: ['no-highlight'] }, [u('text', value)]);
-    return h(node.position, 'pre', [code]);
+    return h(node.position, 'pre', { tabIndex: 0 }, [code]);
   }
 
   const props = {
@@ -85,5 +85,5 @@ export const code = (h, node) => {
     code.data = { meta: node.meta };
   }
 
-  return h(node.position, 'pre', [code]);
+  return h(node.position, 'pre', { tabIndex: 0 }, [code]);
 };

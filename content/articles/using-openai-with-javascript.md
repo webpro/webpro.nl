@@ -445,11 +445,14 @@ export default function Page() {
   return (
     <>
       <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          value={query}
-          onChange={event => setQuery(event.target.value)}
-        />
+        <label>
+          How can I help you?
+          <input
+            type="search"
+            value={query}
+            onChange={event => setQuery(event.target.value)}
+          />
+        </label>
         <input type="submit" value="Send" />
       </form>
 
