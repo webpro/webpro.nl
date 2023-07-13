@@ -32,6 +32,13 @@ const twitter = html`<a href="https://twitter.com/webprolific" title="My Twitter
   </svg>
 </a>`;
 
+const stats = html`<a href="https://simpleanalytics.com/webpro.nl" title="Simple Analytics">
+  <svg>
+    <title>Simple Analytics</title>
+    <use href="/img/sprites.svg#stats"></use>
+  </svg>
+</a>`;
+
 const shareTwitter = (url, text) => {
   const query = new URLSearchParams();
   query.set('url', url);
@@ -64,7 +71,7 @@ const shareHackerNews = (url, text) => {
 
 /** @type {(meta: Meta) => ReturnType<typeof html>} */
 export const footer = meta => {
-  const blogLinks = [feed, github, mastodon, twitter];
+  const blogLinks = [feed, github, mastodon, twitter, stats];
 
   switch (meta.type) {
     case 'blog':
