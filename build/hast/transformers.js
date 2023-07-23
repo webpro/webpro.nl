@@ -2,6 +2,7 @@ import rehypeHighlight from 'rehype-highlight';
 import {
   addBootScript,
   enrichArticleHeading,
+  addPreRenderScript,
   addSimpleAnalytics,
   convertSprites,
   relateMyLinksToMe,
@@ -17,6 +18,7 @@ const highlightOptions = {
 export default vFile => {
   const { meta } = vFile.data;
   return [
+    [addPreRenderScript],
     [addBootScript],
     [enrichArticleHeading, meta],
     [convertSprites],

@@ -69,6 +69,38 @@ export const addBootScript = () => tree => {
 /**
  * @type {Pluggable}
  */
+export const addPreRenderScript = () => tree => {
+  const meta = h('meta', {
+    'http-equiv': 'origin-trial',
+    content:
+      'AoluPAbfPzR4zlBtS95MLfPE66yEk8lWPdJKRsJkIzybAfS+oVnBOyBR/8ODgLVuinBOaVyuc7RLMc42vvNUuwIAAABleyJvcmlnaW4iOiJodHRwczovL3d3dy53ZWJwcm8ubmw6NDQzIiwiZmVhdHVyZSI6IlNwZWN1bGF0aW9uUnVsZXNQcmVmZXRjaEZ1dHVyZSIsImV4cGlyeSI6MTcwNDQxMjc5OX0=',
+  });
+  const inlineScript = `
+{
+    "prerender": [
+      {
+        "source": "document",
+        "where": {"href_matches": "/*\\\\?*#*"},
+        "eagerness": "moderate"
+      }
+    ],
+    "prefetch": [
+      {
+        "source": "document",
+        "where": { "not": {"href_matches": "/*\\\\?*#*"} },
+        "eagerness": "moderate"
+      }
+    ]
+  }
+`;
+  const script = h('script', { type: 'speculationrules' }, inlineScript);
+  insertBeforeStylesheets(tree, meta);
+  return append(tree, 'body', script);
+};
+
+/**
+ * @type {Pluggable}
+ */
 export const addSimpleAnalytics = () => tree => {
   const img = h('img', {
     src: 'https://smplnltcs.webpro.nl/noscript.gif',
