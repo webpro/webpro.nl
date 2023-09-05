@@ -36,12 +36,8 @@ pre::-webkit-scrollbar-track {
   background-color: transparent;
 }
 
-:not(h2) code,
-:not(h2) pre {
-  font-family: Hack, monospace;
-  font-weight: 300;
-  font-size: 18px;
-  /* line-height: 16px; */
+code > pre {
+  line-height: 16px;
 }
 
 :where(p, ul) code,

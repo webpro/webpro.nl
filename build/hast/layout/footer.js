@@ -18,9 +18,9 @@ const github = html`<a href="https://github.com/webpro/webpro.nl" title="The con
   </svg>
 </a>`;
 
-const mastodon = html`<a href="https://fosstodon.org/@webpro" title="My Mastodon profile">
+const mastodon = html`<a href="https://fosstodon.org/@webpro" title="@webpro on fosstodon.org">
   <svg>
-    <title>My Mastodon profile</title>
+    <title>@webpro on fosstodon.org</title>
     <use href="/img/sprites.svg#mastodon"></use>
   </svg>
 </a>`;
@@ -71,15 +71,23 @@ const shareHackerNews = (url, text) => {
 
 /** @type {(meta: Meta) => ReturnType<typeof html>} */
 export const footer = meta => {
-  const blogLinks = [feed, github, mastodon, twitter, stats];
+  const blogLinks = [feed, github, twitter, mastodon, stats];
+  const allLinks = [
+    feed,
+    github,
+    twitter,
+    shareTwitter(meta.href, meta.title),
+    shareHackerNews(meta.href, meta.title),
+    mastodon,
+    stats,
+  ];
 
   switch (meta.type) {
     case 'blog':
       return html`<p class="icons">${blogLinks}</p>`;
     case 'article':
     case 'scrap': {
-      const links = [...blogLinks, shareTwitter(meta.href, meta.title), shareHackerNews(meta.href, meta.title)];
-      return html`<p class="icons">${links}</p>
+      return html`<p class="icons">${allLinks}</p>
         <p>Do you have a question or did you find an issue in this article?</p>
         <p>
           <a href="https://github.com/webpro/webpro.nl">Please let me know!</a> This website is fully open-sourced at

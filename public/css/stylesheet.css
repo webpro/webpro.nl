@@ -190,6 +190,17 @@ h3 {
   font-size: 28px;
 }
 
+code,
+pre {
+  font-family: Hack, monospace;
+  font-weight: 200;
+  font-size: 18px;
+}
+
+h2 code {
+  font-size: 24px;
+}
+
 img {
   max-width: 100%;
 }
@@ -200,6 +211,8 @@ figure {
 }
 
 figure img {
+  width: 100%;
+  height: auto;
   aspect-ratio: 2 / 1;
 }
 
@@ -279,7 +292,7 @@ blockquote p {
 }
 
 footer {
-  margin: 50px 0;
+  margin: 128px 0 64px;
   text-align: center;
   background-image: var(--signature-image);
   background-repeat: no-repeat;
@@ -373,6 +386,11 @@ footer .icons a svg {
   display: block;
   width: 100%;
   height: 100%;
+  fill: var(--light-grey);
+  transition: ease-out 0.5s;
+}
+
+footer .icons a svg:hover {
   fill: var(--font-color);
 }
 
