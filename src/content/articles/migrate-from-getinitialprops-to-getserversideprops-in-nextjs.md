@@ -52,7 +52,7 @@ Page.getInitialProps = async ({ req, res, asPath }): Promise<PageProps> => {
   return { content, statusCode, error };
 };
 
-export default SitecoreRoute;
+export default Page;
 ```
 
 The same `Page.tsx` refactored to use `getServerSideProps`:

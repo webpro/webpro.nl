@@ -32,6 +32,7 @@ html.dark {
     --bg-color: var(--white);
     --bg-color-header: var(--dark-grey);
     --bg-color-code: var(--off-white);
+    --bg-color-code: var(--dark-grey);
     --font-color: var(--dark-grey);
     --scroll-thumb-color: var(--light-grey);
     --blockquote-border-color: var(--grey);
@@ -44,7 +45,7 @@ html.dark {
 html.light {
   --bg-color: var(--white);
   --bg-color-header: var(--dark-grey);
-  --bg-color-code: var(--off-white);
+  --bg-color-code: var(--dark-grey);
   --font-color: var(--dark-grey);
   --scroll-thumb-color: var(--light-grey);
   --blockquote-border-color: var(--light-grey);
@@ -203,6 +204,7 @@ h2 code {
 
 img {
   max-width: 100%;
+  height: auto;
 }
 
 figure {
@@ -261,7 +263,7 @@ ul.index li a:hover {
   text-decoration: underline;
 }
 
-ul.index li span {
+ul.index li time {
   flex-shrink: 0;
   font-weight: 200;
   font-style: italic;
@@ -354,6 +356,7 @@ h4 a {
 }
 
 .home-links li {
+  flex: 1 1 50%;
   min-width: 350px;
 }
 
@@ -400,7 +403,8 @@ footer .icons a svg:hover {
   filter: invert(68%);
 }
 
-main a[href*="//"]:not([href*="webpro.nl"]):not([rel=me]):after {
+/* main a[href*="//"]:not([href*="webpro.nl"]):not([rel=me]):after
+{
   position: relative;
   content: '';
   opacity: 0.5;
@@ -414,9 +418,10 @@ main a[href*="//"]:not([href*="webpro.nl"]):not([rel=me]):after {
   filter: brightness(0) invert(var(--invert));
 }
 
-main a[href*="//"]:not([href*="webpro.nl"]):not([rel=me]):hover::after {
+main a[href*="//"]:not([href*="webpro.nl"]):not([rel=me]):hover::after
+{
   opacity: 0.9;
-}
+} */
 
 .back-to-top {
   display: none;

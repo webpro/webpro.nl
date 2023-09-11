@@ -3,7 +3,6 @@ published: 2023-08-17
 description:
   One of my strengths is optimizing developer experience (DX) in JavaScript and
   TypeScript projects
-prefetch: /
 ---
 
 # Hire Me

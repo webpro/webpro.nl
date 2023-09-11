@@ -1,0 +1,23 @@
+---
+import { getBlogIndex } from '../../helpers';
+import FormattedDate from '../../components/FormattedDate.astro';
+import BlogFooter from '../../components/BlogFooter.astro';
+import Page from '../../layouts/Page.astro';
+
+const isProduction = import.meta.env.PROD;
+const collection = await getBlogIndex({ drafts: !isProduction });
+---
+
+<Page>
+  <ul class="index">
+    {
+      collection.map((entry) => (
+        <li>
+          <a href={`/${entry.collection}/${entry.slug}`}>{entry.data.title}</a>
+          <FormattedDate date={entry.data.published} format="short" />
+        </li>
+      ))
+    }
+  </ul>
+  <BlogFooter />
+</Page>

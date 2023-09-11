@@ -19,7 +19,7 @@ Use blocks! Let's take a bogus unit test:
 
 ```javascript
 function test() {
-  const type = 'some';
+  const type = "some";
 
   const thing = getThing(type, 1);
   assert.equal(thing, 1);
@@ -36,7 +36,7 @@ can use blocks instead:
 
 ```javascript
 function test() {
-  const type = 'some';
+  const type = "some";
 
   {
     const thing = getThing(type, 1);

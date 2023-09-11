@@ -4,11 +4,15 @@
   --green: rgb(83, 194, 43);
 }
 
+pre.github-dark-dimmed {
+  background-color: var(--bg-color-code) !important;
+}
+
 pre {
   margin-top: 0;
   margin-top: 0;
-  padding-right: 10px;
   background-color: var(--bg-color-code);
+  padding-right: 10px;
   overflow-x: auto;
   overflow-y: hidden;
 }
