@@ -16,24 +16,32 @@
     "name": "Lars Kappert",
     "email": "lars@webpro.nl"
   },
-  "type": "module",
   "scripts": {
-    "prebuild": "rm -rf dist",
-    "build": "node build",
-    "watch": "node build --watch",
-    "lint": "eslint build public/js",
-    "lint:fix": "npm run lint -- --fix"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^1.0.2",
+    "@astrojs/rss": "^3.0.0",
+    "@astrojs/sitemap": "^3.0.0",
+    "astro": "^3.0.12",
+    "deepmerge-ts": "^5.1.0",
+    "hastscript": "^8.0.0",
+    "markdown-it": "^13.0.1",
+    "mdast-util-to-string": "^4.0.0",
+    "minisearch": "^6.1.0",
+    "remark-directive": "^2.0.1",
+    "sharp": "^0.32.5",
+    "unist-builder": "^4.0.0",
+    "unist-util-remove": "^4.0.0",
+    "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20.4.4",
-    "eslint": "^8.45.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^5.0.0",
-    "hastscript": "7.2.0",
-    "markdown-rambler": "^0.0.23",
-    "prettier": "^3.0.0",
-    "rehype-highlight": "6.0.0",
-    "remark-rehype": "^10.1.0",
-    "unist-builder": "^4.0.0"
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.0",
+    "schema-dts": "^1.1.2"
   }
 }
