@@ -1,0 +1,18 @@
+<script type="speculationrules">
+{
+  "prerender": [
+    {
+      "source": "document",
+      "where": { "href_matches": "/*\\?*#*" },
+      "eagerness": "moderate"
+    }
+  ],
+    "prefetch": [
+      {
+        "source": "document",
+        "where": { "not": { "href_matches": "/*\\?*#*" } },
+        "eagerness": "moderate"
+      }
+    ]
+}
+</script>

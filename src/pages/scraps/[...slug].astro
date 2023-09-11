@@ -1,0 +1,23 @@
+---
+import { type Entry, getScraps } from '../../helpers';
+
+import Article from '../../layouts/Article.astro';
+
+export async function getStaticPaths() {
+  const posts = await getScraps();
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+type Props = Entry;
+
+const entry = Astro.props;
+
+const { Content } = await entry.render();
+---
+
+<Article {...entry.data}>
+  <Content />
+</Article>

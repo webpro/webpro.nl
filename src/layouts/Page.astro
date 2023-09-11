@@ -1,0 +1,19 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Scripts from '../components/Scripts.astro';
+---
+
+<html lang="en">
+  <head>
+    <BaseHead {...Astro.props.content} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <button class="back-to-top">Back to top</button>
+    <Scripts />
+  </body>
+</html>

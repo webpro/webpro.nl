@@ -1,0 +1,35 @@
+---
+import { getUrl } from '../helpers';
+import Icon from './IconLink.astro';
+
+const canonicalURL = getUrl(Astro.url.pathname, Astro.site);
+---
+
+<footer>
+  <p class="icons">
+    <Icon href="/blog/feed.xml" title="Frontend Ramblings RSS feed" sprite="rss" rel="me" />
+    <Icon
+      href="https://github.com/webpro/webpro.nl"
+      title="The content of this website on GitHub"
+      sprite="github"
+      rel="me"
+    />
+    <Icon href="https://twitter.com/webprolific" title="My Twitter profile" sprite="twitter" rel="me" />
+    <Icon
+      href={`https://twitter.com/intent/tweet?url=${canonicalURL}`}
+      title="Share this article on Twitter"
+      sprite="share"
+    />
+    <Icon
+      href=`https://news.ycombinator.com/submitlink?u=${canonicalURL}`
+      title="Share this article on Hacker News"
+      sprite="hacker-news"
+    />
+    <Icon href="https://fosstodon.org/@webpro" title="@webpro on fosstodon.org" sprite="mastodon" rel="me" />
+    <Icon href="https://simpleanalytics.com/webpro.nl" title="Simple Analytics" sprite="stats" rel="me" />
+  </p>
+  <p>Do you have a question or did you find an issue in this article?</p>
+  <p>
+    <a href="https://github.com/webpro/webpro.nl">Please let me know!</a> This website is fully open-sourced at GitHub.
+  </p>
+</footer>

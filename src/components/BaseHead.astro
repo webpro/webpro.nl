@@ -1,0 +1,57 @@
+---
+import '../css/fonts.css';
+import '../css/stylesheet.css';
+import '../css/theme-switch.css';
+import '../css/search.css';
+import '../css/terminal.css';
+import { BLOG_RSS_NAME, BLOG_RSS_PATHNAME } from '../consts';
+import { getUrl } from '../helpers';
+
+const canonicalURL = getUrl(Astro.url.pathname, Astro.site);
+
+const { title, description, published, modified, image = '/src/logo-wide.webp', type = 'website', draft } = Astro.props;
+const pub = published instanceof Date ? published.toISOString() : published;
+const mod = modified instanceof Date ? modified.toISOString() : modified;
+---
+
+<meta charset="utf-8" />
+<title>{title}</title>
+{draft && <meta name="robots" content="noindex" />}
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:type" content={type} />
+<meta name="description" property="og:description" content={description} />
+<meta property="og:site_name" content="WebPro" />
+<meta property="og:url" content={canonicalURL} />
+<meta name="author" content="Lars Kappert" />
+<meta property="article:published_time" content={pub} />
+{mod && <meta property="article:modified_time" content={mod} />}
+<meta property="og:title" content={title} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:site" content="@webprolific" />
+<meta property="twitter:creator" content="@webprolific" />
+<meta name="twitter:image:alt" content={description} />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="canonical" href={canonicalURL} />
+<meta
+  http-equiv="origin-trial"
+  content="AoluPAbfPzR4zlBtS95MLfPE66yEk8lWPdJKRsJkIzybAfS+oVnBOyBR/8ODgLVuinBOaVyuc7RLMc42vvNUuwIAAABleyJvcmlnaW4iOiJodHRwczovL3d3dy53ZWJwcm8ubmw6NDQzIiwiZmVhdHVyZSI6IlNwZWN1bGF0aW9uUnVsZXNQcmVmZXRjaEZ1dHVyZSIsImV4cGlyeSI6MTcwNDQxMjc5OX0="
+/>
+<script>
+  (() => {
+    const theme = localStorage.getItem('theme');
+    if (theme) document.documentElement.classList.add(theme);
+  })();
+</script>
+<link rel="icon" type="image/svg+xml" href="/img/logo.svg" />
+<link rel="alternate" type="application/rss+xml" href={new URL(BLOG_RSS_PATHNAME, Astro.site)} title={BLOG_RSS_NAME} />
+<link rel="preload" href="/font/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7lujVj9w.woff2" as="font" type="font/woff2" crossorigin />
+<link
+  rel="preload"
+  href="/font/6xKydSBYKcSV-LCoeQqfX1RYOo3ik4zwlxdu3cOWxw.woff2"
+  as="font"
+  type="font/woff2"
+  crossorigin
+/>
+<link rel="preload" href="/font/hack-regular-subset.woff2" as="font" type="font/woff2" crossorigin />

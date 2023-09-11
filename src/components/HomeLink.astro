@@ -1,0 +1,9 @@
+---
+import IconLink from './IconLink.astro';
+
+const { href, title, sprite, description, rel } = Astro.props;
+---
+
+<li>
+  <IconLink href={href} title={title} description={description} sprite={sprite} rel={rel} />
+</li>

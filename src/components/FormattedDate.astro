@@ -1,0 +1,20 @@
+---
+interface Props {
+  date: Date;
+  format: 'short' | 'long';
+}
+
+const { date, format = 'short' } = Astro.props;
+---
+
+<time datetime={date.toISOString().split('T')[0]}>
+  {
+    format === 'short'
+      ? date.toISOString().split('T')[0]
+      : date.toLocaleDateString('en-us', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })
+  }
+</time>

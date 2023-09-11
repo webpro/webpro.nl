@@ -1,0 +1,31 @@
+---
+import { AUTHOR, AUTHOR_WEBSITE } from '../consts';
+import { getUrl } from '../helpers';
+import { getStructuredContent } from '../structured-content';
+const { title, description, published, modified, image = '/src/logo-wide.webp', type = 'website', tags } = Astro.props;
+
+const canonicalURL = getUrl(Astro.url.pathname, Astro.site);
+
+const sameAs = [
+  'https://twitter.com/webprolific',
+  'https://github.com/webpro',
+  'https://www.linkedin.com/in/larskappert/',
+];
+
+const schema = getStructuredContent({
+  href: canonicalURL.href,
+  published,
+  modified,
+  language: 'en',
+  tags: tags.split(/[, ]+/),
+  author: { name: AUTHOR, href: AUTHOR_WEBSITE },
+  publisher: { name: AUTHOR, href: AUTHOR_WEBSITE, logo: { src: '/img/logo-512x512.png' } },
+  type,
+  sameAs,
+  title,
+  description,
+  image,
+});
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

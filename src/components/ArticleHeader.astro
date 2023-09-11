@@ -1,0 +1,19 @@
+---
+import FormattedDate from '../components/FormattedDate.astro';
+const { title, published, modified } = Astro.props;
+---
+
+<header>
+  <h1>{title}</h1>
+  <div class="meta">
+    Published by <a href="https://www.webpro.nl" rel="author">Lars Kappert</a> on
+    <FormattedDate date={published} format="long" />
+    {
+      modified ? (
+        <>
+          (last update: <FormattedDate date={modified} format="long" />)
+        </>
+      ) : null
+    }
+  </div>
+</header>
