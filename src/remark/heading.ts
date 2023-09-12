@@ -1,7 +1,14 @@
 import { toString } from 'mdast-util-to-string';
-import type { RemarkPlugin } from './types';
+import type { Root } from 'remark-directive';
+import type { RemarkPlugin, MarkdownAstroData } from '@astrojs/markdown-remark';
 
-export const moveTitle: RemarkPlugin = () => (tree, file) => {
+interface VFile {
+  data: {
+    astro: MarkdownAstroData;
+  };
+}
+
+export const moveTitle: RemarkPlugin = () => (tree: Root, file: VFile) => {
   const title = tree.children.find(node => node.type === 'heading' && node.depth === 1);
   if (title) {
     file.data.astro.frontmatter.title = toString(title);

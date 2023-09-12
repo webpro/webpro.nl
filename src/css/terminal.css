@@ -88,7 +88,7 @@ html:not(.light) .hljs-keyword {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 24px;
+  height: 28px;
   background-color: rgb(59, 60, 63);
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;

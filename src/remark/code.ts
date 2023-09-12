@@ -1,61 +1,46 @@
-import { u } from 'unist-builder';
-import type { H } from 'mdast-util-to-hast';
-import type { Element } from 'hast';
+import htm from 'htm';
+import { h } from 'hastscript';
+import type { State } from 'mdast-util-to-hast';
 import type { Code } from 'mdast';
 
-const text = (text: string) => u('text', text);
-const newline = () => u('text', '\n');
-const space = () => u('text', ' ');
+const html = htm.bind(h);
 
-const colorizePrompts = (state: H, node: Code, value: string) => {
-  const span = (className: string, value: string) => state(node, 'span', { class: className }, [text(value)]);
-  const prompt = (value: string) => span('prompt', value);
-  const blink = () => span('blink', ' ');
+const prompt = html`<span class="prompt">$</span>`;
+const cursor = html`<span class="blink"> </span>`;
 
-  return value
+const colorize = (value: string) =>
+  value
     .split('\n')
     .map((line: string) => {
-      if (line === '$') {
-        return [prompt('$'), space(), blink(), newline()];
-      }
-      if (line.startsWith('$')) {
-        return [prompt('$'), text(line.slice(1)), newline()];
-      }
+      if (line === '$') return html`${prompt} ${cursor}><br />`;
+      if (line.startsWith('$')) return html`${prompt}${line.slice(1)}<br />`;
       if (line.startsWith('lars')) {
-        let [user, dir, branch, sign, ...command] = line.split(' ');
-        let chunks = [span('user', user), space(), span('dir', dir), space()];
-        if (branch.length > 1) {
-          chunks = [...chunks, span('branch', branch), space()];
-        } else {
-          command = [sign, ...command];
-          sign = branch;
-        }
-        return [...chunks, prompt(sign), space(), text(command.join(' ')), blink(), newline()];
+        const [usr, dir, promptOrGit, prompt, ...rest] = line.split(' ');
+        const branchAndPrompt =
+          promptOrGit.length === 1 ? promptOrGit : html`<span class="branch">${promptOrGit}</span> ${prompt}`;
+        return html`<span class="user">${usr}</span>${' '}<span class="dir">${dir} </span>
+          ${branchAndPrompt}${' '}${cursor}${' '}${rest.join(' ')}`;
       }
-      return [u('text', line), newline()];
+      return html`${line}<br />`;
     })
     .flat();
-};
 
-const buildShell = (state: H, node: Code) => {
+const buildShell = (node: Code) => {
   const meta = node.meta ? Object.fromEntries(node.meta.split(';').map(value => value.split('='))) : {};
-  const value = node.value ? node.value : '';
-
-  const title = meta.title ? state(node, 'div', { class: 'title' }, [u('text', meta.title)]) : null;
-  const buttons = state(node, 'div', { class: 'buttons' }, [
-    state(node, 'div', { class: 'button close' }),
-    state(node, 'div', { class: 'button minimize' }),
-    state(node, 'div', { class: 'button zoom' }),
-  ]);
-  const header = state(node, 'div', { class: 'header' }, title ? [buttons, title, buttons] : [buttons]);
-
-  const content = colorizePrompts(state, node, value);
-  const code = state(node, 'code', { className: ['language-shell'] }, content);
-  const pre = state(node, 'pre', { tabIndex: 0 }, [code]);
-
-  return state(node.position, 'section', { class: 'terminal' }, [header, pre]);
+  const title = meta.title ? html`<div class="title">${meta.title}</div>` : undefined;
+  const buttons = html`<div class="buttons">
+    <div class="button close" />
+    <div class="button minimize" />
+    <div class="button zoom" />
+  </div>`;
+  const header = title
+    ? html`<div class="header">${buttons}${title}${buttons}</div>`
+    : html`<div class="header">${buttons}</div>`;
+  const content = colorize(node.value ?? '');
+  const code = html`<pre tabindex="0"><code class="language-shell">${content}</code></pre>`;
+  return html`<section class="terminal">${header}${code}</section>`;
 };
 
-export const code = (state: H, node: Code): Element | undefined => {
-  if (node.lang === 'shell') return buildShell(state, node);
+export const code = (state: State, node: Code) => {
+  if (node.lang === 'shell') return buildShell(node);
 };

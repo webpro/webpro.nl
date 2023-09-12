@@ -3,10 +3,7 @@
 
   let searchIndex;
   try {
-    searchIndex = await fetch('/search.json').then((response) => response.text());
-    if (!('MiniSearch' in window)) {
-      throw new Error('MiniSearch not available');
-    }
+    searchIndex = await fetch('/search.json').then(response => response.text());
   } catch (error) {
     console.warn(error);
   }
@@ -19,11 +16,11 @@
   const container = document.createElement('div');
   container.setAttribute('id', 'search-results');
 
-  const search = (query) => {
+  const search = query => {
     if (query.length > 1) {
       const results = index.search(query, { boost: { title: 3 }, prefix: true, fuzzy: 0.3 });
       const list = document.createElement('ol');
-      results.slice(0, 10).forEach((result) => {
+      results.slice(0, 10).forEach(result => {
         const item = document.createElement('li');
         const link = document.createElement('a');
         link.setAttribute('href', result.pathname);
@@ -38,8 +35,24 @@
     }
   };
 
-  input.addEventListener('input', (event) => {
+  input.addEventListener('input', event => {
     search(event.target.value);
+  });
+
+  document.addEventListener('keydown', event => {
+    if ((event.ctrlKey || event.metaKey) && event.key === 'f') {
+      event.preventDefault();
+      input.focus();
+    }
+    if (event.key === '/') {
+      event.preventDefault();
+      input.focus();
+    }
+    if (event.key === 'Escape') {
+      input.value = '';
+      input.blur();
+      container.parentNode?.removeChild(container);
+    }
   });
 
   if (initialQuery) {

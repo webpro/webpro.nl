@@ -3,6 +3,7 @@ published: 2023-08-17
 description:
   One of my strengths is optimizing developer experience (DX) in JavaScript and
   TypeScript projects
+layout: ../layouts/Page.astro
 ---
 
 # Hire Me
@@ -34,4 +35,4 @@ Feel free to [contact me][1] and discuss ideas. Just starting up or rolling
 smoothly? Challenging frontend development and architecture opportunities are
 still welcome!
 
-[1]: ./index.md
+[1]: /

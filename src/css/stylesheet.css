@@ -403,8 +403,7 @@ footer .icons a svg:hover {
   filter: invert(68%);
 }
 
-/* main a[href*="//"]:not([href*="webpro.nl"]):not([rel=me]):after
-{
+main a[href*="//"]:not([href*="webpro.nl"]):not([rel=me]):after {
   position: relative;
   content: '';
   opacity: 0.5;
@@ -418,10 +417,9 @@ footer .icons a svg:hover {
   filter: brightness(0) invert(var(--invert));
 }
 
-main a[href*="//"]:not([href*="webpro.nl"]):not([rel=me]):hover::after
-{
+main a[href*="//"]:not([href*="webpro.nl"]):not([rel=me]):hover::after {
   opacity: 0.9;
-} */
+}
 
 .back-to-top {
   display: none;

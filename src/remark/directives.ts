@@ -1,9 +1,12 @@
+import htm from 'htm';
 import { h } from 'hastscript';
 import { visit, type Visitor } from 'unist-util-visit';
 import type { Parent } from 'unist';
 import type { VFile } from 'vfile';
 import type { Element } from 'hast';
 import type { RemarkPlugin } from './types';
+
+const html = htm.bind(h);
 
 type DirectiveVisitor = (node: Element, index: number, parent: Parent, vFile: VFile) => Element;
 
@@ -18,7 +21,10 @@ const addFigure: DirectiveVisitor = (node, index, parent) => {
   const alt = imgRef.alt;
   const href = findDefinition(parent.children, linkRef.identifier)?.url;
   const src = findDefinition(parent.children, imgRef.identifier)?.url;
-  return h('figure', [h('img', { src, alt }), h('figcaption', h('a', { href }, alt))]);
+  return html`<figure>
+    <img src="${src}" alt="${alt}" />
+    <figcaption><a href="${href}">${alt}</a></figcaption>
+  </figure>`;
 };
 
 export const directives = {

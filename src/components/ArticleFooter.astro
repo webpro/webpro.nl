@@ -1,6 +1,6 @@
 ---
 import { getUrl } from '../helpers';
-import Icon from './IconLink.astro';
+import IconLink from './IconLink.astro';
 import { BLOG_RSS_NAME, BLOG_RSS_PATHNAME } from '../consts';
 
 const canonicalURL = getUrl(Astro.url.pathname, Astro.site);
@@ -8,26 +8,26 @@ const canonicalURL = getUrl(Astro.url.pathname, Astro.site);
 
 <footer>
   <p class="icons">
-    <Icon href={BLOG_RSS_PATHNAME} title={BLOG_RSS_NAME} sprite="rss" rel="me" />
-    <Icon
+    <IconLink href={BLOG_RSS_PATHNAME} title={BLOG_RSS_NAME} sprite="rss" rel="me" />
+    <IconLink
       href="https://github.com/webpro/webpro.nl"
       title="The content of this website on GitHub"
       sprite="github"
       rel="me"
     />
-    <Icon href="https://twitter.com/webprolific" title="My Twitter profile" sprite="twitter" rel="me" />
-    <Icon
+    <IconLink href="https://twitter.com/webprolific" title="My Twitter profile" sprite="twitter" rel="me" />
+    <IconLink
       href={`https://twitter.com/intent/tweet?url=${canonicalURL}`}
       title="Share this article on Twitter"
       sprite="share"
     />
-    <Icon
+    <IconLink
       href=`https://news.ycombinator.com/submitlink?u=${canonicalURL}`
       title="Share this article on Hacker News"
       sprite="hacker-news"
     />
-    <Icon href="https://fosstodon.org/@webpro" title="@webpro on fosstodon.org" sprite="mastodon" rel="me" />
-    <Icon href="https://simpleanalytics.com/webpro.nl" title="Simple Analytics" sprite="stats" rel="me" />
+    <IconLink href="https://fosstodon.org/@webpro" title="@webpro on fosstodon.org" sprite="mastodon" rel="me" />
+    <IconLink href="https://simpleanalytics.com/webpro.nl" title="Simple Analytics" sprite="stats" rel="me" />
   </p>
   <p>Do you have a question or did you find an issue in this article?</p>
   <p>

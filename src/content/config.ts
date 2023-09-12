@@ -6,7 +6,6 @@ const page = defineCollection({
     description: z.string().optional(),
     published: z.coerce.date().optional(),
     modified: z.coerce.date().optional(),
-    // heroImage: z.string().optional()
   }),
 });
 
