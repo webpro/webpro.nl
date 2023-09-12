@@ -1,13 +1,14 @@
 ---
 import { getUrl } from '../helpers';
 import Icon from './IconLink.astro';
+import { BLOG_RSS_NAME, BLOG_RSS_PATHNAME } from '../consts';
 
 const canonicalURL = getUrl(Astro.url.pathname, Astro.site);
 ---
 
 <footer>
   <p class="icons">
-    <Icon href="/blog/feed.xml" title="Frontend Ramblings RSS feed" sprite="rss" rel="me" />
+    <Icon href={BLOG_RSS_PATHNAME} title={BLOG_RSS_NAME} sprite="rss" rel="me" />
     <Icon
       href="https://github.com/webpro/webpro.nl"
       title="The content of this website on GitHub"

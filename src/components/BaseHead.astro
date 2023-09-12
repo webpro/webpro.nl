@@ -4,7 +4,7 @@ import '../css/stylesheet.css';
 import '../css/theme-switch.css';
 import '../css/search.css';
 import '../css/terminal.css';
-import { BLOG_RSS_NAME, BLOG_RSS_PATHNAME } from '../consts';
+import { BLOG_RSS_NAME, BLOG_RSS_PATHNAME, LOGO_SVG } from '../consts';
 import { getUrl } from '../helpers';
 
 const canonicalURL = getUrl(Astro.url.pathname, Astro.site);
@@ -44,7 +44,7 @@ const mod = modified instanceof Date ? modified.toISOString() : modified;
     if (theme) document.documentElement.classList.add(theme);
   })();
 </script>
-<link rel="icon" type="image/svg+xml" href="/img/logo.svg" />
+<link rel="icon" type="image/svg+xml" href={LOGO_SVG} />
 <link rel="alternate" type="application/rss+xml" href={new URL(BLOG_RSS_PATHNAME, Astro.site)} title={BLOG_RSS_NAME} />
 <link rel="preload" href="/font/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7lujVj9w.woff2" as="font" type="font/woff2" crossorigin />
 <link

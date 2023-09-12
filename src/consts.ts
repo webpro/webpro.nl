@@ -6,7 +6,7 @@ export const SITE_DESCRIPTION = 'Welcome to my website!';
 export const SITE_AUTHOR = 'Lars Kappert';
 
 export const NAME = 'WebPro';
-export const HOST = 'https://www.webpro.nl';
+export const HOST = 'https://astro.webpro.nl';
 export const AUTHOR = 'Lars Kappert';
 export const AUTHOR_WEBSITE = HOST;
 export const BLOG_NAME = 'Frontend Ramblings';

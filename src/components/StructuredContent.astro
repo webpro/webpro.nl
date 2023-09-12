@@ -1,5 +1,5 @@
 ---
-import { AUTHOR, AUTHOR_WEBSITE } from '../consts';
+import { AUTHOR, AUTHOR_WEBSITE, LOGO_PNG } from '../consts';
 import { getUrl } from '../helpers';
 import { getStructuredContent } from '../structured-content';
 const { title, description, published, modified, image = '/src/logo-wide.webp', type = 'website', tags } = Astro.props;
@@ -19,7 +19,7 @@ const schema = getStructuredContent({
   language: 'en',
   tags: tags.split(/[, ]+/),
   author: { name: AUTHOR, href: AUTHOR_WEBSITE },
-  publisher: { name: AUTHOR, href: AUTHOR_WEBSITE, logo: { src: '/img/logo-512x512.png' } },
+  publisher: { name: AUTHOR, href: AUTHOR_WEBSITE, logo: { src: LOGO_PNG } },
   type,
   sameAs,
   title,

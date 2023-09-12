@@ -10,6 +10,7 @@ layout: ../layouts/Page.astro
 ---
 
 import HomeLink from '../components/Homelink.astro';
+import { BLOG_PATHNAME } from '../consts';
 
 Hi! My name is Lars Kappert, an independent full-stack developer and frontend architect.
 
@@ -25,7 +26,7 @@ How can I help you?
   <ul>
     <HomeLink
       description="Frontend Ramblings"
-      href="/blog"
+      href={BLOG_PATHNAME}
       title="The Frontend Ramblings blog"
       sprite="blog"
     />

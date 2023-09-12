@@ -1,11 +1,13 @@
 ---
+import { LOGO_SVG, NAME } from '../consts';
+
 const { back = '/' } = Astro.props;
 ---
 
 <header>
   <div class="logo">
     <a href={back} title="Go back">
-      <img src="/img/logo.svg" width="32" height="32" alt="WebPro" />
+      <img src={LOGO_SVG} width="32" height="32" alt={NAME} />
     </a>
   </div>
   <input type="search" id="search" placeholder="Search..." autocomplete="off" aria-label="Search this site" />
