@@ -6,17 +6,18 @@ import sitemap from '@astrojs/sitemap';
 import { transformDirectives, directives } from './src/remark/directives';
 import { uncode } from './src/remark/uncode';
 import { code } from './src/remark/code';
+import vercelStatic from '@astrojs/vercel/static';
 
 export default defineConfig({
-  site: 'https:/www.webpro.nl',
+  site: 'https:/astro.webpro.nl',
+  adapter: vercelStatic(),
+  output: 'static',
   trailingSlash: 'never',
   compressHTML: false,
   integrations: [mdx(), sitemap()],
   markdown: {
-    // syntaxHighlight: false,
     shikiConfig: {
       theme: 'github-dark-dimmed',
-      // excludeLangs: ['shell'],
     },
     remarkPlugins: [moveTitle, [transformDirectives, directives], remarkDirective, uncode],
     remarkRehype: {

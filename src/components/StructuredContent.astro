@@ -17,7 +17,7 @@ const schema = getStructuredContent({
   published,
   modified,
   language: 'en',
-  tags: tags.split(/[, ]+/),
+  tags: tags ? tags.split(/[, ]+/) : [],
   author: { name: AUTHOR, href: AUTHOR_WEBSITE },
   publisher: { name: AUTHOR, href: AUTHOR_WEBSITE, logo: { src: LOGO_PNG } },
   type,

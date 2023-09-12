@@ -105,7 +105,7 @@ As I think Bash scripts are not very robust and not easy to maintain, I ported
 this to a Node.js script [is-affected.js][9] with JSDoc/TypeScript annotations.
 The idea stays the same, and with both scripts the output looks like this:
 
-```
+```text
 ##[warning]my-app is NOT affected (base: 62ed6e5d1dd73564a088be879a47634456a07676)
 ##[warning]container5 is affected (base: 62ed6e5d1dd73564a088be879a47634456a07676)
 ##[warning]some-lib was not previously tagged
@@ -153,7 +153,7 @@ The `condition` for the job in another (build) stage is based on the variable
 that was written with the Bash script in an earlier stage. The pattern to read
 it:
 
-```
+```text
 stageDependencies.[[STAGE]].[[JOB]].outputs['[[STEP_NAME]].BUILD_MY-APP']
 ```
 
@@ -226,7 +226,7 @@ project in the next pipeline run:
 Again, you may need to set the `organization` and `project` first. Here's a
 complete step:
 
-```
+```yml
 - script: |
     az config set extension.use_dynamic_install=yes_without_prompt
     az devops configure --defaults organization=$(System.TeamFoundationCollectionUri) project="$(System.TeamProject)"

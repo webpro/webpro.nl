@@ -1,0 +1,23 @@
+---
+import { type Entry, getReferences } from '../../helpers';
+
+import Page from '../../layouts/Page.astro';
+
+export async function getStaticPaths() {
+  const posts = await getReferences();
+  return posts.map(post => ({
+    params: { slug: post.slug },
+    props: post,
+  }));
+}
+
+type Props = Entry;
+
+const post = Astro.props;
+
+const { Content } = await post.render();
+---
+
+<Page {...post.data}>
+  <Content />
+</Page>

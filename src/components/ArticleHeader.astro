@@ -7,7 +7,7 @@ const { title, published, modified } = Astro.props;
 <header>
   <h1>{title}</h1>
   <div class="meta">
-    Published by <a href={HOST} rel="author">${AUTHOR}</a> on
+    Published by <a href={HOST} rel="author">{AUTHOR}</a> on
     <FormattedDate date={published} format="long" />
     {
       modified ? (
