@@ -1,6 +1,6 @@
 ---
 published: 2022-08-19
-modified: 2023-04-04
+modified: 2023-09-13
 description:
   The more expensive it is to refactor or replace a component in the system, the
   more value it has to design an interface to abstract the implementation away.
@@ -12,7 +12,7 @@ tags: value, abstraction, interface, refactoring, system, design, implementation
 
 In software systems, maintenance quickly becomes harder as more components are
 added. When a component deteriorates, it should be possible to refactor or
-replace it without affecting many other parts of the system.
+replace it without having to change many other parts of the system.
 
 Following this principle, each component needs a clear separation of concern
 with a clear interface, and without leaky abstractions.
@@ -37,37 +37,54 @@ Let's take an example component "C" in our system. The deeper C is everywhere in
 the system, the more often it is used, the more important its interface becomes.
 It may help to ask ourselves questions like this about C:
 
-- How hard is it to refactor C without affecting other components?
-- How hard is it to replace C within the structure later on?
-- How hard is it to replace C's external dependency?
-- How to build the next feature with an alternative of C?
+- Is it hard to refactor without affecting other components?
+- Is it hard to replace within the structure?
+- Is it hard to replace its external dependencies?
+- Is it hard to build the next feature with an alternative?
 
-The harder it is to do these things, the more coupled the components are to C,
-and the harder it is to maintain the project. As such, the more value it has to
-add the right abstraction for C.
+Answering "yes" means more coupling of other components towards C, and harder
+maintenance of the project.
+
+This may also indicate a leaky abstraction: C might expose too many details and
+limitations of its underlying implementation.
+
+There is value in adding the right abstraction for C.
 
 > The more expensive it is to refactor or replace a component in the system, the
 > more value it has to design an interface to abstract the implementation away.
 
-The hard part is to figure out what components in the system need an
-abstraction, and to design their interfaces. Although this requires research and
-preparation upfront, it pays off in the long run by reducing maintenance
-complexity and facilitating system evolution.
+The hard part is to figure out the granularity of the components, what
+components in the system need an abstraction, and to design their interfaces.
+Design and refactor until the answers are "no".
+
+In general, large monolithic components with many responsibilities are harder to
+replace than a more modular solution. On the other hand, lots of granularity can
+lead to an over-engineered system with too many components and
+interrelationships.
+
+Although software design takes time, and needs refinement along the way, it pays
+off in the long run as it reduces maintenance complexity and facilitates system
+evolution.
 
 ## Enforce restrictions
 
-Even with great interfaces and abstractions, other developers may be unaware of
-them, or simply decide not to use them. Code linters can be very effective here.
+Even great interfaces and abstractions may go unnoticed by other developers.
+Depending on the environment and ecosystem, automated tooling might be available
+to help with this. At the lower level (code and sometimes configuration),
+linters can be very effective.
 
-ESLint's [no-restricted-imports][4] and the
-[@nrwl/nx/enforce-module-boundaries][5] rule to [enforce boundaries in Nx
-projects][6] prevent direct imports of modules or dependencies with different
-interfaces. If a dependency (external or internal) is banned, the linter will
-yell when a developer tries to import it directly.
+Examples of such linters include ESLint's [no-restricted-imports][4] and the
+[@nrwl/nx/enforce-module-boundaries][5] rule.
+
+They help to [enforce boundaries in Nx projects][6] and prevent direct imports
+of underlying modules or dependencies, and suggest to use the provided
+abstraction instead.
 
 When properly configured, tools like this effectively encourage developers to
-think about the situation, look for better solutions, and maintain component
-decoupling.
+think about the system and its components, and aim for better solutions.
+
+At higher levels of the system, a more manual and pragmatic approach will be
+necessary.
 
 ## Further reading
 
