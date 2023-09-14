@@ -1,21 +1,22 @@
 ---
-published: 2023-09-05
-description: How to use a compiled bin in a TypeScript monorepo
-draft: true
+published: 2023-09-14
+description: How to use a compiled bin in a TypeScript monorepo with pnpm
 ---
 
-# How to use a compiled bin in a TypeScript monorepo
+# How to use a compiled bin in a TypeScript monorepo with pnpm
 
-Today's scrap is about packages that contain a compiled executable in a
-TypeScript monorepo.
+Today's scrap has a very long title and is about pnpm workspaces that contain a
+compiled executable in a TypeScript monorepo.
 
-This little guide addresses a few pitfalls when running scripts such as with
-`pnpm install` in a monorepo while the local `bin` file of a package may not
-exist yet. Then `pnpm` is unable to link the file in the process. This results
-in errors when trying to execute the `bin` from another package.
+## Problem
+
+When running `pnpm install` in a monorepo, the local `bin` file of a workspace
+may not exist yet. This happens when that file needs to be generated first (e.g.
+when using TypeScript). Then `pnpm` is unable to link the missing file. This
+also results in errors when trying to execute the `bin` from another workspace.
 
 _tl/dr;_ Make sure the referenced file in the `bin` field of `package.json`
-exists and import the generated file from there.
+exists, and import the generated file from there.
 
 ## Solution
 
@@ -42,8 +43,8 @@ wants to expose the `bin`:
 }
 ```
 
-Using `"type": "module"` to publish ESM in `package.json`? Great! Import the
-generated file from `bin/my-command.js`:
+Use `"type": "module"` to publish as ESM in `package.json`. Import the generated
+file from `bin/my-command.js`:
 
 ```js
 #!/usr/bin/env node
@@ -73,19 +74,22 @@ and make sure to include both the `bin` and `lib` folders in the `files` field
 ## A note about `postinstall` scripts
 
 Using a `postinstall` script to create the file works since [pnpm v8.6.6][1],
-but `postinstall` scripts should be avoided when possible. Such scripts pose a
-potential security risk and can be disabled altogether by the consumer using
-` --ignore-scripts`. That's why this little guide doesn't promote it and got
-longer than I wanted!
+but `postinstall` scripts should be avoided when possible:
 
-## More notes
+- Can perform malicious acts (security scanners don't like them)
+- Can be disabled by the consumer using ` --ignore-scripts`
+
+That's why this little guide doesn't promote it, and this scrap got longer than
+I wanted!
+
+## Additional notes
 
 - This scrap is based on [this GitHub comment][2] in the pnpm repository.
 - I've seen and tried workarounds to (`mkdir` and) `touch` the file from
   `postinstall` scripts, but that's flaky at best and not portable.
 - The same issue might occur when using `npm` and/or `Yarn`. True or not, it's
   better to be safe than sorry.
-- If you are using only JavaScript or JavaScript with TypeScript in JSDoc then
+- If you are using only JavaScript (or JavaScript with TypeScript in JSDoc) then
   you can target the `src/cli.js` file directly from the `bin` field.
 
 [1]: https://github.com/pnpm/pnpm/releases/tag/v8.6.6
