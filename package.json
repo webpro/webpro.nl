@@ -22,10 +22,10 @@
     ]
   },
   "scripts": {
-    "dev": "bunx --bun astro dev",
+    "dev": "astro dev",
     "build": "astro build",
-    "preview": "bunx --bun astro preview",
-    "astro": "bunx --bun astro",
+    "preview": "astro preview",
+    "astro": "astro",
     "format": "remark README.md 'src/**/*.md' -o"
   },
   "dependencies": {
