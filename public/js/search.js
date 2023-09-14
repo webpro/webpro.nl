@@ -41,6 +41,18 @@
     search(event.target.value);
   });
 
+  document.addEventListener('keydown', event => {
+    if (event.key === '/' || ((event.ctrlKey || event.metaKey) && event.key === 'f')) {
+      event.preventDefault();
+      input.focus();
+    }
+    if (event.key === 'Escape') {
+      input.value = '';
+      input.blur();
+      container.parentNode?.removeChild(container);
+    }
+  });
+
   if (initialQuery) {
     search(initialQuery);
   }
