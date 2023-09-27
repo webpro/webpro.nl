@@ -4,7 +4,7 @@ import '../css/stylesheet.css';
 import '../css/theme-switch.css';
 import '../css/search.css';
 import '../css/terminal.css';
-import { join } from 'path';
+import { join } from 'node:path';
 import { BLOG_RSS_NAME, BLOG_RSS_PATHNAME, LOGO_SVG } from '../consts';
 import { getUrl } from '../helpers';
 
@@ -42,6 +42,7 @@ const mod = modified instanceof Date ? modified.toISOString() : modified;
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="canonical" href={canonicalURL} />
 <link rel="sitemap" href="/sitemap.txt" />
+<meta name="generator" content={Astro.generator} />
 <meta
   http-equiv="origin-trial"
   content="AoluPAbfPzR4zlBtS95MLfPE66yEk8lWPdJKRsJkIzybAfS+oVnBOyBR/8ODgLVuinBOaVyuc7RLMc42vvNUuwIAAABleyJvcmlnaW4iOiJodHRwczovL3d3dy53ZWJwcm8ubmw6NDQzIiwiZmVhdHVyZSI6IlNwZWN1bGF0aW9uUnVsZXNQcmVmZXRjaEZ1dHVyZSIsImV4cGlyeSI6MTcwNDQxMjc5OX0="

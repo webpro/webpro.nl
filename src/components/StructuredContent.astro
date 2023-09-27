@@ -1,9 +1,11 @@
 ---
-import { AUTHOR, AUTHOR_WEBSITE, LOGO_PNG } from '../consts';
+import { join } from 'node:path';
+import { AUTHOR, LOGO_PNG, NAME } from '../consts';
 import { getUrl } from '../helpers';
 import { getStructuredContent } from '../structured-content';
-const { title, description, published, modified, image = '/src/logo-wide.webp', type = 'website', tags } = Astro.props;
+const { title, description, published, modified, type = 'website', tags } = Astro.props;
 
+const baseUrl = Astro.site?.origin ?? 'https://www.webpro.nl';
 const canonicalURL = getUrl(Astro.url.pathname, Astro.site);
 
 const sameAs = [
@@ -18,13 +20,13 @@ const schema = getStructuredContent({
   modified,
   language: 'en',
   tags: tags ? tags.split(/[, ]+/) : [],
-  author: { name: AUTHOR, href: AUTHOR_WEBSITE },
-  publisher: { name: AUTHOR, href: AUTHOR_WEBSITE, logo: { src: LOGO_PNG } },
+  author: { name: AUTHOR, href: baseUrl },
+  publisher: { name: NAME, href: baseUrl, logo: { src: new URL(LOGO_PNG, Astro.url.origin).href } },
   type,
   sameAs,
   title,
   description,
-  image,
+  image: { src: new URL(join('og', Astro.url.pathname.replace(/\/$/, '') + '.webp'), Astro.url.origin).href },
 });
 ---
 

@@ -1,13 +1,14 @@
 ---
 import FormattedDate from '../components/FormattedDate.astro';
-import { AUTHOR, HOST } from '../consts';
+import { AUTHOR } from '../consts';
+const baseUrl = Astro.site?.origin ?? 'https://www.webpro.nl';
 const { title, published, modified } = Astro.props;
 ---
 
 <header>
   <h1>{title}</h1>
   <div class="meta">
-    Published by <a href={HOST} rel="author">{AUTHOR}</a> on
+    Published by <a href={baseUrl} rel="author">{AUTHOR}</a> on
     <FormattedDate date={published} format="long" />
     {
       modified ? (

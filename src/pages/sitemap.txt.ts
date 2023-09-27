@@ -9,7 +9,7 @@ for (const [filePath, page] of Object.entries(data)) {
 }
 
 export async function GET(context: APIContext) {
-  const base = context.site?.href;
-  const documents = [...pages].map(entry => new URL(entry, base).href).sort();
+  const baseUrl = context.site?.href;
+  const documents = [...pages].map(entry => new URL(entry, baseUrl).href).sort();
   return new Response(documents.join('\n'));
 }

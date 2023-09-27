@@ -29,6 +29,7 @@
     "format": "remark README.md 'src/**/*.md' -o"
   },
   "dependencies": {
+    "@astrojs/markdown-remark": "^3.2.0",
     "@astrojs/mdx": "^1.1.0",
     "@astrojs/rss": "^3.0.0",
     "@astrojs/vercel": "^5.0.1",
@@ -41,6 +42,7 @@
     "markdown-it": "^13.0.1",
     "mdast-util-to-string": "^4.0.0",
     "minisearch": "^6.1.0",
+    "rehype-autolink-headings": "^7.0.0",
     "remark-directive": "^2.0.1",
     "sharp": "^0.32.6",
     "unist-util-remove": "^4.0.0",
