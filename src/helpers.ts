@@ -7,6 +7,9 @@ export type Entry = CollectionEntry<EntryType>;
 
 export type BlogEntry = CollectionEntry<'articles' | 'scraps'>;
 
+export const withoutDrafts = (collection: Awaited<ReturnType<typeof getCollection>>) =>
+  collection.filter(entry => entry.data && entry.data.draft !== true);
+
 const sortByPublishData = (a: BlogEntry, b: BlogEntry) => b.data.published.valueOf() - a.data.published.valueOf();
 
 const syncMetaData = async (entry: Entry) => {
@@ -22,7 +25,7 @@ const get = async (type: EntryType) => {
 
 export const getBlogIndex = async ({ drafts = false } = {}) => {
   const collection = (await getBlogEntries()).sort(sortByPublishData);
-  if (!drafts) return collection.filter(entry => entry.data && entry.data.draft !== true);
+  if (!drafts) return withoutDrafts(collection);
   return collection;
 };
 
