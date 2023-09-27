@@ -1,6 +1,8 @@
 ---
 published: 2023-09-14
+modified: 2023-09-27
 description: How to use a compiled bin in a TypeScript monorepo with pnpm
+tags: compiled, bin, monorepo, pnpm, npm, bun, yarn, typescript, postinstall
 ---
 
 # How to use a compiled bin in a TypeScript monorepo with pnpm
@@ -77,7 +79,10 @@ Using a `postinstall` script to create the file works since [pnpm v8.6.6][1],
 but `postinstall` scripts should be avoided when possible:
 
 - Can perform malicious acts (security scanners don't like them)
-- Can be disabled by the consumer using ` --ignore-scripts`
+- Can be disabled by the consumer using `--ignore-scripts`
+- Can be disabled if the consumer uses `pnpm.onlyBuiltDependencies`
+
+Bun does not execute arbitrary lifecycle scripts for installed dependencies.
 
 That's why this little guide doesn't promote it, and this scrap got longer than
 I wanted!
@@ -87,7 +92,7 @@ I wanted!
 - This scrap is based on [this GitHub comment][2] in the pnpm repository.
 - I've seen and tried workarounds to (`mkdir` and) `touch` the file from
   `postinstall` scripts, but that's flaky at best and not portable.
-- The same issue might occur when using `npm` and/or `Yarn`. True or not, it's
+- The same issue might occur when using npm, Bun and/or Yarn. True or not, it's
   better to be safe than sorry.
 - If you are using only JavaScript (or JavaScript with TypeScript in JSDoc) then
   you can target the `src/cli.js` file directly from the `bin` field.
