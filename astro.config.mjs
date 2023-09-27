@@ -10,7 +10,7 @@ import { code } from './src/remark/code';
 import vercelStatic from '@astrojs/vercel/static';
 
 export default defineConfig({
-  site: 'https://astro.webpro.nl',
+  site: 'https://www.webpro.nl',
   adapter: vercelStatic(),
   output: 'static',
   trailingSlash: 'never',
