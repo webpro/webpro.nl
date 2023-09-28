@@ -10,7 +10,11 @@ import { getUrl } from '../helpers';
 
 const canonicalURL = getUrl(Astro.url.pathname, Astro.site);
 
-const { title, description, published, modified, type = 'website', draft } = Astro.props;
+const { type = 'website', draft } = Astro.props;
+const title = Astro.props.title ?? Astro.props.content?.title;
+const description = Astro.props.description ?? Astro.props.content?.description;
+const published = Astro.props.published ?? Astro.props.content?.published;
+const modified = Astro.props.modified ?? Astro.props.content?.modified;
 const pub = published instanceof Date ? published.toISOString() : published;
 const mod = modified instanceof Date ? modified.toISOString() : modified;
 ---
@@ -29,7 +33,7 @@ const mod = modified instanceof Date ? modified.toISOString() : modified;
 <meta property="og:title" content={title} />
 <meta
   property="og:image"
-  content={new URL(join('og', Astro.url.pathname.replace(/\/$/, '') + '.webp'), Astro.url.origin)}
+  content={new URL(join('og', (Astro.url.pathname.replace(/\/$/, '') || 'index') + '.webp'), Astro.url.origin)}
 />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />

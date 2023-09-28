@@ -1,13 +1,11 @@
 ---
-import { getBlogIndex, getReferences } from '../../helpers';
-import FormattedDate from '../../components/FormattedDate.astro';
-import BlogFooter from '../../components/BlogFooter.astro';
+import { getReferences } from '../../helpers';
 import Page from '../../layouts/Page.astro';
 
 const collection = await getReferences();
 ---
 
-<Page>
+<Page title="References">
   <h1>References</h1>
   <p>I'm lazy, so here's things I often forget or need to look up:</p>
   <ul>

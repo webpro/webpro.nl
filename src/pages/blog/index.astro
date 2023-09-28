@@ -8,10 +8,10 @@ const isProduction = import.meta.env.PROD;
 const collection = await getBlogIndex({ drafts: !isProduction });
 ---
 
-<Page>
+<Page title="Frontend Ramblings">
   <ul class="index">
     {
-      collection.map((entry) => (
+      collection.map(entry => (
         <li>
           <a href={`/${entry.collection}/${entry.slug}`}>{entry.data.title}</a>
           <FormattedDate date={entry.data.published} format="short" />
