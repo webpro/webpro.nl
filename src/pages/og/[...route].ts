@@ -1,11 +1,12 @@
 import { generateOpenGraphImage } from 'astro-og-canvas';
-import { join } from 'path';
+import { join } from 'node:path';
 
-const data = await import.meta.glob(['/src/pages/**/*.md', '/src/content/**/*.md'], { eager: true });
+const data = await import.meta.glob(['/src/pages/**/*.{md,mdx}', '/src/content/**/*.md'], { eager: true });
 const pages: Record<string, unknown> = {};
 
 for (const [filePath, page] of Object.entries(data)) {
-  pages[filePath.replace(/^\/src\/(content|pages)\//, '').replace(/(\/index)?\.md$/, '.webp')] = page;
+  const imagePath = filePath.replace(/^\/src\/(content|pages)\//, '').replace(/(\/index)?\.(md|mdx)$/, '.webp');
+  pages[imagePath] = page;
 }
 
 const getImageOptions = (page, url: URL) => {
@@ -14,7 +15,7 @@ const getImageOptions = (page, url: URL) => {
     title: page.frontmatter.title,
     description: isBlog
       ? `Frontend Ramblings (Lars Kappert, ${page.frontmatter.published.split('T')[0]})`
-      : 'Lars Kappert (WebPro)',
+      : page.frontmatter.description,
     padding: 80,
     bgGradient: [
       [42, 42, 42],
@@ -26,7 +27,7 @@ const getImageOptions = (page, url: URL) => {
     },
     font: {
       title: { size: 68, weight: 'Normal', families: ['Source Sans Pro'], lineHeight: 1.2 },
-      description: { color: [246, 138, 34], size: 24, weight: 'Normal', lineHeight: 1, families: ['Hack'] },
+      description: { color: [246, 138, 34], size: 24, weight: 'Normal', lineHeight: 1.5, families: ['Hack'] },
     },
     fonts: [
       join(url.origin, 'font/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7lujVj9w.woff2'),
