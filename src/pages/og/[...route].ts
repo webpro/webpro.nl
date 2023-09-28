@@ -1,13 +1,15 @@
 import { generateOpenGraphImage } from 'astro-og-canvas';
 import { join } from 'node:path';
 
-const data = await import.meta.glob(['/src/pages/**/*.{md,mdx}', '/src/content/**/*.md'], { eager: true });
-const pages: Record<string, unknown> = {};
-
-for (const [filePath, page] of Object.entries(data)) {
-  const imagePath = filePath.replace(/^\/src\/(content|pages)\//, '').replace(/(\/index)?\.(md|mdx)$/, '.webp');
-  pages[imagePath] = page;
-}
+const getPages = async () => {
+  const data = await import.meta.glob(['/src/pages/**/*.{md,mdx}', '/src/content/**/*.md'], { eager: true });
+  const pages: Record<string, unknown> = {};
+  for (const [filePath, page] of Object.entries(data)) {
+    const imagePath = filePath.replace(/^\/src\/(content|pages)\//, '').replace(/(\/index)?\.(md|mdx)$/, '.webp');
+    pages[imagePath] = page;
+  }
+  return pages;
+};
 
 const getImageOptions = (page, url: URL) => {
   const isBlog = /\/(scraps|articles)\//.test(page.file);
@@ -38,11 +40,13 @@ const getImageOptions = (page, url: URL) => {
 };
 
 export const GET = async function ({ params, url }: { params: { route: string }; url: URL }) {
+  const pages = await getPages();
   const pageEntry = pages[params.route];
   if (!pageEntry) return new Response('Page not found', { status: 404 });
   return new Response(await generateOpenGraphImage(getImageOptions(pageEntry, url)));
 };
 
-export const getStaticPaths = function () {
+export const getStaticPaths = async function () {
+  const pages = await getPages();
   return Object.keys(pages).map(route => ({ params: { route } }));
 };
