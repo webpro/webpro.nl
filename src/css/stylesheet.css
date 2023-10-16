@@ -420,19 +420,3 @@ main a[href*="//"]:not([href*="webpro.nl"]):not([rel=me]):after {
 main a[href*="//"]:not([href*="webpro.nl"]):not([rel=me]):hover::after {
   opacity: 0.9;
 }
-
-.back-to-top {
-  display: none;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: var(--bg-color-header);
-  font-family: 'Source Sans Pro', sans-serif;
-  color: #fff;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  opacity: 0.8;
-  z-index: 1;
-}

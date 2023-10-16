@@ -5,6 +5,7 @@ import ArticleHeader from '../components/ArticleHeader.astro';
 import ArticleFooter from '../components/ArticleFooter.astro';
 import Scripts from '../components/Scripts.astro';
 import StructuredContent from '../components/StructuredContent.astro';
+import BackToTop from '../components/BackToTop.astro';
 ---
 
 <html lang="en">
@@ -19,7 +20,7 @@ import StructuredContent from '../components/StructuredContent.astro';
       <slot />
     </main>
     <ArticleFooter />
-    <button class="back-to-top">Back to top</button>
+    <BackToTop />
     <StructuredContent {...Astro.props} type="article" />
     <Scripts />
   </body>

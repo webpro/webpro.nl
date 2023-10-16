@@ -1,4 +1,24 @@
-(() => {
+<button class="back-to-top">Back to top</button>
+
+<style>
+  .back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--bg-color-header);
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0.8;
+    z-index: 1;
+  }
+</style>
+
+<script>
   const button = document.querySelector('.back-to-top');
 
   if (button) {
@@ -21,4 +41,4 @@
 
     window.addEventListener('scroll', onScroll);
   }
-})();
+</script>

@@ -1,5 +1,7 @@
 ---
 import { LOGO_SVG, NAME } from '../consts';
+import Search from './Search.astro';
+import ThemeSwitch from './ThemeSwitch.astro';
 
 const { back = '/' } = Astro.props;
 ---
@@ -10,8 +12,6 @@ const { back = '/' } = Astro.props;
       <img src={LOGO_SVG} width="32" height="32" alt={NAME} />
     </a>
   </div>
-  <input type="search" id="search" placeholder="Search..." autocomplete="off" aria-label="Search this site" />
-  <label class="theme-switch" for="theme-toggle">
-    <button type="button" id="theme-toggle" role="switch" aria-label="Switch color theme" aria-checked="false"></button>
-  </label>
+  <Search />
+  <ThemeSwitch />
 </header>

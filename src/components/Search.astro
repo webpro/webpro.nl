@@ -1,3 +1,46 @@
+<input type="search" id="search" placeholder="Search..." autocomplete="off" aria-label="Search this site" />
+
+<style>
+  input {
+    width: 12ch;
+    font-size: 0.8em;
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0 4px var(--font-color);
+    position: relative;
+    margin-right: 1em;
+    padding: 4px 3px 4px 1em;
+    transition: width 0.3s;
+  }
+
+  input:focus {
+    width: 20ch;
+  }
+</style>
+
+<style is:global>
+  #search-results {
+    background-color: var(--bg-color-header);
+    position: absolute;
+    top: 64px;
+    right: 0;
+    font-size: 1em;
+    padding: 1em;
+    text-align: right;
+    border-bottom: 1px solid var(--lighter-grey);
+    width: 100%;
+  }
+
+  #search-results ol {
+    list-style: none;
+  }
+
+  #search-results ol li {
+    margin: 0.3em;
+  }
+</style>
+
 <script>
   import MiniSearch from 'minisearch';
 

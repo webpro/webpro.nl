@@ -1,3 +1,45 @@
+<label class="theme-switch" for="theme-toggle">
+  <button type="button" id="theme-toggle" role="switch" aria-label="Switch color theme" aria-checked="false"></button>
+</label>
+
+<style>
+  label {
+    display: none;
+    width: 53px;
+    height: 30px;
+    background-color: var(--bg-color);
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 0 4px var(--font-color);
+  }
+
+  button {
+    pointer-events: none;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: var(--font-color);
+    position: absolute;
+    border: none;
+    border-radius: 14px;
+    top: 3px;
+    left: 3px;
+    transition: 0.5s;
+    transition-property: left;
+  }
+
+  label button[aria-checked='true'] {
+    left: 50%;
+  }
+</style>
+
+<style is:global>
+  .js .theme-switch {
+    display: initial;
+  }
+</style>
+
 <script>
   const html = document.documentElement;
   const classList = html.classList;
@@ -13,7 +55,7 @@
     toggle.setAttribute('aria-checked', isChecked);
   });
 
-  preferDark.addEventListener('change', (event) => {
+  preferDark.addEventListener('change', event => {
     if (!localStorage.getItem('theme')) {
       toggle.setAttribute('aria-checked', !event.matches);
     }
