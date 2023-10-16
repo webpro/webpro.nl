@@ -1,5 +1,5 @@
 import { toString } from 'mdast-util-to-string';
-import type { Root } from 'remark-directive';
+import type { Root } from 'mdast';
 import type { RemarkPlugin, MarkdownAstroData } from '@astrojs/markdown-remark';
 
 interface VFile {

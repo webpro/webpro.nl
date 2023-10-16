@@ -1,5 +1,6 @@
 import { generateOpenGraphImage } from 'astro-og-canvas';
 import { join } from 'node:path';
+import { AUTHOR, NAME } from '../../consts';
 
 const getPages = async () => {
   const data = await import.meta.glob(['/src/pages/**/*.{md,mdx}', '/src/content/**/*.md'], { eager: true });
@@ -16,7 +17,7 @@ const getImageOptions = (page, url: URL) => {
   return {
     title: page.frontmatter.title,
     description: isBlog
-      ? `Frontend Ramblings (Lars Kappert, ${page.frontmatter.published.split('T')[0]})`
+      ? `${NAME} (${AUTHOR}, ${page.frontmatter.published.split('T')[0]})`
       : page.frontmatter.description,
     padding: 80,
     bgGradient: [

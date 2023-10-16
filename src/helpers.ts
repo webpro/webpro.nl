@@ -5,9 +5,9 @@ type EntryType = 'articles' | 'scraps' | 'references';
 
 export type Entry = CollectionEntry<EntryType>;
 
-export type BlogEntry = CollectionEntry<'articles' | 'scraps'>;
+type BlogEntry = CollectionEntry<'articles' | 'scraps'>;
 
-export const withoutDrafts = (collection: Awaited<ReturnType<typeof getCollection>>) =>
+const withoutDrafts = (collection: Awaited<ReturnType<typeof getCollection>>) =>
   collection.filter(entry => entry.data && entry.data.draft !== true);
 
 const sortByPublishData = (a: BlogEntry, b: BlogEntry) => b.data.published.valueOf() - a.data.published.valueOf();

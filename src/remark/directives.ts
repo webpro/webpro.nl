@@ -3,7 +3,7 @@ import { h } from 'hastscript';
 import { visit, type Visitor } from 'unist-util-visit';
 import type { Parent } from 'unist';
 import type { VFile } from 'vfile';
-import type { Element } from 'hast';
+import type { Element } from 'rehype';
 import type { RemarkPlugin } from './types';
 
 const html = htm.bind(h);

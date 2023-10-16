@@ -9,7 +9,7 @@ layout: ../layouts/Page.astro
 ---
 
 import HomeLink from '../components/HomeLink.astro';
-import { BLOG_PATHNAME } from '../consts';
+import { BLOG_PATHNAME, BLOG_NAME } from '../consts';
 
 Hi! My name is Lars Kappert, an independent full-stack developer and frontend architect.
 
@@ -24,7 +24,7 @@ How can I help you?
 <div class="home-links">
   <ul>
     <HomeLink
-      description="Frontend Ramblings"
+      description={BLOG_NAME}
       href={BLOG_PATHNAME}
       title="The Frontend Ramblings blog"
       sprite="blog"

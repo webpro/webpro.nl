@@ -1,6 +1,6 @@
 import { visit, type Visitor } from 'unist-util-visit';
 import type { RemarkPlugin } from './types';
-import type { Root } from 'remark-directive';
+import type { Root } from 'mdast';
 
 export const uncode: RemarkPlugin = () => (tree: Root) => {
   const visitor: Visitor = node => {

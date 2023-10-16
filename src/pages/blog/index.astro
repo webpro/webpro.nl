@@ -3,12 +3,13 @@ import { getBlogIndex } from '../../helpers';
 import FormattedDate from '../../components/FormattedDate.astro';
 import BlogFooter from '../../components/BlogFooter.astro';
 import Page from '../../layouts/Page.astro';
+import { BLOG_NAME } from '../../consts';
 
 const isProduction = import.meta.env.PROD;
 const collection = await getBlogIndex({ drafts: !isProduction });
 ---
 
-<Page title="Frontend Ramblings">
+<Page title={BLOG_NAME}>
   <ul class="index">
     {
       collection.map(entry => (

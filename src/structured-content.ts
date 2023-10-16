@@ -1,7 +1,7 @@
 import { deepmerge } from 'deepmerge-ts';
 import type { Thing, WithContext } from 'schema-dts';
 
-export type Schema = WithContext<Thing>;
+type Schema = WithContext<Thing>;
 
 interface Data {
   type: 'page' | 'article';
