@@ -16,7 +16,7 @@ TypeScript projects.
 If developers prioritize new features and bug fixes, they often suffer from:
 
 - Complicated onboarding and development setups
-- Large and muddy code repositories (tech debt)
+- Large and muddy code repositories (entropy/tech debt)
 - Lengthy feedback loops (slow builds and tests)
 - Slow tooling and unoptimized configurations
 

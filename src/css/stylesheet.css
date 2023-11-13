@@ -12,6 +12,7 @@
   --dark-grey: rgb(52, 52, 52);
   --darker-grey: rgb(42, 42, 42);
   --black: rgb(24, 24, 24);
+  --orange: #f68a22;
 }
 
 :root,
@@ -69,7 +70,7 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
   font-size: 24px;
-  line-height: 32px;
+  line-height: 36px;
 }
 
 body > header {
@@ -79,16 +80,23 @@ body > header {
   background-color: var(--bg-color-header);
   align-items: center;
   color: var(--white);
+  border-bottom: 1px solid var(--orange);
+}
+
+.light body > header {
+  border-bottom: 4px solid var(--orange);
 }
 
 a {
   color: var(--font-color);
   text-decoration-thickness: from-font;
   text-underline-position: from-font;
+  transition-property: color;
+  transition-duration: 300ms;
 }
 
 a:hover {
-  text-decoration-thickness: 3px;
+  color: var(--orange);
 }
 
 body > header a {
@@ -371,6 +379,12 @@ h4 a {
   height: 4rem;
   width: 4rem;
   fill: var(--font-color);
+  transition-property: fill;
+  transition-duration: 300ms;
+}
+
+.home-links ul li > a[title]:hover svg {
+  fill: var(--orange);
 }
 
 footer .icons {

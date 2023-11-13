@@ -10,10 +10,13 @@ layout: ../layouts/Page.astro
 import HomeLink from '../components/HomeLink.astro';
 import { BLOG_PATHNAME, BLOG_NAME } from '../consts';
 
-Hi! My name is Lars Kappert, an independent frontend developer, architect and automation engineer.
+Hi there! My name is Lars Kappert, an independent frontend developer, architect and automation engineer.
 
 Over 20 years in the game, I love to solve problems and connect dots to create great experiences for users and fellow
 developers (UX + DX).
+
+Companies I've worked for include Rabobank, Eneco, RTL Nederland and Schiphol. I 🧡 open source and building tools (like
+[Knip](https://github.com/webpro/knip) and [Release It](https://github.com/release-it/release-it)).
 
 If you've got an exciting project, let's chat! [You can hire me][hire-me] from November 2023. Location: remote or in the
 Utrecht area (NL).
@@ -22,12 +25,7 @@ How can I help you?
 
 <div class="home-links">
   <ul>
-    <HomeLink
-      description={BLOG_NAME}
-      href={BLOG_PATHNAME}
-      title="The Frontend Ramblings blog"
-      sprite="blog"
-    />
+    <HomeLink description={BLOG_NAME} href={BLOG_PATHNAME} title="The Frontend Ramblings blog" sprite="blog" />
     <HomeLink
       description="github.com/webpro"
       href="https://github.com/webpro"
@@ -36,14 +34,7 @@ How can I help you?
       rel="me"
     />
     <HomeLink
-      description="@webpro@fosstodon.org"
-      href="https://fosstodon.org/@webpro"
-      title="My Mastodon profile"
-      sprite="mastodon"
-      rel="me"
-    />
-    <HomeLink
-    description="@webprolific"
+      description="@webprolific"
       href="https://twitter.com/webprolific"
       title="My Twitter profile"
       sprite="twitter"
@@ -57,25 +48,13 @@ How can I help you?
       rel="me"
     />
     <HomeLink
-    description="LarsKappert-CV.pdf"
+      description="LarsKappert-CV.pdf"
       href="/LarsKappert-CV.pdf"
       title="My curriculum vitae"
       sprite="pdf"
       rel="me"
     />
-    <HomeLink
-      description="lars@webpro.nl"
-      href="mailto:lars@w%65bpro.nl"
-      title="My email address"
-      sprite="email"
-    />
-    <HomeLink
-      description="Frontend References"
-      href="/references"
-      title="Things I always forget"
-      sprite="references"
-    />
-
+    <HomeLink description="lars@webpro.nl" href="mailto:lars@w%65bpro.nl" title="My email address" sprite="email" />
   </ul>
 </div>
 
