@@ -26,7 +26,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier public src --write && remark README.md 'src/**/*.md' -o"
+    "format": "prettier public src --write && remark README.md 'src/**/*.md' -o",
+    "knip": "knip"
   },
   "dependencies": {
     "@astrojs/rss": "^3.0.0",
