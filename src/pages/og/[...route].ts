@@ -1,5 +1,5 @@
 import { generateOpenGraphImage } from 'astro-og-canvas';
-import { join } from 'node:path';
+import { resolve } from 'node:path';
 import { AUTHOR, NAME } from '../../consts';
 
 const getPages = async () => {
@@ -12,7 +12,7 @@ const getPages = async () => {
   return pages;
 };
 
-const getImageOptions = (page, url: URL) => {
+const getImageOptions = page => {
   const isBlog = /\/(scraps|articles)\//.test(page.file);
   return {
     title: page.frontmatter.title,
@@ -33,8 +33,8 @@ const getImageOptions = (page, url: URL) => {
       description: { color: [246, 138, 34], size: 24, weight: 'Normal', lineHeight: 1.5, families: ['Hack'] },
     },
     fonts: [
-      join(url.origin, 'font/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7lujVj9w.woff2'),
-      join(url.origin, 'font/hack-regular-subset.woff2'),
+      resolve('./public/font/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7lujVj9w.woff2'),
+      resolve('./public/font/hack-regular-subset.woff2'),
     ],
     format: 'PNG',
   };
