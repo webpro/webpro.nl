@@ -52,12 +52,16 @@ first, but during refactoring such "lies" should be taken care of, and removed.
 Output arguments are objects that the method operates on, and then returns. An
 example:
 
-    extendWall(h);
+```
+extendWall(h);
+```
 
 Does this function extend "h" with a wall? Or is the wall extended with "h"? And
 what would it return? It's more clear to use "this" as the output argument:
 
-    h.extendWall();
+```
+h.extendWall();
+```
 
 ## Command Query Separation
 
@@ -111,10 +115,10 @@ Think about that for a while, and probably you will appreciate tests even more.
 
 Any design is considered "simple" if it:
 
-1.  Runs all the tests
-2.  Contains no duplication
-3.  Expresses the intent of the programmer
-4.  Minimizes the number of classes and methods
+1. Runs all the tests
+2. Contains no duplication
+3. Expresses the intent of the programmer
+4. Minimizes the number of classes and methods
 
 Making a system testable motivates (or forces) to implement established
 programming principles, which leads to better designs. Then, the rest follows

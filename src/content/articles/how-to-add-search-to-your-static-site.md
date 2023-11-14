@@ -52,10 +52,10 @@ static websites, as they are often powered by Markdown files.
 So, how to integrate MiniSearch in your static website? There are roughly four
 steps here:
 
-1.  [Build the index][9]
-2.  [Serve the index][10] with the rest of the static site
-3.  [Connect the index][11] with a DOM element (such as an input field)
-4.  [Search and render results][12]
+1. [Build the index][9]
+2. [Serve the index][10] with the rest of the static site
+3. [Connect the index][11] with a DOM element (such as an input field)
+4. [Search and render results][12]
 
 ## Building the index
 

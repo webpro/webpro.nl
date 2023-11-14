@@ -34,16 +34,16 @@ methods). So how could this wrapping of things be implemented?
 
 This leaves us with a couple of less optimal options. For example:
 
-1.  Use the array and assign all members of the API as properties to the array.
-2.  Use the array and set its `__proto__` member to the API object.
-3.  Use `Object.create()`, and assign all DOM elements as indexed members to the
-    object.
-4.  Use a constructor and use the API object as its `prototype`. Assign all DOM
-    elements as indexed members to the object.
+1. Use the array and assign all members of the API as properties to the array.
+2. Use the array and set its `__proto__` member to the API object.
+3. Use `Object.create()`, and assign all DOM elements as indexed members to the
+   object.
+4. Use a constructor and use the API object as its `prototype`. Assign all DOM
+   elements as indexed members to the object.
 
 Here's a basic, untested implementation of each:
 
-1.  Array with iteration over API methods
+1. Array with iteration over API methods
 
 ```js
 function $(selector) {
@@ -57,7 +57,7 @@ function $(selector) {
 var $myCollection = $('.items');
 ```
 
-2.  Array with `__proto__`
+2. Array with `__proto__`
 
 ```js
 function $(selector) {
@@ -69,7 +69,7 @@ function $(selector) {
 var $myCollection = $('.items');
 ```
 
-3.  `Object.create` with iteration over elements
+3. `Object.create` with iteration over elements
 
 ```js
 function $(selector) {
@@ -83,7 +83,7 @@ function $(selector) {
 var $myCollection = $('.items');
 ```
 
-4.  Constructor with iteration over elements
+4. Constructor with iteration over elements
 
 ```js
 function $(selector) {

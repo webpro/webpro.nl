@@ -29,15 +29,15 @@ work, but I promise each is small and fun!
 If you want to quickly see the final solution, feel free to scroll to the of
 this page and find how to put it all together.
 
-1.  The Foundation
-2.  Prepare The Switch
-3.  Add The Switch
-4.  Activate The Switch
-5.  Hide The Switch
-6.  Remember The Switch
-7.  Check The Switch
-8.  Sync The Switch
-9.  Extra: Swapping Stylesheets
+1. The Foundation
+2. Prepare The Switch
+3. Add The Switch
+4. Activate The Switch
+5. Hide The Switch
+6. Remember The Switch
+7. Check The Switch
+8. Sync The Switch
+9. Extra: Swapping Stylesheets
 10. Putting It All Together
 
 ## The foundation
@@ -257,22 +257,22 @@ Let's put all the bits and pieces together.
 
 When we look at how the browser executes things, this is what we need:
 
-1.  Read the `theme` from `localStorage` and apply this class to `<html>`
-2.  Load the stylesheet containing the media query and CSS variables
-3.  Render a hidden toggle switch
-4.  Load the JavaScript containing:
-    1.  Event handler for toggle switches
-    2.  Event handler for OS setting changes
-    3.  Toggle the switch to match the theme initially
-    4.  Show the switch by adding the `js` class to `<html>`
+1. Read the `theme` from `localStorage` and apply this class to `<html>`
+2. Load the stylesheet containing the media query and CSS variables
+3. Render a hidden toggle switch
+4. Load the JavaScript containing:
+   1. Event handler for toggle switches
+   2. Event handler for OS setting changes
+   3. Toggle the switch to match the theme initially
+   4. Show the switch by adding the `js` class to `<html>`
 
 Alternatively, as this page serves as a working example, we can "view source"
 into these three elements:
 
-1.  High in the `<head>` is an inline `<script>` tag (to read and apply the
-    stored `theme`).
-2.  There is a `<link>` to [stylesheet.css][2] containing the styles.
-3.  The `<body>` has [theme-switch.js][3] for the rest of the functionality.
+1. High in the `<head>` is an inline `<script>` tag (to read and apply the
+   stored `theme`).
+2. There is a `<link>` to [stylesheet.css][2] containing the styles.
+3. The `<body>` has [theme-switch.js][3] for the rest of the functionality.
 
 [1]: ./os-preferences-mode.webp
 [2]: ../../../css/stylesheet.css

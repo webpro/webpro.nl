@@ -38,13 +38,15 @@ that tries to tag a pipeline run:
 In this example the `az` command fails due to some missing extension. This
 results in output like this:
 
-    Generating script.
-    ========================== Starting Command Output ===========================
-    /bin/bash --noprofile --norc /agent/_work/_temp/3ecc72e6-92f7-4de6-96c3-35ae602c7620.sh
-    ERROR: The command requires the extension azure-devops. Unable to prompt for extension install confirmation as no tty available. Run 'az config set extension.use_dynamic_install=yes_without_prompt' to allow installing extensions without prompt.
-    Tagged build for my-container
+```
+Generating script.
+========================== Starting Command Output ===========================
+/bin/bash --noprofile --norc /agent/_work/_temp/3ecc72e6-92f7-4de6-96c3-35ae602c7620.sh
+ERROR: The command requires the extension azure-devops. Unable to prompt for extension install confirmation as no tty available. Run 'az config set extension.use_dynamic_install=yes_without_prompt' to allow installing extensions without prompt.
+Tagged build for my-container
 
-    Finishing: Tag successful build
+Finishing: Tag successful build
+```
 
 The command fails and prints an `ERROR` (to `stderr`). But both the task and the
 pipeline still succeed:
@@ -77,15 +79,17 @@ Here we can add `failOnStderr` as a task configuration option:
 This will execute the whole script, but make the task fail, since the `az`
 command prints the error to `stderr`:
 
-    Generating script.
-    ========================== Starting Command Output ===========================
-    /bin/bash --noprofile --norc /agent/_work/_temp/3ecc72e6-92f7-4de6-96c3-35ae602c7620.sh
-    ERROR: The command requires the extension azure-devops. Unable to prompt for extension install confirmation as no tty available. Run 'az config set extension.use_dynamic_install=yes_without_prompt' to allow installing extensions without prompt.
-    Tagged build for my-container
-    ##[error]Bash wrote one or more lines to the standard error stream.
-    ##[error]ERROR: The command requires the extension azure-devops. Unable to prompt for extension install confirmation as no tty available. Run 'az config set extension.use_dynamic_install=yes_without_prompt' to allow installing extensions without prompt.
+```
+Generating script.
+========================== Starting Command Output ===========================
+/bin/bash --noprofile --norc /agent/_work/_temp/3ecc72e6-92f7-4de6-96c3-35ae602c7620.sh
+ERROR: The command requires the extension azure-devops. Unable to prompt for extension install confirmation as no tty available. Run 'az config set extension.use_dynamic_install=yes_without_prompt' to allow installing extensions without prompt.
+Tagged build for my-container
+##[error]Bash wrote one or more lines to the standard error stream.
+##[error]ERROR: The command requires the extension azure-devops. Unable to prompt for extension install confirmation as no tty available. Run 'az config set extension.use_dynamic_install=yes_without_prompt' to allow installing extensions without prompt.
 
-    Finishing: Tag successful build
+Finishing: Tag successful build
+```
 
 The pipeline fails:
 
@@ -121,12 +125,14 @@ To make the script fail on errors, use `set -e` at the start of the script:
 
 This will fail the script immediately:
 
-    Generating script.
-    ========================== Starting Command Output ===========================
-    /bin/bash --noprofile --norc /agent/_work/_temp/a64b21a0-0a8e-4e6b-a0b4-271980ef4d05.sh
-    ERROR: The command requires the extension azure-devops. Unable to prompt for extension install confirmation as no tty available. Run 'az config set extension.use_dynamic_install=yes_without_prompt' to allow installing extensions without prompt.
-    ##[error]Bash exited with code '2'.
-    Finishing: Tag successful build
+```
+Generating script.
+========================== Starting Command Output ===========================
+/bin/bash --noprofile --norc /agent/_work/_temp/a64b21a0-0a8e-4e6b-a0b4-271980ef4d05.sh
+ERROR: The command requires the extension azure-devops. Unable to prompt for extension install confirmation as no tty available. Run 'az config set extension.use_dynamic_install=yes_without_prompt' to allow installing extensions without prompt.
+##[error]Bash exited with code '2'.
+Finishing: Tag successful build
+```
 
 And again, the pipeline fails as intended:
 

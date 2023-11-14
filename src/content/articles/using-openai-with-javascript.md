@@ -43,7 +43,9 @@ In this guide, we will work with two OpenAI REST endpoints.
 
 ### Chat Completions
 
-    POST https://api.openai.com/v1/chat/completions
+```
+POST https://api.openai.com/v1/chat/completions
+```
 
 The [Create chat completion][12] endpoint generates a human-like text completion
 for a provided prompt. We'll use it to start and keep the conversation going
@@ -52,7 +54,9 @@ and GPT-4.
 
 ### Create Embeddings
 
-    POST https://api.openai.com/v1/embeddings
+```
+POST https://api.openai.com/v1/embeddings
+```
 
 With the [embeddings][13] endpoint, we can create embeddings from plain text. We
 will use these embeddings to store and query a vector database. Embeddings?
@@ -197,10 +201,10 @@ demonstrate how to ingest Markdown files:
 When the embeddings and metadata are in the database, we can query it. We'll
 look at some example code to implement this 4-step strategy:
 
-1.  Create a vector embedding from the user's textual input.
-2.  Query the database with this vector for related chunks of content.
-3.  Build the prompt from the search results and the user's input.
-4.  Ask the model to generate a chat completion based on this prompt.
+1. Create a vector embedding from the user's textual input.
+2. Query the database with this vector for related chunks of content.
+3. Build the prompt from the search results and the user's input.
+4. Ask the model to generate a chat completion based on this prompt.
 
 The next examples show working code, but contain no error handling or
 optimizations. Just plain JavaScript without dependencies.
@@ -487,10 +491,10 @@ enough for one-shot questions, but we need more to build a meaningful
 conversation. The chat completions endpoint accepts an array of messages, so a
 pattern to fill this array could look like this:
 
-1.  Add a `system` message that explains the model (i.e. the `assistant`) how to
-    behave and respond.
-2.  Add the conversation history with `user` and `assistant` messages.
-3.  Add the `user` prompt, containing the context and the query.
+1. Add a `system` message that explains the model (i.e. the `assistant`) how to
+   behave and respond.
+2. Add the conversation history with `user` and `assistant` messages.
+3. Add the `user` prompt, containing the context and the query.
 
 Here is an example building on the initial [prompt example][32] that extends the
 `messages` array to build the conversation:
@@ -587,7 +591,9 @@ have their own limit (context length) and pricing:
 The sum of the tokens for the prompt plus the `max_tokens` for completion cannot
 exceed the model's context length. For `gpt-3.5-turbo` this means:
 
-    num_tokens(prompt) + max_tokens <= 4096
+```
+num_tokens(prompt) + max_tokens <= 4096
+```
 
 To see what this means in practice, we'll discuss tokenization first and then
 look at an example calculation.

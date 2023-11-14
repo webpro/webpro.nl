@@ -5,7 +5,7 @@ import Article from '../../layouts/Article.astro';
 
 export async function getStaticPaths() {
   const posts = await getArticles();
-  return posts.map((post) => ({
+  return posts.map(post => ({
     params: { slug: post.slug },
     props: post,
   }));

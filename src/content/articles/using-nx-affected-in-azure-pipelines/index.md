@@ -37,13 +37,13 @@ build.
 
 The main steps in this guide include:
 
-1.  Find the latest successful build and the corresponding SHA-1.
-2.  Use this SHA-1 as the `--base` for the `nx affected` command.
-3.  Store the affected Nx project names in output variables.
-4.  Use these output variables to conditionally execute the corresponding jobs
-    or stages to build and deploy Nx projects.
-5.  After a successful build, tag the current pipeline run (for step #1 in the
-    next run).
+1. Find the latest successful build and the corresponding SHA-1.
+2. Use this SHA-1 as the `--base` for the `nx affected` command.
+3. Store the affected Nx project names in output variables.
+4. Use these output variables to conditionally execute the corresponding jobs or
+   stages to build and deploy Nx projects.
+5. After a successful build, tag the current pipeline run (for step #1 in the
+   next run).
 
 ## Find The Latest Successful Build
 
@@ -216,12 +216,16 @@ silently resolve to `Null` without warning.
 This task should follow the build step(s) from the job above. We can tag
 successful build runs with the name of the Nx project (`[nx-project-name]`):
 
-    az pipelines runs tag add --run-id $(Build.BuildId) --tags [nx-project-name]
+```
+az pipelines runs tag add --run-id $(Build.BuildId) --tags [nx-project-name]
+```
 
 Now this command from the Bash script should find the latest tag for this Nx
 project in the next pipeline run:
 
-    az pipelines runs list --tags "[nx-project-name]" [...]
+```
+az pipelines runs list --tags "[nx-project-name]" [...]
+```
 
 Again, you may need to set the `organization` and `project` first. Here's a
 complete step:

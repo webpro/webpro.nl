@@ -8,8 +8,8 @@ emojis.
 | Option        | ⌥         |
 | Command       | ⌘         |
 | Arrow         | → ← ↑ ↓   |
-| Trademark     | ™         |
-| Copyright     | ©         |
+| Trademark     | ™        |
+| Copyright     | ©        |
 | Bitcoin       | ฿         |
 | Superscript # | ¹ ² ³ ⁴   |
 
@@ -17,11 +17,15 @@ emojis.
 
 It's between the brackets, copy/paste together and remove the brackets:
 
-    ]​[
+```
+]​[
+```
 
 ## Sequences
 
-    ¯\_(ツ)_/¯
+```
+¯\_(ツ)_/¯
+```
 
 [1]: https://github.com/arp242/uni
 [2]: https://arp242.github.io/uni-wasm/
