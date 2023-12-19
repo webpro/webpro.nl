@@ -12,7 +12,7 @@ const colorize = (value: string) =>
   value
     .split('\n')
     .map((line: string) => {
-      if (line === '$') return html`${prompt} ${cursor}><br />`;
+      if (line === '$') return html`${prompt} ${cursor}<br />`;
       if (line.startsWith('$')) return html`${prompt}${line.slice(1)}<br />`;
       if (line.startsWith('lars')) {
         const [usr, dir, promptOrGit, prompt, ...rest] = line.split(' ');
