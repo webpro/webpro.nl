@@ -207,6 +207,10 @@ pre {
 }
 
 h2 code {
+  font-size: 26px;
+}
+
+h3 code {
   font-size: 24px;
 }
 
@@ -417,6 +421,7 @@ footer .icons a svg:hover {
   filter: invert(68%);
 }
 
+/* prettier-ignore */
 main a[href*="//"]:not([href*="webpro.nl"]):not([rel=me]):after {
   position: relative;
   content: '';
@@ -431,6 +436,7 @@ main a[href*="//"]:not([href*="webpro.nl"]):not([rel=me]):after {
   filter: brightness(0) invert(var(--invert));
 }
 
+/* prettier-ignore */
 main a[href*="//"]:not([href*="webpro.nl"]):not([rel=me]):hover::after {
   opacity: 0.9;
 }
