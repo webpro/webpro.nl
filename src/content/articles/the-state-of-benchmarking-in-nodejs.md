@@ -1,15 +1,15 @@
 ---
 published: 2023-12-21
+modified: 2023-12-24
 description: The State of Benchmarking in Node.js
 ---
 
 # The State of Benchmarking in Node.js
 
 Benchmarking becomes more important as we build more and more applications and
-tooling for runtimes like Node.js and Bun. This article discusses macro and
-micro benchmarking, and explores options we can use today to benchmark code. The
-article includes code examples and a CodeSandbox to try and implement in your
-own applications.
+tooling for runtimes like Node.js and Bun. This article is about macro and micro
+benchmarking, and explores options we can use today. The article includes code
+examples and a CodeSandbox to try and implement in your own applications.
 
 ## Contents
 
@@ -235,21 +235,28 @@ Node.js was pretty close to having a built-in `node:benchmark` module. In
 November 2023, a pull request to [add an experimental `node:benchmark`][21]
 module to Node.js core was opened. And closed, after an interesting debate.
 
-For the record, Deno has a built-in [benchmark runner][22].
+This leaves us with a diverse set of packages for micro benchmarking in Node.js:
 
-This leaves us with a number of packages for micro benchmarking in Node.js. The
-most popular and promising packages for micro benchmarking include:
+- [node-bench][22] - the effort that led to this PR, currently in active
+  development, looking for feedback and ideas; aims to be the foundation of
+  `node:benchmark`
+- [Benchmark.js][23] - still good and widely used
+- [isitfast][24] - not production-ready yet, but innovative and promising
+- [cronometro][25] - runs tests in isolated worker threads
+- [Tinybench][26] - also works in the browser (like Benchmark.js)
 
-- [Benchmark.js][23]
-- [Tinybench][24]
-- [jsperf.dev][25]
+If you need something production-ready today I would recommend Benchmark.js,
+because it's battle-tested and versatile.
 
-Tools like [Benchmark.js][23] and [Tinybench][24] take care of some of the
-(statistical) complexity and are invaluable tools in this space.
+For the adventurous, the other options are all worth checking out. Consult the
+[overview table][27] and [benchmarks-comparisons][28] that [Vinicius
+Lourenço][29] put together for more details.
 
-A CLI for such tools would be great, though. Have some code in a file and let a
-CLI tool import and benchmark it. Much like aforementioned tools, but move the
-API from runtime to CLI.
+For the record, Deno has a built-in [benchmark runner][30].
+
+A CLI for such tools would be great. Have some code in a file and let a CLI tool
+import and benchmark it. Much like aforementioned tools, but move the API from
+runtime to CLI.
 
 ### Pitfalls
 
@@ -343,7 +350,7 @@ Clear output. All options are fast, but we have a winner.
 ### Tinybench
 
 Tinybench is the new kid on the block. You can use it stand-alone, and it also
-comes [shipped with Vitest][26].
+comes [shipped with Vitest][31].
 
 The API of Tinybench is similar to Benchmark.js:
 
@@ -426,6 +433,9 @@ $ node --bench string-concat.js
 Although the building blocks are there, I think especially in the area of macro
 optimizations there's room for tooling to make our lives easier.
 
+When it comes to micro benchmarking, it feels a bit odd to recommend a package
+last updated in 2017 (Benchmark.js). Let's watch this space!
+
 This concludes my perspective on the current state of benchmarking in Node.js,
 at the end of 2023. Do you agree?
 
@@ -451,8 +461,13 @@ at the end of 2023. Do you agree?
   https://github.com/webpro/knip/blob/main/packages/knip/src/util/Performance.ts
 [20]: https://codesandbox.io/p/devbox/performance-observer-r5rrvx
 [21]: https://github.com/nodejs/node/pull/50768
-[22]: https://docs.deno.com/runtime/manual/tools/benchmarker
+[22]: https://github.com/RafaelGSS/bench-node
 [23]: https://github.com/bestiejs/benchmark.js
-[24]: https://github.com/tinylibs/tinybench
-[25]: https://github.com/jsperfdev/jsperf.dev
-[26]: https://vitest.dev/guide/features.html#benchmarking-experimental
+[24]: https://github.com/yamiteru/isitfast
+[25]: https://sw.cowtech.it/cronometro
+[26]: https://github.com/tinylibs/tinybench
+[27]: https://github.com/nodejs/node/pull/50768#issuecomment-1818004282
+[28]: https://github.com/H4ad/benchmarks-comparisons
+[29]: https://twitter.com/vinii_joga10
+[30]: https://docs.deno.com/runtime/manual/tools/benchmarker
+[31]: https://vitest.dev/guide/features.html#benchmarking-experimental
