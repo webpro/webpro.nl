@@ -19,7 +19,7 @@ import BackToTop from '../components/BackToTop.astro';
       <ArticleHeader {...Astro.props} />
       <slot />
     </main>
-    <ArticleFooter />
+    <ArticleFooter {...Astro.props} />
     <BackToTop />
     <StructuredContent {...Astro.props} type="article" />
     <Scripts />

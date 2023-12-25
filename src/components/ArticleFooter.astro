@@ -3,6 +3,7 @@ import { getUrl } from '../helpers';
 import IconLink from './IconLink.astro';
 import { BLOG_RSS_NAME, BLOG_RSS_PATHNAME } from '../consts';
 
+const { title } = Astro.props;
 const canonicalURL = getUrl(Astro.url.pathname, Astro.site);
 ---
 
@@ -22,7 +23,7 @@ const canonicalURL = getUrl(Astro.url.pathname, Astro.site);
       sprite="share"
     />
     <IconLink
-      href=`https://news.ycombinator.com/submitlink?u=${canonicalURL}`
+      href={`https://news.ycombinator.com/submitlink?u=${canonicalURL}&t=${encodeURIComponent(title)}`}
       title="Share this article on Hacker News"
       sprite="hacker-news"
     />

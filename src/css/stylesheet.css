@@ -3,15 +3,15 @@
   color-scheme: dark light;
   --paragraph-width: 700px;
   --spacing-left: calc(50% - 350px);
-  --white: rgb(250, 250, 250);
+  --white: rgb(251, 251, 251); /* snow */
   --off-white: rgb(233, 233, 233);
   --lighter-grey: rgb(215, 215, 215);
   --light-grey: rgb(198, 198, 198);
-  --grey: rgb(82, 82, 82);
+  --grey: rgb(135, 135, 135); /* dusty grey */
   --grey-transparent: rgb(82, 82, 82, 0.5);
-  --dark-grey: rgb(52, 52, 52);
-  --darker-grey: rgb(42, 42, 42);
-  --black: rgb(24, 24, 24);
+  --dark-grey: rgb(38, 38, 38); /* slate grey */
+  --darker-grey: rgb(27, 27, 30); /* gluon grey */
+  --black: rgb(21, 20, 25); /* dark void */
   --orange: #f68a22;
 }
 
@@ -21,6 +21,7 @@ html.dark {
   --bg-color-header: var(--black);
   --bg-color-code: var(--dark-grey);
   --font-color: var(--white);
+  --font-color-soft: var(--off-white);
   --scroll-thumb-color: var(--grey);
   --blockquote-border-color: var(--grey);
   --blockquote-box-shadow-color: 6px 6px var(--dark-grey);
@@ -35,6 +36,7 @@ html.dark {
     --bg-color-code: var(--off-white);
     --bg-color-code: var(--dark-grey);
     --font-color: var(--dark-grey);
+    --font-color-soft: var(--grey);
     --scroll-thumb-color: var(--light-grey);
     --blockquote-border-color: var(--grey);
     --blockquote-box-shadow-color: 13px 3px var(--off-white);
@@ -48,6 +50,7 @@ html.light {
   --bg-color-header: var(--dark-grey);
   --bg-color-code: var(--dark-grey);
   --font-color: var(--dark-grey);
+  --font-color-soft: var(--grey);
   --scroll-thumb-color: var(--light-grey);
   --blockquote-border-color: var(--light-grey);
   --blockquote-box-shadow-color: 13px 3px var(--lighter-grey);
@@ -85,7 +88,7 @@ body > header {
 }
 
 .light body > header {
-  border-bottom: 4px solid var(--orange);
+  border-bottom: 3px solid var(--orange);
 }
 
 a {
@@ -292,7 +295,7 @@ blockquote {
 blockquote p {
   border: 1px solid var(--blockquote-border-color);
   box-shadow: 0 0 var(--blockquote-box-shadow-color);
-  padding: 2rem 1rem;
+  padding: 2rem;
   margin: 0;
   font-style: italic;
   font-weight: 200;
@@ -307,16 +310,19 @@ blockquote p {
 }
 
 footer {
-  margin: 128px 0 64px;
+  margin: 128px 0;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+body > footer {
+  padding-bottom: 192px;
   background-image: var(--signature-image);
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: auto 100px;
-  padding-bottom: 192px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
 }
 
 h2,
@@ -326,8 +332,7 @@ ul,
 ol,
 section,
 table,
-figure,
-main > pre {
+figure {
   margin-left: 8px;
   margin-right: 8px;
 }
@@ -408,7 +413,7 @@ footer .icons a svg {
   display: block;
   width: 100%;
   height: 100%;
-  fill: var(--light-grey);
+  fill: var(--font-color-soft);
   transition: ease-out 0.5s;
 }
 

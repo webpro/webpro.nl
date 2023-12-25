@@ -1,8 +1,9 @@
 ---
-title: Versioned documentation with Starlight & Vercel
 description: How to set up versioned documentation with Starlight & Vercel
 published: 2023-12-20
 ---
+
+# Versioned documentation with Starlight & Vercel
 
 ## Introduction
 
