@@ -176,11 +176,14 @@ export class Performance {
 And here's how to use it in any real-world application:
 
 ```js
-const fnA = ms => new Promise(r => setTimeout(r, ms));
-const fnB = ms => new Promise(r => setTimeout(r, ms));
+import { setTimeout } from "node:timers/promises";
 
-const wrappedA = isEnabled ? timerify(fnA) : fnA; // (1) Wrap functions
-const wrappedB = isEnabled ? timerify(fnB) : fnB; // to get metrics when called
+const fnA = setTimeout;
+const fnB = setTimeout;
+
+const wrap = fn => isEnabled ? timerify(fn) : fn;
+const wrappedA = wrap(fnA); // (1) Wrap functions
+const wrappedB = wrap(fnB); // to get metrics when called
 
 async function myApplication() {
   await Promise.all([wrappedA(100), wrappedA(200), wrappedA(300)]);
