@@ -247,15 +247,16 @@ This leaves us with a diverse set of packages for micro benchmarking in Node.js:
 - [isitfast][24] - not production-ready yet, but innovative and promising
 - [cronometro][25] - runs tests in isolated worker threads
 - [Tinybench][26] - also works in the browser (like Benchmark.js)
+- [mitata][27] - fast and accurate (used by Bun and Deno)
 
 If you need something production-ready today I would recommend Benchmark.js,
 because it's battle-tested and versatile.
 
 For the adventurous, the other options are all worth checking out. Consult the
-[overview table][27] and [benchmarks-comparisons][28] that [Vinicius
-Lourenço][29] put together for more details.
+[overview table][28] and [benchmarks-comparisons][29] that [Vinicius
+Lourenço][30] put together for more details.
 
-For the record, Deno has a built-in [benchmark runner][30].
+For the record, Deno has a built-in [benchmark runner][31].
 
 A CLI for such tools would be great. Have some code in a file and let a CLI tool
 import and benchmark it. Much like aforementioned tools, but move the API from
@@ -353,7 +354,7 @@ Clear output. All options are fast, but we have a winner.
 ### Tinybench
 
 Tinybench is the new kid on the block. You can use it stand-alone, and it also
-comes [shipped with Vitest][31].
+comes [shipped with Vitest][32].
 
 The API of Tinybench is similar to Benchmark.js:
 
@@ -469,8 +470,9 @@ at the end of 2023. Do you agree?
 [24]: https://github.com/yamiteru/isitfast
 [25]: https://sw.cowtech.it/cronometro
 [26]: https://github.com/tinylibs/tinybench
-[27]: https://github.com/nodejs/node/pull/50768#issuecomment-1818004282
-[28]: https://github.com/H4ad/benchmarks-comparisons
-[29]: https://twitter.com/vinii_joga10
-[30]: https://docs.deno.com/runtime/manual/tools/benchmarker
-[31]: https://vitest.dev/guide/features.html#benchmarking-experimental
+[27]: https://github.com/evanwashere/mitata
+[28]: https://github.com/nodejs/node/pull/50768#issuecomment-1818004282
+[29]: https://github.com/H4ad/benchmarks-comparisons
+[30]: https://twitter.com/vinii_joga10
+[31]: https://docs.deno.com/runtime/manual/tools/benchmarker
+[32]: https://vitest.dev/guide/features.html#benchmarking-experimental
