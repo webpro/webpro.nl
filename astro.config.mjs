@@ -8,6 +8,7 @@ import autoLinkHeadings from 'rehype-autolink-headings';
 import { uncode } from './src/remark/uncode';
 import { code } from './src/remark/code';
 import vercelStatic from '@astrojs/vercel/static';
+import astroExpressiveCode from 'astro-expressive-code';
 
 export default defineConfig({
   site: 'https://www.webpro.nl',
@@ -15,7 +16,10 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'never',
   compressHTML: false,
-  integrations: [mdx()],
+  integrations: [
+    astroExpressiveCode(),
+    mdx(),
+  ],
   markdown: {
     shikiConfig: {
       theme: 'github-dark-dimmed',

@@ -4,14 +4,9 @@
   --green: rgb(83, 194, 43);
 }
 
-pre.github-dark-dimmed {
-  background-color: var(--bg-color-code) !important;
-}
-
 pre {
   margin-top: 0;
   margin-top: 0;
-  background-color: var(--bg-color-code);
   padding-right: 10px;
   overflow-x: auto;
   overflow-y: hidden;
@@ -76,27 +71,18 @@ pre {
   color: var(--yellow);
 }
 
-pre code.hljs {
-  /* Unwanted class set by rehypeHighlight */
-  all: unset;
-}
-
-html:not(.light) .hljs-keyword {
-  color: #ee8780; /* A11y: increased contrast-ratio */
-}
-
 .terminal .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 28px;
-  background-color: rgb(59, 60, 63);
+  background-color: var(--dark-grey);
   border-top-right-radius: 6px;
   border-top-left-radius: 6px;
 }
 
 .terminal .title {
-  font-family: Hack, monospace;
+  font-family: var(--code-font);
   font-size: 14px;
   color: #ddd;
 }
@@ -126,7 +112,7 @@ html:not(.light) .hljs-keyword {
 }
 
 .terminal pre {
-  background-color: #000;
+  background-color: var(--bg-color-code);
   color: #fff;
   border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
