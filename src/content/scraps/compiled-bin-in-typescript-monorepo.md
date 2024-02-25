@@ -63,7 +63,7 @@ require('../lib/cli.js');
 Make sure to include the shebang (that first line starting with `#!`), or
 consumers of your package will see errors like this:
 
-```sh
+```shell
 bin/my-command: line 1: syntax error near unexpected token `'../lib/index.js''
 ```
 

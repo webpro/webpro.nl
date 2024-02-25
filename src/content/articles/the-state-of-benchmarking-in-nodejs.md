@@ -13,18 +13,18 @@ examples and a CodeSandbox to try and implement in your own applications.
 
 ## Contents
 
-- [Macro benchmarking](#macro-benchmarking)
-  - [Ecosystem](#ecosystem)
-  - [Example: PerformanceObserver for functions](#example-performanceobserver-for-functions)
-  - [Example: timerify application code](#example-timerify-application-code)
-- [Micro benchmarking](#micro-benchmarking)
-  - [Ecosystem](#ecosystem-1)
-  - [Pitfalls](#pitfalls)
-  - [Example: string concatenation](#example-string-concatenation)
-  - [Benchmark.js](#benchmarkjs)
-  - [Tinybench](#tinybench)
-  - [A CLI, maybe?](#a-cli-maybe)
-- [Conclusion](#conclusion)
+- [Macro benchmarking][1]
+  - [Ecosystem][2]
+  - [Example: PerformanceObserver for functions][3]
+  - [Example: timerify application code][4]
+- [Micro benchmarking][5]
+  - [Ecosystem][6]
+  - [Pitfalls][7]
+  - [Example: string concatenation][8]
+  - [Benchmark.js][9]
+  - [Tinybench][10]
+  - [A CLI, maybe?][11]
+- [Conclusion][12]
 
 ## Macro benchmarking
 
@@ -176,12 +176,12 @@ export class Performance {
 And here's how to use it in any real-world application:
 
 ```js
-import { setTimeout } from "node:timers/promises";
+import { setTimeout } from 'node:timers/promises';
 
 const fnA = setTimeout;
 const fnB = setTimeout;
 
-const wrap = fn => isEnabled ? timerify(fn) : fn;
+const wrap = fn => (isEnabled ? timerify(fn) : fn);
 const wrappedA = wrap(fnA); // (1) Wrap functions
 const wrappedB = wrap(fnB); // to get metrics when called
 
