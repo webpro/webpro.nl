@@ -146,23 +146,27 @@ Pros:
 
 Cons:
 
-- Requires a dependency (e.g. `tsc-alias`).
-- Requires injection of a loader on command line or in code
+- Requires a dependency (e.g. `tsconfig-paths`).
+- Requires injection of a loader via command line or in code
 - Small(?) performance hit during runtime
 
 ## Recommendations
 
+### Build time resolution
+
 The first option using subpath imports requires no extra dependencies, but is
 somewhat limited. The third option involves adding a loader which isn't always
 desired or even possible. Each option has its own advantages, but in general I'd
-recommend the second option for three reasons:
+recommend resolution at build time (option 2) for three reasons:
 
 1. You can use TypeScript path aliases to their full extent.
 2. It's a build time solution, eliminating the risk of running the code in an
    environment where path aliases are not supported.
 3. No performance hit during runtime.
 
-In addition, I'd recommend to separate the prefixes:
+### Distinct Prefixes
+
+In addition, I'd recommend to use distinct prefixes:
 
 - Use `@` for external scoped npm packages.
 - Use `~` for internal TypeScript path aliases.
@@ -170,6 +174,13 @@ In addition, I'd recommend to separate the prefixes:
 
 This results in easier recognition, searching and refactors of the various types
 of import specifiers, without potential conflicts.
+
+### Compatibility
+
+This overview describes runtime compatibility. Keep in mind that other tooling
+in the same codebase you're using today or in the future, such as test runners
+and code linters, may also need to support path aliases. Check out their
+documentation for more details.
 
 ## Resources
 
