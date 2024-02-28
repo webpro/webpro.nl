@@ -12,5 +12,12 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/scraps/using-path-aliases-with-tsc",
+      "destination": "/articles/using-subpath-imports-and-path-aliases",
+      "permanent": true
+    }
   ]
 }
