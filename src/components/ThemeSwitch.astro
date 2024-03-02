@@ -46,24 +46,22 @@
   const toggle = document.querySelector('#theme-toggle');
   const preferDark = window.matchMedia('(prefers-color-scheme: dark)');
 
-  toggle.addEventListener('click', () => {
-    const isChecked = toggle.getAttribute('aria-checked') !== 'true';
-    const theme = isChecked ? 'light' : 'dark';
-    classList.remove(isChecked ? 'dark' : 'light');
-    classList.add(theme);
-    localStorage.setItem('theme', theme);
-    toggle.setAttribute('aria-checked', isChecked);
-  });
-
-  preferDark.addEventListener('change', event => {
-    if (!localStorage.getItem('theme')) {
-      toggle.setAttribute('aria-checked', !event.matches);
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      const isChecked = toggle.getAttribute('aria-checked') !== 'true';
+      const theme = isChecked ? 'light' : 'dark';
+      classList.remove(isChecked ? 'dark' : 'light');
+      classList.add(theme);
+      localStorage.setItem('theme', theme);
+      toggle.setAttribute('aria-checked', isChecked ? 'true' : 'false');
+    });
+    preferDark.addEventListener('change', event => {
+      if (!localStorage.getItem('theme')) {
+        toggle.setAttribute('aria-checked', !event.matches ? 'true' : 'false');
+      }
+    });
+    if (classList.contains('light') || !preferDark.matches) {
+      toggle.setAttribute('aria-checked', 'true');
     }
-  });
-
-  if (html.classList.contains('light') || !preferDark.matches) {
-    toggle.setAttribute('aria-checked', true);
   }
-
-  html.classList.add('js');
 </script>
