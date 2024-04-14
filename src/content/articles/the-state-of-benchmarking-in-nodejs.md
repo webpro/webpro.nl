@@ -1,6 +1,6 @@
 ---
 published: 2023-12-21
-modified: 2023-12-24
+modified: 2024-04-14
 description: The State of Benchmarking in Node.js
 ---
 
@@ -249,12 +249,13 @@ This leaves us with a diverse set of packages for micro benchmarking in Node.js:
 - [Tinybench][26] - also works in the browser (like Benchmark.js)
 - [mitata][27] - fast and accurate (used by Bun and Deno)
 
-If you need something production-ready today I would recommend Benchmark.js,
-because it's battle-tested and versatile.
+If you need something production-ready today, Benchmark.js is a good choice.
+It's battle-tested and versatile. However, its latest release was 6 years ago
+and the repository has been archived (as of 2024-04-14).
 
-For the adventurous, the other options are all worth checking out. Consult the
-[overview table][28] and [benchmarks-comparisons][29] that [Vinicius
-Lourenço][30] put together for more details.
+The other options are all worth checking out. Consult the [overview table][28]
+and [benchmarks-comparisons][29] that [Vinicius Lourenço][30] put together for
+more details.
 
 For the record, Deno has a built-in [benchmark runner][31].
 
