@@ -145,7 +145,7 @@ container.setAttribute('id', 'search-results');
 
 const search = query => {
   if (query.length > 1) {
-    const results = index.search(query, { prefix: true, fuzzy: 0.3, });
+    const results = index.search(query, { prefix: true, fuzzy: 0.3 });
     const list = document.createElement('ol');
     results.slice(0, 10).forEach(result => {
       const item = document.createElement('li');

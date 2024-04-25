@@ -80,13 +80,13 @@ configuration in `package.json`:
 TypeScript will resolve paths properly and prioritize the aliases with
 auto-import suggestions in your IDE. Here's an example of how that looks like:
 
-![Auto-import suggestion](./auto-import-suggestion.png)
+![Auto-import suggestion][6]
 
 Pros:
 
 - Supported natively by Node.js (since v12.19.0/v14.6.0) and fully supported in
   TypeScript since v5.4.0.
-- Subpath imports can make use of [conditional exports][6].
+- Subpath imports can make use of [conditional exports][7].
 
 Cons:
 
@@ -240,8 +240,8 @@ forward, especially considering support in TypeScript v5.4 has fully caught up.
 [3]: #recommendations
 [4]: #closing-note
 [5]: https://nodejs.org/api/packages.html#subpath-imports
-[6]: https://nodejs.org/api/packages.html#conditional-exports
-[7]: #solution
+[6]: ./auto-import-suggestion.png
+[7]: https://nodejs.org/api/packages.html#conditional-exports
 [8]: #solution-option-1
 [9]: #option-2-build-time-resolution
 [10]: #option-3-runtime-resolution
