@@ -464,7 +464,7 @@ at the end of 2023. Do you agree?
 [18]: https://nodejs.org/api/perf_hooks.html
 [19]:
   https://github.com/webpro/knip/blob/main/packages/knip/src/util/Performance.ts
-[20]: https://codesandbox.io/p/devbox/performance-observer-r5rrvx
+[20]: https://codesandbox.io/p/devbox/state-of-benchmarking-zct39y
 [21]: https://github.com/nodejs/node/pull/50768
 [22]: https://github.com/RafaelGSS/bench-node
 [23]: https://github.com/bestiejs/benchmark.js
