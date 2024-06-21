@@ -1,0 +1,274 @@
+---
+description: I’m privileged, but I’m not a clown.
+published: 2024-06-29
+draft: true
+---
+
+# Privileged, but not a clown
+
+This is a little story in 3 parts about OSS and me: how it started, how we got
+here, and how it's going.
+
+## Part 1. How it started
+
+### View Source
+
+Soon after the first "View Source" in Internet Explorer 5.0 and copy-pasting a
+snippet from a `<SCRIPT>` tag into some text editor, I've started using free and
+open source software. PHP, MySQL, phpMyAdmin, JSLint, Prototype, jQuery and
+Lodash come to mind. Using and understanding this free software taught me a lot
+about programming, and allowed me to start a career as a developer.
+
+### Enthusiasm
+
+Remember Apache Ant, Closure Compiler or YUI Compiler? I've used this to bundle
+and minify CSS, JS and HTML, using XML! Named it [Jaguarundi][1] 13 years ago,
+and now I'm sitting here realizing I've always had this relentless enthusiasm
+for developer tooling.
+
+### Movement
+
+Around 2009, projects like jQuery and Lodash got me into both freelancing and
+open source. I remember working for Backbase at the time, but also looking at
+this OSS movement. I wanted to use it, be part of it, build cool things with it!
+Alongside heroes like John Resig (jQuery) and John-David Dalton (Lodash), many
+developers in the OSS community were doing their part. Some genius work got
+pushed and it was all available right there in the open! I've always enjoyed
+solving problems with code, and more and more browser APIs and libraries became
+available to do just that.
+
+Being a freelance frontend developer getting to use the latest & greatest OSS in
+my work. This was (and still is!) great, nothing to complain.
+
+### Open
+
+I love coding, I love sharing. [Since 2010][2] I'm coding in the open. As a
+self-taught developer I've learned a ton from reading other people's source
+code. From pushing code and receiving [honest feedback][3] about it. I still
+like to think some of it has once been helpful or inspirational to someone in
+one way or another.
+
+### Act of kindness
+
+There's a little story I'd like to share here. [Kerim Satirli][4], an early
+adopter of release-it, reached out to me about 6 years ago. He wanted to send me
+a gift as an appreciation of my work, and sent me two delicious bottles of beer!
+I'll never forget this wonderful act of kindness. I mean, sending swag and all
+is cool, but this hit different. Sometimes we almost forget there are actually
+human beings on both ends. Thanks, Kerim!
+
+### Privilege
+
+Pushing code. Honestly, [I didn't mean to earn anything][5] with any of this. My
+projects aren't extraordinary, I'm a developer in a safe and rich country, and
+so many other developers deserve at least the same. Being involved in OSS is
+simply a great way to keep learning and stay hirable with an open profile, which
+is an invaluable privilege in itself.
+
+## Part 2. How we got here
+
+### Return the favor
+
+Let's imagine for a moment you're a developer working in a commercial setting.
+You're adding a dependency to `package.json` that's of value to the project.
+When the pull request gets merged, hopefully it's you or someone else on the
+team returning the favor. On behalf of the company. Sounds fair enough, right?
+
+In contrast with more traditional commercial and closed-source software, this
+transaction usually doesn't happen, while no-one is accountable. Businesses love
+permissive licenses, this is why open-source became so popular in the first
+place. No matter how you look at it, exploitation it is. Feels like an odd thing
+to say, knowing eventually there's always humans on both ends. That's why we
+need to [normalize companies paying for OSS][6].
+
+> Does your company have a budget for FOSS?
+
+Yes, that's "budget" and "FOSS" in the same sentence. If the software is of
+value in a commercial setting and creators or maintainers indicate support is
+welcome, then by all means, please provide it if you can.
+
+Probably some of you might, like myself, prefer financial support from companies
+over that from fellow developers. The latter is mostly a redistribution of
+hard-earned income (let alone tax-over-tax deductions) so it should really come
+from businesses.
+
+### Sustainable
+
+There's something sadly ironic about [developers trying to get hired][7], just
+to be able to keep working on their OSS. If we talk about sustainable open
+source, this isn't it. Some of them are potentially so much more effective and
+valuable when working on their own projects used by many others, compared to
+being an IC for a single company.
+
+### Initiatives
+
+Lots of awesome people and companies are improving the situation around
+open-source funding. By financially supporting people and projects, hiring
+developers to let them work on (their own) open source, and initiatives like
+[OpenCollective][8], [Tidelift][9], [Polar][10], [Tea][11], and so on. I'm glad
+to see the needle is moving.
+
+### Value
+
+Some metrics in use by such initiatives are based on the number of downloads or
+the number of dependencies. SMART perhaps, but such metrics can be abused and
+does not necessarily represent the actual value of a project. Sometimes popular
+projects become even counter-productive to the OSS community as a whole. We need
+different incentives to better distribute funds.
+
+### Bills
+
+The number of dependent projects, GitHub stars, npm downloads, contributors and
+so on are useful metrics. They're good to get a sense of usage and popularity.
+Grateful people publicly and privately praising your work and contributing in
+small and large capacities is important and a great motivation overall. These
+types of input might often be fulfilling for quite some time. But eventually,
+the harsh reality is that none of this pays the bills.
+
+### AS-IS
+
+Anyway, you're excited your package is seen on GitHub and your work is useful to
+others. Feedback, bug reports and feature requests being to trickle in. The
+moment other people start using your package an interesting dynamic starts to
+happen. Open-source licenses come with an "AS-IS" clause and no SLAs, so
+remember: you don't owe anything to anyone. Yet chances are you may feel a sense
+of connection and responsibility. This is generally positive, but it also
+requires time and energy. And some of the feedback is even outright negative.
+
+### Space
+
+Dealing with this type of negativity is an interesting dynamic. How do you deal
+with it? Sometimes you feel the urge to address negative feedback immediately
+and get over with it. Other times, you should get a good night's rest first and
+avoid responding in a way you might regret. I try to remind myself such
+decisions are made in the [space between stimulus and response][12], and
+understanding I'm in control here can make all the difference.
+
+Not claiming to possess it, but dealing positively even with the most
+unconstructive negative feedback is a superpower. View this as just another data
+point that highlights a potential weakness in the project. Why return negativity
+immediately, if you can find the space for a positive response instead?
+
+> You are not your code
+
+As a developer, I think this is one of the best principles to live by. No matter
+how good or bad your code is, the more important question is: does it solve a
+real problem? If it's useful to you, then that's great already. If it's your
+ambition and it solves problems for more people that's fantastic, and hopefully
+it will reach those people. You put in the work and hopefully you'll reap the
+rewards.
+
+> Only you get to decide what the rewards actually mean to you
+
+Bad code gets better, especially when done together!
+
+### Stories
+
+Rewards can come in many shapes or forms. But whatever constitutes low rewards
+to you is what fuels burnout. Here are some recent stories I've read about
+burnout and exploitation in the OSS community:
+
+- [Artem Sapegin: Why I quit open source][13]
+- [Anthony Fu: Mental Health in Open Source][14]
+- [David Whitney: Open-Source Exploitation][15]
+
+Unfortunately this is just a tiny tip of the iceberg. I'm grateful Artem,
+Anthony and David shared their stories. So many projects that their creator
+poured their energy in, but for one reason or another didn't get the recognition
+they deserved or the support they needed.
+
+## Part 3. How it's going
+
+To be honest, I'm not even sure what I'm getting at with all of this. Is it
+idealism? Ignorance? Profit-impaired? I'm still not sure what to call it.
+Whatever it is, my vision on things slowly started to change. I feel like I can
+and want to contribute and share in a more sustainable way than I'm used to, and
+I guess that's what I'm trying to figure out these days.
+
+### Stability
+
+My most-downloaded project is Release It! Over a decade old and [tons of cool
+projects][16] use it daily to publish their packages. [There][17] [are][18]
+[plenty][19] [of][20] [alternatives][21], yet apparently its stability and
+simplicity seem to be appreciated by plenty of people. So I'll keep maintaining
+it, it's not going anywhere.
+
+### Real
+
+The thing you might know I can hardly contain my excitement about these days is
+Knip. I love working on Knip, because it solves a real problem I have in
+projects myself. Find dead code and unused dependencies that I know is there in
+an automated fashion is an invaluable tool on my belt. And how to keep it
+well-trimmed? Another reason I enjoy working on it is that it's a right-sized
+project for me with still many elements I can learn from and improve.
+
+This can't possibly go without saying Knip has awesome contributors and I'm
+receiving [financial support from wonderful backers][22].
+
+### Reward
+
+The greatest reward I can get is fellow developers sharing they got rid of dead
+code in their codebase, and how they've added Knip to their CI workflow. I will
+never see enough of those little red GitHub blocks for deleted code (specially
+when done using Knip). It's that relentless enthusiasm over developer tooling, I
+guess!
+
+### Cycle
+
+At some point Knip will have a successor, or become obsolete. That's the cycle,
+and that's how it should be. Until then, my goal is to keep raising the bar and
+just keep doing my part.
+
+### Trying
+
+Principles to live by and stories about burnout in the OSS community are
+important to share and have taught me a lot.
+
+> I’m trying to pour in only the amount of energy that I can afford to lose
+
+Fortunate enough to not have experienced a burnout myself, I feel like this is
+going well. I won't let anyone trick, threat or nerd-snipe me into anything
+more. Unless it's life or death, that fix can probably wait a little.
+
+There are days I couldn't care less about silly edge cases. Other days, bugfixes
+arrive in your `node_modules` faster than you can say "Node.js is actually
+pretty damn good".
+
+### Clown
+
+As with so many things, there's a tipping point. The law of diminishing returns
+kicks in and sometimes I can't help but almost feel like a clown.
+
+Since I believe the value of my contributions to open-source is too far off from
+what I'm currently receiving in monthly sponsorships, I'll sure be looking for
+more funding in one way or another. Or rethink what the heck I'm doing here.
+
+## Care
+
+Coding is great, most of the OSS community is great. I can't imagine not sharing
+and learning, and I'll keep doing my part. Rest assured I'll be taking care of
+myself along the way. Writing this article was a great step!
+
+[1]: https://github.com/webpro/jaguarundi
+[2]: https://api.github.com/users/webpro
+[3]: https://github.com/release-it/release-it/issues/356
+[4]: https://x.com/ksatirli
+[5]: https://github.com/release-it/release-it/issues/425#issuecomment-448718399
+[6]: https://x.com/slicknet/status/1798420849214783831
+[7]: https://x.com/rakyll/status/1803198809671082074
+[8]: https://opencollective.com
+[9]: https://tidelift.com/about/lifter
+[10]: https://polar.sh
+[11]: https://tea.xyz
+[12]:
+  https://www.goodreads.com/quotes/5231688-between-stimulus-and-response-there-is-a-space-in-that
+[13]: https://sapegin.me/blog/open-source-no-more/
+[14]: https://antfu.me/posts/mental-health-oss
+[15]: https://www.youtube.com/watch?v=9YQgNDLFYq8
+[16]: https://github.com/release-it/release-it#projects-using-release-it
+[17]: https://github.com/intuit/auto
+[18]: https://github.com/googleapis/release-please
+[19]: https://github.com/semantic-release/semantic-release
+[20]: https://github.com/sindresorhus/np
+[21]: https://github.com/changesets/changesets
+[22]: https://knip.dev/sponsors
