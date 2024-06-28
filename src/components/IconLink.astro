@@ -4,7 +4,6 @@ const { href, title, sprite, description, rel } = Astro.props;
 
 <a href={href} title={title} rel={rel}>
   <svg>
-    <title>${title}</title>
     <use href={`/img/sprites.svg#${sprite}`}></use>
   </svg>
   {description && <span>{description}</span>}
