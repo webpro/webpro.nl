@@ -136,9 +136,9 @@ is that none of this pays the bills.
 Now let's imagine for a moment you're a developer and excited your work is on
 GitHub. It's open, it's visible, and it seems useful to others. The moment other
 people start using your work an interesting dynamic starts to happen. Feedback,
-bug reports and feature requests being to trickle in. Open-source licenses come
+bug reports and feature requests begin to trickle in. Open-source licenses come
 with an "AS-IS" clause and no SLAs, so remember: you don't owe anything to
-anyone. Yet chances are you may feel a sense of connection and responsibility.
+anyone. Yet chances are you feel a sense of connection and responsibility.
 
 ### Trust
 
