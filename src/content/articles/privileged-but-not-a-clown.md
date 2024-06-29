@@ -180,11 +180,12 @@ burnout and exploitation in the OSS community:
 - [Artem Sapegin: Why I quit open source][15]
 - [Anthony Fu: Mental Health in Open Source][16]
 - [David Whitney: Open-Source Exploitation][17]
+- [My Burnout Experience][18]
 
 Unfortunately this is just a tiny tip of the iceberg. I'm grateful Artem,
-Anthony and David shared their stories. So many projects that their creator
-poured their energy in, but for one reason or another didn't get the recognition
-they deserved or the support they needed.
+Anthony, David and Michael shared their stories. So many projects that their
+creator poured their energy in, but for one reason or another didn't get the
+recognition they deserved or the support they needed.
 
 ## Part 3. How it's going
 
@@ -197,8 +198,8 @@ I guess that's what I'm trying to figure out these days.
 ### Stability
 
 My most-downloaded project is Release It! Over a decade old and [tons of cool
-projects][18] use it daily to publish their packages. [There][19] [are][20]
-[plenty][21] [of][22] [alternatives][23], but apparently its stability and
+projects][19] use it daily to publish their packages. [There][20] [are][21]
+[plenty][22] [of][23] [alternatives][24], but apparently its stability and
 feature set is still appreciated by plenty of people. So I'll happily keep
 maintaining it, it's not going anywhere.
 
@@ -207,10 +208,10 @@ maintaining it, it's not going anywhere.
 The thing you might know I can hardly contain my excitement about these days is
 Knip. I love working on Knip, because it solves a real problem I have in
 projects myself. Finding dead code and unused dependencies in an automated
-fashion is an invaluable tool on my belt. Another reason I enjoy working on it
+fashion is an invaluable tool in my belt. Another reason I enjoy working on it
 is that it's a right-sized project for me with still many elements I can learn
 from and improve. This can't possibly go without saying Knip has really great
-contributors and I'm receiving [financial support from wonderful backers][24].
+contributors and I'm receiving [financial support from wonderful backers][25].
 
 ### Reward
 
@@ -275,10 +276,11 @@ myself along the way. Writing this article was a great step!
 [15]: https://sapegin.me/blog/open-source-no-more/
 [16]: https://antfu.me/posts/mental-health-oss
 [17]: https://www.youtube.com/watch?v=9YQgNDLFYq8
-[18]: https://github.com/release-it/release-it#projects-using-release-it
-[19]: https://github.com/intuit/auto
-[20]: https://github.com/googleapis/release-please
-[21]: https://github.com/semantic-release/semantic-release
-[22]: https://github.com/sindresorhus/np
-[23]: https://github.com/changesets/changesets
-[24]: https://knip.dev/sponsors
+[18]: https://youtu.be/KEWV5yaj_2o?si=-tNvxLvhc-D4jPM6
+[19]: https://github.com/release-it/release-it#projects-using-release-it
+[20]: https://github.com/intuit/auto
+[21]: https://github.com/googleapis/release-please
+[22]: https://github.com/semantic-release/semantic-release
+[23]: https://github.com/sindresorhus/np
+[24]: https://github.com/changesets/changesets
+[25]: https://knip.dev/sponsors
