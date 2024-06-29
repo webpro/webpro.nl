@@ -41,15 +41,15 @@ my work. This was (and still is!) great, nothing to complain.
 
 ### Open
 
-I love coding, I love sharing. [Since 2010][2] I'm coding in the open. As a
+I love coding, I love sharing. I'm coding in the open since 2010. As a
 self-taught developer I've learned a ton from reading other people's source
-code. From pushing code and receiving [honest feedback][3] about it. I still
+code. From pushing code and receiving [honest feedback][2] about it. I still
 like to think some of it has once been helpful or inspirational to someone in
 one way or another.
 
 ### Act of kindness
 
-There's a little story I'd like to share here. [Kerim Satirli][4], an early
+There's a little story I'd like to share here. [Kerim Satirli][3], an early
 adopter of release-it, reached out to me about 6 years ago. He wanted to send me
 a gift as an appreciation of my work, and sent me two delicious bottles of beer!
 I'll never forget this wonderful act of kindness. I mean, sending swag and all
@@ -58,14 +58,14 @@ human beings on both ends. Thanks, Kerim!
 
 ### Win
 
-And just this morning, [Jonas Felix reminds me][5] of his feature request for
-[reveal-md][6] earlier this year. Support for Mermaid diagrams in Reveal.js
+And just this morning, [Jonas Felix reminds me][4] of his feature request for
+[reveal-md][5] earlier this year. Support for Mermaid diagrams in Reveal.js
 slides is useful to other users of reveal-md as well, and they've sponsored my
 work on this. A win for everyone, thanks Jonas!
 
 ### Privilege
 
-Pushing code. Honestly, [I didn't mean to earn anything][7] with any of this. My
+Pushing code. Honestly, [I didn't mean to earn anything][6] with any of this. My
 projects aren't extraordinary, I'm a developer in a safe and rich country, and
 so many other developers deserve at least the same. Being involved in OSS is
 simply a great way to keep learning and stay hirable with an open profile, which
@@ -76,17 +76,16 @@ is an invaluable privilege in itself.
 ### Return the favor
 
 Let's imagine for a moment you're a developer working in a commercial setting.
-You're adding a dependency to `package.json` that's of value to the project.
-When the pull request gets merged, you or someone else on the team returns the
-favor. To the creator of the dependency on behalf of the company. Sounds fair
-enough, right?
+You're adding a valuable open-source package to `package.json`. The pull request
+gets merged, and you or someone else on the team returns the favor to the
+creator of the dependency on behalf of the company. Sounds fair enough, right?
 
 In contrast with more traditional, commercial software, this transaction usually
 doesn't happen, while no-one is accountable. Businesses love permissive
 licenses, this is why open-source became so popular in the first place. No
 matter how you look at it, exploitation it is. Feels like an odd thing to say,
 knowing eventually there's always humans on both ends. That's why we need to
-[normalize companies paying for OSS][8].
+[normalize companies paying for OSS][7].
 
 > Does your company have a budget for FOSS?
 
@@ -100,8 +99,8 @@ income (let alone tax-over-tax deductions).
 
 ### Sustainable
 
-There's something sadly ironic about [developers trying to get hired][9], just
-to be able to keep working on their OSS. If we talk about sustainable open
+There's something sadly ironic about [developers trying to get hired][8]
+elsewhere, just to sustain their work on OSS. If we talk about sustainable open
 source, this isn't it. Some of those brilliant minds are potentially much more
 effective and happy when working on their own projects used by many others,
 compared to being an IC for a single company.
@@ -111,8 +110,8 @@ compared to being an IC for a single company.
 Lots of awesome people and companies are improving the situation around
 open-source funding. By financially supporting people and projects, hiring
 developers to let them work on (their own) open source, and initiatives like
-[OpenCollective][10], [Tidelift][11], [Polar][12], [Tea][13], and so on. I'm
-glad to see the needle is moving.
+[OpenCollective][9], [Tidelift][10], [Polar][11], [Tea][12], and so on. I'm glad
+to see the needle is moving.
 
 ### Incentives
 
@@ -142,7 +141,7 @@ anyone. Yet chances are you feel a sense of connection and responsibility.
 
 ### Trust
 
-In fact, [trust is essential to OSS][14] and most developers tend to build a lot
+In fact, [trust is essential to OSS][13] and most developers tend to build a lot
 of trust working in the open. In many ways: by being responsive to questions and
 feedback, by adding automated test suites, by not breaking things unexpectedly,
 and so on. This requires time and energy. And some of of that feedback might be
@@ -154,7 +153,7 @@ Dealing with negativity is another interesting dynamic. How do you handle it?
 Sometimes you feel the urge to address negative feedback immediately and get
 over with it. Other times, you should get a good night's rest first and avoid
 responding in a way you might regret. I try to remind myself such decisions are
-made in the [space between stimulus and response][15], and understanding I'm in
+made in the [space between stimulus and response][14], and understanding I'm in
 control here makes all the difference.
 
 Dealing positively even with the most unconstructive negative feedback is a
@@ -178,9 +177,9 @@ Rewards can come in many shapes or forms. But whatever constitutes low rewards
 to you is what fuels burnout. Here are some recent stories I've read about
 burnout and exploitation in the OSS community:
 
-- [Artem Sapegin: Why I quit open source][16]
-- [Anthony Fu: Mental Health in Open Source][17]
-- [David Whitney: Open-Source Exploitation][18]
+- [Artem Sapegin: Why I quit open source][15]
+- [Anthony Fu: Mental Health in Open Source][16]
+- [David Whitney: Open-Source Exploitation][17]
 
 Unfortunately this is just a tiny tip of the iceberg. I'm grateful Artem,
 Anthony and David shared their stories. So many projects that their creator
@@ -198,9 +197,9 @@ I guess that's what I'm trying to figure out these days.
 ### Stability
 
 My most-downloaded project is Release It! Over a decade old and [tons of cool
-projects][19] use it daily to publish their packages. [There][20] [are][21]
-[plenty][22] [of][23] [alternatives][24], but apparently its stability and
-simplicity is still appreciated by plenty of people. So I'll happily keep
+projects][18] use it daily to publish their packages. [There][19] [are][20]
+[plenty][21] [of][22] [alternatives][23], but apparently its stability and
+feature set is still appreciated by plenty of people. So I'll happily keep
 maintaining it, it's not going anywhere.
 
 ### Knip
@@ -211,7 +210,7 @@ projects myself. Finding dead code and unused dependencies in an automated
 fashion is an invaluable tool on my belt. Another reason I enjoy working on it
 is that it's a right-sized project for me with still many elements I can learn
 from and improve. This can't possibly go without saying Knip has really great
-contributors and I'm receiving [financial support from wonderful backers][25].
+contributors and I'm receiving [financial support from wonderful backers][24].
 
 ### Reward
 
@@ -232,11 +231,11 @@ just keep doing my part.
 Principles to live by and stories about burnout in the OSS community are
 important to share and have taught me a lot.
 
-> I’m trying to pour in only the amount of energy that I can afford to lose
+> I try to only pour in the amount of energy I can afford to lose
 
 Fortunate enough to not have experienced a burnout myself, I feel like this is
 going well. I won't let anyone trick, threat or nerd-snipe me into anything
-more. Unless it's life or death, that fix can probably wait a little.
+more. Unless it's a critical issue, that fix can usually wait.
 
 There are days I couldn't care less about silly edge cases. Other days, bugfixes
 arrive in your `node_modules` faster than you can say "Node.js is actually
@@ -244,8 +243,8 @@ pretty damn good".
 
 ### Clown
 
-As with so many things, there's a tipping point. The law of diminishing returns
-kicks in and sometimes I can't help but feel like a clown.
+As with so many things, there's a tipping point where the law of diminishing
+returns kicks in, and sometimes I can't help but feel like a clown.
 
 Since I believe the value of my contributions to OSS is too far off from what
 I'm receiving in monthly sponsorships, I'll sure be looking for more funding in
@@ -258,29 +257,28 @@ learning, and I want to keep doing my part. Rest assured I'll be taking care of
 myself along the way. Writing this article was a great step!
 
 [1]: https://github.com/webpro/jaguarundi
-[2]: https://api.github.com/users/webpro
-[3]: https://github.com/release-it/release-it/issues/356
-[4]: https://x.com/ksatirli
-[5]:
+[2]: https://github.com/release-it/release-it/issues/356
+[3]: https://x.com/ksatirli
+[4]:
   https://www.linkedin.com/posts/jonas-felix_thank-you-lars-kappert-for-letting-us-letsbootch-activity-7212367489383497730-wNl4
-[6]: https://github.com/webpro/reveal-md
-[7]: https://github.com/release-it/release-it/issues/425#issuecomment-448718399
-[8]: https://x.com/slicknet/status/1798420849214783831
-[9]: https://x.com/rakyll/status/1803198809671082074
-[10]: https://opencollective.com
-[11]: https://tidelift.com/about/lifter
-[12]: https://polar.sh
-[13]: https://tea.xyz
-[14]: https://x.com/antfu7/status/1805891402204672367
-[15]:
+[5]: https://github.com/webpro/reveal-md
+[6]: https://github.com/release-it/release-it/issues/425#issuecomment-448718399
+[7]: https://x.com/slicknet/status/1798420849214783831
+[8]: https://x.com/rakyll/status/1803198809671082074
+[9]: https://opencollective.com
+[10]: https://tidelift.com/about/lifter
+[11]: https://polar.sh
+[12]: https://tea.xyz
+[13]: https://x.com/antfu7/status/1805891402204672367
+[14]:
   https://www.goodreads.com/quotes/5231688-between-stimulus-and-response-there-is-a-space-in-that
-[16]: https://sapegin.me/blog/open-source-no-more/
-[17]: https://antfu.me/posts/mental-health-oss
-[18]: https://www.youtube.com/watch?v=9YQgNDLFYq8
-[19]: https://github.com/release-it/release-it#projects-using-release-it
-[20]: https://github.com/intuit/auto
-[21]: https://github.com/googleapis/release-please
-[22]: https://github.com/semantic-release/semantic-release
-[23]: https://github.com/sindresorhus/np
-[24]: https://github.com/changesets/changesets
-[25]: https://knip.dev/sponsors
+[15]: https://sapegin.me/blog/open-source-no-more/
+[16]: https://antfu.me/posts/mental-health-oss
+[17]: https://www.youtube.com/watch?v=9YQgNDLFYq8
+[18]: https://github.com/release-it/release-it#projects-using-release-it
+[19]: https://github.com/intuit/auto
+[20]: https://github.com/googleapis/release-please
+[21]: https://github.com/semantic-release/semantic-release
+[22]: https://github.com/sindresorhus/np
+[23]: https://github.com/changesets/changesets
+[24]: https://knip.dev/sponsors
