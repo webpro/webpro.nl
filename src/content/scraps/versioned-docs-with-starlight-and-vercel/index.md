@@ -1,6 +1,7 @@
 ---
 description: How to set up versioned documentation with Starlight & Vercel
 published: 2023-12-20
+modified: 2024-06-30
 ---
 
 # Versioned documentation with Starlight & Vercel
@@ -13,6 +14,10 @@ reading documentation for the new version might get confused. This is why we
 want to serve a separate version of the documentation along with each major
 version of our project.
 
+**UPDATE:** The website in this example has been migrated from Vercel to
+Netlify. They offer ["branch deploys"][1] so knip.dev has [v3.knip.dev][2] and
+[v4.knip.dev][3] based on the same repository. Easy-peasy!
+
 ## A Temporary Solution
 
 Using Starlight and Vercel, this quick guide shows how I did it in my own
@@ -24,7 +29,7 @@ domain we already own.
 
 This solution requires a separate Vercel project for each major version.
 
-Hopefully the Starlight team will deliver a [built-in solution][1], but until
+Hopefully the Starlight team will deliver a [built-in solution][4], but until
 then this approach might work for you if you need it.
 
 ## The Plan
@@ -71,7 +76,7 @@ repository. It makes sense to name the project after the version, something like
 
 Go to _Settings → Git → Production Branch_ to set the version branch:
 
-![production-branch-name][2]
+![production-branch-name][5]
 
 In the screenshots we see "v4", because I was at v3 in the `main` branch.
 
@@ -82,14 +87,14 @@ see this, they will only see the main domain you've already set up.
 Go to _Settings → Domains_, edit and double-check it does not have redirects
 configured and that the Git branch is `v2`:
 
-![domains][3]
+![domains][6]
 
 Verify the site is deployed and working at the Vercel domain and version path
 (our example would run at `https://example-org-v2.vercel.app/v2`).
 
 Need to trigger a deployment? Go to `Settings → Git → Deploy Hooks`:
 
-![hooks][4]
+![hooks][7]
 
 You can copy the link and use `curl` in a shell to trigger a deployment:
 
@@ -142,18 +147,22 @@ and a way to navigate to a different version. There's multiple ways to do this,
 so this is left as an exercise to the reader.
 
 Feel free to check out my basic solution using a dropdown in [a custom
-`Header.astro` component][5] with [minimal configuration][6] to keep track of
+`Header.astro` component][8] with [minimal configuration][9] to keep track of
 available versions. The repo contains the `astro.config.ts` and `vercel.json`
 configuration files in the `main` branch too. This solution is currently running
-at [https://knip.dev][7].
+at [https://knip.dev][10].
 
 Good luck and have a great day!
 
-[1]: https://github.com/withastro/starlight/discussions/957
-[2]: ./production-branch-name.png
-[3]: ./domains.png
-[4]: ./hooks.png
-[5]:
+[1]:
+  https://docs.netlify.com/domains-https/custom-domains/automatic-deploy-subdomains/
+[2]: https://v3.knip.dev
+[3]: https://v4.knip.dev
+[4]: https://github.com/withastro/starlight/discussions/957
+[5]: ./production-branch-name.png
+[6]: ./domains.png
+[7]: ./hooks.png
+[8]:
   https://github.com/webpro/knip/blob/4dec0e2dce4870557f43783e6e071dd07721ee03/packages/docs/src/components/Header.astro#L8-L18
-[6]: https://github.com/webpro/knip/blob/main/packages/docs/config.ts
-[7]: https://knip.dev
+[9]: https://github.com/webpro/knip/blob/main/packages/docs/config.ts
+[10]: https://knip.dev
