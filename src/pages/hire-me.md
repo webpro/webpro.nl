@@ -9,7 +9,10 @@ layout: ../layouts/Page.astro
 
 # Hire Me
 
-As a Frontend Architect or Tooling Engineer!
+As a Frontend Architect or Tooling Engineer.
+
+Got an exciting project? [Let’s have a chat][1] to discuss your ideas and my
+availability.
 
 ## Frontend Architect
 
