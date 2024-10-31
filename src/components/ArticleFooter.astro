@@ -1,7 +1,7 @@
 ---
-import { getUrl } from '../helpers';
-import IconLink from './IconLink.astro';
-import { BLOG_RSS_NAME, BLOG_RSS_PATHNAME } from '../consts';
+import { getUrl } from "../helpers";
+import IconLink from "./IconLink.astro";
+import { BLOG_RSS_NAME, BLOG_RSS_PATHNAME } from "../consts";
 
 const { title } = Astro.props;
 const canonicalURL = getUrl(Astro.url.pathname, Astro.site);
@@ -16,6 +16,7 @@ const canonicalURL = getUrl(Astro.url.pathname, Astro.site);
       sprite="github"
       rel="me"
     />
+    <IconLink href="https://bsky.app/profile/webpro.nl" title="My Bluesky profile" sprite="bluesky" rel="me" />
     <IconLink href="https://twitter.com/webprolific" title="My Twitter profile" sprite="twitter" rel="me" />
     <IconLink
       href={`https://twitter.com/intent/tweet?url=${canonicalURL}`}
