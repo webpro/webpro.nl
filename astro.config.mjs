@@ -14,10 +14,7 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'never',
   compressHTML: false,
-  integrations: [
-    astroExpressiveCode(),
-    mdx(),
-  ],
+  integrations: [astroExpressiveCode(), mdx()],
   markdown: {
     shikiConfig: {
       theme: 'github-dark-dimmed',
