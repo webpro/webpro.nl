@@ -1,14 +1,14 @@
 ---
-import '../css/fonts.css';
-import '../css/stylesheet.css';
-import '../css/terminal.css';
-import { join } from 'node:path';
-import { BLOG_RSS_NAME, BLOG_RSS_PATHNAME, LOGO_SVG } from '../consts';
-import { getUrl } from '../helpers';
+import "../css/fonts.css";
+import "../css/stylesheet.css";
+import "../css/terminal.css";
+import { join } from "node:path";
+import { BLOG_RSS_NAME, BLOG_RSS_PATHNAME, LOGO_SVG } from "../consts";
+import { getUrl } from "../helpers";
 
 const canonicalURL = getUrl(Astro.url.pathname, Astro.site);
 
-const { type = 'website', draft } = Astro.props;
+const { type = "website", draft } = Astro.props;
 const title = Astro.props.title ?? Astro.props.content?.title;
 const description = Astro.props.description ?? Astro.props.content?.description;
 const published = Astro.props.published ?? Astro.props.content?.published;
@@ -40,15 +40,12 @@ const mod = modified instanceof Date ? modified.toISOString() : modified;
 <meta property="twitter:site" content="@webprolific" />
 <meta property="twitter:creator" content="@webprolific" />
 <meta name="twitter:image:alt" content={description} />
-<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" href={LOGO_SVG} type="image/svg+xml" />
+<link rel="icon" href="/favicon.ico" sizes="32x32" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="canonical" href={canonicalURL} />
 <link rel="sitemap" href="/sitemap.txt" />
 <meta name="generator" content={Astro.generator} />
-<meta
-  http-equiv="origin-trial"
-  content="AoluPAbfPzR4zlBtS95MLfPE66yEk8lWPdJKRsJkIzybAfS+oVnBOyBR/8ODgLVuinBOaVyuc7RLMc42vvNUuwIAAABleyJvcmlnaW4iOiJodHRwczovL3d3dy53ZWJwcm8ubmw6NDQzIiwiZmVhdHVyZSI6IlNwZWN1bGF0aW9uUnVsZXNQcmVmZXRjaEZ1dHVyZSIsImV4cGlyeSI6MTcwNDQxMjc5OX0="
-/>
 <script>
   (() => {
     document.documentElement.classList.add('js');
@@ -56,7 +53,6 @@ const mod = modified instanceof Date ? modified.toISOString() : modified;
     if (theme) document.documentElement.classList.add(theme);
   })();
 </script>
-<link rel="icon" type="image/svg+xml" href={LOGO_SVG} />
 <link rel="alternate" type="application/rss+xml" href={new URL(BLOG_RSS_PATHNAME, Astro.site)} title={BLOG_RSS_NAME} />
 <link rel="preload" href="/font/6xK3dSBYKcSV-LCoeQqfX1RYOo3qOK7lujVj9w.woff2" as="font" type="font/woff2" crossorigin />
 <link

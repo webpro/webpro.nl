@@ -1,7 +1,7 @@
 ---
-import { getUrl } from "../helpers";
-import IconLink from "./IconLink.astro";
-import { BLOG_RSS_NAME, BLOG_RSS_PATHNAME } from "../consts";
+import { getUrl } from '../helpers';
+import IconLink from './IconLink.astro';
+import { BLOG_RSS_NAME, BLOG_RSS_PATHNAME } from '../consts';
 
 const { title } = Astro.props;
 const canonicalURL = getUrl(Astro.url.pathname, Astro.site);

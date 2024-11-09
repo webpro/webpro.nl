@@ -10,7 +10,7 @@ import { code } from './src/remark/code';
 import astroExpressiveCode from 'astro-expressive-code';
 
 export default defineConfig({
-  site: 'https://www.webpro.nl',
+  site: 'https://webpro.nl',
   output: 'static',
   trailingSlash: 'never',
   compressHTML: false,
