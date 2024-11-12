@@ -5,7 +5,7 @@ import { getUrl } from '../helpers';
 import { getStructuredContent } from '../structured-content';
 const { title, description, published, modified, type = 'website', tags } = Astro.props;
 
-const baseUrl = Astro.site?.origin ?? 'https://www.webpro.nl';
+const baseUrl = Astro.site?.origin ?? 'https://webpro.nl';
 const canonicalURL = getUrl(Astro.url.pathname, Astro.site);
 
 const sameAs = [
