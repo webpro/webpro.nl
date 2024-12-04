@@ -44,7 +44,7 @@ const mod = modified instanceof Date ? modified.toISOString() : modified;
 <link rel="icon" href="/favicon.ico" sizes="32x32" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 <link rel="canonical" href={canonicalURL} />
-<link rel="sitemap" href="/sitemap.txt" />
+<link rel="sitemap" href={new URL("sitemap.txt", Astro.site)} />
 <meta name="generator" content={Astro.generator} />
 <script>
   (() => {
