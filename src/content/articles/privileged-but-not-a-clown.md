@@ -12,18 +12,20 @@ and how it's going.
 
 ### View Source
 
-Soon after the first "View Source" in Internet Explorer 5.0 and copy-pasting a
-snippet from a `<SCRIPT>` tag into some text editor I've started using free and
-open source software. PHP, MySQL, phpMyAdmin, JSLint, Prototype, jQuery and
-Lodash come to mind. Using and understanding this free software taught me a lot
-about programming, and allowed me to start a career as a developer.
+Soon after the first "View Source" in Internet Explorer 5.0, and copy-pasting a
+snippet from a `<SCRIPT>` tag into some text editor, I've started using free and
+open source software.
+
+PHP, MySQL, phpMyAdmin, JSLint, Prototype, jQuery and Lodash come to mind. Using
+and understanding this free software taught me a lot about programming, and
+allowed me to start a career as a developer.
 
 ### Enthusiasm
 
-Remember Apache Ant, Closure Compiler or YUI Compiler? I've used this to bundle
-and minify CSS, JS and HTML, using XML! Named it [Jaguarundi][1] 13 years ago,
-and now I'm sitting here realizing I've always had this relentless enthusiasm
-for developer tooling.
+Remember Apache Ant, Closure Compiler or YUI Compiler? It's what I've used to
+bundle and minify CSS, JS and HTML, using XML! This little tool became
+[Jaguarundi][1] 13 years ago, and now I'm sitting here realizing I've always had
+this relentless enthusiasm for developer tooling.
 
 ### Movement
 
@@ -180,7 +182,7 @@ burnout and exploitation in the OSS community:
 - [Artem Sapegin: Why I quit open source][15]
 - [Anthony Fu: Mental Health in Open Source][16]
 - [David Whitney: Open-Source Exploitation][17]
-- [My Burnout Experience][18]
+- [ThePrimeagen: My Burnout Experience][18]
 
 Unfortunately this is just a tiny tip of the iceberg. I'm grateful Artem,
 Anthony, David and Michael shared their stories. So many projects that their
