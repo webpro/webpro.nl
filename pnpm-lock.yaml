@@ -9,17 +9,17 @@ importers:
   .:
     dependencies:
       '@astrojs/rss':
-        specifier: ^4.0.9
-        version: 4.0.9
+        specifier: ^4.0.10
+        version: 4.0.10
       astro:
-        specifier: ^5.0.2
-        version: 5.0.2(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2)
+        specifier: ^5.0.5
+        version: 5.0.5(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2)
       astro-expressive-code:
         specifier: ^0.38.3
-        version: 0.38.3(astro@5.0.2(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2))
+        version: 0.38.3(astro@5.0.5(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2))
       astro-og-canvas:
-        specifier: ^0.5.4
-        version: 0.5.4(astro@5.0.2(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2))
+        specifier: ^0.5.5
+        version: 0.5.5(astro@5.0.5(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2))
       canvaskit-wasm:
         specifier: ^0.39.1
         version: 0.39.1
@@ -34,11 +34,11 @@ importers:
         version: 0.33.5
     devDependencies:
       '@astrojs/markdown-remark':
-        specifier: ^6.0.0
-        version: 6.0.0
+        specifier: ^6.0.1
+        version: 6.0.1
       '@astrojs/mdx':
-        specifier: ^4.0.1
-        version: 4.0.1(astro@5.0.2(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2))
+        specifier: ^4.0.2
+        version: 4.0.2(astro@5.0.5(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2))
       '@types/mdast':
         specifier: ^4.0.4
         version: 4.0.4
@@ -55,8 +55,8 @@ importers:
         specifier: ^3.1.1
         version: 3.1.1
       knip:
-        specifier: ^5.39.1
-        version: 5.39.1(@types/node@20.9.0)(typescript@5.2.2)
+        specifier: ^5.40.0
+        version: 5.40.0(@types/node@20.9.0)(typescript@5.2.2)
       mdast-util-to-hast:
         specifier: ^13.2.0
         version: 13.2.0
@@ -105,11 +105,11 @@ packages:
   '@astrojs/internal-helpers@0.4.2':
     resolution: {integrity: sha512-EdDWkC3JJVcpGpqJAU/5hSk2LKXyG3mNGkzGoAuyK+xoPHbaVdSuIWoN1QTnmK3N/gGfaaAfM8gO2KDCAW7S3w==}
 
-  '@astrojs/markdown-remark@6.0.0':
-    resolution: {integrity: sha512-Tabo7xM44Pz2Yf9qpdaCCgxRmtaypi2YCinqTUNefDrWUa+OyKW62OuNeCaGwNh/ys+QAd9FUWN5/3HgPWjP4Q==}
+  '@astrojs/markdown-remark@6.0.1':
+    resolution: {integrity: sha512-CTSYijj25NfxgZi15TU3CwPwgyD1/7yA3FcdcNmB9p94nydupiUbrIiq3IqeTp2m5kCVzxbPZeC7fTwEOaNyGw==}
 
-  '@astrojs/mdx@4.0.1':
-    resolution: {integrity: sha512-ShntQtbIsMEnR29DCF9vBNxBOGU29FVRBXKdS5njYic4t4asrbxYmjFXiqqQ0ONnBNHk9P0RHFgqEy1GL/YbJg==}
+  '@astrojs/mdx@4.0.2':
+    resolution: {integrity: sha512-uBoXNSSAUqhf2dVtJWFbSapwNkcnCzbISW98EcybFXvNgYt9g8yPJ7+lYnf+sH5pv0c/JEW8HlBvPSi81AVRlw==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0}
     peerDependencies:
       astro: ^5.0.0
@@ -118,8 +118,8 @@ packages:
     resolution: {integrity: sha512-GilTHKGCW6HMq7y3BUv9Ac7GMe/MO9gi9GW62GzKtth0SwukCu/qp2wLiGpEujhY+VVhaG9v7kv/5vFzvf4NYw==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0}
 
-  '@astrojs/rss@4.0.9':
-    resolution: {integrity: sha512-W1qeLc/WP1vMS5xXa+BnaLU0paeSeGjN8RJVAoBaOIkQuKXjIUA9hvPno89heo73in5i67g40gy70oeeHMqp6A==}
+  '@astrojs/rss@4.0.10':
+    resolution: {integrity: sha512-2gFdHM763uUAySkdwPYrpi6dppOBJr9ddg5VbkKXctWze8d1JHgIBBY78zWIYs7KBJT58zxadsObVAVt55RDaw==}
 
   '@astrojs/telemetry@3.2.0':
     resolution: {integrity: sha512-wxhSKRfKugLwLlr4OFfcqovk+LIFtKwLyGPqMsv+9/ibqqnW3Gv7tBhtKEb0gAyUAC4G9BTVQeQahqnQAhd6IQ==}
@@ -867,14 +867,14 @@ packages:
     peerDependencies:
       astro: ^4.0.0-beta || ^5.0.0-beta || ^3.3.0
 
-  astro-og-canvas@0.5.4:
-    resolution: {integrity: sha512-bKopjX5DZ0WZH3kmUl82EVBhGzoCQwH5Ja4YdB5MO1EtWFZpWzvKWWptsOKGhjz+Kn85+gD/kgw25ebrvYufSg==}
+  astro-og-canvas@0.5.5:
+    resolution: {integrity: sha512-dbZ7voJAmvy8Zyv5zFsgENs9G4uhcCJ4nVuUPb7ymu8+Vp/jr/fdQDKPrLYUG2TSi/1HejYRnzkXcSv6ntlDTA==}
     engines: {node: '>=18.14.1'}
     peerDependencies:
-      astro: ^3.0.0 || ^4.0.0
+      astro: ^3.0.0 || ^4.0.0 || ^5.0.0
 
-  astro@5.0.2:
-    resolution: {integrity: sha512-MKf82vUiTZ2aK+c/8EDnLYIsToBdVVk4PuhhGdE8F/PcuUyS+oIcuCPf30iVf8WCQwXOfnYGnv1JbRjzkqUc3w==}
+  astro@5.0.5:
+    resolution: {integrity: sha512-xfptdmurDsQcj/Anc7mU+eKlcyV7ppJIlmaSwhX3ZWwK5N/0rGKVmUqnuILgR6MB0XVJiIfublNzDGoyj4Q6BQ==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -1455,8 +1455,8 @@ packages:
     resolution: {integrity: sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==}
     engines: {node: '>=6'}
 
-  knip@5.39.1:
-    resolution: {integrity: sha512-a7QFI40JOUIXeU5PcGt6pX3amIDSA8sXwwh59RWN3X6ZbIe8U4nzAWSXyx+dBW+SJgBUt5/6uQ8zhC6BKbxR/A==}
+  knip@5.40.0:
+    resolution: {integrity: sha512-EzBfQDz4YBzYnMLueWnaaVr15mneqZs1c3RanttciuVuRcodlNjzAmR2nch/khlRdVABAxAdMGFxfSvhvcH1NA==}
     engines: {node: '>=18.6.0'}
     hasBin: true
     peerDependencies:
@@ -2427,7 +2427,7 @@ snapshots:
 
   '@astrojs/internal-helpers@0.4.2': {}
 
-  '@astrojs/markdown-remark@6.0.0':
+  '@astrojs/markdown-remark@6.0.1':
     dependencies:
       '@astrojs/prism': 3.2.0
       github-slugger: 2.0.0
@@ -2451,12 +2451,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/mdx@4.0.1(astro@5.0.2(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2))':
+  '@astrojs/mdx@4.0.2(astro@5.0.5(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2))':
     dependencies:
-      '@astrojs/markdown-remark': 6.0.0
+      '@astrojs/markdown-remark': 6.0.1
       '@mdx-js/mdx': 3.1.0(acorn@8.14.0)
       acorn: 8.14.0
-      astro: 5.0.2(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2)
+      astro: 5.0.5(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2)
       es-module-lexer: 1.5.4
       estree-util-visit: 2.0.0
       hast-util-to-html: 9.0.3
@@ -2474,7 +2474,7 @@ snapshots:
     dependencies:
       prismjs: 1.29.0
 
-  '@astrojs/rss@4.0.9':
+  '@astrojs/rss@4.0.10':
     dependencies:
       fast-xml-parser: 4.5.0
       kleur: 4.1.5
@@ -3078,23 +3078,23 @@ snapshots:
 
   astring@1.8.6: {}
 
-  astro-expressive-code@0.38.3(astro@5.0.2(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2)):
+  astro-expressive-code@0.38.3(astro@5.0.5(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2)):
     dependencies:
-      astro: 5.0.2(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2)
+      astro: 5.0.5(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2)
       rehype-expressive-code: 0.38.3
 
-  astro-og-canvas@0.5.4(astro@5.0.2(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2)):
+  astro-og-canvas@0.5.5(astro@5.0.5(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2)):
     dependencies:
-      astro: 5.0.2(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2)
+      astro: 5.0.5(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2)
       canvaskit-wasm: 0.39.1
       deterministic-object-hash: 2.0.2
       entities: 4.5.0
 
-  astro@5.0.2(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2):
+  astro@5.0.5(@types/node@20.9.0)(jiti@2.4.0)(rollup@4.24.4)(typescript@5.2.2):
     dependencies:
       '@astrojs/compiler': 2.10.3
       '@astrojs/internal-helpers': 0.4.2
-      '@astrojs/markdown-remark': 6.0.0
+      '@astrojs/markdown-remark': 6.0.1
       '@astrojs/telemetry': 3.2.0
       '@oslojs/encoding': 1.1.0
       '@rollup/pluginutils': 5.1.3(rollup@4.24.4)
@@ -3868,7 +3868,7 @@ snapshots:
 
   kleur@4.1.5: {}
 
-  knip@5.39.1(@types/node@20.9.0)(typescript@5.2.2):
+  knip@5.40.0(@types/node@20.9.0)(typescript@5.2.2):
     dependencies:
       '@nodelib/fs.walk': 1.2.8
       '@snyk/github-codeowners': 1.1.0
