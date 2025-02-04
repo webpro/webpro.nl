@@ -17,12 +17,6 @@ const canonicalURL = getUrl(Astro.url.pathname, Astro.site);
       rel="me"
     />
     <IconLink href="https://bsky.app/profile/webpro.nl" title="My Bluesky profile" sprite="bluesky" rel="me" />
-    <IconLink href="https://twitter.com/webprolific" title="My Twitter profile" sprite="twitter" rel="me" />
-    <IconLink
-      href={`https://twitter.com/intent/tweet?url=${canonicalURL}`}
-      title="Share this article on Twitter"
-      sprite="share"
-    />
     <IconLink
       href={`https://news.ycombinator.com/submitlink?u=${canonicalURL}&t=${encodeURIComponent(title)}`}
       title="Share this article on Hacker News"

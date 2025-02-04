@@ -740,7 +740,7 @@ interface with your own serverless or edge function. Hopefully, this guide is
 helpful in your own journey. Good luck!
 
 I would love to hear about your thoughts and what you are building, please
-[share with me on Twitter][41]!
+[share with me on Bluesky][41]!
 
 Special thanks goes out to [Enis Bayramoğlu][42] for a great review.
 
@@ -784,5 +784,5 @@ Special thanks goes out to [Enis Bayramoğlu][42] for a great review.
 [38]: https://github.com/remarkjs/react-markdown
 [39]: https://github.com/react-syntax-highlighter/react-syntax-highlighter
 [40]: https://platform.openai.com/docs/api-reference/moderations
-[41]: https://twitter.com/webprolific
+[41]: https://bsky.app/profile/webpro.nl
 [42]: https://github.com/enobayram

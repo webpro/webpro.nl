@@ -377,7 +377,7 @@ In any case, there are plenty of great resources and dotfiles covering these as
 well. My curated [awesome-dotfiles][22] list might be a good start.
 
 If you have nice ideas to share or want to collaborate, feel free to [send me a
-tweet][23] or [open a PR][1]!
+message][23] or [open a PR][1]!
 
 [1]: ./dotfiles.svg
 [2]: https://github.com/webpro/dotfiles
@@ -403,4 +403,4 @@ tweet][23] or [open a PR][1]!
 [20]: https://mathiasbynens.be
 [21]: https://github.com/mathiasbynens/dotfiles
 [22]: https://github.com/webpro/awesome-dotfiles
-[23]: https://twitter.com/webprolific
+[23]: https://bsky.app/profile/webpro.nl

@@ -323,7 +323,7 @@ However, I think gulp is a great build system that I love to use and really
 introduced to me the power of streams in Node.js.
 
 Hope this helps! If you have any feedback or additional tips, please let me know
-in the comments or Twitter: [@webprolific][19].
+in the comments or [on Bluesky][19].
 
 [1]: http://gulpjs.com
 [2]: https://www.npmjs.org/package/gulp-uglify
@@ -344,4 +344,4 @@ in the comments or Twitter: [@webprolific][19].
 [17]: https://www.npmjs.org/package/orchestrator
 [18]:
   https://web.archive.org/web/20220531064025/https://github.com/substack/blog/blob/master/npm_run.markdown
-[19]: https://twitter.com/webprolific
+[19]: https://bsky.app/profile/webpro.nl

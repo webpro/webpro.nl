@@ -390,7 +390,7 @@ terminal. I've compiled a short list of great resources to get some directions
 to learn more. What's next for you?
 
 If you feel there's something important missing in this article, feel free to
-let me know (in a comment here, or via Twitter: [@webprolific][14]). Thanks for
+let me know (in a comment here, or [on Bluesky][14]). Thanks for
 reading!
 
 ## Further reading
@@ -416,7 +416,7 @@ reading!
   https://www.digitalocean.com/community/tutorials/an-introduction-to-useful-bash-aliases-and-functions
 [13]:
   http://scriptingosx.com/2017/05/configuring-bash-with-aliases-and-functions/
-[14]: https://twitter.com/webprolific
+[14]: https://bsky.app/profile/webpro.nl
 [15]: https://www.learnenough.com/command-line-tutorial
 [16]: https://github.com/jlevy/the-art-of-command-line#the-art-of-command-line
 [17]: ./getting-started-with-dotfiles/index.md
