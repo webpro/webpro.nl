@@ -390,8 +390,7 @@ terminal. I've compiled a short list of great resources to get some directions
 to learn more. What's next for you?
 
 If you feel there's something important missing in this article, feel free to
-let me know (in a comment here, or [on Bluesky][14]). Thanks for
-reading!
+let me know (in a comment here, or [on Bluesky][14]). Thanks for reading!
 
 ## Further reading
 
