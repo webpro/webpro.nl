@@ -29,13 +29,13 @@ export const getBlogIndex = async ({ drafts = false } = {}) => {
   return collection;
 };
 
-const getBlogEntries = async () => [await get('articles'), await get('scraps')].flat();
-
 export const getArticles = () => get('articles');
 
 export const getScraps = () => get('scraps');
 
 export const getReferences = () => get('references');
+
+const getBlogEntries = async () => [await getArticles(), await getScraps()].flat();
 
 export const getUrl = (pathname: string, base: string | URL | undefined) => new URL(pathname.replace(/\/$/, ''), base);
 
