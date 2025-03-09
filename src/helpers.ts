@@ -38,3 +38,14 @@ export const getScraps = () => get('scraps');
 export const getReferences = () => get('references');
 
 export const getUrl = (pathname: string, base: string | URL | undefined) => new URL(pathname.replace(/\/$/, ''), base);
+
+export const getPages = async () =>
+  [
+    await getArticles(),
+    await getScraps(),
+    await getReferences(),
+    [
+      { slug: 'blog', data: { title: 'Blog: Frontend Ramblings' } },
+      { slug: 'hire-me', data: { title: 'Hire me' } },
+    ],
+  ].flat();

@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Page.astro';
+import { getPages } from '../helpers';
+
+const pages = await getPages();
+const pagesData = pages.map(page => ({
+  slug: page.slug,
+  collection: page.collection,
+  title: page.data.title,
+}));
+---
+
+<Layout title="404 Page Not Found" description="404 Page Not Found">
+  <h1>Uh oh... that page doesn't exist.</h1>
+  <p><a href="/">Go to homepage</a></p>
+</Layout>
+
+<script is:inline define:vars={{ pagesData }}>
+  // Adapted from https://github.com/stephenjjbrown/string-similarity-js
+  function stringSimilarity(str1, str2, substringLength = 2) {
+    str1 = str1.toLowerCase();
+    str2 = str2.toLowerCase();
+    if (str1.length < substringLength || str2.length < substringLength) return 0;
+    const map = new Map();
+    for (let i = 0; i < str1.length - (substringLength - 1); i++) {
+      const substr1 = str1.substr(i, substringLength);
+      map.set(substr1, map.has(substr1) ? map.get(substr1) + 1 : 1);
+    }
+    let match = 0;
+    for (let j = 0; j < str2.length - (substringLength - 1); j++) {
+      const substr2 = str2.substr(j, substringLength);
+      const count = map.has(substr2) ? map.get(substr2) : 0;
+      if (count > 0) {
+        map.set(substr2, count - 1);
+        match++;
+      }
+    }
+    return (match * 2) / (str1.length + str2.length - (substringLength - 1) * 2);
+  }
+
+  const currentPath = document.location.pathname;
+  const segments = currentPath.split('/').filter(Boolean);
+
+  const matches = segments
+    .flatMap(segment =>
+      pagesData.map(page => ({
+        score: stringSimilarity(segment, page.slug),
+        ...page,
+      })),
+    )
+    .sort((a, b) => b.score - a.score);
+
+  const suggestions = [];
+  while (suggestions.length < 3 && matches.length > 0 && matches[0].score > 0.3) {
+    const match = matches.shift();
+    if (match && !suggestions.some(s => s.slug === match.slug)) suggestions.push(match);
+  }
+
+  if (suggestions.length > 0) {
+    const html = `
+      <p>But fret not! We found similar pages. Did you mean one of these:</p>
+      <ul>
+        ${suggestions
+          .map(page => {
+            const url = !page.collection ? `/${page.slug}` : `/${page.collection}/${page.slug}`;
+            return `<li><a href="${url}">${page.title}</a></li>`;
+          })
+          .join('')}
+      </ul>
+    `;
+    document.querySelector('h1').insertAdjacentHTML('afterend', html);
+  }
+</script>
