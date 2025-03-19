@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.11",
-    "astro": "^5.4.2",
+    "astro": "^5.5.3",
     "astro-expressive-code": "^0.40.2",
     "astro-og-canvas": "^0.7.0",
     "canvaskit-wasm": "^0.39.1",
@@ -40,14 +40,14 @@
     "sharp": "^0.33.5"
   },
   "devDependencies": {
-    "@astrojs/markdown-remark": "^6.2.0",
-    "@astrojs/mdx": "^4.1.0",
+    "@astrojs/markdown-remark": "^6.3.1",
+    "@astrojs/mdx": "^4.2.1",
     "@types/mdast": "^4.0.4",
     "@types/unist": "^3.0.3",
     "deepmerge-ts": "^7.1.5",
     "hastscript": "^9.0.1",
     "htm": "^3.1.1",
-    "knip": "^5.45.0",
+    "knip": "^5.46.0",
     "mdast-util-to-hast": "^13.2.0",
     "mdast-util-to-string": "^4.0.0",
     "prettier": "^3.5.3",
@@ -62,5 +62,5 @@
     "unist-util-visit": "^5.0.0",
     "vfile": "^6.0.3"
   },
-  "packageManager": "pnpm@10.6.1"
+  "packageManager": "pnpm@10.6.4"
 }
