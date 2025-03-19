@@ -1,21 +1,30 @@
 ---
 published: 2022-09-09
-modified: 2023-01-18
+modified: 2025-03-19
 tags:
-  azure, pipelines, failing, tasks, script, commands, failOnStderr,
+  azure, pipelines, errors, failing, tasks, script, commands, failOnStderr,
   continueOnError
 description:
-  How to handle failing commands in script tasks in Azure pipelines, or continue
-  on errors
+  How to make Azure pipelines actually fail for various types of errors
 image: ./leaking-azure-pipeline-in-surrealistic-style.webp
 ---
 
-# Handling failing tasks in Azure pipelines
+# Handling errors in Azure pipelines
 
-Sometimes failing scripts are not failing the task when they should. And
-sometimes a failing command should not fail the task.
+Put mildly, Azure pipelines don't always behave as expected. Sometimes a
+pipeline does not fail when it should. This scrap shows a few solutions to make
+pipelines fail for script and task errors.
 
-How to handle these situations?
+## Contents
+
+We're going to look at three cases and ways to make pipelines fail:
+
+- [Fail on errors written to `stderr` in scripts (`failOnStderr`)](#fail-on-errors-written-to-stderr-in-scripts)
+- [Fail on errors written to `stderr` in tasks (`failOnStandardError`)](#fail-on-errors-written-to-stderr-in-tasks)
+- [Fail on script errors (`set -e`)](#fail-on-script-errors)
+
+And we'll also look at a way to [make a pipeline continue](#continue-on-error),
+even if there are errors.
 
 ## An unpleasant surprise
 
@@ -47,18 +56,18 @@ pipeline still succeed:
 
 ![pipeline success][1]
 
-Why does this not fail the task? It's because the `az` command does not exit
-with a non-zero code.
+Why does this not make the task fail? It's because the `az` command does not
+exit with a non-zero code.
 
 This is often not the desired behavior. Fortunately, when we want to fail the
 pipeline we do have some options:
 
 - Use the `failOnStderr` task option
-- Use `set -e` inside the script
+- Or use `set -e` inside the script
 
 Let's look what happens when either of these are used.
 
-## Fail on errors written to stderr
+## Fail on errors written to stderr in scripts
 
 Here we can add `failOnStderr` as a task configuration option:
 
@@ -89,11 +98,11 @@ The pipeline fails:
 
 ![pipeline failed][2]
 
-### Another unpleasant surprise
+## Fail on errors written to stderr in tasks
 
-As a side note, when we want to do the same for a **task** (as opposed to a
-script), this requires a different setting. For tasks the `failOnStandardError`
-option needs to be set as part of the `inputs`:
+When we want to do the same for a **task** (as opposed to a script), this
+requires a different setting. For tasks the `failOnStandardError` option needs
+to be set as part of the `inputs`:
 
 ```yaml
 - task: AzureCLI@2
@@ -102,10 +111,14 @@ option needs to be set as part of the `inputs`:
     failOnStandardError: true
 ```
 
-This is not consistent. But let's continue with the `set -e` option we still
-have left.
+Alright, so we have:
 
-## Halt on script error
+- Script → `failOnStderr`
+- Task → `failOnStandardError`
+
+And we still have another option left: `set -e`
+
+## Fail on script errors
 
 To make the script fail on errors, use `set -e` at the start of the script:
 
