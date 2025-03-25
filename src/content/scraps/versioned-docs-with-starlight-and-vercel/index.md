@@ -1,7 +1,7 @@
 ---
 description: How to set up versioned documentation with Starlight & Vercel
 published: 2023-12-20
-modified: 2024-06-30
+modified: 2025-03-25
 ---
 
 # Versioned documentation with Starlight & Vercel
@@ -14,9 +14,12 @@ reading documentation for the new version might get confused. This is why we
 want to serve a separate version of the documentation along with each major
 version of our project.
 
-**UPDATE:** The website in this example has been migrated from Vercel to
-Netlify. They offer ["branch deploys"][1] so knip.dev has [v3.knip.dev][2] and
-[v4.knip.dev][3] based on the same repository. Easy-peasy!
+**UPDATE (2024-06):** The website in this example has been migrated from Vercel
+to Netlify. They offer ["branch deploys"][1] so knip.dev has [v3.knip.dev][2]
+and [v4.knip.dev][3] based on the same repository. Easy-peasy!
+
+**UPDATE (2025-03):** The website in this example no longer needs versioned
+documentation. This might change in the future.
 
 ## A Temporary Solution
 
