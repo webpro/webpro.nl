@@ -2,13 +2,31 @@
 import { getUrl } from '../helpers';
 import IconLink from './IconLink.astro';
 import { BLOG_RSS_NAME, BLOG_RSS_PATHNAME } from '../consts';
+import Signature from '../components/Signature.astro';
 
 const { title } = Astro.props;
 const canonicalURL = getUrl(Astro.url.pathname, Astro.site);
+const textBluesky = title + " (by @webpro.nl)" + "\n\n\n" + canonicalURL;
+const textFosstodon = title + " (by @webpro@fosstodon.org)" + "\n\n\n" + canonicalURL;
 ---
 
 <footer>
-  <p class="icons">
+  <h2>Share</h2>
+  <p class="row">
+    <IconLink href={`https://bsky.app/intent/compose?text=${encodeURIComponent(textBluesky)}`} title="Share this article on Bluesky" sprite="bluesky" />
+    <IconLink
+      href={`https://news.ycombinator.com/submitlink?u=${canonicalURL}&t=${encodeURIComponent(title)}`}
+      title="Share this article on Hacker News"
+      sprite="hacker-news"
+    />
+    <IconLink href={`https://fosstodon.org/share?text=${encodeURIComponent(textFosstodon)}`} title="Share this article on fosstodon.org" sprite="mastodon" />
+    <IconLink href={`https://linkedin.com/sharing/share-offsite/?url=${canonicalURL}`} title="Share this article on LinkedIn" sprite="linkedin" />
+  </p>
+
+  <Signature />
+
+  <h2>About</h2>
+  <p class="row">
     <IconLink href={BLOG_RSS_PATHNAME} title={BLOG_RSS_NAME} sprite="rss" rel="me" />
     <IconLink
       href="https://github.com/webpro/webpro.nl"
@@ -17,16 +35,7 @@ const canonicalURL = getUrl(Astro.url.pathname, Astro.site);
       rel="me"
     />
     <IconLink href="https://bsky.app/profile/webpro.nl" title="My Bluesky profile" sprite="bluesky" rel="me" />
-    <IconLink
-      href={`https://news.ycombinator.com/submitlink?u=${canonicalURL}&t=${encodeURIComponent(title)}`}
-      title="Share this article on Hacker News"
-      sprite="hacker-news"
-    />
     <IconLink href="https://fosstodon.org/@webpro" title="@webpro on fosstodon.org" sprite="mastodon" rel="me" />
     <IconLink href="https://simpleanalytics.com/webpro.nl" title="Simple Analytics" sprite="stats" rel="me" />
-  </p>
-  <p>Do you have a question or did you find an issue in this article?</p>
-  <p>
-    <a href="https://github.com/webpro/webpro.nl">Please let me know!</a> This website is fully open-sourced at GitHub.
   </p>
 </footer>
