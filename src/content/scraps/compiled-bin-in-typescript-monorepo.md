@@ -39,7 +39,7 @@ wants to expose the `bin`:
   },
   "scripts": {
     "build": "tsc",
-    "prepublishOnly": "pnpm run build"
+    "prepack": "pnpm run build"
   },
   "files": ["bin", "lib"]
 }
@@ -69,9 +69,9 @@ bin/my-command: line 1: syntax error near unexpected token `'../lib/index.js''
 
 ## Publishing
 
-In case the package is supposed to be published, use the `prepublishOnly` script
-and make sure to include both the `bin` and `lib` folders in the `files` field
-(like in the example above).
+In case the package is supposed to be published, use the `prepack` (or
+`prepublishOnly`) script and make sure to include both the `bin` and `lib`
+folders in the `files` field (like in the example above).
 
 ## A note about `postinstall` scripts
 
