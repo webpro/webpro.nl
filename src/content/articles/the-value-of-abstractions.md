@@ -12,11 +12,9 @@ tags: value, abstraction, interface, refactoring, system, design, implementation
 
 In software systems, maintenance quickly becomes harder as more components are
 added. Given a well-designed system, when a component deteriorates, it should be
-possible to refactor or replace it without having to change many other parts of
-the system.
-
-Following this principle, components needs a clear separation of concern with a
-clear interface. Abstractions should not be leaky.
+possible to refactor or replace it without major impact on other component in
+the system. Following this principle, components should separate concerns
+clearly with well-designed interfaces.
 
 This article discusses some considerations in the process of designing a complex
 system and its components.
@@ -65,21 +63,24 @@ system with too many moving parts and interrelationships.
 
 This balancing act between under- and over-engineering can be a tough cookie.
 When the overall structure is largely in place, the process of interface design
-comes down to iteration until the questions above are answered with "no".
+comes down to iteration until all questions above are answered with "no".
 
-Perhaps ironically, this article itself is abstract, and the process of software
-design may feel distant or overrated. Yet taking the time to think and design
-before and during ambitious projects pays off in the long run as it will reduce
-maintenance complexity and facilitate system evolution.
+Perhaps ironically, this article itself is abstract, and the actual process of
+software design itself may feel distant or overrated. Yet taking the time to
+think and design before and during ambitious projects pays off in the long run
+as it will reduce maintenance complexity and facilitate system evolution.
 
 ## Enforce module boundaries
 
-When everything becomes less abstract and more concrete, we descend into lower
-level module boundaries. Here, it becomes essential to guard and enforce module
+Going from less abstract to more concrete at some point means moving into lower
+level module boundaries. Here, it becomes essential to enforce and guard module
 boundaries. Even the best interfaces and abstractions may go unnoticed by fellow
-developers. However, depending on the technology stack of choice, tooling might
-be available to guard certain layers of modularity. At the level of code and
-configuration, linters may prove very effective.
+developers. How to prevent boundaries from being crossed? Depending on the
+technology stack of choice, tooling might be available to guard certain layers
+of modularity. At the level of code and configuration, linters may prove very
+effective.
+
+### Examples: ESLint & Nx
 
 Within the JavaScript and Node.js ecosystem, a great example of such a linter is
 ESLint. Relevant rules include the built-in [no-restricted-imports][1] and Nx's
