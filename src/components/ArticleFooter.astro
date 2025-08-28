@@ -6,8 +6,8 @@ import Signature from '../components/Signature.astro';
 
 const { title } = Astro.props;
 const canonicalURL = getUrl(Astro.url.pathname, Astro.site);
-const textBluesky = title + " (by @webpro.nl)" + "\n\n\n" + canonicalURL;
-const textFosstodon = title + " (by @webpro@fosstodon.org)" + "\n\n\n" + canonicalURL;
+const textBluesky = title + ' (by @webpro.nl)' + '\n\n\n' + canonicalURL;
+const textFosstodon = title + ' (by @webpro@fosstodon.org)' + '\n\n\n' + canonicalURL;
 ---
 
 <footer>

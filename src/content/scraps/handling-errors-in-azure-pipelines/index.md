@@ -19,12 +19,12 @@ pipelines fail for script and task errors.
 
 We're going to look at three cases and ways to make pipelines fail:
 
-- [Fail on errors written to `stderr` in scripts (`failOnStderr`)](#fail-on-errors-written-to-stderr-in-scripts)
-- [Fail on errors written to `stderr` in tasks (`failOnStandardError`)](#fail-on-errors-written-to-stderr-in-tasks)
-- [Fail on script errors (`set -e`)](#fail-on-script-errors)
+- [Fail on errors written to `stderr` in scripts (`failOnStderr`)][1]
+- [Fail on errors written to `stderr` in tasks (`failOnStandardError`)][2]
+- [Fail on script errors (`set -e`)][3]
 
-And we'll also look at a way to [make a pipeline continue](#continue-on-error),
-even if there are errors.
+And we'll also look at a way to [make a pipeline continue][4], even if there are
+errors.
 
 ## An unpleasant surprise
 
@@ -54,7 +54,7 @@ Finishing: Tag successful build
 The command fails and prints an `ERROR` (to `stderr`). But both the task and the
 pipeline still succeed:
 
-![pipeline success][1]
+![pipeline success][5]
 
 Why does this not make the task fail? It's because the `az` command does not
 exit with a non-zero code.
@@ -96,7 +96,7 @@ Finishing: Tag successful build
 
 The pipeline fails:
 
-![pipeline failed][2]
+![pipeline failed][6]
 
 ## Fail on errors written to stderr in tasks
 
@@ -143,7 +143,7 @@ Finishing: Tag successful build
 
 And again, the pipeline fails as intended:
 
-![pipeline failed][2]
+![pipeline failed][6]
 
 But notice the difference in behavior: the "Tagged build for my-container"
 message is not printed here.
@@ -168,22 +168,26 @@ failed. For this use case, there is `continueOnError` to the rescue:
 This will result in a green pipeline, but also a warning sign for the stage with
 the failed task:
 
-![pipeline warning][3]
+![pipeline warning][7]
 
 Compare this to the initial situation where everything is naively green. At
 least now we can see something is off.
 
 ## Azure DevOps documentation links
 
-- [Command Line task][4] covers `failOnStderr`
-- [Azure CLI task][5] covers `failOnStandardError`
-- [Task types & usage][6] covers `continueOnError`
+- [Command Line task][8] covers `failOnStderr`
+- [Azure CLI task][9] covers `failOnStandardError`
+- [Task types & usage][10] covers `continueOnError`
 
-[1]: ./pipeline-success.webp
-[2]: ./pipeline-failed.webp
-[3]: ./pipeline-warning.webp
-[4]:
+[1]: #fail-on-errors-written-to-stderr-in-scripts
+[2]: #fail-on-errors-written-to-stderr-in-tasks
+[3]: #fail-on-script-errors
+[4]: #continue-on-error
+[5]: ./pipeline-success.webp
+[6]: ./pipeline-failed.webp
+[7]: ./pipeline-warning.webp
+[8]:
   https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/command-line
-[5]:
+[9]:
   https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/deploy/azure-cli
-[6]: https://learn.microsoft.com/en-us/azure/devops/pipelines/process/tasks
+[10]: https://learn.microsoft.com/en-us/azure/devops/pipelines/process/tasks
