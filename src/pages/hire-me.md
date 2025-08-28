@@ -9,7 +9,11 @@ layout: ../layouts/Page.astro
 
 # Hire Me
 
-...as a Frontend Architect or Tooling Engineer.
+How can I help you? My main roles are:
+
+- [Frontend Architect](#frontend-architect)
+- [Tooling Engineer](#tooling-engineer)
+- [Relentless Refactorer](#relentless-refactorer)
 
 Got an exciting project? [Let’s have a chat][1] to discuss your ideas and my
 availability.
@@ -44,6 +48,17 @@ than you might think, so optimization and automation pays off.
 In short: I love building and implementing tools to make teams and developers
 more effective, leading to reduced costs and increased happiness!
 
-Feel free to [contact me][1] and discuss ideas.
+## Relentless Refactorer
 
-[1]: /
+Developers not afraid and able to untangle large codebases are pretty rare.
+Whether it's a massive refactoring effort or a surgical cleanup, I have the
+skills and the tools to get it done.
+
+This passion also led me to create [Knip](https://knip.dev), a popular
+open-source tool that finds and removes unused code. Any JavaScript or
+TypeScript project will come out clean and maintainable.
+
+Feel free to [contact me][1] and discuss ideas! Currently I have availability
+for 1-3 days a week, and a special interest in short but impactful gigs.
+
+[1]: mailto:lars@w%65bpro.nl
