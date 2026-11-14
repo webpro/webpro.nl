@@ -9,12 +9,10 @@ const collection = await getReferences();
   <h1>References</h1>
   <p>I'm lazy, so here's things I often forget or need to look up:</p>
   <ul>
-    {
-      collection.map(entry => (
-        <li>
-          <a href={`/${entry.collection}/${entry.slug}`}>{entry.data.title}</a>
-        </li>
-      ))
-    }
+    {collection.map(entry => (
+      <li>
+        <a href={`/${entry.collection}/${entry.id}`}>{entry.data.title}</a>
+      </li>
+    ))}
   </ul>
 </Page>

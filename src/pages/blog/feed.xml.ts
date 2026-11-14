@@ -31,7 +31,7 @@ export async function GET(context: APIContext) {
     items: collection.map(post => ({
       title: post.data.title ?? '(title missing)',
       pubDate: post.data.published,
-      link: `/${post.collection}/${post.slug}`,
+      link: `/${post.collection}/${post.id}`,
       description: parser.render(post.body.replace(/\s+# .+/, '')), // TODO Replace <h1> properly
       categories: post.data.tags ? post.data.tags.split(/[, ]+/) : [],
     })),

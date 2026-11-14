@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
-import { rehypeHeadingIds } from '@astrojs/markdown-remark';
+import { rehypeHeadingIds, unified } from '@astrojs/markdown-remark';
 import remarkDirective from 'remark-directive';
 import { moveTitle } from './src/remark/heading';
 import { transformDirectives, directives } from './src/remark/directives';
@@ -19,12 +19,14 @@ export default defineConfig({
     shikiConfig: {
       theme: 'github-dark-dimmed',
     },
-    remarkPlugins: [moveTitle, [transformDirectives, directives], remarkDirective, uncode],
-    remarkRehype: {
-      handlers: {
-        uncode: code,
+    processor: unified({
+      remarkPlugins: [moveTitle, [transformDirectives, directives], remarkDirective, uncode],
+      remarkRehype: {
+        handlers: {
+          uncode: code,
+        },
       },
-    },
-    rehypePlugins: [rehypeHeadingIds, [autoLinkHeadings, { behavior: 'wrap', test: ['h2', 'h3', 'h4', 'h5', 'h6'] }]],
+      rehypePlugins: [rehypeHeadingIds, [autoLinkHeadings, { behavior: 'wrap', test: ['h2', 'h3', 'h4', 'h5', 'h6'] }]],
+    }),
   },
 });

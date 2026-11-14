@@ -1,4 +1,5 @@
 ---
+import { render } from 'astro:content';
 import { type Entry, getScraps } from '../../helpers';
 
 import Article from '../../layouts/Article.astro';
@@ -6,7 +7,7 @@ import Article from '../../layouts/Article.astro';
 export async function getStaticPaths() {
   const posts = await getScraps();
   return posts.map(post => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: post,
   }));
 }
@@ -15,7 +16,7 @@ type Props = Entry;
 
 const entry = Astro.props;
 
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <Article {...entry.data}>

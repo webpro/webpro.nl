@@ -1,5 +1,5 @@
 import { type CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 
 type EntryType = 'articles' | 'scraps' | 'references';
 
@@ -13,7 +13,7 @@ const withoutDrafts = (collection: Awaited<ReturnType<typeof getCollection>>) =>
 const sortByPublishData = (a: BlogEntry, b: BlogEntry) => b.data.published.valueOf() - a.data.published.valueOf();
 
 const syncMetaData = async (entry: Entry) => {
-  const { remarkPluginFrontmatter } = await entry.render();
+  const { remarkPluginFrontmatter } = await render(entry);
   entry.data = { ...remarkPluginFrontmatter, ...entry.data };
 };
 
@@ -45,7 +45,7 @@ export const getPages = async () =>
     await getScraps(),
     await getReferences(),
     [
-      { slug: 'blog', data: { title: 'Blog: Frontend Ramblings' } },
-      { slug: 'hire-me', data: { title: 'Hire me' } },
+      { id: 'blog', data: { title: 'Blog: Frontend Ramblings' } },
+      { id: 'hire-me', data: { title: 'Hire me' } },
     ],
   ].flat();

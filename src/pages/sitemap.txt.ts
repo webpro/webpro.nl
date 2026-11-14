@@ -1,6 +1,6 @@
 import type { APIContext } from 'astro';
 
-const data = await import.meta.glob(['/src/{content,pages}/**/!([)*.{md,mdx,astro}'], { eager: true });
+const data = import.meta.glob(['/src/{content,pages}/**/*.{md,mdx,astro}', '!/src/pages/**/[[]*'], { eager: true });
 
 const pages = new Set<string>();
 for (const [filePath, page] of Object.entries(data)) {

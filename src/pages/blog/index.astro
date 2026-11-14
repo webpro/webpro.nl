@@ -11,14 +11,12 @@ const collection = await getBlogIndex({ drafts: !isProduction });
 
 <Page title={BLOG_NAME}>
   <ul class="index">
-    {
-      collection.map(entry => (
-        <li>
-          <a href={`/${entry.collection}/${entry.slug}`}>{entry.data.title}</a>
-          <FormattedDate date={entry.data.published} format="short" />
-        </li>
-      ))
-    }
+    {collection.map(entry => (
+      <li>
+        <a href={`/${entry.collection}/${entry.id}`}>{entry.data.title}</a>
+        <FormattedDate date={entry.data.published} format="short" />
+      </li>
+    ))}
   </ul>
   <BlogFooter />
 </Page>

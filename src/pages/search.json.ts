@@ -8,7 +8,7 @@ export async function GET() {
     id: index,
     title: entry.data.title,
     description: entry.data.description,
-    pathname: `/${entry.collection}/${entry.slug}`,
+    pathname: `/${entry.collection}/${entry.id}`,
     content: entry.body,
     tags: entry.tags,
   }));

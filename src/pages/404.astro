@@ -4,7 +4,7 @@ import { getPages } from '../helpers';
 
 const pages = await getPages();
 const pagesData = pages.map(page => ({
-  slug: page.slug,
+  slug: page.id,
   collection: page.collection,
   title: page.data.title,
 }));
@@ -12,7 +12,9 @@ const pagesData = pages.map(page => ({
 
 <Layout title="404 Page Not Found" description="404 Page Not Found">
   <h1>Uh oh... that page doesn't exist.</h1>
-  <p><a href="/">Go to homepage</a></p>
+  <p>
+    <a href="/">Go to homepage</a>
+  </p>
 </Layout>
 
 <script is:inline define:vars={{ pagesData }}>
