@@ -21,12 +21,17 @@
       "preset-webpro"
     ]
   },
+  "mdxlint": {
+    "plugins": [
+      "mdxlint-preset-webpro"
+    ]
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier public src --write && remark README.md 'src/**/*.md' -o",
+    "format": "prettier public src --write && remark README.md 'src/**/*.md' -o && mdxlint 'src/**/*.mdx' --verbose -o",
     "knip": "knip"
   },
   "dependencies": {
@@ -50,6 +55,8 @@
     "knip": "^6.45.1",
     "mdast-util-to-hast": "^13.2.2",
     "mdast-util-to-string": "^4.0.0",
+    "mdxlint": "^1.0.0",
+    "mdxlint-preset-webpro": "^1.3.1",
     "prettier": "^3.10.1",
     "prettier-plugin-astro": "^1.1.2",
     "rehype": "^13.0.2",
