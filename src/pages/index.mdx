@@ -10,59 +10,41 @@ layout: ../layouts/Page.astro
 import HomeLink from '../components/HomeLink.astro';
 import { BLOG_PATHNAME, BLOG_NAME } from '../consts';
 
-Hi there! My name is Lars Kappert, an independent frontend developer, architect and automation engineer.
+Hi there! My name is Lars Kappert, an independent frontend developer, architect
+and automation engineer.
 
-Over 20 years in the game, I love to solve problems and connect dots to create great experiences for users and fellow
-developers (UX + DX).
+Over 20 years in the game, I love to solve problems and connect dots to create
+great experiences for users and fellow developers (UX + DX).
 
-Companies I've worked for include Bol, Eneco, RTL Nederland (Videoland), Rabobank, PLUS Retail and Schiphol.
+Companies I've worked for include Bol, Eneco, RTL Nederland (Videoland),
+Rabobank, PLUS Retail and Schiphol.
 
-Got an exciting project? You can [hire me][hire-me]! Let's have a chat to discuss your ideas and my availability.
+Got an exciting project? You can [hire me][hire-me]! Let's have a chat to
+discuss your ideas and my availability.
 
-I 🧡 open source and building tools like [Knip][knip] and [Release It!][release-it]
+I 🧡 open source and building tools like [Knip][knip], [unbash][unbash],
+[ansi.tools][ansi] and [Release It!][release-it]
 
 How can I help you?
 
 <div class="home-links">
   <ul>
-    <HomeLink
-      description={`Blog: ${BLOG_NAME}`}
-      href={BLOG_PATHNAME}
-      title="The Frontend Ramblings blog"
-      sprite="blog"
-    />
-    <HomeLink
-      description="github.com/webpro"
-      href="https://github.com/webpro"
-      title="My GitHub profile"
-      sprite="github"
-      rel="me"
-    />
-    <HomeLink
-      description="@webpro.nl"
-      href="https://webpro.blue"
-      title="My Bluesky profile"
-      sprite="bluesky"
-      rel="me"
-    />
-    <HomeLink
-      description="linkedin.com/in/larskappert"
-      href="https://www.linkedin.com/in/larskappert/"
-      title="My LinkedIn profile"
-      sprite="linkedin"
-      rel="me"
-    />
-    <HomeLink
-      description="LarsKappert-CV.pdf"
-      href="/LarsKappert-CV.pdf"
-      title="My curriculum vitae"
-      sprite="pdf"
-      rel="me"
-    />
+    <HomeLink description={`Blog: ${BLOG_NAME}`} href={BLOG_PATHNAME} title="The Frontend Ramblings blog" sprite="blog" />
+
+    <HomeLink description="github.com/webpro" href="https://github.com/webpro" title="My GitHub profile" sprite="github" rel="me" />
+
+    <HomeLink description="@webpro.nl" href="https://webpro.blue" title="My Bluesky profile" sprite="bluesky" rel="me" />
+
+    <HomeLink description="linkedin.com/in/larskappert" href="https://www.linkedin.com/in/larskappert/" title="My LinkedIn profile" sprite="linkedin" rel="me" />
+
+    <HomeLink description="LarsKappert-CV.pdf" href="/LarsKappert-CV.pdf" title="My curriculum vitae" sprite="pdf" rel="me" />
+
     <HomeLink description="lars@webpro.nl" href="mailto:lars@w%65bpro.nl" title="My email address" sprite="email" />
   </ul>
 </div>
 
+[ansi]: https://ansi.tools
 [hire-me]: ./hire-me
 [knip]: https://knip.dev
 [release-it]: https://github.com/release-it/release-it
+[unbash]: https://unba.sh
