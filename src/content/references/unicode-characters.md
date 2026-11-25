@@ -11,8 +11,8 @@ emojis.
 | Shift         | ⇧                   |
 | Control       | ⌃                   |
 | Arrow         | → ← ↑ ↓             |
-| Trademark     | ™                  |
-| Copyright     | ©                  |
+| Trademark     | ™                   |
+| Copyright     | ©                   |
 | Bitcoin       | ฿                   |
 | Superscript # | ¹ ² ³ ⁴ ⁵ ⁶ ⁷ ⁸ ⁹ ⁰ |
 | Subscript #   | ₀ ₁ ₂ ₃ ₄ ₅ ₆ ₇ ₈ ₉ |

@@ -7,16 +7,14 @@ interface Props {
 const { date, format = 'short' } = Astro.props;
 ---
 
-{
-  date ? (
-    <time datetime={date.toISOString().split('T')[0]}>
-      {format === 'short'
-        ? date.toISOString().split('T')[0]
-        : date.toLocaleDateString('en-us', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}
-    </time>
-  ) : null
-}
+{date ? (
+  <time datetime={date.toISOString().split('T')[0]}>
+    {format === 'short'
+      ? date.toISOString().split('T')[0]
+      : date.toLocaleDateString('en-us', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}
+  </time>
+) : null}

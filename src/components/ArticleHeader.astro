@@ -8,14 +8,16 @@ const { title, published, modified } = Astro.props;
 <header>
   <h1>{title}</h1>
   <div class="meta">
-    Published by <a href={baseUrl} rel="author">{AUTHOR}</a> on
+    Published by{' '}
+    <a href={baseUrl} rel="author">
+      {AUTHOR}
+    </a>{' '}
+    on
     <FormattedDate date={published} format="long" />
-    {
-      modified ? (
-        <>
-          (last update: <FormattedDate date={modified} format="long" />)
-        </>
-      ) : null
-    }
+    {modified ? (
+      <>
+        (last update: <FormattedDate date={modified} format="long" />)
+      </>
+    ) : null}
   </div>
 </header>

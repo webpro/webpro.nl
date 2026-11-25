@@ -13,14 +13,26 @@ const textFosstodon = title + ' (by @webpro@fosstodon.org)' + '\n\n\n' + canonic
 <footer>
   <h2>Share</h2>
   <p class="row">
-    <IconLink href={`https://bsky.app/intent/compose?text=${encodeURIComponent(textBluesky)}`} title="Share this article on Bluesky" sprite="bluesky" />
+    <IconLink
+      href={`https://bsky.app/intent/compose?text=${encodeURIComponent(textBluesky)}`}
+      title="Share this article on Bluesky"
+      sprite="bluesky"
+    />
     <IconLink
       href={`https://news.ycombinator.com/submitlink?u=${canonicalURL}&t=${encodeURIComponent(title)}`}
       title="Share this article on Hacker News"
       sprite="hacker-news"
     />
-    <IconLink href={`https://fosstodon.org/share?text=${encodeURIComponent(textFosstodon)}`} title="Share this article on fosstodon.org" sprite="mastodon" />
-    <IconLink href={`https://linkedin.com/sharing/share-offsite/?url=${canonicalURL}`} title="Share this article on LinkedIn" sprite="linkedin" />
+    <IconLink
+      href={`https://fosstodon.org/share?text=${encodeURIComponent(textFosstodon)}`}
+      title="Share this article on fosstodon.org"
+      sprite="mastodon"
+    />
+    <IconLink
+      href={`https://linkedin.com/sharing/share-offsite/?url=${canonicalURL}`}
+      title="Share this article on LinkedIn"
+      sprite="linkedin"
+    />
   </p>
 
   <Signature />
